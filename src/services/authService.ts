@@ -1,0 +1,65 @@
+import axios from '../utils/config/axios.config';
+
+/***
+ * 
+ * @param {string} username to login
+ * @param {string} password to log in
+ */
+export const login = (username: string, password: string)=>{
+    
+    // Declare Body to POST
+    let body = {
+        username: username, 
+        password: password
+    }
+    
+
+    // Send POST request to login endpoint
+    // https://localhost:8080/api/auth/login
+    // Return a new promise
+     return new Promise((resolve: (value: any) => void, reject: (reason?: any) => void) => {
+        // Send POST request to login endpoint
+        // https://localhost:8080/api/auth/login
+        axios.post('/auth/login', body)
+            .then((response) => {
+                resolve(response.data); // Resolve with response data
+            })
+            .catch((error) => {
+                reject(error); // Reject with error
+            });
+    });
+}   
+
+
+/***
+ * 
+ * @param {number} number to register 
+ * @param {string} username to register
+ * @param {string} password to register
+ * @param {string} name to register
+ * @param {number} cedula to register 
+ * @param {string} telefono to register
+ * @param {string} email to register
+ * @param {string} more_info to register
+ */
+
+export const register = (number: number, username: string, password: string, name: string, cedula: number, telefono: string, email: string, more_info: string)=>{
+    
+    // Declare Body to POST
+    let body = {
+        number: number,
+        username: username,
+        password: password,
+        name: name,
+        cedula: cedula,
+        telefono: telefono,
+        email: email, 
+        more_info: more_info
+    }
+    
+
+    // Send POST request to login endpoint
+    // https://localhost:8080/api/auth/login
+    axios.post('/auth/register')
+    
+}   

@@ -55,9 +55,8 @@ const LogInForm = ()=>{
               <h2>Iniciar Sesión</h2>
                 { /* Username Field*/ }
               <div className='inputBox'>
-                  <label htmlFor= 'username'>Nombre de Usuario</label>
                   <Field className = 'myField' id='username' type= 'username' name='username'  />
-                  
+                  <span>Nombre de Usuario</span>
                   <i></i>
                   {/* Username Errors*/}
                   {
@@ -69,10 +68,9 @@ const LogInForm = ()=>{
               </div>    
               <div className='inputBox'>
                     { /* Password Field*/ }
-                    <label htmlFor= 'password'>Clave</label>
+                    <label htmlFor= 'password'/>
                     <Field className = 'myField' id='password' type= 'password' name='password'  />
-                    
-                    
+                    <span>Clave</span>
                     <i></i>
                     {/* Password Errors*/}
                     {

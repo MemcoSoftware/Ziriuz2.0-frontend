@@ -116,7 +116,7 @@ body
     z-index: 10;
 }
 
-.inputBox label
+.inputBox span
 {
     position: absolute;
     left: 0;
@@ -129,8 +129,8 @@ body
 }
 
 
-.inputBox label:valid
-.inputBox label:focus
+.myField:valid ~ span,
+.myField:focus ~ span
 {
     color: #00ddfa;
     transform: translateX(0px) translateY(-34px);
@@ -139,7 +139,7 @@ body
 
 
 
-label
+.inputBox i
 {
     position: absolute;
     left: 0;
@@ -153,8 +153,8 @@ label
     z-index: 9;
 }
 
-label:valid
-label:focus
+.myFeld:valid ~ i,
+.myField:focus ~ i
 {
     height: 44px;
 

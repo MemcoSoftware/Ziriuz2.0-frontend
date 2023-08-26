@@ -139,7 +139,7 @@ body
 
 
 
-.inputBox i
+label
 {
     position: absolute;
     left: 0;
@@ -153,8 +153,8 @@ body
     z-index: 9;
 }
 
-.inputBox:valid ~ i,
-.inputBox:focus ~ i
+label:valid
+label:focus
 {
     height: 44px;
 

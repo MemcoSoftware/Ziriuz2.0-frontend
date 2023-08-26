@@ -28,19 +28,19 @@ const LogInForm = ()=>{
     
     
     return (
-        <div>
-           <h4>Login Form</h4>
+        <div className='box'>
+           
            <Formik
       initialValues={ initialCredentials }
       validationSchema={ loginSchema }
       onSubmit = {async(values)=>{
-        // await new Promise((response)=> setTimeout(response, 2000));
-        // alert(JSON.stringify(values, null, 2));
-        // console.table(values);
         login(values.username, values.password).then((response: AxiosResponse)=>{
             if (response.status === 200){
-                alert(JSON.stringify(response.data, null, 2));
-                console.table(response.data);
+              if(response.data.token){ 
+                sessionStorage.setItem('sessionJWTToken', response.data.token)
+                }else{
+                  throw new Error('Error generating Login token');
+                }
             }else{
                 throw new Error('Invalid Credentials')
             }
@@ -51,33 +51,40 @@ const LogInForm = ()=>{
         {
           ({values, touched, errors, isSubmitting, handleChange, handleBlur, }) => (
 
-            <Form>
+            <Form className='form'>
+              <h2>Iniciar Sesión</h2>
                 { /* Username Field*/ }
-              <label htmlFor= 'username'>Nombre de Usuario</label>
-              <Field id='username' type= 'username' name='username' placeholder='nombre.apellido'  />
-              {/* Username Errors*/}
-              {
-                errors.username && touched.username && (
-                    <ErrorMessage name='username' component='div'> </ErrorMessage>
+              <div className='inputBox'>
+                  <label htmlFor= 'username'>Nombre de Usuario</label>
+                  <Field className = 'myField' id='username' type= 'username' name='username'  />
+                  
+                  <i></i>
+                  {/* Username Errors*/}
+                  {
+                    errors.username && touched.username && (
+                        <ErrorMessage name='username' component='div'> </ErrorMessage>
 
-                )
-              }
+                    )
+                  }
+              </div>    
+              <div className='inputBox'>
+                    { /* Password Field*/ }
+                    <label htmlFor= 'password'>Clave</label>
+                    <Field className = 'myField' id='password' type= 'password' name='password'  />
+                    
+                    
+                    <i></i>
+                    {/* Password Errors*/}
+                    {
+                      errors.password && touched.password && (
+                          <ErrorMessage name='password' component='div'> </ErrorMessage>
 
-
-              { /* Password Field*/ }
-              <label htmlFor= 'password'>Clave</label>
-              <Field id='password' type= 'password' name='password' placeholder='clave'  />
-              {/* Password Errors*/}
-              {
-                errors.password && touched.password && (
-                    <ErrorMessage name='password' component='div'> </ErrorMessage>
-
-                )
-              }
-
+                      )
+                    }
+                </div>
 
             {/* LogIn Button*/}
-            <button type="submit">LogIn</button>
+            <button type="submit" value= 'LogIn'>LogIn</button>
             {/* Message if the form is submitting*/}
             {
                 isSubmitting ? (

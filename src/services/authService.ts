@@ -16,18 +16,7 @@ export const login = (username: string, password: string)=>{
 
     // Send POST request to login endpoint
     // https://localhost:8080/api/auth/login
-    // Return a new promise
-     return new Promise((resolve: (value: any) => void, reject: (reason?: any) => void) => {
-        // Send POST request to login endpoint
-        // https://localhost:8080/api/auth/login
-        axios.post('/auth/login', body)
-            .then((response) => {
-                resolve(response.data); // Resolve with response data
-            })
-            .catch((error) => {
-                reject(error); // Reject with error
-            });
-    });
+    return axios.post('/auth/login', body)
 }   
 
 
@@ -59,7 +48,7 @@ export const register = (number: number, username: string, password: string, nam
     
 
     // Send POST request to login endpoint
-    // https://localhost:8080/api/auth/login
-    axios.post('/auth/register')
+    // https://localhost:8080/api/auth/register
+    return axios.post('/auth/register', body)
     
 }   

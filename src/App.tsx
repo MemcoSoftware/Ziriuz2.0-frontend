@@ -52,7 +52,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} ></Route>
           <Route path="/" element={<HomePage />} ></Route>
           <Route path="/users" element={<UsersPages />}></Route>
-          <Route path="/users:id" element={<UserDetailPage />}></Route>
+          <Route path="/users/:id" element={<UserDetailPage />}></Route>
           {/* Redirect when Page is Not Found */}
           <Route
           path='*'

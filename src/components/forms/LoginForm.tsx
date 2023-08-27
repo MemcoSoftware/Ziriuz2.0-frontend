@@ -1,9 +1,8 @@
 import React from 'react';
-
+import './LoginForm.css';
+import { useNavigate} from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
 import * as Yup from 'yup'; 
-
 import { login } from '../../services/authService';
 import { AxiosResponse } from 'axios';
 
@@ -26,6 +25,8 @@ const LogInForm = ()=>{
         password: '' 
     }
     
+    let navigate = useNavigate();
+
     
     return (
         <div className='box'>
@@ -34,10 +35,11 @@ const LogInForm = ()=>{
       initialValues={ initialCredentials }
       validationSchema={ loginSchema }
       onSubmit = {async(values)=>{
-        login(values.username, values.password).then((response: AxiosResponse)=>{
+        login(values.username, values.password).then(async(response: AxiosResponse)=>{
             if (response.status === 200){
               if(response.data.token){ 
-                sessionStorage.setItem('sessionJWTToken', response.data.token)
+                await sessionStorage.setItem('sessionJWTToken', response.data.token);
+                navigate('/');
                 }else{
                   throw new Error('Error generating Login token');
                 }
@@ -55,7 +57,8 @@ const LogInForm = ()=>{
               <h2>Iniciar Sesión</h2>
                 { /* Username Field*/ }
               <div className='inputBox'>
-                  <Field className = 'myField' id='username' type= 'username' name='username'  />
+              
+                  <Field className = 'myField' id='username' type= 'username' name='username' required />
                   <span>Nombre de Usuario</span>
                   <i></i>
                   {/* Username Errors*/}
@@ -68,8 +71,8 @@ const LogInForm = ()=>{
               </div>    
               <div className='inputBox'>
                     { /* Password Field*/ }
-                    <label htmlFor= 'password'/>
-                    <Field className = 'myField' id='password' type= 'password' name='password'  />
+                    {/* <label htmlFor= 'password'/> */}
+                    <Field className = 'myField' id='password' type= 'password' name='password' required />
                     <span>Clave</span>
                     <i></i>
                     {/* Password Errors*/}
@@ -81,6 +84,11 @@ const LogInForm = ()=>{
                     }
                 </div>
 
+                    <br></br>
+                    <div className='links'>
+                      <a href='#'>Restaurar Clave</a>
+                      
+                    </div>
             {/* LogIn Button*/}
             <button type="submit" value= 'LogIn'>LogIn</button>
             {/* Message if the form is submitting*/}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoginForm.css';
+import './styles/LoginForm.css';
 import { useNavigate} from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'; 

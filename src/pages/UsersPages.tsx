@@ -39,7 +39,8 @@ export const UsersPages = () =>{
      * 
      */
 
-    const navigateToUserDetail = (id: number) =>{
+    const navigateToUserDetail = (id: string) =>{
+        console.log('Navigating to user detail with ID:', id);
         navigate(`/users/${id}`);
     }
 

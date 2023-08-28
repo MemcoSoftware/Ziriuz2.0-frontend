@@ -52,3 +52,6 @@ export const register = (number: number, username: string, password: string, nam
     return axios.post('/auth/register', body)
     
 }   
+
+
+

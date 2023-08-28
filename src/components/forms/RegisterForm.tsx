@@ -6,12 +6,15 @@ import * as Yup from 'yup';
 
 import { register } from '../../services/authService';
 import { AxiosResponse } from 'axios';
+import { useSessionStorage } from '../../hooks/useSessionStorage';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const RegisterUserForm = ()=>{
-
+    const loggedIn = useSessionStorage('sessionJWTToken');
+    const navigate = useNavigate();
 
     const initialValues = {
         number: 0,
@@ -67,7 +70,19 @@ const RegisterUserForm = ()=>{
                     initialValues={initialValues}
                     validationSchema={registerUserSchema}
                     onSubmit = {async(values)=>{
-                        register(values.number, values.username, values.password, values.name, values.cedula, values.telefono, values.email, values.more_info)
+                        console.log("Submitting form: ", values);
+                        if (!loggedIn){
+                            navigate('/login');
+                            return;
+                        }
+                        register(values.number,
+                            values.username,
+                            values.password,
+                            values.name,
+                            values.cedula,
+                            values.telefono,
+                            values.email,
+                            values.more_info)
                         .then((response: AxiosResponse)=>{
                             if (response.status === 200){
                                 console.log('User registered successfully')

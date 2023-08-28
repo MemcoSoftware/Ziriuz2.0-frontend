@@ -1,8 +1,8 @@
 export type  User = {
-    _id: number,
+    _id: string,
     number: 1,
     username: string, 
-    password: string
+    password: string,
     name: string,
     cedula: number,
     telefono: string,

@@ -12,8 +12,9 @@ export const UserDetailPage = () =>{
     
     let navigate = useNavigate();
     // Find id from params
+    
     let { id } = useParams();
-
+    console.log(id);
     const [user, setUser] = useState<User | undefined>(undefined);
     
         useEffect(() => {
@@ -23,7 +24,7 @@ export const UserDetailPage = () =>{
                 if(id){
                     getUserById(loggedIn, id).then((response: AxiosResponse)=>{
                         if(response.status === 200 && response.data){
-                            let userData: User = {
+                            let userData =  {
                                 _id: response.data._id,
                                 number: response.data.number,
                                 username: response.data.username,
@@ -68,7 +69,8 @@ export const UserDetailPage = () =>{
                 </div>
 
              }
-        </div>    )
+             
+             </div>    )
 
 
 }

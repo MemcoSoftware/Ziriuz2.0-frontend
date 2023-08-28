@@ -32,6 +32,6 @@ export const getUserById = (token: string, id: string) =>{
             id
         }
     }
-    return axios.get('/users', options)
+    return axios.get('/users/', options)
 
 }

@@ -54,4 +54,9 @@ export const register = (number: number, username: string, password: string, nam
 }   
 
 
+export const forgotPassword = (email: string) => {
+
+}
+
+
 

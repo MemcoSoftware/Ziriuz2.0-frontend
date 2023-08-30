@@ -56,6 +56,10 @@ export const register = (number: number, username: string, password: string, nam
 
 export const forgotPassword = (email: string) => {
 
+    let body = {
+        email: email
+    }
+    return axios.post('/auth/forgot-password', body )
 }
 
 

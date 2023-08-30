@@ -26,7 +26,9 @@ const LogInForm = ()=>{
     }
     
     let navigate = useNavigate();
-
+    const handleForgotPasswordClick = () => {
+      navigate('/forgot-password');
+     };
     
     return (
       
@@ -87,7 +89,7 @@ const LogInForm = ()=>{
 
                     <br></br>
                     <div className='links'>
-                      <a href='#'>Restaurar Clave</a>
+                      <a href='#' onClick={handleForgotPasswordClick}>Restaurar Clave</a>
                       
                     </div>
             {/* LogIn Button*/}

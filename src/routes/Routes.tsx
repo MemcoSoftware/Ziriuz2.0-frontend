@@ -13,7 +13,7 @@ import { RegisterPage } from '../../src/pages/RegisterPage';
 import { HomePage } from '../../src/pages/HomePage';
 import { UsersPages } from '../../src/pages/UsersPages';
 import { UserDetailPage } from '../../src/pages/UserDetailPage';
-
+import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
 
 export const AppRoutes = ()=>{
     return (
@@ -24,6 +24,7 @@ export const AppRoutes = ()=>{
           <Route path="/register" element={<RegisterPage />} ></Route>
           <Route path="/users" element={<UsersPages />}></Route>
           <Route path="/users/:id" element={<UserDetailPage />}></Route>
+          <Route path="/forgot-password/" element={<ForgotPasswordPage />}></Route>
           {/* Redirect when Page is Not Found */}
           <Route
           path='*'

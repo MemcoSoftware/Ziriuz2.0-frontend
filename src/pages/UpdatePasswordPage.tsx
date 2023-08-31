@@ -1,13 +1,18 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import UpdatePasswordForm from "../components/forms/UpdatePasswordForm";
 
+const UpdatePasswordPage: React.FC = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get("email") || "";
 
-const UpdatePasswordPage = () =>{
-    return(
-        <div>
-            <h1>Update Password</h1>
-        </div>
-    ) 
-}
-
+  return (
+    <div>
+      
+      <UpdatePasswordForm email={email} />
+    </div>
+  );
+};
 
 export default UpdatePasswordPage;

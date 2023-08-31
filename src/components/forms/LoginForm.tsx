@@ -32,7 +32,7 @@ const LogInForm = ()=>{
     
     return (
       
-        <div className='box'>
+        <div>
            
            <Formik
       initialValues={ initialCredentials }
@@ -55,55 +55,57 @@ const LogInForm = ()=>{
       >
         {
           ({values, touched, errors, isSubmitting, handleChange, handleBlur, }) => (
-
+           <div className='box'>
             <Form className='form'>
-              <h2>Iniciar Sesión</h2>
-                { /* Username Field*/ }
-              <div className='inputBox'>
-              
-                  <Field className = 'myField' id='username' type= 'username' name='username' required />
-                  <span>Nombre de Usuario</span>
-                  <i></i>
-                  {/* Username Errors*/}
-                  {
-                    errors.username && touched.username && (
-                        <ErrorMessage name='username' component='div'> </ErrorMessage>
-
-                    )
-                  }
-              </div>    
-              <div className='inputBox'>
-                    { /* Password Field*/ }
-                    {/* <label htmlFor= 'password'/> */}
-                    <Field className = 'myField' id='password' type= 'password' name='password' required />
-                    <span>Clave</span>
+                <h2>Iniciar Sesión</h2>
+                  { /* Username Field*/ }
+                <div className='inputBox'>
+                
+                    <Field className = 'myField' id='username' type= 'username' name='username' required />
+                    <span>Nombre de Usuario</span>
                     <i></i>
-                    {/* Password Errors*/}
+                    {/* Username Errors*/}
                     {
-                      errors.password && touched.password && (
-                          <ErrorMessage name='password' component='div'> </ErrorMessage>
+                      errors.username && touched.username && (
+                          <ErrorMessage name='username' component='div'> </ErrorMessage>
 
                       )
                     }
-                </div>
+                </div>    
+                <div className='inputBox'>
+                      { /* Password Field*/ }
+                      {/* <label htmlFor= 'password'/> */}
+                      <Field className = 'myField' id='password' type= 'password' name='password' required />
+                      <span>Clave</span>
+                      <i></i>
+                      {/* Password Errors*/}
+                      {
+                        errors.password && touched.password && (
+                            <ErrorMessage name='password' component='div'> </ErrorMessage>
 
-                    <br></br>
-                    <div className='links'>
-                      <a href='#' onClick={handleForgotPasswordClick}>Restaurar Clave</a>
-                      
-                    </div>
-            {/* LogIn Button*/}
-            <button type="submit" value= 'LogIn'>LogIn</button>
-            {/* Message if the form is submitting*/}
-            {
-                isSubmitting ? (
-                    <p>Ingresando...</p> 
-                ): null
-            }
+                        )
+                      }
+                  </div>
+
+                      <br></br>
+                      <div className='links'>
+                        <a href='#' onClick={handleForgotPasswordClick}>Restaurar Clave</a>
+                        
+                      </div>
+              {/* LogIn Button*/}
+              <button type="submit" value= 'LogIn'>LogIn</button>
+              {/* Message if the form is submitting*/}
+              {
+                  isSubmitting ? (
+                      <p>Ingresando...</p> 
+                  ): null
+              }
 
 
 
-            </Form>
+              </Form>
+          </div>  
+            
           )
         }
 

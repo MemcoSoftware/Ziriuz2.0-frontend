@@ -62,5 +62,21 @@ export const forgotPassword = (email: string) => {
     return axios.post('/auth/forgot-password', body )
 }
 
+export const validateOTP = (email: string, otp: string) => {
+    let body = {
+      email: email,
+      otp: otp,
+    };
+    return axios.post('/auth/otp-validator', body);
+  }
+  
+
+
+export const updatePassword = (password: string) =>{
+    let body = {
+        password: password
+    }
+    return axios.post('/auth/update-password', body ) 
+}
 
 

@@ -75,7 +75,11 @@ export const validateOTP = (email: string, otp: string) => {
   export const updatePassword = (email: string, newPassword: string) => {
     const body = {
       email: email,
-      password: newPassword
+      newPassword: newPassword
     };
-    return axios.post('/auth/update-password', body);
+    return axios.put('/auth/update-password', body, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   };

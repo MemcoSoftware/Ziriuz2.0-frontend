@@ -4,13 +4,15 @@ import UpdatePasswordForm from "../components/forms/UpdatePasswordForm";
 
 const UpdatePasswordPage: React.FC = () => {
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  const email = queryParams.get("email") || "";
+  const { email } = location.state || {};
 
   return (
     <div>
-      
-      <UpdatePasswordForm email={email} />
+      {email ? (
+        <UpdatePasswordForm email={email} />
+      ) : (
+        <p>Correo electrónico no encontrado.</p>
+      )}
     </div>
   );
 };

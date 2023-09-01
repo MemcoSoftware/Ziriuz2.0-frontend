@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'; 
 import { login } from '../../services/authService';
 import { AxiosResponse } from 'axios';
+import ZiriuzLogo from './img/ziriuzLogoPNG.png';
 
 
 // Define Schema of validation with Yup
@@ -33,7 +34,10 @@ const LogInForm = ()=>{
     return (
       
         <div>
-           
+          <div>
+           <img src={ZiriuzLogo} alt="ZiriuzLogoWithLeters" className="LoginForm-ZiriuzLogo" /> 
+           <br></br>
+          </div>
            <Formik
       initialValues={ initialCredentials }
       validationSchema={ loginSchema }
@@ -55,13 +59,13 @@ const LogInForm = ()=>{
       >
         {
           ({values, touched, errors, isSubmitting, handleChange, handleBlur, }) => (
-           <div className='box'>
-            <Form className='form'>
+           <div className='LoginForm-box'>
+            <Form className='LoginForm-form'>
                 <h2>Iniciar Sesión</h2>
                   { /* Username Field*/ }
-                <div className='inputBox'>
+                <div className='LoginForm-inputBox'>
                 
-                    <Field className = 'myField' id='username' type= 'username' name='username' required />
+                    <Field className = 'LoginForm-Field' id='username' type= 'username' name='username' required />
                     <span>Nombre de Usuario</span>
                     <i></i>
                     {/* Username Errors*/}
@@ -72,10 +76,10 @@ const LogInForm = ()=>{
                       )
                     }
                 </div>    
-                <div className='inputBox'>
+                <div className='LoginForm-inputBox'>
                       { /* Password Field*/ }
                       {/* <label htmlFor= 'password'/> */}
-                      <Field className = 'myField' id='password' type= 'password' name='password' required />
+                      <Field className = 'LoginForm-Field' id='password' type= 'password' name='password' required />
                       <span>Clave</span>
                       <i></i>
                       {/* Password Errors*/}
@@ -88,12 +92,14 @@ const LogInForm = ()=>{
                   </div>
 
                       <br></br>
-                      <div className='links'>
+                      <div className='LoginForm-links'>
                         <a href='#' onClick={handleForgotPasswordClick}>Restaurar Clave</a>
                         
                       </div>
+                      <br></br>
+                      <br></br>
               {/* LogIn Button*/}
-              <button type="submit" value= 'LogIn'>LogIn</button>
+              <button className="LoginForm-button" type="submit" value= 'LogIn'>LogIn</button>
               {/* Message if the form is submitting*/}
               {
                   isSubmitting ? (

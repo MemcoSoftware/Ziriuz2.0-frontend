@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { validateOTP } from '../../services/authService';
 
 interface OTPValidationFormProps {
-  email: string; // Prop para recibir el correo electrónico
+  email: string; 
 }
 
 const OTPValidationForm: React.FC<OTPValidationFormProps> = ({ email }) => {
@@ -18,7 +18,7 @@ const OTPValidationForm: React.FC<OTPValidationFormProps> = ({ email }) => {
       if (response.status === 200) {
         console.log('OTP is valid, redirecting to update-password');
         // OTP válido, redirigir a la página de cambio de contraseña (/update-password)
-        navigate('/update-password');
+        navigate(`/update-password`, { state: { email } });
       } else {
         // console.log('OTP is not valid, setting validation message');
         // OTP no válido, muestra un mensaje al usuario

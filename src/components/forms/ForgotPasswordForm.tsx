@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { forgotPassword } from '../../services/authService';
 import { Link, useNavigate } from 'react-router-dom';
-
+import './styles/ForgotPasswordForm.css'
 function ForgotPasswordForm() {
 
     
@@ -26,12 +26,26 @@ function ForgotPasswordForm() {
       };
     return (
         <div>
-            <h1>Recuperación de Contraseña</h1>
-            <form onSubmit={handleFormSubmit}>
-                <label>Correo Electrónico:</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <button type="submit">Enviar Solicitud</button>
-            </form>
+          <div className='ForgotPasswordForm-box'>
+              
+                <form onSubmit={handleFormSubmit} className='ForgotPasswordForm-form'>
+                   
+                    <h2>Recuperación de Clave</h2>
+                    <br></br>
+                    <div className='ForgotPasswordForm-inputBox'> 
+                    <p className='ForgotPasswordForm-p'>Para establecer una nueva clave,
+                       por favor ingrese su dirección correo electrónico,
+                        recibirá un mensaje en la bandeja de entrada con las instrucciones.</p>
+                        <br></br>
+                      <input className='ForgotPasswordForm-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                      <span>Dirección de Email</span>
+                      <i></i>
+                    </div>
+                    <br></br>
+                    <button className='ForgotPasswordForm-button' type="submit">Enviar</button>
+                </form>
+            
+           </div>
         </div>
     );
 }

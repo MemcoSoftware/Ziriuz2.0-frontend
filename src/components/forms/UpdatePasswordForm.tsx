@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updatePassword } from "../../services/authService";
-
+import './styles/UpdatePasswordForm.css';
 interface UpdatePasswordFormProps {
   email: string; // Prop para recibir el correo electrónico
 }
@@ -29,20 +29,29 @@ const UpdatePasswordForm: React.FC<UpdatePasswordFormProps> = ({ email }) => {
   };
 
   return (
-    <div>
-      <h1>Actualizar Contraseña</h1>
-      <p>Correo Electrónico: {email}</p>
-      <form onSubmit={handleSubmit}>
-        <label>Nueva Contraseña:</label>
-        <input
-          type="password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Actualizar Contraseña</button>
-      </form>
-    </div>
+    <div className="UpdatePasswordForm-box">
+      
+      
+            <form onSubmit={handleSubmit} className="UpdatePasswordForm-form">
+            <h2>Actualizar Clave</h2>
+            <br></br>
+            <p>--- {email} ---</p>
+              <div className="UpdatePasswordForm-inputBox">
+
+                <input className="UpdatePasswordForm-input"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                  />
+                <span>Nueva Contraseña</span>
+                <i></i>
+              </div>
+                <button className='UpdatePasswordForm-button' type="submit">Actualizar</button>
+            </form>
+    
+      </div>
+    
   );
 };
 

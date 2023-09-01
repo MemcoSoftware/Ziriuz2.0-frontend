@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { validateOTP } from '../../services/authService';
-
+import './styles/OTPValidatorForm.css';
 interface OTPValidationFormProps {
   email: string; 
 }
@@ -34,18 +34,26 @@ const OTPValidationForm: React.FC<OTPValidationFormProps> = ({ email }) => {
 
   return (
     <div>
-      <h1>Validation Form</h1>
       <Formik initialValues={{ otp: '' }} onSubmit={handleSubmit}>
-        <Form>
-          <div>
-            <p>Correo Electrónico: {email}</p> {/* Mostrar el correo electrónico */}
-            <label htmlFor="otp">Ingrese el código OTP:</label>
-            <Field type="text" id="otp" name="otp" />
+      <div className='OTPValidatorForm-box'>
+        <Form className='OTPValidatorForm-form'>
+          <h2>¡Hola!</h2>
+          <div className='OTPValidatorForm-inputBox'>
+            <p className='OTPValidatorForm-p'>Por favor, ingrese el código de 6 digitos que recibió
+              en su bandeja de mensajes en su dirección de
+               correo electrónico: {email}</p> {/* Mostrar el correo electrónico */}
+               <br></br>
+               <br></br>
+            <Field className='OTPValidatorForm-Field' type="text" id="otp" name="otp" />
+            <span>Ej: xxx-xxx</span>
+            <i></i>
           </div>
-          <div>
-            <button type="submit">Validar OTP</button>
-          </div>
+          <br></br>
+          <br></br>
+            <button className='OTPValidatorForm-button' type="submit">Validar</button>
+          
         </Form>
+      </div>  
       </Formik>
       {validationMessage && <p style={{ color: 'red' }}>{validationMessage}</p>}
     </div>

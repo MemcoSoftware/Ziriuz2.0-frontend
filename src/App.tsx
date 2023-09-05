@@ -13,11 +13,11 @@ function App() {
   return (
     <div>
       <div className="App-container">
+        
           <Router>
             <AppRoutes />
             
           </Router>
-        
       <div className="App-blob-c">
             <div className="App-shape-blob"></div>
             <div className="App-shape-blob one"></div>

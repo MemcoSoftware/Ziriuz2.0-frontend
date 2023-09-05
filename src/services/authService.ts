@@ -32,8 +32,9 @@ export const login = (username: string, password: string)=>{
  * @param {string} more_info to register
  */
 
-export const register = (number: number, username: string, password: string, name: string, cedula: number, telefono: string, email: string, more_info: string)=>{
+export const register = (number: number, username: string, password: string, name: string, cedula: number, telefono: string, email: string, more_info: string, roles: { name: string }[])=>{
     
+ 
     // Declare Body to POST
     let body = {
         number: number,
@@ -43,7 +44,8 @@ export const register = (number: number, username: string, password: string, nam
         cedula: cedula,
         telefono: telefono,
         email: email, 
-        more_info: more_info
+        more_info: more_info,
+        roles: roles
     }
     
 

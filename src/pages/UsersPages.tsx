@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSessionStorage } from '../hooks/useSessionStorage';
 import { getAllUsers } from '../services/usersService';
 import { AxiosResponse } from 'axios';
-
+import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
+import './styles/UsersPages.css'
 export const UsersPages = () => {
   let loggedIn = useSessionStorage('sessionJWTToken');
   let navigate = useNavigate();
@@ -17,7 +18,7 @@ export const UsersPages = () => {
     if (!loggedIn) {
       return navigate('/login');
     } else {
-      getAllUsers(loggedIn, 2, 1)
+      getAllUsers(loggedIn, 9, 1)
         .then((response: AxiosResponse) => {
           if (
             response.status === 200 &&
@@ -48,27 +49,33 @@ export const UsersPages = () => {
   };
 
   return (
+
     <div>
-      <h1>Users List</h1>
+    <DashboardMenuLateral/>
       {users.length > 0 ? (
         // IF IS TRUE PRINT THIS:
-        <div>
-          {users.map((user: any) => (
-            <div key={user._id}>
-              <h4>{user.number}</h4>
-              <h4 onClick={() => navigateToUserDetail(user._id)}>{user.name}</h4>
-              <h4>{user.email}</h4>
-              {user.roles && user.roles.length > 0 && (
-                <div>
-                  
-                    {user.roles.map((role: any) => (
-                      <p key={role._id}>Rol: {role.name}</p>
-                    ))}
-                  
+        <div >
+                  {users.map((user: any) => (
+                    
+                    <div key={user._id} className='UsersPages-container-card'>
+                      <div className='UsersPages-card'>
+                      <div className='UsersPages-content-card'>
+                      <h4>{user.number}</h4>
+                      <h4 onClick={() => navigateToUserDetail(user._id)}>{user.name}</h4>
+                      <h4>{user.email}</h4>
+                      {user.roles && user.roles.length > 0 && (
+                        <div>
+                          
+                            {user.roles.map((role: any) => (
+                              <p key={role._id}>Rol: {role.name}</p>
+                            ))}
+                          
+                        </div>
+                      )}
+                    </div>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+                  ))}
         </div>
       ) : (
         // IF IS FALSE PRINT THIS:
@@ -76,6 +83,8 @@ export const UsersPages = () => {
           <h5>NO USERS TO LIST</h5>
         </div>
       )}
+
+<button className="RegisterUser-button-redirect" type="submit" value= 'register' onClick={() => navigate('/register')}>Crear nuevo Usuario</button>
     </div>
   );
 };

@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+     
       <Dashboard />
       
       {/* Resto del contenido del HomePage */}

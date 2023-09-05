@@ -11,9 +11,14 @@ import { Copyright } from './components/dashboard/CopyRight';
 
 function App() {
   return (
-    <div className="App-container">
-      
-          <div className="App-blob-c">
+    <div>
+      <div className="App-container">
+          <Router>
+            <AppRoutes />
+            
+          </Router>
+        
+      <div className="App-blob-c">
             <div className="App-shape-blob"></div>
             <div className="App-shape-blob one"></div>
             <div className="App-shape-blob two"></div>
@@ -22,10 +27,9 @@ function App() {
             <div className="App-shape-blob five"></div>
             <div className="App-shape-blob six"></div>
           </div>
-          <Router>
-            <AppRoutes />
-            
-          </Router>
+
+      </div>
+          
           {/* <Copyright /> */}
      </div>
     

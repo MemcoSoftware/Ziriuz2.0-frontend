@@ -1,7 +1,6 @@
 import React from 'react';
 // import './App.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import ProtectedRoute from '../components/middlewares/jwtProtectedRoute';
 
 // React Router DOM Imports
 
@@ -19,7 +18,11 @@ import UpdatePasswordPage from '../pages/UpdatePasswordPage';
 import PassUpdateSuccessfullPage from '../pages/PassUpdateSuccessfullPage';
 import RegisterSuccessPage from '../pages/RegisterSuccessPage';
 
+
 export const AppRoutes = ()=>{
+
+
+
     return (
         <Routes>
           {/* Routes Definition */}

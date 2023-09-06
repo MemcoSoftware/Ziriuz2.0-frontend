@@ -2,11 +2,8 @@ import react from 'react';
 import axios from '../utils/config/axios.config';
 import { AxiosRequestConfig } from 'axios';
 
-export const getAllUsers = (token: string, limit?: number, page?: number) =>{
 
-    //http://localhost:8000/api/users?limit=1?page=1
-    // Add headers with JWT in x-access-token
-    
+export const getAllUsers = (token: string, limit?: number, page?: number) => {
     const options: AxiosRequestConfig = {
         headers: {
             'x-access-token': token
@@ -16,14 +13,24 @@ export const getAllUsers = (token: string, limit?: number, page?: number) =>{
             page: page
         }
     }
+    
     return axios.get('/users', options)
-
+        .catch(error => {
+            // Aquí manejamos el error de la solicitud
+            if (error.response) {
+                const { status } = error.response;
+                if (status === 500) {
+                    // Token inválido o expirado
+                    // Redirigir al usuario a la página de inicio de sesión (/login)
+                    window.location.href = '/login';
+                }
+            }
+            throw error; // Puedes manejar el error de otra manera si es necesario
+        });
 }
 
 
-export const getUserById = (token: string, id: string) =>{
-    //http://localhost:8000/api/users?id:XXXXXXXXXX
-    // Add headers with JWT in x-access-token    
+export const getUserById = (token: string, id: string) => {
     const options: AxiosRequestConfig = {
         headers: {
             'x-access-token': token
@@ -32,6 +39,17 @@ export const getUserById = (token: string, id: string) =>{
             id
         }
     }
+    
     return axios.get('/users/', options)
-
+        .catch(error => {
+            if (error.response) {
+                const { status } = error.response;
+                if (status === 500) {
+                    // Token inválido o expirado
+                    // Redirigir al usuario a la página de inicio de sesión (/login)
+                    window.location.href = '/login';
+                }
+            }
+            throw error;
+        });
 }

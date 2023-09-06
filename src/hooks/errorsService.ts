@@ -1,4 +1,5 @@
-// En axiosErrorHandler.ts
+// useAxiosErrorHandler.ts
+
 import axios, { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,14 +10,15 @@ const useAxiosErrorHandler = () => {
     (response) => response,
     (error: AxiosError) => {
       if (error.response && error.response.status === 500) {
-        // El servidor respondió con un estado 500, lo que indica un error interno del servidor.
-        console.log('Intercepted a 500 error response');
+        // El servidor respondió con un estado 500 (Internal Server Error).
+        // Redirige al usuario al inicio de sesión.
         navigate('/login');
       }
+      // Puedes manejar otros errores aquí si es necesario.
       return Promise.reject(error);
     }
   );
-  
 };
 
 export default useAxiosErrorHandler;
+

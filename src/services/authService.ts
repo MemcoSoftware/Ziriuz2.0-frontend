@@ -32,29 +32,34 @@ export const login = (username: string, password: string)=>{
  * @param {string} more_info to register
  */
 
-export const register = (number: number, username: string, password: string, name: string, cedula: number, telefono: string, email: string, more_info: string, roles: { name: string }[])=>{
-    
- 
-    // Declare Body to POST
-    let body = {
-        number: number,
-        username: username,
-        password: password,
-        name: name,
-        cedula: cedula,
-        telefono: telefono,
-        email: email, 
-        more_info: more_info,
-        roles: roles
-    }
-    
-
-    // Send POST request to login endpoint
-    // https://localhost:8080/api/auth/register
-    return axios.post('/auth/register', body)
-    
-}   
-
+export const register = (number: number, username: string, password: string, name: string, cedula: number, telefono: string, email: string, more_info: string, roles: { name: string }[]) => {
+  // Declare Body to POST
+  let body = {
+      number: number,
+      username: username,
+      password: password,
+      name: name,
+      cedula: cedula,
+      telefono: telefono,
+      email: email,
+      more_info: more_info,
+      roles: roles
+  }
+  
+  // Send POST request to register endpoint
+  return axios.post('/auth/register', body)
+      .catch(error => {
+          if (error.response) {
+              const { status } = error.response;
+              if (status === 500) {
+                  // Token inválido o expirado
+                  // Redirigir al usuario a la página de inicio de sesión (/login)
+                  window.location.href = '/login';
+              }
+          }
+          throw error;
+      });
+}
 
 export const forgotPassword = (email: string) => {
 

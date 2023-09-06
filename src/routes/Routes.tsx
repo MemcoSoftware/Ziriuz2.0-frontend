@@ -1,6 +1,7 @@
 import React from 'react';
 // import './App.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import ProtectedRoute from '../components/middlewares/jwtProtectedRoute';
 
 // React Router DOM Imports
 
@@ -32,7 +33,6 @@ export const AppRoutes = ()=>{
           <Route path="/update-password" element={<UpdatePasswordPage/>}></Route>
           <Route path="/pass-update-successfull" element={<PassUpdateSuccessfullPage/>}></Route>
           <Route path="/user-registered-successfull" element={<RegisterSuccessPage/>}></Route>
-
           {/* Redirect when Page is Not Found */}
           <Route
           path='*'

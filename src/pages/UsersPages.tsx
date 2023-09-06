@@ -5,10 +5,13 @@ import { getAllUsers } from '../services/usersService';
 import { AxiosResponse } from 'axios';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import './styles/UsersPages.css'
+import useAxiosErrorHandler from '../services/errorsService';
 export const UsersPages = () => {
   let loggedIn = useSessionStorage('sessionJWTToken');
   let navigate = useNavigate();
 
+  // IF ERROR, REDIRECTS TO /LOGIN
+  useAxiosErrorHandler();
   // State of component
   const [users, setUsers] = useState([]); // Initial Users is empty
   const [totalPages, setTotalPages] = useState(1); // Initial default value
@@ -47,7 +50,7 @@ export const UsersPages = () => {
     console.log('Navigating to user detail with ID:', id);
     navigate(`/users/${id}`);
   };
-
+  
   return (
 
     <div>

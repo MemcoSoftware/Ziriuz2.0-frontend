@@ -9,6 +9,7 @@ import { AxiosResponse } from 'axios';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
 import './styles/RegisterForm.css'
+import DashboardMenuLateral from '../dashboard/DashboardMenulateral';
 
 
 
@@ -66,7 +67,7 @@ const RegisterUserForm = ()=>{
 
     return (
         <div className='RegisterForm-body'>
-            
+            <DashboardMenuLateral/>
                 {/* Formik wrapper */}
                 <Formik
                     initialValues={initialValues}

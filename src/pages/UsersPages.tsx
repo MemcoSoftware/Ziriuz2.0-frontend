@@ -4,8 +4,11 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import { getAllUsers } from '../services/usersService';
 import { AxiosResponse } from 'axios';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
+// STYLES
 import './styles/UsersPages.css';
 import DefaultUserImg from './img/defaultUserImg.png';
+import EmailIcon from '@mui/icons-material/Email';
+
 
 export const UsersPages = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -77,8 +80,11 @@ export const UsersPages = () => {
                       <span className='UsersPages-card-status'># {user.number}</span>
                     </div>
                   </div>
-                    <p className='UsersPages-card-description'>CC {user.cedula}</p>
-                    <p className='UsersPages-card-description'>{user.email}</p>
+                  <br></br>
+                    <p className='UsersPages-card-description'>CC: {user.cedula}</p>
+                    <p className='UsersPages-card-description'>
+                        <EmailIcon fontSize="small" />  {user.email}
+                    </p>
                 </div>
               </a>
             </li>

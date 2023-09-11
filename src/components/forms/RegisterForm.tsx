@@ -9,7 +9,7 @@ import { AxiosResponse } from 'axios';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
 import './styles/RegisterForm.css'
-import DashboardMenuLateral from '../dashboard/DashboardMenulateral';
+
 
 
 
@@ -67,7 +67,7 @@ const RegisterUserForm = ()=>{
 
     return (
         <div className='RegisterForm-body'>
-            <DashboardMenuLateral/>
+            
                 {/* Formik wrapper */}
                 <Formik
                     initialValues={initialValues}
@@ -108,6 +108,7 @@ const RegisterUserForm = ()=>{
                                 <Form className='RegisterForm-form'>
                                 <h2>Registrar Usuario</h2>
                                 { /* Number Field*/ }
+                        <div className='Columna-1'>        
                             <div className='RegisterForm-inputBox'>
                                 <Field className = 'RegisterForm-Field' id='number' type= 'text' name='number'  />
                                 <span>Número de Usuario</span>
@@ -181,7 +182,8 @@ const RegisterUserForm = ()=>{
                                 }
 
                             </div>
-
+                        </div>    
+                        <div className='Columna-2'>          
                             <div className='RegisterForm-inputBox'>
                                 { /* Telefono Field*/ }
                                 <Field className = 'RegisterForm-Field' id='telefono' type= 'telefono' name='telefono'/>
@@ -251,7 +253,7 @@ const RegisterUserForm = ()=>{
                                 }
 
                             </div>
-                                
+                        </div>         
                                 {/* Register Button*/}
                                 <button className="RegisterForm-button" type="submit">Registrar</button>
                                 {/* Message if the form is submitting*/}
@@ -260,7 +262,7 @@ const RegisterUserForm = ()=>{
                                         <p>Registrando...</p> 
                                     ): null
                                 }
-
+                     
 
                                 </Form>
                     </div>

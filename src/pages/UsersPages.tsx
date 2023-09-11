@@ -4,11 +4,8 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import { getAllUsers } from '../services/usersService';
 import { AxiosResponse } from 'axios';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
-// STYLES
 import './styles/UsersPages.css';
 import DefaultUserImg from './img/defaultUserImg.png';
-import EmailIcon from '@mui/icons-material/Email';
-
 
 export const UsersPages = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -56,11 +53,11 @@ export const UsersPages = () => {
   };
 
   return (
-    <div>
+    <div className='UserPages-container'>
       <DashboardMenuLateral />
       {users.length > 0 ? (
         // IF IS TRUE PRINT THIS:
-      <div>
+      <div className='UserPages-Container-Card'>
           {users.map((user: any) => (
             <div key={user._id} className='UsersPages-container-card'>
         <div className='UsersPages-card-section'>
@@ -80,11 +77,8 @@ export const UsersPages = () => {
                       <span className='UsersPages-card-status'># {user.number}</span>
                     </div>
                   </div>
-                  <br></br>
-                    <p className='UsersPages-card-description'>CC: {user.cedula}</p>
-                    <p className='UsersPages-card-description'>
-                        <EmailIcon fontSize="small" />  {user.email}
-                    </p>
+                    <p className='UsersPages-card-description'>CC {user.cedula}</p>
+                    <p className='UsersPages-card-description'>{user.email}</p>
                 </div>
               </a>
             </li>

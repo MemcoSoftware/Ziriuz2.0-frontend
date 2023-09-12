@@ -21,7 +21,7 @@ const RegisterUserForm = ()=>{
     const initialValues = {
         number: 0,
         username: '',
-        password: '',
+        password: 'ClaveTemporal1234',
         name: '',
         cedula: 0,
         telefono: '',
@@ -72,34 +72,39 @@ const RegisterUserForm = ()=>{
                 <Formik
                     initialValues={initialValues}
                     validationSchema={registerUserSchema}
-                    onSubmit = {async(values)=>{
+                    onSubmit={async (values) => {
                         console.log("Submitting form: ", values);
-                        if (!loggedIn){
+                        if (!loggedIn) {
                             navigate('/login');
                             return;
                         }
-                        
+    
                         const rolesArray = [{ name: values.roles }];
-
-                        register(values.number,
-                            values.username,
-                            values.password,
-                            values.name,
-                            values.cedula,
-                            values.telefono,
-                            values.email,
-                            values.more_info,
-                            rolesArray)
-                        .then((response: AxiosResponse)=>{
-                            if (response.status === 200){
-                                console.log('User registered successfully')
-                                console.log(response.data)
-                            }else{
-                                throw new Error('Register Error')
+    
+                        try {
+                            const response: AxiosResponse = await register(
+                                values.number,
+                                values.username,
+                                values.password,
+                                values.name,
+                                values.cedula,
+                                values.telefono,
+                                values.email,
+                                values.more_info,
+                                rolesArray
+                            );
+    
+                            if (response.status === 200) {
+                                console.log('User registered successfully');
+                                console.log(response.data);
+                                navigate('/user-registered-successfull');
+                            } else {
+                                throw new Error('Register Error');
                             }
-                        }).catch((error: any)=> console.error(`[REGISTER ERROR]: Something went wrong: ${error}`))         
-                        
-                      }}
+                        } catch (error) {
+                            console.error(`[REGISTER ERROR]: Something went wrong: ${error}`);
+                        }
+                    }}
                 
                 >
                     {
@@ -141,9 +146,9 @@ const RegisterUserForm = ()=>{
                             <div className='RegisterForm-inputBox'>
                                 { /* Password Field*/ }
                             
-                                <Field className = 'RegisterForm-Field' id='password' type= 'password' name='password'/>
+                                <Field className = 'RegisterForm-Field-clave' id='password' type= 'password' name='password' disabled/>
                                 <span>Clave</span>
-                                <i></i>
+                              
                                 {/* Password Errors*/}
                                 {
                                     errors.password && touched.password && (

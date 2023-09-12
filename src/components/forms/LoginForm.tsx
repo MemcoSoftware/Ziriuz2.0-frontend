@@ -6,9 +6,9 @@ import * as Yup from 'yup';
 import { login } from '../../services/authService';
 import { AxiosResponse } from 'axios';
 import ZiriuzLogo from './img/ziriuzLogoPNG.png';
+import { Visibility, VisibilityOff } from '@mui/icons-material'; // Importar íconos de Material Icons
 
 // Define Schema of validation with Yup
-
 export const loginSchema = Yup.object().shape({
   username: Yup.string()
     .matches(/^[a-zA-Z]+\.[a-zA-Z]+$/, 'Invalid username format: TRY [firstname.lastname]')
@@ -17,11 +17,10 @@ export const loginSchema = Yup.object().shape({
 });
 
 // Login Component
-
 const LogInForm: React.FC = () => {
-  const [error, setError] = useState<string | null>(null); // Declarar el estado 'error'
+  const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false); // Estado para mostrar/ocultar la contraseña
 
-  // Defining Initial Credentials to LogIn
   const initialCredentials = {
     username: '',
     password: '',
@@ -30,6 +29,10 @@ const LogInForm: React.FC = () => {
   let navigate = useNavigate();
   const handleForgotPasswordClick = () => {
     navigate('/forgot-password');
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -43,9 +46,7 @@ const LogInForm: React.FC = () => {
         validationSchema={loginSchema}
         onSubmit={async (values) => {
           try {
-            // Intenta realizar la validación de Yup
             await loginSchema.validate(values, { abortEarly: false });
-            // Si no hay errores de validación de Yup, continúa con el envío del formulario
             login(values.username, values.password)
               .then(async (response: AxiosResponse) => {
                 if (response.status === 200) {
@@ -56,18 +57,17 @@ const LogInForm: React.FC = () => {
                     throw new Error('Error generating Login token');
                   }
                 } else {
-                  throw new Error('Invalid Credentials');
+                  throw Error('Invalid Credentials');
                 }
               })
               .catch((error: any) => {
                 console.error(`[LOGIN ERROR]: Something went wrong: ${error}`);
-                window.alert('Usuario y/o Clave incorrectos, por favor revise sus credenciales y vuelva a ingresarlas. Gracias!'); // Mostrar un alert si las credenciales son inválidas
+                window.alert('Usuario y/o Clave incorrectos, por favor revise sus credenciales y vuelva a ingresarlas. Gracias!');
               });
           } catch (validationErrors) {
-            // Maneja los errores de validación de Yup aquí
             if (validationErrors instanceof Yup.ValidationError) {
-              const errorMessage = validationErrors.errors.join('\n'); // Concatena los mensajes de error en una sola cadena
-              window.alert(errorMessage); // Muestra los errores en una ventana emergente
+              const errorMessage = validationErrors.errors.join('\n');
+              window.alert(errorMessage);
             }
           }
         }}
@@ -76,21 +76,36 @@ const LogInForm: React.FC = () => {
           <div className="LoginForm-box">
             <Form className="LoginForm-form">
               <h2>Iniciar Sesión</h2>
-              {/* Username Field */}
               <div className="LoginForm-inputBox">
-                <Field className="LoginForm-Field" id="username" type="username" name="username" required />
-                <span>Nombre de Usuario</span>
-                <i></i>
-                {/* Username Errors */}
-                {errors.username && touched.username && <ErrorMessage name="username" component="div"></ErrorMessage>}
+                <div className="UsernameFieldContainer">
+                  <Field
+                    className="LoginForm-Field"
+                    id="username"
+                    type="username"
+                    name="username"
+                    required
+                  />
+                  <span>Nombre de Usuario</span>
+                  <i></i>
+                  {errors.username && touched.username && <ErrorMessage name="username" component="div"></ErrorMessage>}
+                </div>
               </div>
               <div className="LoginForm-inputBox">
-                {/* Password Field */}
-                <Field className="LoginForm-Field" id="password" type="password" name="password" required />
-                <span>Clave</span>
-                <i></i>
-                {/* Password Errors */}
-                {errors.password && touched.password && <ErrorMessage name="password" component="div"></ErrorMessage>}
+                <div className="PasswordFieldContainer">
+                  <Field
+                    className="LoginForm-Field"
+                    id="password"
+                    type={showPassword ? 'text' : 'password'} // Cambiar el tipo de campo según el estado showPassword
+                    name="password"
+                    required
+                  />
+                  <span>Clave</span>
+                  <i></i>
+                  {errors.password && touched.password && <ErrorMessage name="password" component="div"></ErrorMessage>}
+                </div>
+                  <div className="PasswordFieldIcon" onClick={toggleShowPassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </div>
               </div>
               <br></br>
               <div className="LoginForm-links">
@@ -99,15 +114,10 @@ const LogInForm: React.FC = () => {
                 </a>
               </div>
               <br></br>
-              <br></br>
-              {/* LogIn Button */}
               <button className="LoginForm-button" type="submit" value="LogIn">
                 LogIn
               </button>
-              {/* Message if the form is submitting */}
               {isSubmitting ? <p>Ingresando...</p> : null}
-
-              {/* Mostrar el mensaje de error si está configurado */}
               {error && <div className="LoginForm-error">{error}</div>}
             </Form>
           </div>

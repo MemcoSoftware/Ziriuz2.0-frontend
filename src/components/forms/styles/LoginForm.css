@@ -94,7 +94,34 @@
 
 }
 
+.UsernameFieldContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 
+/* Agrega estos estilos CSS para el botón de visibilidad */
+/* Agrega estos estilos CSS para el botón de visibilidad */
+.PasswordFieldContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+.PasswordFieldIcon {
+    position: absolute;
+    right: 10px; /* Ajusta el valor según tus preferencias */
+    color: #8f8f8f;
+    cursor: pointer;
+    z-index: 1;
+    
+    }
+
+.PasswordFieldIcon:hover {
+    color: #00ddfa;
+  }
+
+  
 .LoginForm-Field
 {
     position: relative;

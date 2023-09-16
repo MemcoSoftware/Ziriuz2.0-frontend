@@ -1,22 +1,30 @@
+// UsersPages.tsx
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSessionStorage } from '../hooks/useSessionStorage';
-import { getAllUsers } from '../services/usersService';
+import { getAllUsers, searchUsersByKeyword } from '../services/usersService';
 import { AxiosResponse } from 'axios';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import './styles/UsersPages.css';
 import DefaultUserImg from './img/defaultUserImg.png';
+import SearchComponent from '../components/searchTools/SearchUsers';
+import UserCard from '../components/users/UserCard';
 
 export const UsersPages = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const navigate = useNavigate();
 
   // State of component
-  const [users, setUsers] = useState([]); // Initial Users is empty
-  const [totalPages, setTotalPages] = useState(1); // Initial default value
-  const [currentPage, setCurrentPage] = useState(1); // Initial default value
+  const [users, setUsers] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // Add state for search results
+  const [searchResults, setSearchResults] = useState([]);
 
+  // Add a state to keep track of the current display data (users or search results)
+  const [displayData, setDisplayData] = useState([]);
 
   useEffect(() => {
     if (!loggedIn) {
@@ -43,53 +51,52 @@ export const UsersPages = () => {
     }
   }, [loggedIn]);
 
-  /**
-   * Method to navigate to User Data
-   * @param id of User to navigate to
-   */
   const navigateToUserDetail = (id: string) => {
-    console.log('Navigating to user detail with ID:', id);
     navigate(`/users/${id}`);
   };
+
+  // Modify handleSearch to update searchResults
+  const handleSearch = async (keyword: string) => {
+    if (!loggedIn) {
+      // Handle authentication if necessary
+      return;
+    }
+
+    try {
+      const response = await searchUsersByKeyword(loggedIn, keyword);
+
+      if (response.status === 200 && response.data.users) {
+        setSearchResults(response.data.users);
+      } else {
+        throw new Error(`Error searching Users ${response.data}`);
+      }
+    } catch (error) {
+      console.error(`[SEARCH USERS ERROR] ${error}`);
+    }
+  };
+
+  useEffect(() => {
+    // Update displayData whenever users or searchResults change
+    setDisplayData(searchResults.length > 0 ? searchResults : users);
+  }, [users, searchResults]);
 
   return (
     <div className='UserPages-container'>
       <DashboardMenuLateral />
-      {users.length > 0 ? (
-        // IF IS TRUE PRINT THIS:
-      <div className='UserPages-Container-Card'>
-          {users.map((user: any) => (
-            <div key={user._id} className='UsersPages-container-card'>
-        <div className='UsersPages-card-section'>
-          <ul className='UsersPages-cards-list'>
-            <li>
-              <a type='#' className='UsersPages-card' onClick={() => navigateToUserDetail(user._id)}>
-                <div className='UsersPages-card-cover'></div>
-                <div className='UsersPages-card-overlay'>
-                  <div className='UsersPages-card-header'>
-                    <img src={DefaultUserImg} className='UsersPages-card-UserImage' alt="" height="70px" width="70px" ></img>
-                    <div className='UsersPages-card-header-text'>
-                      <h3 className='UsersPages-card-title'>{user.name}</h3>
-                      {user.roles.map((role: any) => (
-                      <span key={role._id} className='UsersPages-card-status'>{role.name}</span>
-                      ))}
-                      <br></br>
-                      <span className='UsersPages-card-status'># {user.number}</span>
-                    </div>
-                  </div>
-                    <p className='UsersPages-card-description'>CC {user.cedula}</p>
-                    <p className='UsersPages-card-description'>{user.email}</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-          </div>
-            </div>
+      <SearchComponent onSearch={handleSearch} />
+
+      {/* Render users or search results */}
+      {displayData.length > 0 ? (
+        <div className='UserPages-Container-Card'>
+          {displayData.map((user: any) => (
+            <UserCard
+              key={user._id}
+              user={user}
+              onClick={() => navigateToUserDetail(user._id)}
+            />
           ))}
-        
-      </div>
+        </div>
       ) : (
-        // IF IS FALSE PRINT THIS:
         <div>
           <h5>NO USERS TO LIST</h5>
         </div>

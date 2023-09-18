@@ -7,14 +7,14 @@ import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import './styles/UsersPages.css';
 import DefaultUserImg from './img/defaultUserImg.png';
 import UserCard from '../components/users/UserCard';
-import SearchUsersResults from '../components/searchTools/SearchUsersResults';
-import SearchComponent from '../components/searchTools/SearchUsers';
+import SearchUsers from '../components/searchTools/SearchUsers';
 
 export const UsersPages = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const navigate = useNavigate();
 
   const [users, setUsers] = useState({ list: [], totalPages: 1, currentPage: 1 });
+  const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
 
   useEffect(() => {
     if (!loggedIn) {
@@ -46,12 +46,18 @@ export const UsersPages = () => {
   return (
     <div className='UserPages-container'>
       <DashboardMenuLateral />
-      <SearchComponent />
-
+      <SearchUsers
+        showSearchResults={showSearchResults} // Pasa el estado a SearchUsers
+        setShowSearchResults={setShowSearchResults} // Pasa la función para cambiar el estado
+      />
       <div className='UserPages-Container-Card'>
-        {users.list.map((user: any) => (
-          <UserCard key={user._id} user={user} onClick={() => navigateToUserDetail(user._id)} />
-        ))}
+        {showSearchResults ? ( // Muestra los resultados de búsqueda si showSearchResults es true
+          <p></p>
+        ) : (
+          users.list.map((user: any) => (
+            <UserCard key={user._id} user={user} onClick={() => navigateToUserDetail(user._id)} />
+          ))
+        )}
       </div>
 
       <button

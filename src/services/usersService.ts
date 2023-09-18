@@ -1,6 +1,7 @@
 import react from 'react';
 import axios from '../utils/config/axios.config';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosError } from 'axios';
 
 export const getAllUsers = (token: string, limit?: number, page?: number) => {
   const options: AxiosRequestConfig = {
@@ -52,24 +53,29 @@ export const getUserById = (token: string, id: string) => {
   });
 };
 
-export const searchUsersByKeyword = async (token: string, keyword: string): Promise<AxiosResponse> => {
+export const searchUsersByKeyword = async (token: string, keyword: string) => {
+  const options: AxiosRequestConfig = {
+    headers: {
+      'x-access-token': token,
+    },
+  };
+
+  const requestBody = {
+    keyword: keyword,
+  };
+
   try {
-    const requestBody = { keyword };
-
-    const response = await axios.post(
-      '/search',
-      requestBody,
-      {
-        headers: {
-          'x-access-token': token,
-        },
+    const response = await axios.post('/search', requestBody, options);
+    return response.data;
+  } catch (error: any) {
+    if (error.response) {
+      const { status } = error.response as AxiosResponse;
+      if (status === 500) {
+        // Token inválido o expirado
+        // Redirigir al usuario a la página de inicio de sesión (/login)
+        window.location.href = '/login';
       }
-    );
-
-    return response; // Devolvemos la respuesta sin validaciones adicionales
-  } catch (error) {
-    console.error('Search Error:', error);
+    }
     throw error;
   }
 };
-

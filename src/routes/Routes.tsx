@@ -17,6 +17,7 @@ import { OTPValidationPage } from '../pages/OTPValidationPage';
 import UpdatePasswordPage from '../pages/UpdatePasswordPage';
 import PassUpdateSuccessfullPage from '../pages/PassUpdateSuccessfullPage';
 import RegisterSuccessPage from '../pages/RegisterSuccessPage';
+import SearchUsersResults from '../components/searchTools/SearchUsersResults';
 
 
 export const AppRoutes = ()=>{
@@ -36,6 +37,7 @@ export const AppRoutes = ()=>{
           <Route path="/update-password" element={<UpdatePasswordPage/>}></Route>
           <Route path="/pass-update-successfull" element={<PassUpdateSuccessfullPage/>}></Route>
           <Route path="/user-registered-successfull" element={<RegisterSuccessPage/>}></Route>
+          <Route path="/searchUsers" element={<SearchUsersResults users={[]} />} />
           {/* Redirect when Page is Not Found */}
           <Route
           path='*'

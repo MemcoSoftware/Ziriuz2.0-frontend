@@ -54,12 +54,11 @@ export const getUserById = (token: string, id: string) => {
 
 export const searchUsersByKeyword = async (token: string, keyword: string): Promise<AxiosResponse> => {
   try {
-    // Crear un objeto de cuerpo (body) con la propiedad 'keyword'
     const requestBody = { keyword };
 
     const response = await axios.post(
       '/search',
-      requestBody, // Utilizar el objeto de cuerpo creado
+      requestBody,
       {
         headers: {
           'x-access-token': token,
@@ -67,16 +66,10 @@ export const searchUsersByKeyword = async (token: string, keyword: string): Prom
       }
     );
 
-    console.log('Search Response:', response);
-
-    if (response.status === 200 && response.data.users) {
-      return response;
-    } else {
-      console.error('Search Error: Invalid response from server');
-      throw new Error(`Error searching Users`);
-    }
+    return response; // Devolvemos la respuesta sin validaciones adicionales
   } catch (error) {
     console.error('Search Error:', error);
     throw error;
   }
 };
+

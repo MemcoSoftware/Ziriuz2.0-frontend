@@ -47,7 +47,7 @@
     will-change: top;
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(to right, #00dbde 40%, #008afcb9 100%);
+    background-image: linear-gradient(to right, #00dbde 30%, #008afcb9 100%);
     filter: blur(30px);
     transform: scale(1.2);
     transition: 0.5s;

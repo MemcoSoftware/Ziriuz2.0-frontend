@@ -42,11 +42,9 @@ export const UserDetailPage = () => {
 
   const handleDeleteSuccess = () => {
     // Implementa lógica aquí después de la eliminación exitosa
-    // Por ejemplo, redireccionar o mostrar un mensaje
     console.log('Usuario eliminado exitosamente');
-    window.alert('Usuario Eliminado satisfactoriamente');
     navigate('/users');
-    // Puedes redirigir al usuario a otra página o realizar otra acción aquí
+    window.alert('Usuario Eliminado satisfactoriamente');
   };
 
   return (

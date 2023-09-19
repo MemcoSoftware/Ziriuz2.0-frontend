@@ -23,7 +23,7 @@ const DashboardMenuCentral = () => {
                       <nav className="DashboardMenuCentral-nav">
                     
                           <ul className="DashboardMenuCentral-nav-ul">
-                          <h1> Generales</h1>
+                          <h1 className='DashboardMenuCentral-title'> Generales</h1>
                               <button className="DashboardMenuCentral-button" onClick={() => navigate('/users')}>
                               <li>
                                   <div className="DashboardMenuCentral-nav-icon">

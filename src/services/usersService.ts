@@ -79,3 +79,26 @@ export const searchUsersByKeyword = async (token: string, keyword: string) => {
     throw error;
   }
 };
+
+export const deleteUserById = (token: string, id: string) => {
+  const options: AxiosRequestConfig = {
+    headers: {
+      'x-access-token': token,
+    },
+    params: {
+      id,
+    },
+  };
+
+  return axios
+    .delete('/users/', options)
+    .catch((error) => {
+      if (error.response) {
+        const { status } = error.response;
+        if (status === 500) {
+          window.location.href = '/login';
+        }
+      }
+      throw error;
+    });
+};

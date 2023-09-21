@@ -8,6 +8,7 @@ import './styles/UsersPages.css';
 import DefaultUserImg from './img/defaultUserImg.png';
 import UserCard from '../components/users/UserCard';
 import SearchUsers from '../components/searchTools/SearchUsers';
+import RegisterButtonRedirect from '../components/users/RegisterButtonRedirect';
 
 export const UsersPages = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -49,6 +50,7 @@ export const UsersPages = () => {
         showSearchResults={showSearchResults} // Pasa el estado a SearchUsers
         setShowSearchResults={setShowSearchResults} // Pasa la función para cambiar el estado
       />
+      <RegisterButtonRedirect />
       <div className='UserPages-Container-Card'>
         {showSearchResults ? ( // Muestra los resultados de búsqueda si showSearchResults es true
           <p></p>
@@ -59,14 +61,6 @@ export const UsersPages = () => {
         )}
       </div>
 
-      <button
-        className='RegisterUser-button-redirect'
-        type='submit'
-        value='register'
-        onClick={() => navigate('/register')}
-      >
-        Crear nuevo Usuario
-      </button>
     </div>
   );
 };

@@ -28,7 +28,6 @@ export const UsersPages = () => {
             response.data.totalPages &&
             response.data.currentPage
           ) {
-            console.table(response.data);
             let { users, totalPages, currentPage } = response.data;
             setUsers({ list: users, totalPages, currentPage });
           } else {

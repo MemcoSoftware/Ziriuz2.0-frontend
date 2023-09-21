@@ -52,6 +52,8 @@ const LogInForm: React.FC = () => {
                 if (response.status === 200) {
                   if (response.data.token) {
                     await sessionStorage.setItem('sessionJWTToken', response.data.token);
+                     // Almacena el rol en el sessionStorage
+                    await sessionStorage.setItem('userRoles', JSON.stringify([response.data.roleName]));
                     navigate('/');
                   } else {
                     throw new Error('Error generating Login token');

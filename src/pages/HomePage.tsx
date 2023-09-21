@@ -5,10 +5,11 @@ import { Dashboard } from '../components/dashboard/Dashboard';
 
 export const HomePage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
+  const userRoles = useSessionStorage('userRoles');
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loggedIn) {
+    if (!loggedIn && !userRoles) {
       navigate('/login');
     }
   }, [loggedIn, navigate]);

@@ -102,3 +102,21 @@ export const deleteUserById = (token: string, id: string) => {
       throw error;
     });
 };
+
+
+export const editUserById = (token: string, id: string, userData: any) => {
+  const options: AxiosRequestConfig = {
+    headers: {
+      'x-access-token': token,
+    },
+  };
+
+  return axios
+    .put(`/users?id=${id}`, userData, options)
+    .catch((error) => {
+      if (error.response) {
+        window.location.href = '/login';
+      }
+      throw error;
+    });
+};

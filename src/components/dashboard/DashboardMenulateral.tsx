@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './styles/lateralmenudashboard.css';
 import LogMemco from "./img/Memcotech.png";
 import LogoSmall from "./img/Log.png";
 import { useNavigate } from "react-router-dom";
 
+import { useSessionStorage } from "../../hooks/useSessionStorage";
+
+
+
 const DashboardMenuLateral = () => {
   const navigate = useNavigate();
+  const userId = useSessionStorage('userId');
 
-  const logout = () => {
+  const handleUserProfileClick = () => {
+    if (userId) {
+      navigate(`/users/${userId}`);
+    }
+  }
+
+   const logout = () => {
     sessionStorage.removeItem('sessionJWTToken');
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('userRoles');
     navigate('/login');
   };
+
+
+
   return (
     <div>
       <nav className="DashboardMenuLateral-main-menu">
@@ -32,13 +48,15 @@ const DashboardMenuLateral = () => {
         </li>
 
         <li>
-          <a href="#">
+          <a onClick={handleUserProfileClick} 
+          href="#">
             <i className="DashboardMenuLateral-icon">
               <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor"  viewBox="0 0 16 16">
                   <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
               </svg>
             </i>
-            <span className="DashboardMenuLateral-nav-text"> Pefil</span>
+            <span 
+            className="DashboardMenuLateral-nav-text"> Mi Pefil</span>
           </a>
         </li>
 

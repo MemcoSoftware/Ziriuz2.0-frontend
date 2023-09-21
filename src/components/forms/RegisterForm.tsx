@@ -9,6 +9,7 @@ import { AxiosResponse } from 'axios';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
 import './styles/RegisterForm.css'
+import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 
 
 
@@ -16,6 +17,7 @@ import './styles/RegisterForm.css'
 
 const RegisterUserForm = ()=>{
     const loggedIn = useSessionStorage('sessionJWTToken');
+    const isAdmin = useUserRoleVerifier(['administrador']);
     const navigate = useNavigate();
 
     const initialValues = {
@@ -29,7 +31,14 @@ const RegisterUserForm = ()=>{
         more_info: '',
         roles: ''
     }
-
+    if (!isAdmin){
+        return(
+            <div>
+                <p>No puedes hacer esto</p>
+            </div>
+        ) 
+        ;
+    }
     // Schema Validation with Yup
     const registerUserSchema = Yup.object().shape(
         {

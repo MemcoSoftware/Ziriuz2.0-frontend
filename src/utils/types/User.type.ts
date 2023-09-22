@@ -8,6 +8,9 @@ export type User = {
     telefono: string;
     email: string;
     more_info: string;
-    roles: Array<{ _id: string; name: string }>; // Agregar el campo roles con su estructura
+    roles: Array<{ _id: string; name: string }>;
+    type: string;
+    titulo: string;
+    reg_invima: string
   };
   

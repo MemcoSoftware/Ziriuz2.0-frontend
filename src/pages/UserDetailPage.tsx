@@ -105,6 +105,19 @@ export const UserDetailPage = () => {
                         <div className="usercard-subtitle">Email</div>
                         <p className="usercard-desc">{user.email}</p>
                       </div>
+                      {/* Renderizar campos adicionales si el rol es "tecnico" */}
+                      {user.roles.some((role: any) => role.name === 'tecnico') && (
+                          <div className='usercard-content-3'>
+                            <div className="usercard-subtitle">Tipo</div>
+                            <p className="usercard-desc">{user.type}</p>
+                            <br />
+                            <div className="usercard-subtitle">Título</div>
+                            <p className="usercard-desc">{user.titulo}</p>
+                            <br />
+                            <div className="usercard-subtitle">Registro INVIMA</div>
+                            <p className="usercard-desc">{user.reg_invima}</p>
+                          </div>
+                        )}
                     </div>
                   )}
                 </div>

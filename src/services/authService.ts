@@ -32,34 +32,62 @@ export const login = (username: string, password: string)=>{
  * @param {string} more_info to register
  */
 
-export const register = (number: number, username: string, password: string, name: string, cedula: number, telefono: string, email: string, more_info: string, roles: { name: string }[]) => {
-  // Declare Body to POST
-  let body = {
-      number: number,
-      username: username,
-      password: password,
-      name: name,
-      cedula: cedula,
-      telefono: telefono,
-      email: email,
-      more_info: more_info,
-      roles: roles
+export const register = (
+  number: number,
+  username: string,
+  password: string,
+  name: string,
+  cedula: number,
+  telefono: string,
+  email: string,
+  more_info: string,
+  roles: { name: string }[],
+  type?: string, // Campo opcional: type
+  titulo?: string, // Campo opcional: titulo
+  reg_invima?: string // Campo opcional: reg_invima
+) => {
+  // Declarar un tipo explícito para additionalFields
+  const additionalFields: Record<string, string> = {};
+
+  if (type) {
+    additionalFields.type = type;
   }
-  
-  // Send POST request to register endpoint
-  return axios.post('/auth/register', body)
-      .catch(error => {
-          if (error.response) {
-              const { status } = error.response;
-              if (status === 500) {
-                  // Token inválido o expirado
-                  // Redirigir al usuario a la página de inicio de sesión (/login)
-                  window.location.href = '/login';
-              }
-          }
-          throw error;
-      });
-}
+  if (titulo) {
+    additionalFields.titulo = titulo;
+  }
+  if (reg_invima) {
+    additionalFields.reg_invima = reg_invima;
+  }
+
+  // Combinar los campos adicionales con el resto de la solicitud
+  const body = {
+    number: number,
+    username: username,
+    password: password,
+    name: name,
+    cedula: cedula,
+    telefono: telefono,
+    email: email,
+    more_info: more_info,
+    roles: roles,
+    ...additionalFields, // Agregar los campos adicionales al objeto body
+  };
+
+  // Enviar POST request al endpoint de registro
+  return axios.post('/auth/register', body).catch((error) => {
+    if (error.response) {
+      const { status } = error.response;
+      if (status === 500) {
+        // Token inválido o expirado
+        // Redirigir al usuario a la página de inicio de sesión (/login)
+        window.location.href = '/login';
+      }
+    }
+    throw error;
+  });
+};
+
+
 
 export const forgotPassword = (email: string) => {
 

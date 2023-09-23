@@ -18,6 +18,7 @@ import UpdatePasswordPage from '../pages/UpdatePasswordPage';
 import PassUpdateSuccessfullPage from '../pages/PassUpdateSuccessfullPage';
 import RegisterSuccessPage from '../pages/RegisterSuccessPage';
 import SearchUsersResults from '../components/searchTools/SearchUsersResults';
+import { SedesPages } from '../pages/SedesPages';
 
 
 export const AppRoutes = ()=>{
@@ -38,6 +39,10 @@ export const AppRoutes = ()=>{
           <Route path="/pass-update-successfull" element={<PassUpdateSuccessfullPage/>}></Route>
           <Route path="/user-registered-successfull" element={<RegisterSuccessPage/>}></Route>
           <Route path="/searchUsers" element={<SearchUsersResults users={[]} />} />
+
+          {/* HERE THE ROUTES FOR SEDES */}
+          <Route path="/sedes" element={<SedesPages />} />
+
           {/* Redirect when Page is Not Found */}
           <Route
           path='*'

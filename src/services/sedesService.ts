@@ -39,7 +39,7 @@ export const getSedeById = (token: string, id: string) => {
   };
 
   return axios
-    .get(`/sedes?id=${id}`, options)
+    .get(`/sedes/`, options)
     .catch((error) => handleCommonErrors(error));
 };
 

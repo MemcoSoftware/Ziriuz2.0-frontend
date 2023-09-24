@@ -1,57 +1,72 @@
 import React, { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
-import { searchSedesByKeyword } from '../../services/sedesService'; // Asegúrate de importar la función adecuada
+import { searchSedesByKeyword } from '../../services/sedesService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+import './styles/SearchSedes.css'; // Añade la importación de estilos
+import SedeCard from '../sedes/SedeCard'; // Importa el componente SedeCard
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router-dom';
 
 interface SearchSedesProps {
   showSearchResults: boolean;
-  setShowSearchResults: (value: boolean) => void;
+  setShowSearchResults: (show: boolean) => void;
 }
 
 const SearchSedes: React.FC<SearchSedesProps> = ({ showSearchResults, setShowSearchResults }) => {
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [searchResults, setSearchResults] = useState<any[]>([]); // Especifica el tipo de searchResults
+  const [searchResults, setSearchResults] = useState<any[]>([]);
   const loggedIn = useSessionStorage('sessionJWTToken');
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (showSearchResults && searchKeyword) {
-      // Realiza la búsqueda solo si showSearchResults es true y hay una palabra clave
-      searchSedesByKeyword(loggedIn, searchKeyword) // Corrige el nombre de la función
-        .then((response: AxiosResponse) => {
-          if (response.status === 200 && response.data) {
-            setSearchResults(response.data); // Actualiza los resultados de la búsqueda
-          }
-        })
-        .catch((error: any) => console.error(`[SEARCH SEDES ERROR] ${error}`));
-    } else {
-      setSearchResults([]); // Borra los resultados si no se está realizando una búsqueda
+  const handleSearch = async () => {
+    try {
+      const results = await searchSedesByKeyword(loggedIn, searchKeyword);
+      setSearchResults(results);
+      setShowSearchResults(true);
+    } catch (error) {
+      console.error(error);
     }
-  }, [showSearchResults, searchKeyword, loggedIn]);
+  };
+
+  const navigateToSedeDetail = (id: string) => {
+    navigate(`/sede/${id}`);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSearch();
+  };
 
   return (
     <div>
-      <h2>Buscar Sedes:</h2>
-      <input
-        type="text"
-        placeholder="Palabra clave"
-        value={searchKeyword}
-        onChange={(e) => setSearchKeyword(e.target.value)}
-      />
-      <button onClick={() => setShowSearchResults(true)}>Buscar</button>
-      {showSearchResults && (
-        <div>
-          {searchResults.length === 0 ? (
-            <p>No se encontraron resultados de búsqueda.</p>
-          ) : (
-            <ul>
-              {searchResults.map((sede: { _id: string; sede_nombre: string }) => (
-                <li key={sede._id}>{sede.sede_nombre}</li>
-                // Puedes renderizar otros campos de la sede si son necesarios
-              ))}
-            </ul>
-          )}
+      <div className='SearchSede-section'>
+        <div className='SearchSede-section-container'>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="SEARCH..."
+              className='SearchSede-input'
+              value={searchKeyword}
+              onChange={(e) => setSearchKeyword(e.target.value)}
+            />
+            <IconButton className='SearchSede-IconButton' type="submit" aria-label="search">
+              <SearchIcon className='SearchSede-icon-search'/>
+            </IconButton>
+          </form>
         </div>
-      )}
+      </div>
+      <div>
+        {showSearchResults ? (
+          <div className='SedesPages-Container-Card'>
+            {searchResults.map((sede) => (
+              <SedeCard key={sede._id} sede={sede} onClick={() => navigateToSedeDetail(sede._id)} />
+            ))}
+          </div>
+        ) : (
+          <p></p>
+        )}
+      </div>
     </div>
   );
 };

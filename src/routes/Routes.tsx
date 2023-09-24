@@ -19,6 +19,7 @@ import PassUpdateSuccessfullPage from '../pages/PassUpdateSuccessfullPage';
 import RegisterSuccessPage from '../pages/RegisterSuccessPage';
 import SearchUsersResults from '../components/searchTools/SearchUsersResults';
 import { SedesPages } from '../pages/SedesPages';
+import SedeDetailPage from '../pages/SedeDetailPage';
 
 
 export const AppRoutes = ()=>{
@@ -42,6 +43,7 @@ export const AppRoutes = ()=>{
 
           {/* HERE THE ROUTES FOR SEDES */}
           <Route path="/sedes" element={<SedesPages />} />
+          <Route path="/sedes/:id" element={<SedeDetailPage />} />
 
           {/* Redirect when Page is Not Found */}
           <Route

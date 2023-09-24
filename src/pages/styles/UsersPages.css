@@ -2,7 +2,6 @@
 :root {
   --surface-color: #ffffff;
   --curve: 20;
-  --black-color:#00ddfa;
   --text-color:#a0a0a0;
 }
 
@@ -95,7 +94,7 @@
   .UsersPages-card-title{
 	font-size:1em;
 	margin:0 0 0.3em;
-	color:var(--black-color);
+	color : #00ddfa
   }
   .UsersPages-card-status{
 	font-size:0.8em;

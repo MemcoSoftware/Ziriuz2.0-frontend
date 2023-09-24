@@ -37,7 +37,7 @@ const DashboardMenuCentral = () => {
                                   </div>
                               </li>
                               </button>
-                              <button className="DashboardMenuCentral-button">
+                              <button className="DashboardMenuCentral-button" onClick={() => navigate('/sedes')}>
                               <li>
                                   <div className="DashboardMenuCentral-nav-icon">
                                       <i className='DashboardMenuCentral-nav-icon-i'> 

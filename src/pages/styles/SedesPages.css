@@ -2,11 +2,10 @@
 :root {
   --surface-color: #ffffff;
   --curve: 20;
-  --black-color: #00ddfa;
   --text-color: #a0a0a0;
 }
 
-.SedesPages-Container-Card {
+.SedesPages-cards-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -25,7 +24,7 @@
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background-image: linear-gradient(to top, #09203f 0%, #959153 100%);
 }
 
 .SedesPages-card-UserImage {
@@ -97,7 +96,7 @@
 .SedesPages-card-title {
   font-size: 1em;
   margin: 0 0 0.3em;
-  color: var(--black-color);
+  color: #fac000;
 }
 
 .SedesPages-card-status {

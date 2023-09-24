@@ -36,6 +36,9 @@ export const getSedeById = (token: string, id: string) => {
     headers: {
       'x-access-token': token,
     },
+    params: {
+      id,
+    }
   };
 
   return axios

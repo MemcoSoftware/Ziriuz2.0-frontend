@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
+import CreateSedeForm from '../components/sedes/forms/CreateSedeForm';
+import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import { useSessionStorage } from '../hooks/useSessionStorage';
-import { Dashboard } from '../components/dashboard/Dashboard';
 import { logoutService } from '../services/authService';
 
-export const HomePage = () => {
+const CreateSedePage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
-  
 
   useEffect(() => {
     if (!loggedIn) {
@@ -15,8 +15,10 @@ export const HomePage = () => {
 
   return (
     <div>
-      <Dashboard />
-      {/* Resto del contenido del HomePage */}
+      <DashboardMenuLateral />
+      <CreateSedeForm />
     </div>
   );
 };
+
+export default CreateSedePage;

@@ -1,3 +1,4 @@
+
 import axios from '../utils/config/axios.config';
 
 /***
@@ -18,6 +19,14 @@ export const login = (username: string, password: string)=>{
     // https://localhost:8080/api/auth/login
     return axios.post('/auth/login', body)
 }   
+
+export const logoutService = () =>{
+  sessionStorage.removeItem('sessionJWTToken');
+  sessionStorage.removeItem('userId');
+  sessionStorage.removeItem('userRoles');
+  window.location.href = '/login';
+  window.alert('La sesión ha expirado')
+}
 
 
 /***
@@ -118,3 +127,6 @@ export const validateOTP = (email: string, otp: string) => {
       }
     });
   };
+
+
+

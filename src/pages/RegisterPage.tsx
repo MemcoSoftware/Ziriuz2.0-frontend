@@ -5,6 +5,7 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import './styles/RegisterPage.css';
 import useUserRoleVerifier from '../hooks/useUserRoleVerifier';
+import { logoutService } from '../services/authService';
 
 export const RegisterPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -12,13 +13,10 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loggedIn && !isAdmin) {
-        
-      // Si no está loggedIn o no es admin, muestra el mensaje y redirige
-      window.alert('No puedes hacer esto');
-      navigate('/login');
+    if (!loggedIn ) {
+      logoutService(); 
     }
-  }, [loggedIn, isAdmin, navigate]);
+  }, [loggedIn]);
 
   return (
     <div>

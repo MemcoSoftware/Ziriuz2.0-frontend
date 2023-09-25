@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSessionStorage } from '../hooks/useSessionStorage';
-import { getAllSedes } from '../services/sedesService'; // Asegúrate de importar la función adecuada
+import { getAllSedes } from '../services/sedesService';
 import { AxiosResponse } from 'axios';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import './styles/SedesPages.css';
 import DefaultSedeImg from './img/defaultSedeImg.png';
-import SedeCard from '../components/sedes/SedeCard'; // Asegúrate de importar el componente adecuado
-import SearchSedes from '../components/searchTools/SearchSedes'; // Si necesitas una barra de búsqueda para las sedes
+import SedeCard from '../components/sedes/SedeCard';
+import SearchSedes from '../components/searchTools/SearchSedes';
+import { logoutService } from '../services/authService'; // Importa logoutService
 
 export const SedesPages = () => {
-  const loggedIn = useSessionStorage('sessionJWTToken');
   const navigate = useNavigate();
 
   const [sedes, setSedes] = useState({ list: [], totalPages: 1, currentPage: 1 });
   const [showSearchResults, setShowSearchResults] = useState(false);
 
   useEffect(() => {
+    const loggedIn = useSessionStorage('sessionJWTToken');
+
     if (!loggedIn) {
-      return navigate('/login');
+      logoutService();
     } else {
-      getAllSedes(loggedIn, 9, 1) // Asegúrate de utilizar la función correcta y los parámetros necesarios
+      getAllSedes(loggedIn, 9, 1)
         .then((response: AxiosResponse) => {
           if (
             response.status === 200 &&
@@ -36,7 +38,7 @@ export const SedesPages = () => {
         })
         .catch((error) => console.error(`[GET ALL SEDES ERROR] ${error}`));
     }
-  }, [loggedIn]);
+  }, []);
 
   const navigateToSedeDetail = (id: string) => {
     navigate(`/sedes/${id}`);

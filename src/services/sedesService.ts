@@ -10,6 +10,7 @@ const handleCommonErrors = (error: any) => {
       // Token inválido o expirado
       // Redirigir al usuario a la página de inicio de sesión (/login)
       window.location.href = '/login';
+      window.alert('Sesión expirada, vuelva a iniciar sesión')
     }
   }
   throw error;
@@ -55,7 +56,14 @@ export const createSede = (token: string, sedeData: any) => {
 
   return axios
     .post('/sedes', sedeData, options)
-    .catch((error) => handleCommonErrors(error));
+    .then((response) => {
+      // Retornar la respuesta en lugar de manejarla aquí
+      return response.data;
+    })
+    .catch((error) => {
+      handleCommonErrors(error);
+      throw error;
+    });
 };
 
 export const updateSedeById = (token: string, id: string, sedeData: any) => {
@@ -109,3 +117,4 @@ export const searchSedesByKeyword = (token: string, keyword: string) => {
         throw error;
       });
   };
+

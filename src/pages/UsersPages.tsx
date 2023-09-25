@@ -9,6 +9,9 @@ import DefaultUserImg from './img/defaultUserImg.png';
 import UserCard from '../components/users/UserCard';
 import SearchUsers from '../components/searchTools/SearchUsers';
 import RegisterButtonRedirect from '../components/users/RegisterButtonRedirect';
+import { logoutService } from '../services/authService';
+
+
 
 export const UsersPages = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -17,9 +20,11 @@ export const UsersPages = () => {
   const [users, setUsers] = useState({ list: [], totalPages: 1, currentPage: 1 });
   const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
 
+
+  
   useEffect(() => {
     if (!loggedIn) {
-      return navigate('/login');
+      return logoutService();
     } else {
       getAllUsers(loggedIn, 9, 1)
         .then((response: AxiosResponse) => {

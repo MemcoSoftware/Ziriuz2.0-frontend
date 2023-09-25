@@ -20,6 +20,8 @@ import RegisterSuccessPage from '../pages/RegisterSuccessPage';
 import SearchUsersResults from '../components/searchTools/SearchUsersResults';
 import { SedesPages } from '../pages/SedesPages';
 import SedeDetailPage from '../pages/SedeDetailPage';
+import CreateSedePage from '../pages/CreateSedePage';
+import UnauthorizedPage from '../pages/UnauthorizedPage';
 
 
 export const AppRoutes = ()=>{
@@ -44,13 +46,18 @@ export const AppRoutes = ()=>{
           {/* HERE THE ROUTES FOR SEDES */}
           <Route path="/sedes" element={<SedesPages />} />
           <Route path="/sedes/:id" element={<SedeDetailPage />} />
+          <Route path="/create-sede" element={<CreateSedePage />}/>
+
+          {/* Unauthorized Page */}
+          {/* <Route path="/unauthorized" element={<UnauthorizedPage />}/> */}
 
           {/* Redirect when Page is Not Found */}
           <Route
           path='*'
           element={<Navigate to='/login' replace/>}
           >
-            
+
+
           </Route>
         </Routes> 
     )

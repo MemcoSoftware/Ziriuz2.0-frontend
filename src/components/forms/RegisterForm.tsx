@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import * as Yup from 'yup'; 
 
-import { register } from '../../services/authService';
+import { logoutService, register } from '../../services/authService';
 import { AxiosResponse } from 'axios';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
@@ -84,7 +84,7 @@ const RegisterUserForm = ()=>{
                     onSubmit={async (values) => {
                         console.log("Submitting form: ", values);
                         if (!loggedIn) {
-                            navigate('/login');
+                            logoutService();
                             return;
                         }
     

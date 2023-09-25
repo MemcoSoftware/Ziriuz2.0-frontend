@@ -7,15 +7,18 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import DashboardMenuLateral from '../components/dashboard/DashboardMenulateral';
 import './styles/SedeDetailPage.css';
 import DeleteSedeButton from '../components/sedes/DeleteSedeButton';
-import EditSedeButton from '../components/sedes/EditSedeButton'; // Importa el componente EditSedeButton
+import EditSedeButton from '../components/sedes/EditSedeButton'; 
 import { Sede } from '../utils/types/Sede.type';
+import { logoutService } from '../services/authService'; 
+import useUserRoleVerifier from '../hooks/useUserRoleVerifier';
 
 const SedeDetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
   const [sede, setSede] = useState<any>({});
-  const [isEditing, setIsEditing] = useState(false); // Nuevo estado para controlar la edición
+  const [isEditing, setIsEditing] = useState(false); 
+  const isAdmin = useUserRoleVerifier(['administrador']);
 
   useEffect(() => {
     // Verifica si id tiene un valor antes de llamar a getSedeById
@@ -49,6 +52,14 @@ const SedeDetailPage = () => {
     setIsEditing(false);
     setSede(editedSede);
   };
+
+  useEffect(() => {
+    const loggedIn = useSessionStorage('sessionJWTToken');
+
+    if (!loggedIn) {
+      logoutService(); // Utiliza la función de logoutService para manejar el cierre de sesión
+    }
+  }, []);
 
   return (
     <div>
@@ -92,22 +103,22 @@ const SedeDetailPage = () => {
                   </div>
                 )}
               </div>
-          {isEditing ? null : (
-        <div className="sedeDetail-buttons">
-            <>
-              <button
-                className="sedeDetail-button"
-                data-section="#experience"
-                onClick={handleEditClick}
-                >
-                Editar
-              </button>
-            </>
+              {isAdmin && !isEditing && (
+                <div className="sedeDetail-buttons">
+                  <>
+                    <button
+                      className="sedeDetail-button"
+                      data-section="#experience"
+                      onClick={handleEditClick}
+                    >
+                      Editar
+                    </button>
+                  </>
+                </div>
+              )}
+            </div>
+          </section>
         </div>
-        )}
-          </div>
-        </section>
-      </div>
         <div className='sedeDetail-delete-button'>
           <DeleteSedeButton sedeId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
         </div>

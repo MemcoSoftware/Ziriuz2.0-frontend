@@ -9,6 +9,7 @@ import DefaultSedeImg from './img/defaultSedeImg.png';
 import SedeCard from '../components/sedes/SedeCard';
 import SearchSedes from '../components/searchTools/SearchSedes';
 import { logoutService } from '../services/authService'; // Importa logoutService
+import CreateSedeButtonRedirect from '../components/sedes/CreateSedeButtonRedirect';
 
 export const SedesPages = () => {
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ export const SedesPages = () => {
         showSearchResults={showSearchResults}
         setShowSearchResults={setShowSearchResults}
       />
+      <CreateSedeButtonRedirect />
       <div className='SedesPages-Container-Card'>
         {showSearchResults ? (
           <p></p>

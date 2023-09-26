@@ -1,4 +1,4 @@
-.RegisterUser-button-redirec-container{
+.CreateSede-button-redirect-container{
     justify-content: start;
     position: absolute;
     left: 1150px;
@@ -6,7 +6,7 @@
 }
 
 
-.RegisterUser-button-redirect{
+.CreateSede-button-redirect{
     top: -95px;
     border-radius: 150px;
     color:#00ddfa;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import './styles/RegisterButtonRedirect.css'; 
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 const RegisterButtonRedirect: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const isAdmin = useUserRoleVerifier(['administrador']);
@@ -21,7 +22,7 @@ const RegisterButtonRedirect: React.FC = () => {
             type='button' // Usamos type='button' en lugar de type='submit' para evitar envíos de formulario
             onClick={handleRedirect}
           >
-            Crear nuevo Usuario
+            <PersonAddIcon />
           </button>
       </div>
     );

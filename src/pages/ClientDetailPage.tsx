@@ -66,7 +66,7 @@ export const ClientDetailPage = () => {
                     height="80px"
                   />
                   <h2 className="clientcard-fullname">{client.client_name}</h2>
-                  <div className="clientcard-nit">RUC: {client.client_nit}</div>
+                  <div className="clientcard-nit">NIT: {client.client_nit}</div>
                 </div>
                 <div className="clientcard-main">
                   <EditClientButton

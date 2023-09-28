@@ -1,0 +1,17 @@
+.CreateClient-button-redirect-container{
+    justify-content: start;
+    position: absolute;
+    left: 1150px;
+    top: 25px;
+}
+
+
+.CreateClient-button-redirect{
+    top: -95px;
+    border-radius: 150px;
+    color:#00ddfa;
+    background-color: rgba(32, 32, 32,0.6);
+    padding: 5px;
+    height: 55px ;
+    width:55px ;
+}

@@ -24,6 +24,7 @@ import CreateSedePage from '../pages/CreateSedePage';
 import UnauthorizedPage from '../pages/UnauthorizedPage';
 import { ClientsPages } from '../pages/ClientsPages';
 import { ClientDetailPage } from '../pages/ClientDetailPage';
+import CreateClientPage from '../pages/CreateClientPage';
 
 
 export const AppRoutes = ()=>{
@@ -53,6 +54,7 @@ export const AppRoutes = ()=>{
           {/* HERE THE ROUTES FOR CLIENTS */}
           <Route path="/clientes" element={<ClientsPages />} />
           <Route path="/clientes/:id" element={<ClientDetailPage />} />
+          <Route path="/crear-cliente" element={<CreateClientPage />} />
           
 
 

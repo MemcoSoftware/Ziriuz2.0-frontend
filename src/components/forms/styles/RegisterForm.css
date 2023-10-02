@@ -3,10 +3,12 @@
 
 .RegisterForm-box
 {
+    padding: 20px;
+    margin: 10px;
     position: relative;
-    width: 700px;
-    height: 700px;
-    background: #1c1c1c;
+    width: 900px;
+    height: 750px;
+    background: #1c1c1c30;
     border-radius: 8px;
    
 }
@@ -14,12 +16,13 @@
 
 .RegisterForm-form
 {
-    position: absolute;
-    inset: 2px;
+    position: relative;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     background: #28292d;
     z-index: 10;
-    padding: 50px 40px;
+    padding: 10px 30px 0px 65px;
     display: flex;
     flex-direction: row;  
     flex-wrap: wrap; 
@@ -30,8 +33,8 @@
 .RegisterForm-form h2
 {   height: 25px;
     width:100% ;
-    padding: 20px;
-    margin: 40px;
+    padding: 10px;
+    margin: 10px;
     color:#00ddfa;
     font-weight: 500;
     text-align: center;
@@ -134,13 +137,15 @@
     border: none;
     outline: none;
     background: #00ddfa;
-    padding: 11px 25px;
+    padding: 11px 55px;
     height: 50px;
     width: 200px;
-    margin-top: 10px;
+    top: -20px;
     border-radius: 4px;
     font-weight: 600;
     cursor: pointer;
+    left: -250px;
+    position: relative;
 }
 
 .RegisterForm-button[type="submit"]:active
@@ -151,13 +156,14 @@
 
 
 .Columna-1{
-    height: 450px;
+    top: -10px; ;
+    height: 500px;
     float: left;
     width: 50%;
 }
 
 .Columna-2{
-    height: 450px;
+    height: 500px;
     float: right;
     width: 50%;
 }

@@ -24,7 +24,7 @@
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
-  background-image: linear-gradient(to top, #09203f 0%, #959153 100%);
+  background-image: linear-gradient(to top, #acaf00 0%, #959153 100%);
 }
 
 .SedesPages-card-UserImage {

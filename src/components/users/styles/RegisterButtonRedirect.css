@@ -1,8 +1,9 @@
 .RegisterUser-button-redirec-container{
-    justify-content: start;
-    position: absolute;
+    
+    position: relative;
     left: 1150px;
-    top: 25px;
+    top: -50px;
+    overflow: hidden;
 }
 
 

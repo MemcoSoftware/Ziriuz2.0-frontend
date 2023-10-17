@@ -6,7 +6,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import { BrowserRouter as Router} from 'react-router-dom';
 import { AppRoutes } from './routes/Routes';
-import { Copyright } from './components/dashboard/CopyRight';
 
 
 
@@ -32,7 +31,6 @@ function App() {
           </Router>
       </div>
           
-          {/* <Copyright /> */}
      </div>
     
   );

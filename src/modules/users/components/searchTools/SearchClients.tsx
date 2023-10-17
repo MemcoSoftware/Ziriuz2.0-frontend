@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { searchClientByKeyword } from '../../services/clientsService';
-import ClientCard from '../clients/ClientCard'; // Asegúrate de importar el componente de tarjeta de cliente correcto
+import ClientCard from '../clients/ClientCard'; 
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import './styles/SearchClients.css';
 import IconButton from '@mui/material/IconButton';

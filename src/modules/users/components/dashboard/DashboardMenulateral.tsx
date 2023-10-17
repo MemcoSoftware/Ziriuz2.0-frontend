@@ -39,7 +39,7 @@ const DashboardMenuLateral = () => {
             </div>
         <br />
         <li>
-          <a href="#"  onClick={() => navigate('/')}>
+          <a href="#"  onClick={() => navigate('/home')}>
             <i className="DashboardMenuLateral-icon" >
               <HomeIcon/>
             </i>

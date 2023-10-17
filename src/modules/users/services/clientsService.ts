@@ -1,6 +1,6 @@
 import  { AxiosRequestConfig } from 'axios';
 import { AxiosResponse, AxiosError } from 'axios';
-import axios from '../utils/config/axios.config'; // Importamos nuestra instancia de Axios configurada
+import axios from '../../../utils/config/axios.config'; // Importamos nuestra instancia de Axios configurada
 
 export const getAllClients = (token: string, limit?: number, page?: number) => {
   const options: AxiosRequestConfig = {

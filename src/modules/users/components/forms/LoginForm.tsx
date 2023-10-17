@@ -56,7 +56,7 @@ const LogInForm: React.FC = () => {
                     await sessionStorage.setItem('userRoles', JSON.stringify([response.data.roleName]));
                       // Almacena el userId en el sessionStorage
                     await sessionStorage.setItem('userId', response.data.userId);
-                    navigate('/');
+                    navigate('/home');
                   } else {
                     throw new Error('Error generating Login token');
                   }

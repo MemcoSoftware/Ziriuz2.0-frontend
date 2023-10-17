@@ -7,24 +7,24 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link} from 'react-router-dom';
 
 
-import { LoginPage } from '../../src/pages/LoginPage';
-import { RegisterPage } from '../../src/pages/RegisterPage';
-import { HomePage } from '../../src/pages/HomePage';
-import { UsersPages } from '../../src/pages/UsersPages';
-import { UserDetailPage } from '../../src/pages/UserDetailPage';
-import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
-import { OTPValidationPage } from '../pages/OTPValidationPage';
-import UpdatePasswordPage from '../pages/UpdatePasswordPage';
-import PassUpdateSuccessfullPage from '../pages/PassUpdateSuccessfullPage';
-import RegisterSuccessPage from '../pages/RegisterSuccessPage';
-import SearchUsersResults from '../components/searchTools/SearchUsersResults';
-import { SedesPages } from '../pages/SedesPages';
-import SedeDetailPage from '../pages/SedeDetailPage';
-import CreateSedePage from '../pages/CreateSedePage';
-import UnauthorizedPage from '../pages/UnauthorizedPage';
-import { ClientsPages } from '../pages/ClientsPages';
-import { ClientDetailPage } from '../pages/ClientDetailPage';
-import CreateClientPage from '../pages/CreateClientPage';
+import { LoginPage } from '../modules/users/pages/LoginPage';
+import { RegisterPage } from '../modules/users/pages/RegisterPage';
+import { HomePage } from '../modules/users/pages/HomePage';
+import { UsersPages } from '../modules/users/pages/UsersPages';
+import { UserDetailPage } from '../modules/users/pages/UserDetailPage';
+import { ForgotPasswordPage } from '../modules/users/pages/ForgotPasswordPage';
+import { OTPValidationPage } from '../modules/users/pages/OTPValidationPage';
+import UpdatePasswordPage from '../modules/users/pages/UpdatePasswordPage';
+import PassUpdateSuccessfullPage from '../modules/users/pages/PassUpdateSuccessfullPage';
+import RegisterSuccessPage from '../modules/users/pages/RegisterSuccessPage';
+import SearchUsersResults from '../modules/users/components/searchTools/SearchUsersResults';
+import { SedesPages } from '../modules/users/pages/SedesPages';
+import SedeDetailPage from '../modules/users/pages/SedeDetailPage';
+import CreateSedePage from '../modules/users/pages/CreateSedePage';
+import UnauthorizedPage from '../modules/users/pages/UnauthorizedPage';
+import { ClientsPages } from '../modules/users/pages/ClientsPages';
+import { ClientDetailPage } from '../modules/users/pages/ClientDetailPage';
+import CreateClientPage from '../modules/users/pages/CreateClientPage';
 
 
 export const AppRoutes = ()=>{
@@ -34,7 +34,7 @@ export const AppRoutes = ()=>{
     return (
         <Routes>
           {/* Routes Definition */}
-          <Route path="/" element={<HomePage />} ></Route>
+          <Route path="/home" element={<HomePage />} ></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />} ></Route>
           <Route path="/users" element={<UsersPages />}></Route>

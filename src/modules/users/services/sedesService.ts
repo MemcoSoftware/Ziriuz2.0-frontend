@@ -1,5 +1,5 @@
 import react from 'react';
-import axios from '../utils/config/axios.config';
+import axios from '../../../utils/config/axios.config';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { AxiosError } from 'axios';
 // Función para manejar errores comunes

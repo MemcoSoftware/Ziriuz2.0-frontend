@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
 import { searchSedesByKeyword } from '../../services/sedesService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-import './styles/SearchSedes.css'; // Añade la importación de estilos
-import SedeCard from '../sedes/SedeCard'; // Importa el componente SedeCard
+import './styles/SearchSedes.css'; 
+import SedeCard from '../sedes/SedeCard'; 
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';

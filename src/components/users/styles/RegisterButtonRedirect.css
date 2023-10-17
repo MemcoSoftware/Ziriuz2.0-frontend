@@ -16,3 +16,44 @@
     height: 55px ;
     width:55px ;
 }
+
+@media screen and (min-device-width: 412px) and (max-device-width: 914px) {
+    .RegisterUser-button-redirec-container{
+    
+        position: relative;
+        left: 280px;
+        top: -50px;
+        overflow: hidden;
+    }
+    .RegisterUser-button-redirect{
+        top: -95px;
+        border-radius: 150px;
+        color:#00ddfa;
+        background-color: rgba(32, 32, 32,0.6);
+        padding: 5px;
+        height: 55px ;
+        width:55px ;
+    }
+  
+    
+  }
+
+  @media screen and (min-device-width: 820px) and (max-device-width: 1180px) {
+    .RegisterUser-button-redirec-container{
+    
+        position: relative;
+        left: 480px;
+        top: -50px;
+        overflow: hidden;
+    }
+    .RegisterUser-button-redirect{
+        top: -95px;
+        border-radius: 150px;
+        color:#00ddfa;
+        background-color: rgba(32, 32, 32,0.6);
+        padding: 5px;
+        height: 55px ;
+        width:55px ;
+    }
+  }
+  

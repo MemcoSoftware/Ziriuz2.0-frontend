@@ -201,3 +201,106 @@
 
     
   }
+
+  /***********************************************/
+
+  
+@media screen and (min-device-width: 412px) and (max-device-width: 914px) {
+  .usercard {
+    width: 320px;
+    height: 500px;
+    margin: auto;
+    top:-50px;
+    left: 25px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    transition: 0.3s;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+  
+
+  
+}
+
+
+
+@media screen and (min-device-width: 600px) and (max-device-width: 845px){
+ 
+  .usercard {
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    transition: 0.3s;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+}
+@media screen and (min-device-width: 820px) and (max-device-width: 1180px) {
+ 
+  .usercard {
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    transition: 0.3s;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media screen and (min-device-width: 1920px) and (max-device-width: 1080px) {
+
+  .usercard {
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    transition: 0.3s;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media screen and  (min-device-width: 1920px) and (max-device-width: 1200px) {
+ 
+  .usercard {
+    width: 360px;
+    height: 500px;
+    margin: auto;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    transition: 0.3s;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+}

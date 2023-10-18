@@ -10,11 +10,12 @@ import { AppRoutes } from './routes/Routes';
 
 
 
+
 function App() {
   return (
     <div>
-      <div className="App-container">
         
+      <div className="App-container">
       <div className="App-blob-c">
             <div className="App-shape-blob"></div>
             <div className="App-shape-blob one"></div>
@@ -24,11 +25,11 @@ function App() {
             <div className="App-shape-blob five"></div>
             <div className="App-shape-blob six"></div>
           </div>
-
           <Router>
             <AppRoutes />
             
           </Router>
+
       </div>
           
      </div>

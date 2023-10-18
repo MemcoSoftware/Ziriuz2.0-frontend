@@ -21,7 +21,7 @@ import SearchUsersResults from '../modules/users/components/searchTools/SearchUs
 import { SedesPages } from '../modules/users/pages/SedesPages';
 import SedeDetailPage from '../modules/users/pages/SedeDetailPage';
 import CreateSedePage from '../modules/users/pages/CreateSedePage';
-import UnauthorizedPage from '../modules/users/pages/UnauthorizedPage';
+import UnauthorizedPage from '../pages/UnauthorizedPage';
 import { ClientsPages } from '../modules/users/pages/ClientsPages';
 import { ClientDetailPage } from '../modules/users/pages/ClientDetailPage';
 import CreateClientPage from '../modules/users/pages/CreateClientPage';
@@ -55,7 +55,7 @@ export const AppRoutes = ()=>{
           <Route path="/clientes" element={<ClientsPages />} />
           <Route path="/clientes/:id" element={<ClientDetailPage />} />
           <Route path="/crear-cliente" element={<CreateClientPage />} />
-          
+          <Route path="/unauthorized" element={<UnauthorizedPage/>} />
 
 
 

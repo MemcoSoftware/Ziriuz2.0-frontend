@@ -24,6 +24,7 @@ body
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  z-index: 1;
 }
 
 body {
@@ -36,10 +37,11 @@ body {
 	background:#23242a;
 	min-height: 100vh;
 	overflow: hidden;
-	position: relative;
+	/* position: relative; */
     display: flex;
     align-items: center;
     justify-content: center;
+	
 }
 
 

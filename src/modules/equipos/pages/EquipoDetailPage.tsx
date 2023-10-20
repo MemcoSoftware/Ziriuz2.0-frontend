@@ -3,16 +3,18 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import { getEquipoById } from '../services/equiposService';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import { useParams } from 'react-router-dom';
+import EditEquipoButton from '../components/equipos/EditEquipoButton'; // Asegúrate de importar el componente EditEquipoButton
 
 const EquipoDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
-  const { id } = useParams(); // Obtiene el ID del equipo de los parámetros de la URL
-  const [equipo, setEquipo] = useState<any>(null); // Debes ajustar el tipo de acuerdo a la estructura de datos
+  const { id } = useParams();
+  const [equipo, setEquipo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     if (!loggedIn) {
-      // Aquí debes manejar la redirección si el usuario no está autenticado
+      // Manejar la redirección si el usuario no está autenticado
       return;
     }
 
@@ -37,6 +39,8 @@ const EquipoDetailPage: React.FC = () => {
     fetchEquipo();
   }, [loggedIn, id]);
 
+
+
   if (loading) {
     return <div>Cargando...</div>;
   }
@@ -49,16 +53,17 @@ const EquipoDetailPage: React.FC = () => {
     <div>
       <DashboardMenuLateral />
       <h1>Detalles del Equipo</h1>
-      <div>
-        <h3>Serie: {equipo.serie}</h3>
-        <p>Modelo: {equipo.modelo_equipos.modelo}</p>
-        <p>Sede: {equipo.id_sede.sede_nombre}</p>
-        <p>Ubicacion en sede: {equipo.ubicacion}</p>
-        <p>Área: {equipo.id_area.area}</p>
-        <p>Tipo: {equipo.id_tipo.tipo}</p>
-        <p>Frecuencia Mantenimiento en meses: {equipo.frecuencia}</p>
+      
+        <div>
+          <h3>Serie: {equipo.serie}</h3>
+          <p>Modelo: {equipo.modelo_equipos.modelo}</p>
+          <p>Sede: {equipo.id_sede.sede_nombre}</p>
+          <p>Ubicacion en sede: {equipo.ubicacion}</p>
+          <p>Área: {equipo.id_area.area}</p>
+          <p>Tipo: {equipo.id_tipo.tipo}</p>
+          <p>Frecuencia Mantenimiento en meses: {equipo.frecuencia}</p>
+        </div>
 
-      </div>
     </div>
   );
 };

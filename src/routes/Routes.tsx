@@ -27,6 +27,7 @@ import { ClientDetailPage } from '../modules/users/pages/ClientDetailPage';
 import CreateClientPage from '../modules/users/pages/CreateClientPage';
 import EquiposPages from '../modules/equipos/pages/EquiposPages';
 import EquipoDetailPage from '../modules/equipos/pages/EquipoDetailPage';
+import RegisterEquipoPage from '../modules/equipos/pages/RegisterEquipoPage';
 
 
 export const AppRoutes = ()=>{
@@ -61,6 +62,7 @@ export const AppRoutes = ()=>{
 
           <Route path="/equipos" element={<EquiposPages/>} />
           <Route path="/equipos/:id" element={<EquipoDetailPage/>} />
+          <Route path="/create-equipo" element={<RegisterEquipoPage/>} />
 
 
           {/* Unauthorized Page */}

@@ -85,16 +85,18 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
       headers: {
         'x-access-token': token,
       },
+      
     };
   
     return axios
-      .put(`/equipos/${id}`, equipoData, options)
+      .put(`/equipo?id=${id}`, equipoData, options)
       .then((response) => response.data)
       .catch((error) => {
         if (error.response) {
           const { status } = error.response;
           if (status === 500) {
-            window.location.href = '/login';
+            // window.location.href = '/login';
+            console.log(error.response);
           }
         }
         throw error;

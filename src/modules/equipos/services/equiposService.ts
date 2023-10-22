@@ -89,7 +89,7 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
     };
   
     return axios
-      .put(`/equipo?id=${id}`, equipoData, options)
+      .put(`/equipos?id=${id}`, equipoData, options)
       .then((response) => response.data)
       .catch((error) => {
         if (error.response) {

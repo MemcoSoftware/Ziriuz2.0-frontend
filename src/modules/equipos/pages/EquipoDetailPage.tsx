@@ -3,14 +3,14 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import { getEquipoById } from '../services/equiposService';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import { useParams } from 'react-router-dom';
-import EditEquipoButton from '../components/equipos/EditEquipoButton'; // Asegúrate de importar el componente EditEquipoButton
+import EditEquipoButton from '../components/equipos/EditEquipoButton';
 
 const EquipoDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const { id } = useParams();
   const [equipo, setEquipo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     if (!loggedIn) {
@@ -39,31 +39,30 @@ const EquipoDetailPage: React.FC = () => {
     fetchEquipo();
   }, [loggedIn, id]);
 
-
-
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
-
-  if (!equipo) {
-    return <div>No se encontró información del equipo.</div>;
-  }
+  const handleEditSuccess = () => {
+    console.log('Equipo editado con éxito');
+    setIsEditing(false);
+  };
 
   return (
     <div>
       <DashboardMenuLateral />
       <h1>Detalles del Equipo</h1>
-      
-        <div>
-          <h3>Serie: {equipo.serie}</h3>
-          <p>Modelo: {equipo.modelo_equipos.modelo}</p>
-          <p>Sede: {equipo.id_sede.sede_nombre}</p>
-          <p>Ubicacion en sede: {equipo.ubicacion}</p>
-          <p>Área: {equipo.id_area.area}</p>
-          <p>Tipo: {equipo.id_tipo.tipo}</p>
-          <p>Frecuencia Mantenimiento en meses: {equipo.frecuencia}</p>
-        </div>
 
+      {isEditing ? (
+        <EditEquipoButton equipoId={id || ''} onEditSuccess={handleEditSuccess} onCancel={() => setIsEditing(false)} initialData={equipo} />
+      ) : (
+        <div>
+          <h3>Serie: {equipo ? equipo.serie : ''}</h3>
+          <p>Modelo: {equipo && equipo.modelo_equipos ? equipo.modelo_equipos.modelo : ''}</p>
+          <p>Sede: {equipo && equipo.id_sede ? equipo.id_sede.sede_nombre : ''}</p>
+          <p>Ubicación en sede: {equipo ? equipo.ubicacion : ''}</p>
+          <p>Área: {equipo && equipo.id_area ? equipo.id_area.area : ''}</p>
+          <p>Tipo: {equipo && equipo.id_tipo ? equipo.id_tipo.tipo : ''}</p>
+          <p>Frecuencia Mantenimiento en meses: {equipo ? equipo.frecuencia : ''}</p>
+          <button onClick={() => setIsEditing(true)}>Editar</button>
+        </div>
+      )}
     </div>
   );
 };

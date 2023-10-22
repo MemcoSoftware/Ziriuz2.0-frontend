@@ -1,96 +1,110 @@
 import React, { useState } from 'react';
+import { updateEquipo } from '../../services/equiposService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
-import { updateEquipo } from '../../services/equiposService'; // Importa la función de servicio para actualizar equipos
-import { AxiosResponse, AxiosRequestConfig } from 'axios';
 
-interface EditEquipoButtonProps {
+type EditEquipoButtonProps = {
   equipoId: string;
-  equipoData: any; // Asegúrate de que este prop contenga los datos del equipo
-  isEditing: boolean;
-  onSaveSuccess: (editedEquipo: any) => void;
-}
+  onEditSuccess: () => void;
+  onCancel: () => void;
+  initialData: any;
+};
 
-const EditEquipoButton: React.FC<EditEquipoButtonProps> = ({
-  equipoId,
-  equipoData,
-  isEditing,
-  onSaveSuccess,
-}) => {
-  const [editedEquipo, setEditedEquipo] = useState({ ...equipoData });
+const EditEquipoButton: React.FC<EditEquipoButtonProps> = ({ equipoId, onEditSuccess, onCancel, initialData }) => {
+  const [equipoData, setEquipoData] = useState<any>(initialData || {
+    id_sede: "",
+    modelo_equipos: "",
+    id_area: "",
+    id_tipo: "",
+    serie: "",
+    ubicacion: "",
+    frecuencia: 0,
+  });
+
   const loggedIn = useSessionStorage('sessionJWTToken');
-  const isAdmin = useUserRoleVerifier(['administrador']);
 
-  const handleCancelEdit = () => {
-    setEditedEquipo({ ...equipoData }); // Restablecer los datos originales cuando se cancela la edición
-  };
+  const handleEdit = async () => {
+    try {
+      const token = loggedIn;
+      // Asegúrate de enviar todos los campos, incluso si no han cambiado
+      const updatedEquipoData = {
+        ...initialData, // Incluye todos los campos originales
+        ...equipoData,   // Sobrescribe con los campos actualizados
+      };
 
-  const handleSaveEdit = () => {
-    updateEquipo(loggedIn, equipoId, editedEquipo) // Llama a la función para actualizar el equipo
-      .then((response: AxiosResponse) => {
-        if (response.status === 200 && response.data) {
-          onSaveSuccess(response.data);
-          window.alert('Equipo actualizado satisfactoriamente');
-        }
-      })
-      .catch((error: any) => console.error(`[EDIT EQUIPO ERROR]: ${error}`));
+      await updateEquipo(token, equipoId, updatedEquipoData);
+      onEditSuccess();
+
+      // Mostrar una alerta
+      window.alert('Cambios guardados con éxito');
+
+      // Redirigir a la página de detalles del equipo
+      window.location.href = `/ruta-a-la-pagina-de-detalles/${equipoId}`;
+    } catch (error) {
+      console.error('Error al editar el equipo:', error);
+    }
   };
 
   return (
     <div>
-      {isEditing ? (
-        <div>
-          <h2>Editar Equipo</h2>
-          <label>Serie:</label>
-          <input
-            type="text"
-            value={editedEquipo.serie}
-            onChange={(e) => setEditedEquipo({ ...editedEquipo, serie: e.target.value })}
-          />
-          <label>Modelo:</label>
-          <input
-            type="text"
-            value={editedEquipo.modelo}
-            onChange={(e) => setEditedEquipo({ ...editedEquipo, modelo: e.target.value })}
-          />
-          <label>Sede:</label>
-          <input
-            type="text"
-            value={editedEquipo.sede}
-            onChange={(e) => setEditedEquipo({ ...editedEquipo, sede: e.target.value })}
-          />
-          <label>Ubicación en Sede:</label>
-          <input
-            type="text"
-            value={editedEquipo.ubicacion}
-            onChange={(e) => setEditedEquipo({ ...editedEquipo, ubicacion: e.target.value })}
-          />
-          <label>Área:</label>
-          <input
-            type="text"
-            value={editedEquipo.area}
-            onChange={(e) => setEditedEquipo({ ...editedEquipo, area: e.target.value })}
-          />
-          <label>Tipo:</label>
-          <input
-            type="text"
-            value={editedEquipo.tipo}
-            onChange={(e) => setEditedEquipo({ ...editedEquipo, tipo: e.target.value })}
-          />
-          <label>Frecuencia de Mantenimiento en Meses:</label>
-          <input
-            type="number"
-            value={editedEquipo.frecuencia}
-            onChange={(e) =>
-              setEditedEquipo({ ...editedEquipo, frecuencia: parseInt(e.target.value) || 0 })
-            }
-          />
-          <button onClick={handleSaveEdit}>Guardar Cambios</button>
-          <button onClick={handleCancelEdit}>Cancelar</button>
-        </div>
-      ) : (
-        <button onClick={() => isAdmin && setEditedEquipo(true)}>Editar Equipo</button>
-      )}
+      <h2>Editar Equipo</h2>
+      <div>
+        <label>ID de Sede:</label>
+        <input
+          type="text"
+          value={equipoData.id_sede.sede_nombre}
+          onChange={(e) => setEquipoData({ ...equipoData, id_sede: e.target.value })}
+        />
+      </div>
+      <div>
+        <label>Modelo de Equipos:</label>
+        <input
+          type="text"
+          value={equipoData.modelo_equipos.modelo}
+          onChange={(e) => setEquipoData({ ...equipoData, modelo_equipos: e.target.value })}
+        />
+      </div>
+      <div>
+        <label>ID de Área:</label>
+        <input
+          type="text"
+          value={equipoData.id_area.area}
+          onChange={(e) => setEquipoData({ ...equipoData, id_area: e.target.value })}
+        />
+      </div>
+      <div>
+        <label>ID de Tipo:</label>
+        <input
+          type="text"
+          value={equipoData.id_tipo.tipo}
+          onChange={(e) => setEquipoData({ ...equipoData, id_tipo: e.target.value })}
+        />
+      </div>
+      <div>
+        <label>Serie:</label>
+        <input
+          type="text"
+          value={equipoData.serie}
+          onChange={(e) => setEquipoData({ ...equipoData, serie: e.target.value })}
+        />
+      </div>
+      <div>
+        <label>Ubicación:</label>
+        <input
+          type="text"
+          value={equipoData.ubicacion}
+          onChange={(e) => setEquipoData({ ...equipoData, ubicacion: e.target.value })}
+        />
+      </div>
+      <div>
+        <label>Frecuencia Mantenimiento en meses:</label>
+        <input
+          type="number"
+          value={equipoData.frecuencia}
+          onChange={(e) => setEquipoData({ ...equipoData, frecuencia: e.target.value })}
+        />
+      </div>
+      <button onClick={handleEdit}>Guardar Cambios</button>
+      <button onClick={onCancel}>Cancelar</button>
     </div>
   );
 };

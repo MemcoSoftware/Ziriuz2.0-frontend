@@ -114,7 +114,7 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
     };
   
     return axios
-      .delete(`/equipos/${id}`, options)
+      .delete(`/equipos/`, options)
       .then((response) => response.data)
       .catch((error) => {
         if (error.response) {

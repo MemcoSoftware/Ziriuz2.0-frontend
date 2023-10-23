@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSessionStorage } from '../hooks/useSessionStorage';
 import { getEquipoById } from '../services/equiposService';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import EditEquipoButton from '../components/equipos/EditEquipoButton';
+import DeleteEquipoButton from '../components/equipos/DeleteEquipoButton';
 
 const EquipoDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -11,6 +12,7 @@ const EquipoDetailPage: React.FC = () => {
   const [equipo, setEquipo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!loggedIn) {
@@ -44,13 +46,20 @@ const EquipoDetailPage: React.FC = () => {
     setIsEditing(false);
   };
 
+
+
   return (
     <div>
       <DashboardMenuLateral />
       <h1>Detalles del Equipo</h1>
 
       {isEditing ? (
-        <EditEquipoButton equipoId={id || ''} onEditSuccess={handleEditSuccess} onCancel={() => setIsEditing(false)} initialData={equipo} />
+        <EditEquipoButton
+          equipoId={id || ''}
+          onEditSuccess={handleEditSuccess}
+          onCancel={() => setIsEditing(false)}
+          initialData={equipo}
+        />
       ) : (
         <div>
           <h3>Serie: {equipo ? equipo.serie : ''}</h3>
@@ -63,6 +72,8 @@ const EquipoDetailPage: React.FC = () => {
           <button onClick={() => setIsEditing(true)}>Editar</button>
         </div>
       )}
+
+      <DeleteEquipoButton equipoId={id || ''} serie={equipo ? equipo.serie : ''}/>
     </div>
   );
 };

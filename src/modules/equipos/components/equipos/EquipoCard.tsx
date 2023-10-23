@@ -1,4 +1,3 @@
-// EquipoCard.tsx
 import React from 'react';
 import { Equipo } from '../../utils/types/Equipo.type';
 
@@ -19,7 +18,7 @@ const EquipoCard: React.FC<EquipoCardProps> = ({ equipo, onClick }) => {
                 <div className='EquiposPages-card-header'>
                   <h3 className='EquiposPages-card-title'>{equipo.serie}</h3>
                   <p>Modelo: {equipo.modelo_equipos.modelo}</p>
-                  <p>Sede: {equipo.id_sede.sede_nombre}</p>
+                  <p>Sede: {equipo.id_sede ? equipo.id_sede.sede_nombre : 'Sede no especificada'}</p>
                   <p>Ubicación: {equipo.ubicacion}</p>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 import axios from '../../../utils/config/axios.config';
 import { AxiosRequestConfig } from 'axios';
 
-// Get all ModelosEquipos
-export const getAllModeloEquipos = (token: string, limit?: number, page?: number) => {
+// Obtener todas las áreas de equipos
+export const getAllAreasEquipos = (token: string, limit?: number, page?: number) => {
   const options: AxiosRequestConfig = {
     headers: {
       'x-access-token': token,
@@ -14,13 +14,13 @@ export const getAllModeloEquipos = (token: string, limit?: number, page?: number
   };
 
   return axios
-    .get('/equipos/modelo', options)
-    .then((response) => response.data.modeloEquipos)
+    .get('/equipos/areas', options)
+    .then((response) => response.data.areasEquipos)
     .catch((error) => handleError(error));
 };
 
-// Get a ModeloEquipo by ID
-export const getModeloEquipoById = (token: string, id: string) => {
+// Obtener un área de equipo por ID
+export const getAreaEquipoById = (token: string, id: string) => {
   const options: AxiosRequestConfig = {
     headers: {
       'x-access-token': token,
@@ -31,13 +31,13 @@ export const getModeloEquipoById = (token: string, id: string) => {
   };
 
   return axios
-    .get(`/equipos/modelo/`, options)
+    .get(`/equipos/areas/`, options)
     .then((response) => response.data)
     .catch((error) => handleError(error));
 };
 
-// Create a new ModeloEquipo
-export const createModeloEquipo = (token: string, modeloEquipoData: any) => {
+// Crear una nueva área de equipo
+export const createAreaEquipo = (token: string, areaEquipoData: any) => {
   const options: AxiosRequestConfig = {
     headers: {
       'x-access-token': token,
@@ -45,13 +45,13 @@ export const createModeloEquipo = (token: string, modeloEquipoData: any) => {
   };
 
   return axios
-    .post('/equipos/modelo', modeloEquipoData, options)
+    .post('/equipos/areas', areaEquipoData, options)
     .then((response) => response.data)
     .catch((error) => handleError(error));
 };
 
-// Update a ModeloEquipo by ID
-export const updateModeloEquipo = (token: string, id: string, modeloEquipoData: any) => {
+// Actualizar un área de equipo por ID
+export const updateAreaEquipo = (token: string, id: string, areaEquipoData: any) => {
   const options: AxiosRequestConfig = {
     headers: {
       'x-access-token': token,
@@ -59,13 +59,13 @@ export const updateModeloEquipo = (token: string, id: string, modeloEquipoData: 
   };
 
   return axios
-    .put(`/equipos/modelo?id=${id}`, modeloEquipoData, options)
+    .put(`/equipos/areas?id=${id}`, areaEquipoData, options)
     .then((response) => response.data)
     .catch((error) => handleError(error));
 };
 
-// Delete a ModeloEquipo by ID
-export const deleteModeloEquipoById = (token: string, id: string) => {
+// Eliminar un área de equipo por ID
+export const deleteAreaEquipoById = (token: string, id: string) => {
   const options: AxiosRequestConfig = {
     headers: {
       'x-access-token': token,
@@ -76,24 +76,23 @@ export const deleteModeloEquipoById = (token: string, id: string) => {
   };
 
   return axios
-    .delete(`/equipos/modelo/`, options)
+    .delete(`/equipos/areas/`, options)
     .then((response) => response.data)
     .catch((error) => handleError(error));
 };
 
-// Handle errors
+// Manejar errores
 const handleError = (error: any) => {
   if (error.response) {
     const { status, data } = error.response;
     if (status === 500) {
       console.error(`Error 500: ${data}`);
-      window.alert('No puedes hacer esto')
-      // You can handle the error and display a message to the user here.
+      window.alert('ERROR: No puedes hacer esto')
+
     }
   } else {
-    console.error('Unknown error:', error);
-    window.alert('No puedes hacer esto')
-    
+    console.error('Error desconocido:', error);
+    window.alert('ERROR: No puedes hacer esto')
   }
   throw error;
 };

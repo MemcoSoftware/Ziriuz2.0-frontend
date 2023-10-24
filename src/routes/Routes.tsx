@@ -40,6 +40,9 @@ import RegisterClaseEquipoPage from '../modules/equipos/pages/RegisterClaseEquip
 import MarcasEquiposPage from '../modules/equipos/pages/MarcasEquiposPage';
 import MarcaEquipoDetailPage from '../modules/equipos/pages/MarcaEquipoDetailPage';
 import RegisterMarcaEquipoPage from '../modules/equipos/pages/RegisterMarcaEquipoPage';
+import TiposEquiposPage from '../modules/equipos/pages/TiposEquiposPage';
+import TipoEquipoDetailPage from '../modules/equipos/pages/TipoEquipoDetailPage';
+import RegisterTipoEquipoPage from '../modules/equipos/pages/RegisterTipoEquipoPage';
 
 
 export const AppRoutes = ()=>{
@@ -91,6 +94,10 @@ export const AppRoutes = ()=>{
           <Route path="/equipos/marcas" element={<MarcasEquiposPage/>} />
           <Route path="/equipos/marcas/:id" element={<MarcaEquipoDetailPage/>} />
           <Route path="/equipos/marcas/register" element={<RegisterMarcaEquipoPage/>} />
+
+          <Route path="/equipos/tipos" element={<TiposEquiposPage/>} />
+          <Route path="/equipos/tipos/:id" element={<TipoEquipoDetailPage/>} />
+          <Route path="/equipos/tipos/register" element={<RegisterTipoEquipoPage/>} />
 
 
           {/* Unauthorized Page */}

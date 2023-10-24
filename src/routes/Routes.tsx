@@ -28,6 +28,9 @@ import CreateClientPage from '../modules/users/pages/CreateClientPage';
 import EquiposPages from '../modules/equipos/pages/EquiposPages';
 import EquipoDetailPage from '../modules/equipos/pages/EquipoDetailPage';
 import RegisterEquipoPage from '../modules/equipos/pages/RegisterEquipoPage';
+import EquipoModeloPage from '../modules/equipos/pages/EquipoModeloPage';
+import EquipoModeloDetailPage from '../modules/equipos/pages/EquipoModeloDetailPage';
+import RegisterEquipoModeloPage from '../modules/equipos/pages/RegisterEquipoModeloPage';
 
 
 export const AppRoutes = ()=>{
@@ -64,7 +67,10 @@ export const AppRoutes = ()=>{
           <Route path="/equipos/:id" element={<EquipoDetailPage/>} />
           <Route path="/create-equipo" element={<RegisterEquipoPage/>} />
 
-
+          <Route path="/equipos/modelo" element={<EquipoModeloPage/>} />
+          <Route path="/equipos/modelo/:id" element={<EquipoModeloDetailPage/>} />
+          <Route path="/equipos/modelo/register" element={<RegisterEquipoModeloPage/>} />
+          
           {/* Unauthorized Page */}
           {/* <Route path="/unauthorized" element={<UnauthorizedPage />}/> */}
 

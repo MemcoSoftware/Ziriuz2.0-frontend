@@ -95,7 +95,7 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
         if (error.response) {
           const { status } = error.response;
           if (status === 500) {
-            // window.location.href = '/login';
+            window.location.href = '/login';
             console.log(error.response);
           }
         }

@@ -76,7 +76,7 @@ export const deleteModeloEquipoById = (token: string, id: string) => {
   };
 
   return axios
-    .delete(`/equipos/modelo`, options)
+    .delete(`/equipos/modelo/`, options)
     .then((response) => response.data)
     .catch((error) => handleError(error));
 };

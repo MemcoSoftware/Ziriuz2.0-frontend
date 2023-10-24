@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSessionStorage } from '../hooks/useSessionStorage';
-import { getModeloEquipoById } from '../services/equiposModeloService';
+import { getModeloEquipoById, deleteModeloEquipoById } from '../services/equiposModeloService';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import { useNavigate, useParams } from 'react-router-dom';
 import EditEquipoModeloButton from '../components/equiposModelos/EditEquipoModeloButton';
+import DeleteEquipoModeloButton from '../components/equiposModelos/DeleteEquipoModeloButton';
 
 const EquipoModeloDetailPage = () => {
   const { id } = useParams();
@@ -45,6 +46,11 @@ const EquipoModeloDetailPage = () => {
     setIsEditing(false);
   };
 
+  const handleDeleteSuccess = () => {
+    console.log('Modelo de equipo eliminado con éxito');
+    navigate('/equipos/modelo'); // Redirige a la página de modelos de equipo después de eliminar
+  };
+
   return (
     <div>
       <DashboardMenuLateral />
@@ -64,6 +70,7 @@ const EquipoModeloDetailPage = () => {
           <p>Marca: {modeloEquipo && modeloEquipo.id_marca ? modeloEquipo.id_marca.marca : 'N/A'}</p>
           <p>Clase: {modeloEquipo && modeloEquipo.id_clase ? modeloEquipo.id_clase.clase : 'N/A'}</p>
           <button onClick={() => setIsEditing(true)}>Editar</button>
+          <DeleteEquipoModeloButton modeloEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
         </div>
       )}
     </div>

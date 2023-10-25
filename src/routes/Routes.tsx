@@ -74,7 +74,7 @@ export const AppRoutes = ()=>{
 
           <Route path="/equipos" element={<EquiposPages/>} />
           <Route path="/equipos/:id" element={<EquipoDetailPage/>} />
-          <Route path="/create-equipo" element={<RegisterEquipoPage/>} />
+          <Route path="/equipos/register" element={<RegisterEquipoPage/>} />
 
           <Route path="/equipos/modelos" element={<EquipoModeloPage/>} />
           <Route path="/equipos/modelo/:id" element={<EquipoModeloDetailPage/>} />

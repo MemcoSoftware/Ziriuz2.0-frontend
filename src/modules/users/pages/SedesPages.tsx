@@ -48,11 +48,11 @@ export const SedesPages = () => {
   return (
     <div className='SedesPages-container'>
       <DashboardMenuLateral />
+      <CreateSedeButtonRedirect />
       <SearchSedes
         showSearchResults={showSearchResults}
         setShowSearchResults={setShowSearchResults}
       />
-      <CreateSedeButtonRedirect />
       <div className='SedesPages-Container-Card'>
         {showSearchResults ? (
           <p></p>

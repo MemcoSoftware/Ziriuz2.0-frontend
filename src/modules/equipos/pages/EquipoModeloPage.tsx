@@ -5,10 +5,14 @@ import { EquiposModelo } from '../utils/types/EquipoModelo.type';
 import EquipoModeloCard from '../components/equiposModelos/EquipoModeloCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
+import SearchModelosEquipos from '../components/searchEquiposTools/SearchModeloEquipos';
 
 const EquipoModeloPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [modelosEquipos, setModelosEquipos] = useState<Array<EquiposModelo>>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
+
+
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -27,33 +31,35 @@ const EquipoModeloPage = () => {
   }, [loggedIn]);
 
   const handleViewDetails = (id: string) => {
-    console.log("ID a redirigir:", id);
-      navigate(`/equipos/modelo/${id}`);
-    
+    navigate(`/equipos/modelo/${id}`);
   };
 
   return (
     <div>
       <DashboardMenuLateral />
       <h1>Modelos de Equipos</h1>
-      {loggedIn ? (
-        loading ? (
-          <p>Loading...</p>
-        ) : (
+      <SearchModelosEquipos // Renderiza el componente SearchModelosEquipos
+        showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
+        setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
+      />
+      
+      {showSearchResults ? (
+        <p></p>
+      ):
+      (
+
           <ul>
             {modelosEquipos.map((modeloEquipo) => (
               <li key={modeloEquipo._id}>
                 <EquipoModeloCard
                   modeloEquipo={modeloEquipo}
-                  onViewDetails={() => handleViewDetails(modeloEquipo._id)} // Pass the ID here
+                  onViewDetails={() => handleViewDetails(modeloEquipo._id)}
                 />
               </li>
             ))}
           </ul>
-        )
-      ) : (
-        <p>Please log in to view data.</p>
-      )}
+      )}    
+      
     </div>
   );
 };

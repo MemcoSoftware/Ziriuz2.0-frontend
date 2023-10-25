@@ -5,10 +5,12 @@ import { AreaEquipo } from '../utils/types/AreaEquipo.type';
 import AreaEquipoCard from '../components/areasEquipos/AreaEquipoCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
+import SearchAreasEquipos from '../components/searchEquiposTools/SearchAreasEquipos';
 
 const AreasEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [areasEquipos, setAreasEquipos] = useState<Array<AreaEquipo>>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -35,20 +37,26 @@ const AreasEquiposPage = () => {
       <DashboardMenuLateral />
       <h1>Áreas de Equipos</h1>
       {loggedIn ? (
-        loading ? (
-          <p>Loading...</p>
-        ) : (
-          <ul>
-            {areasEquipos.map((areaEquipo) => (
-              <li key={areaEquipo._id}>
-                <AreaEquipoCard
-                  areaEquipo={areaEquipo}
-                  onViewDetails={() => handleViewDetails(areaEquipo._id)}
-                />
-              </li>
-            ))}
-          </ul>
-        )
+        <div>
+          <SearchAreasEquipos // Renderiza el componente SearchAreasEquipos
+            showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
+            setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
+          />
+          {showSearchResults ? (
+            <p></p>
+          ) : (
+            <ul>
+              {areasEquipos.map((areaEquipo) => (
+                <li key={areaEquipo._id}>
+                  <AreaEquipoCard
+                    areaEquipo={areaEquipo}
+                    onViewDetails={() => handleViewDetails(areaEquipo._id)}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       ) : (
         <p>Please log in to view data.</p>
       )}

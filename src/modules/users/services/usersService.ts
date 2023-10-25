@@ -1,7 +1,6 @@
 import react from 'react';
 import axios from '../../../utils/config/axios.config';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { AxiosError } from 'axios';
 
 export const getAllUsers = (token: string, limit?: number, page?: number) => {
   const options: AxiosRequestConfig = {

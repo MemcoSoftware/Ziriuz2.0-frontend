@@ -5,10 +5,12 @@ import { ClaseEquipo } from '../utils/types/ClaseEquipo.type';
 import ClaseEquipoCard from '../components/clasesEquipos/ClaseEquipoCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
+import SearchClasesEquipos from '../components/searchEquiposTools/SearchClasesEquipos';
 
 const ClasesEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [clasesEquipos, setClasesEquipos] = useState<Array<ClaseEquipo>>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -35,20 +37,26 @@ const ClasesEquiposPage = () => {
       <DashboardMenuLateral />
       <h1>Clases de Equipos</h1>
       {loggedIn ? (
-        loading ? (
-          <p>Loading...</p>
-        ) : (
-          <ul>
-            {clasesEquipos.map((claseEquipo) => (
-              <li key={claseEquipo._id}>
-                <ClaseEquipoCard
-                  claseEquipo={claseEquipo}
-                  onViewDetails={() => handleViewDetails(claseEquipo._id)}
-                />
-              </li>
-            ))}
-          </ul>
-        )
+        <div>
+          <SearchClasesEquipos // Renderiza el componente SearchClasesEquipos
+            showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
+            setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
+          />
+          {showSearchResults ? (
+            <p></p>
+          ) : (
+            <ul>
+              {clasesEquipos.map((claseEquipo) => (
+                <li key={claseEquipo._id}>
+                  <ClaseEquipoCard
+                    claseEquipo={claseEquipo}
+                    onViewDetails={() => handleViewDetails(claseEquipo._id)}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       ) : (
         <p>Please log in to view data.</p>
       )}

@@ -30,7 +30,7 @@ const SearchModelosEquipos: React.FC<SearchModelosEquiposProps> = ({ showSearchR
 
   const navigateToModeloDetail = (id: string) => {
     // Define la navegación para ver los detalles del modelo (ajusta según tus rutas)
-    navigate(`/modelos/${id}`);
+    navigate(`/equipos/modelo/${id}`);
   };
 
   const handleSubmit = (e: React.FormEvent) => {

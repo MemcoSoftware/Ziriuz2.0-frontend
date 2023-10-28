@@ -29,7 +29,7 @@ const SearchAreasEquipos: React.FC<SearchAreasEquiposProps> = ({ showSearchResul
   };
   const navigateToAreaDetail = (id: string) => {
     // Define la navegación para ver los detalles del modelo (ajusta según tus rutas)
-    navigate(`/areas/${id}`);
+    navigate(`/equipos/areas/${id}`);
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

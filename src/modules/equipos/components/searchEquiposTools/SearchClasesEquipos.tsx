@@ -29,7 +29,7 @@ const SearchClasesEquipos: React.FC<SearchClasesEquiposProps> = ({ showSearchRes
   };
 
   const navigateToClaseDetail = (id: string) => {
-    navigate(`/clases/${id}`);
+    navigate(`/equipos/clases/${id}`);
   };
 
   const handleSubmit = (e: React.FormEvent) => {

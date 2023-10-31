@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllEquipos } from '../services/equiposService';
 import { useSessionStorage } from '../hooks/useSessionStorage';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
-
+import './styles/EquiposPages.css'
 // Importa EquipoCard
 import EquipoCard from '../components/equipos/EquipoCard';
 import { Equipo } from '../utils/types/Equipo.type';
@@ -43,27 +43,25 @@ const EquiposPages: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Listado de Equipos</h1>
+    <div className='EquiposPages-container'>
       <DashboardMenuLateral />
       <SearchEquipos // Renderiza el componente SearchEquipos
         showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
         setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
       />
+        <div className='EquiposPages-Container-Card'>
+          {showSearchResults ? (
+            <p></p>
+          ): (
 
-      {showSearchResults ? (
-        <p></p>
-      ): (
+            equipos.map((equipo) => (
+              
+                <EquipoCard key={equipo._id} equipo={equipo} onClick={() => navigateToEquipoDetail(equipo._id)} />
+            ))
+          )}
 
-      <ul>
-        {equipos.map((equipo) => (
-          <li key={equipo._id}>
-            <EquipoCard equipo={equipo} onClick={() => navigateToEquipoDetail(equipo._id)} />
-          </li>
-        ))}
-      </ul>
-      )}
-    </div>
+        </div>  
+  </div>
   );
 };
 

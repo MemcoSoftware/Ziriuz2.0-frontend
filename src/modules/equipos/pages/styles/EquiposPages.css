@@ -1,0 +1,184 @@
+.box {
+    height: 169px;
+    width: 551px;
+  }
+  
+  .box .equipospages {
+    height: 169px;
+    left: 0;
+    top: 0;
+    width: 551px;
+  }
+  
+  .box .overlap {
+    height: 169px;
+    position: relative;
+  }
+  
+  .box .equipospages-card {
+    height: 150px;
+    left: 4px;
+    position: absolute;
+    top: 9px;
+    width: 546px;
+  }
+  
+  .box .overlap-group {
+    background-color: #ffffff;
+    height: 150px;
+    position: relative;
+    width: 534px;
+  }
+  
+  .box .div {
+    background-color: #7f7b7b69;
+    color: #00ddfa;
+    height: 125px;
+    left: 15px;
+    position: absolute;
+    top: 12px;
+    width: 145px;
+  }
+  
+  .box .text-wrapper {
+    -webkit-text-stroke: 1px #00000033;
+    color: #000000;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 19px;
+    font-weight: 400;
+    left: 185px;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 12px;
+    width: 197px;
+  }
+  
+  .box .equipospages-card-2 {
+    color: #636b6f;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 186px;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 43px;
+    white-space: nowrap;
+    width: 160px;
+  }
+  
+  .box .overlap-2 {
+    height: 23px;
+    left: 186px;
+    position: absolute;
+    top: 75px;
+    width: 314px;
+  }
+  
+  .box .equipospages-card-3 {
+    color: #939ea3;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 85px;
+  }
+  
+  .box .equipospages-card-4 {
+    color: #636b6f;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 79px;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 1px;
+    width: 235px;
+  }
+  
+  .box .overlap-3 {
+    height: 20px;
+    left: 186px;
+    position: absolute;
+    top: 112px;
+    width: 171px;
+  }
+  
+  .box .equipospages-card-5 {
+    color: #939ea3;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 44px;
+  }
+  
+  .box .equipospages-card-6 {
+    color: #636b6f;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 32px;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 139px;
+  }
+  
+  .box .check {
+    height: 39px;
+    color: #00fa4b;
+    left: 489px;
+    position: absolute;
+    top: 3px;
+    width: 39px;
+  }
+  
+  .box .equipospages-2 {
+    background-color: transparent;
+    height: 169px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 551px;
+  }
+  
+
+  .EquiposPages-cards-list{
+	display:grid;
+	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+	gap:2rem;
+	margin:4rem 5vw;
+	padding:0;
+	list-style: none;
+	
+  }
+
+  .EquiposPages-Container-Card{
+    width: 1200px;
+    height: 100%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:2rem;
+    margin:2rem 3vw;
+    padding:0;
+    list-style: none
+  }
+
+
+.EquiposPages-container{
+    width: 1200px;
+	height: 100%;
+}

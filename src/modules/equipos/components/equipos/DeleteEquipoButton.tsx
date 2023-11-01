@@ -4,6 +4,7 @@ import { AxiosResponse } from 'axios';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import { useNavigate } from 'react-router-dom';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 const DeleteEquipoButton: React.FC<{ equipoId: string, serie: string }> = ({ equipoId, serie }) => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -28,7 +29,7 @@ const DeleteEquipoButton: React.FC<{ equipoId: string, serie: string }> = ({ equ
   };
 
   return (
-    <button onClick={handleDelete}>Eliminar Equipo</button>
+    <DeleteOutlinedIcon className="EquipoDetailPage-delete-icon-header" onClick={handleDelete}>Eliminar Equipo</DeleteOutlinedIcon>
   );
 };
 

@@ -5,7 +5,6 @@ const RegisterEquipoPage: React.FC = () => {
   return (
     <div>
       <DashboardMenuLateral />
-      <h1>Registrar Nuevo Equipo</h1>
       <RegisterEquipoForm />
     </div>
   );

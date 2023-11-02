@@ -6,7 +6,6 @@ const RegisterEquipoModeloPage: React.FC = () => {
   return (
     <div>
         <DashboardMenuLateral />
-      <h1>Registrar Nuevo Modelo de Equipo</h1>
       <RegisterEquipoModeloForm />
     </div>
   );

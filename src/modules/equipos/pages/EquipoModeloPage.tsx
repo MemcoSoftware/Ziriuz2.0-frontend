@@ -4,8 +4,10 @@ import { getAllModeloEquipos } from '../services/equiposModeloService';
 import { EquiposModelo } from '../utils/types/EquipoModelo.type';
 import EquipoModeloCard from '../components/equiposModelos/EquipoModeloCard';
 import { useNavigate } from 'react-router-dom';
+import './styles/EquipoModeloPage.css'
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchModelosEquipos from '../components/searchEquiposTools/SearchModeloEquipos';
+import RegisterModeloEquipoButton from '../components/equiposModelos/RegisterModeloEquipoButton';
 
 const EquipoModeloPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -35,30 +37,30 @@ const EquipoModeloPage = () => {
   };
 
   return (
-    <div>
+    <div className='EquipoModeloPage-container'>
       <DashboardMenuLateral />
-      <h1>Modelos de Equipos</h1>
+      <RegisterModeloEquipoButton />
       <SearchModelosEquipos // Renderiza el componente SearchModelosEquipos
         showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
         setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
       />
-      
-      {showSearchResults ? (
-        <p></p>
-      ):
-      (
+      <div className='EquipoModeloPage-Container-Card'>
 
-          <ul>
-            {modelosEquipos.map((modeloEquipo) => (
-              <li key={modeloEquipo._id}>
+          {showSearchResults ? (
+            <p></p>
+            ):
+            (
+              
+              modelosEquipos.map((modeloEquipo) => (
                 <EquipoModeloCard
-                  modeloEquipo={modeloEquipo}
-                  onViewDetails={() => handleViewDetails(modeloEquipo._id)}
+                key={modeloEquipo._id}
+                modeloEquipo={modeloEquipo}
+                onViewDetails={() => handleViewDetails(modeloEquipo._id)}
                 />
-              </li>
-            ))}
-          </ul>
-      )}    
+                ))
+                
+                )}    
+      </div>
       
     </div>
   );

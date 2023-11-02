@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { updateModeloEquipo } from '../../services/equiposModeloService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+import './styles/EditEquipoButton.css'
+
 
 type EditEquipoModeloButtonProps = {
   modeloEquipoId: string;
@@ -30,7 +32,9 @@ const EditEquipoModeloButton: React.FC<EditEquipoModeloButtonProps> = ({ modeloE
 
       onEditSuccess();
       window.location.reload();
-      window.alert(`Modelo de equipo: ${modeloEquipoData.modelo} actualizado satisfactoriamente`);
+      setTimeout(() => {
+        window.alert(`Modelo de equipo: ${modeloEquipoData.modelo} actualizado satisfactoriamente`);
+      }, 2000); // 2000 milisegundos (2 segundos)
     } catch (error) {
       console.error('Error al editar el modelo de equipo:', error);
     }
@@ -38,26 +42,34 @@ const EditEquipoModeloButton: React.FC<EditEquipoModeloButtonProps> = ({ modeloE
 
   return (
     <div>
-      <h2>Editar Modelo de Equipo</h2>
-      <div>
-        <label>Modelo:</label>
-        <input
+      <div className="EditEquipoModeloButton-box">
+      <form  className="EditEquipoModeloButton-registerequipomodelo">
+        <div className="EditEquipoModeloButton-overlap-group">
+          <div className="EditEquipoModeloButton-overlap">
+            <p className="EditEquipoModeloButton-title">ACTUALIZAR MODELO DE EQUIPO</p>
+            <p className='EditEquipoModeloButton-ID'>{modeloEquipoData._id}</p>
+          </div>
+          <div className="EditEquipoModeloButton-container-separator" />
+          
+          <label htmlFor="modelo" className="EditEquipoModeloButton-modelo-nombre-title">1. Ingrese el nombre del modelo de equipo</label>
+          <input 
+          className="EditEquipoModeloButton-modelo-nombre-input"
           type="text"
           value={modeloEquipoData.modelo || ''}
           onChange={(e) => setModeloEquipoData({ ...modeloEquipoData, modelo: e.target.value })}
-        />
-      </div>
-      <div>
-        <label>Precio:</label>
-        <input
+          />
+          
+          <label htmlFor="precio" className="EditEquipoModeloButton-modelo-precio-title">2. Ingrese el precio del modelo de equipo</label>
+          <input 
+          className="EditEquipoModeloButton-modelo-precio-input"
           type="number"
           value={modeloEquipoData.precio || 0}
           onChange={(e) => setModeloEquipoData({ ...modeloEquipoData, precio: e.target.value })}
-        />
-      </div>
-      <div>
-        <label>ID de Marca:</label>
-        <input
+          />
+          
+          <label htmlFor="marca" className="EditEquipoModeloButton-modelo-marca-title">3. Seleccione la Marca de Equipo a relacionar</label>
+          <input
+          className="EditEquipoModeloButton-modelo-marca-input"
           type="text"
           value={modeloEquipoData.id_marca ? modeloEquipoData.id_marca.marca : ''}
           onChange={(e) =>
@@ -66,11 +78,11 @@ const EditEquipoModeloButton: React.FC<EditEquipoModeloButtonProps> = ({ modeloE
               id_marca: { marca: e.target.value },
             })
           }
-        />
-      </div>
-      <div>
-        <label>ID de Clase:</label>
-        <input
+          />
+          
+          <label htmlFor="clase" className="EditEquipoModeloButton-modelo-clase-title">4. Seleccione la Clase de Equipo a relacionar</label>
+          <input 
+          className="EditEquipoModeloButton-modelo-clase-input"
           type="text"
           value={modeloEquipoData.id_clase ? modeloEquipoData.id_clase.clase : ''}
           onChange={(e) =>
@@ -79,10 +91,19 @@ const EditEquipoModeloButton: React.FC<EditEquipoModeloButtonProps> = ({ modeloE
               id_clase: { clase: e.target.value },
             })
           }
-        />
-      </div>
-      <button onClick={handleEdit}>Guardar Cambios</button>
-      <button onClick={onCancel}>Cancelar</button>
+          />
+          
+          
+          <button 
+          className="EditEquipoModeloButton-modelo-canelar" onClick={onCancel}>Cancelar</button>
+          <button 
+          type='submit'
+          className="EditEquipoModeloButton-modelo-registrar" onClick={handleEdit}>Actualizar</button>
+        </div>
+      </form>
+    </div>
+
+
     </div>
   );
 };

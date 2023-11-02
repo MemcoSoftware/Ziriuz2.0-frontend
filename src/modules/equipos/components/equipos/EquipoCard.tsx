@@ -9,28 +9,28 @@ interface EquipoCardProps {
 
 const EquipoCard: React.FC<EquipoCardProps> = ({ equipo, onClick }) => {
   return (
-    <div key={equipo._id} className='box'>
+    <div key={equipo._id} className='EquipoCard-box'>
       <ul className='EquiposPages-cards-list'>
         <li>
-          <div className="equipospages" onClick={onClick}>
-              <div className="overlap">
-                <div className="equipospages-card">
-                  <div className="overlap-group">
-                    <FaxOutlinedIcon className="div" />
-                    <div className="text-wrapper">{equipo.modelo_equipos.modelo}</div>
-                    <div className="equipospages-card-2">{equipo.id_tipo.tipo}</div>
-                    <div className="overlap-2">
-                      <div className="equipospages-card-3">Location:</div>
-                      <div className="equipospages-card-4">{equipo.id_sede ? equipo.id_sede.sede_nombre : 'Sede no especificada'}</div>
+          <div className="EquipoCard-equipospages" onClick={onClick}>
+              <div className="EquipoCard-overlap">
+                <div className="EquipoCard-equipospages-card">
+                  <div className="EquipoCard-overlap-group">
+                    <FaxOutlinedIcon className="EquipoCard-div" />
+                    <div className="EquipoCard-text-wrapper">{equipo.modelo_equipos.modelo}</div>
+                    <div className="EquipoCard-equipospages-card-2">{equipo.id_tipo.tipo}</div>
+                    <div className="EquipoCard-overlap-2">
+                      <div className="EquipoCard-equipospages-card-3">Location:</div>
+                      <div className="EquipoCard-equipospages-card-4">{equipo.id_sede ? equipo.id_sede.sede_nombre : 'Sede no especificada'}</div>
                     </div>
-                    <div className="overlap-3">
-                      <div className="equipospages-card-5">SN:</div>
-                      <div className="equipospages-card-6">{equipo.serie}</div>
+                    <div className="EquipoCard-overlap-3">
+                      <div className="EquipoCard-equipospages-card-5">SN:</div>
+                      <div className="EquipoCard-equipospages-card-6">{equipo.serie}</div>
                     </div>
-                    <CheckOutlinedIcon className="check" />
+                    <CheckOutlinedIcon className="EquipoCard-check" />
                   </div>
                 </div>
-                <div className="equipospages-2" />
+                <div className="EquipoCard-equipospages-2" />
               </div>
             </div>
         </li>

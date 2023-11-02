@@ -3,6 +3,7 @@ import { deleteModeloEquipoById } from '../../services/equiposModeloService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import { useNavigate } from 'react-router-dom';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 type DeleteEquipoModeloButtonProps = {
   modeloEquipoId: string;
@@ -24,8 +25,10 @@ const DeleteEquipoModeloButton: React.FC<DeleteEquipoModeloButtonProps> = ({ mod
       await deleteModeloEquipoById(token, modeloEquipoId);
 
       // Realizar la redirección y mostrar un mensaje de éxito
-      navigate('/equiposModelo'); // Otra posible redirección después de eliminar
       window.alert(`El modelo de equipo se ha eliminado satisfactoriamente`);
+    setTimeout(() => {
+      navigate('/equipos/modelos')
+    }, 2000); 
       
       onDeleteSuccess(); // Llamamos a la función onDeleteSuccess para notificar el éxito
     } catch (error) {
@@ -34,7 +37,7 @@ const DeleteEquipoModeloButton: React.FC<DeleteEquipoModeloButtonProps> = ({ mod
   };
 
   return (
-    <button onClick={handleDelete}>Eliminar Modelo de Equipo</button>
+    <DeleteOutlinedIcon className="EquipoModeloDetailPage-delete" onClick={handleDelete} />
   );
 };
 

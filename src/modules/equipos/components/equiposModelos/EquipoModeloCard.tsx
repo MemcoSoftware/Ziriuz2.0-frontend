@@ -1,5 +1,7 @@
 import React from 'react';
 import { EquiposModelo } from '../../utils/types/EquipoModelo.type';
+import DevicesOtherOutlinedIcon from '@mui/icons-material/DevicesOtherOutlined';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 
 interface EquipoModeloCardProps {
   modeloEquipo: EquiposModelo;
@@ -9,23 +11,36 @@ interface EquipoModeloCardProps {
 const EquipoModeloCard: React.FC<EquipoModeloCardProps> = ({ modeloEquipo, onViewDetails }) => {
   return (
     <div key={modeloEquipo._id} className='EquiposPages-container-card'>
-      <div className='EquiposPages-card-section'>
-        <ul className='EquiposPages-cards-list'>
-          <li>
-            <a type='#' className='EquiposPages-card' onClick={onViewDetails}>
-              <div className='EquiposPages-card-cover'></div>
-              <div className='EquiposPages-card-overlay'>
-                <div className='EquiposPages-card-header'>
-                  <h3 className='EquiposPages-card-title'>{modeloEquipo.modelo}</h3>
-                  <p>Precio: {modeloEquipo.precio}</p>
-                  <p>Marca: {modeloEquipo.id_marca ? modeloEquipo.id_marca.marca : 'N/A'}</p>
-                  <p>Clase: {modeloEquipo.id_clase ? modeloEquipo.id_clase.clase : 'N/A'}</p>
+       <div key={modeloEquipo._id} className='EquipoModeloCard-box'>
+          <ul className='EquipoModeloPage-cards-list'>
+            <li>
+              <div className="EquipoModeloCard-equipospages" onClick={onViewDetails}>
+                  <div className="EquipoModeloCard-overlap">
+                    <div className="EquipoModeloCard-equipospages-card">
+                      <div className="EquipoModeloCard-overlap-group">
+                        <DevicesOtherOutlinedIcon className="EquipoModeloCard-div" />
+                        <div className="EquipoModeloCard-text-wrapper">{modeloEquipo.modelo}</div>
+                        <div className="EquipoModeloCard-equipospages-card-2">$: {modeloEquipo.precio}</div>
+                        <div className="EquipoModeloCard-overlap-2">
+                          <div className="EquipoModeloCard-equipospages-card-3">Marca:</div>
+                          <div className="EquipoModeloCard-equipospages-card-4">{modeloEquipo.id_marca.marca}</div>
+                        </div>
+                        <div className="EquipoModeloCard-overlap-3">
+                          <div className="EquipoModeloCard-equipospages-card-5">Clase:</div>
+                          <div className="EquipoModeloCard-equipospages-card-6">{modeloEquipo.id_clase.clase}</div>
+                        </div>
+                        <CheckOutlinedIcon className="EquipoModeloCard-check" />
+                      </div>
+                    </div>
+                    <div className="EquipoModeloCard-equipospages-2" />
+                  </div>
                 </div>
-              </div>
-            </a>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        
       </div>
+
+
     </div>
   );
 };

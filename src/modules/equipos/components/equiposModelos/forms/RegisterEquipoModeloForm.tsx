@@ -1,6 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createModeloEquipo } from '../../../services/equiposModeloService';
+import './styles/RegisterEquipoModeloForm.css'
+import { useNavigate } from 'react-router-dom';
 
 const RegisterEquipoModeloForm: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -10,7 +12,8 @@ const RegisterEquipoModeloForm: React.FC = () => {
     id_marca: '',
     id_clase: '',
   });
-
+  
+  const navigate = useNavigate();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setModeloEquipoData({ ...modeloEquipoData, [name]: value });
@@ -18,64 +21,85 @@ const RegisterEquipoModeloForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
     try {
       const token = loggedIn;
       await createModeloEquipo(token, modeloEquipoData);
       // Puedes redirigir o mostrar un mensaje de éxito aquí
+
       console.log('Modelo de equipo registrado exitosamente');
+      window.alert('Modelo de equipo registrado exitosamente')
+      navigate('/equipos/modelos');
     } catch (error) {
       // Maneja errores, muestra mensajes de error, etc.
       console.error('Error al registrar el modelo de equipo:', error);
     }
   };
 
+  const hancleCancelForm = () => {
+    navigate('/equipos/modelos')
+  }
+
   return (
     <div>
-      <h2>Registrar Nuevo Modelo de Equipo</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="modelo">Modelo:</label>
-          <input
-            type="text"
-            id="modelo"
-            name="modelo"
-            value={modeloEquipoData.modelo}
-            onChange={handleChange}
+      <div className="RegisterEquipoModeloForm-box">
+      <form onSubmit={handleSubmit} className="RegisterEquipoModeloForm-registerequipomodelo">
+        <div className="RegisterEquipoModeloForm-overlap-group">
+          <div className="RegisterEquipoModeloForm-overlap">
+            <p className="RegisterEquipoModeloForm-title">REGISTRAR NUEVO MODELO DE EQUIPO</p>
+          </div>
+          <div className="RegisterEquipoModeloForm-container-separator" />
+          
+          <label htmlFor="modelo" className="RegisterEquipoModeloForm-modelo-nombre-title">1. Ingrese el nombre del modelo de equipo</label>
+          <input 
+          className="RegisterEquipoModeloForm-modelo-nombre-input"
+          type="text"
+          id="modelo"
+          name="modelo"
+          value={modeloEquipoData.modelo}
+          onChange={handleChange} />
+          
+          <label htmlFor="precio" className="RegisterEquipoModeloForm-modelo-precio-title">2. Ingrese el precio del modelo de equipo</label>
+          <input 
+          className="RegisterEquipoModeloForm-modelo-precio-input"
+          type="number"
+          id="precio"
+          name="precio"
+          value={modeloEquipoData.precio}
+          onChange={handleChange}
           />
-        </div>
-        <div>
-          <label htmlFor="precio">Precio:</label>
-          <input
-            type="number"
-            id="precio"
-            name="precio"
-            value={modeloEquipoData.precio}
-            onChange={handleChange}
+          
+          <label htmlFor="marca" className="RegisterEquipoModeloForm-modelo-marca-title">3. Seleccione la Marca de Equipo a relacionar</label>
+          <input 
+          className="RegisterEquipoModeloForm-modelo-marca-input"
+          type="text"
+          id="id_marca"
+          name="id_marca"
+          value={modeloEquipoData.id_marca}
+          onChange={handleChange}
           />
-        </div>
-        <div>
-          <label htmlFor="id_marca">Marca:</label>
-          <input
-            type="text"
-            id="id_marca"
-            name="id_marca"
-            value={modeloEquipoData.id_marca}
-            onChange={handleChange}
+          
+          <label htmlFor="clase" className="RegisterEquipoModeloForm-modelo-clase-title">4. Seleccione la Clase de Equipo a relacionar</label>
+          <input 
+          className="RegisterEquipoModeloForm-modelo-clase-input"
+          type="text"
+          id="id_clase"
+          name="id_clase"
+          value={modeloEquipoData.id_clase}
+          onChange={handleChange}
           />
+          
+          
+          <button 
+          onClick={hancleCancelForm}
+          className="RegisterEquipoModeloForm-modelo-canelar">Cancelar</button>
+          <button 
+          type='submit'
+          className="RegisterEquipoModeloForm-modelo-registrar">Registrar</button>
         </div>
-        <div>
-          <label htmlFor="id_clase">Clase:</label>
-          <input
-            type="text"
-            id="id_clase"
-            name="id_clase"
-            value={modeloEquipoData.id_clase}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Registrar Modelo de Equipo</button>
       </form>
+    </div>
+
+
     </div>
   );
 };

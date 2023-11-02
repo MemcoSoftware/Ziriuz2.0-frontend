@@ -1,21 +1,21 @@
-.EquipoCard-box {
-    height: 169px;
-    width: 551px;
-  }
+    .EquipoModeloCard-box {
+        height: 169px;
+        width: 551px;
+    }
   
-  .EquipoCard-box .EquipoCard-equipospages {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages {
     height: 169px;
     left: 0;
     top: 0;
     width: 551px;
   }
   
-  .EquipoCard-box .EquipoCard-overlap {
+  .EquipoModeloCard-box .EquipoModeloCard-overlap {
     height: 169px;
     position: relative;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-card {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-card {
     height: 150px;
     left: 4px;
     position: absolute;
@@ -23,14 +23,14 @@
     width: 546px;
   }
   
-  .EquipoCard-box .EquipoCard-overlap-group {
+  .EquipoModeloCard-box .EquipoModeloCard-overlap-group {
     background-color: #ffffff;
     height: 150px;
     position: relative;
     width: 534px;
   }
   
-  .EquipoCard-box .EquipoCard-div {
+  .EquipoModeloCard-box .EquipoModeloCard-div {
     background-color: #7f7b7b69;
     color: #00ddfa;
     height: 125px;
@@ -40,7 +40,7 @@
     width: 145px;
   }
   
-  .EquipoCard-box .EquipoCard-text-wrapper {
+  .EquipoModeloCard-box .EquipoModeloCard-text-wrapper {
     -webkit-text-stroke: 1px #00000033;
     color: #000000;
     font-family: "Poppins-Regular", Helvetica;
@@ -54,7 +54,7 @@
     width: 197px;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-card-2 {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-card-2 {
     color: #636b6f;
     font-family: "Poppins-Regular", Helvetica;
     font-size: 16px;
@@ -68,7 +68,7 @@
     width: 160px;
   }
   
-  .EquipoCard-box .EquipoCard-overlap-2 {
+  .EquipoModeloCard-box .EquipoModeloCard-overlap-2 {
     height: 23px;
     left: 186px;
     position: absolute;
@@ -76,7 +76,7 @@
     width: 314px;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-card-3 {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-card-3 {
     color: #939ea3;
     font-family: "Poppins-Regular", Helvetica;
     font-size: 16px;
@@ -90,7 +90,7 @@
     width: 85px;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-card-4 {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-card-4 {
     color: #636b6f;
     font-family: "Poppins-Regular", Helvetica;
     font-size: 16px;
@@ -103,7 +103,7 @@
     width: 235px;
   }
   
-  .EquipoCard-box .EquipoCard-overlap-3 {
+  .EquipoModeloCard-box .EquipoModeloCard-overlap-3 {
     height: 20px;
     left: 186px;
     position: absolute;
@@ -111,7 +111,7 @@
     width: 171px;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-card-5 {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-card-5 {
     color: #939ea3;
     font-family: "Poppins-Regular", Helvetica;
     font-size: 16px;
@@ -124,12 +124,12 @@
     width: 44px;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-card-6 {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-card-6 {
     color: #636b6f;
     font-family: "Poppins-Regular", Helvetica;
     font-size: 16px;
     font-weight: 400;
-    left: 32px;
+    left: 70px;
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
@@ -137,7 +137,7 @@
     width: 139px;
   }
   
-  .EquipoCard-box .EquipoCard-check {
+  .EquipoModeloCard-box .EquipoModeloCard-check {
     height: 39px;
     color: #00fa4b;
     left: 489px;
@@ -146,7 +146,7 @@
     width: 39px;
   }
   
-  .EquipoCard-box .EquipoCard-equipospages-2 {
+  .EquipoModeloCard-box .EquipoModeloCard-equipospages-2 {
     background-color: transparent;
     height: 169px;
     left: 0;
@@ -156,7 +156,7 @@
   }
   
 
-  .EquiposPages-cards-list{
+  .EquipoModeloPage-cards-list{
 	display:grid;
 	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
 	gap:2rem;
@@ -166,7 +166,7 @@
 	
   }
 
-  .EquiposPages-Container-Card{
+  .EquipoModeloPage-Container-Card{
     width: 1200px;
     height: 100%;
     display:grid;
@@ -178,7 +178,7 @@
   }
 
 
-.EquiposPages-container{
+.EquipoModeloPage-container{
     width: 1200px;
 	height: 100%;
 }

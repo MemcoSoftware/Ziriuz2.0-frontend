@@ -8,6 +8,7 @@ import EquipoCard from '../components/equipos/EquipoCard';
 import { Equipo } from '../utils/types/Equipo.type';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import SearchEquipos from '../components/searchEquiposTools/SearchEquipos';
+import RegisterEquipoButton from '../components/equipos/RegisterEquipoButton';
 
 const EquiposPages: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -27,6 +28,7 @@ const EquiposPages: React.FC = () => {
         setLoading(false);
       } catch (error) {
         console.error('Error al obtener equipos:', error);
+        window.location.href = '/login';
       }
     };
 
@@ -45,6 +47,7 @@ const EquiposPages: React.FC = () => {
   return (
     <div className='EquiposPages-container'>
       <DashboardMenuLateral />
+      <RegisterEquipoButton />
       <SearchEquipos // Renderiza el componente SearchEquipos
         showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
         setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente

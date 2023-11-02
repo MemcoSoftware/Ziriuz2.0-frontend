@@ -25,7 +25,9 @@ export const logoutService = () =>{
   sessionStorage.removeItem('userId');
   sessionStorage.removeItem('userRoles');
   window.location.href = '/login';
-  window.alert('La sesión ha expirado')
+  setTimeout(() => {
+    window.alert('La sesión ha expirado')
+  }, 2000); 
 }
 
 

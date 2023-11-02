@@ -19,8 +19,9 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
       if (error.response) {
         const { status, data } = error.response;
         if (status === 500) {
-          console.error('Error 500:', data); // Muestra el mensaje de error en la consola
-          // Puedes mostrar un mensaje de error al usuario aquí
+          console.error('Error 500:', data);
+          window.location.href = '/login';
+          window.alert('La sesión ha expirado')
         }
       } else {
         console.error('Error desconocido:', error);
@@ -50,9 +51,8 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
         if (error.response) {
           const { status } = error.response;
           if (status === 500) {
-            // Token inválido o expirado
-            // Redirigir al usuario a la página de inicio de sesión (/login)
             window.location.href = '/login';
+            window.alert('La sesión ha expirado')
           }
         }
         throw error;
@@ -74,6 +74,7 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
+            window.alert('La sesión ha expirado')
           }
         }
         throw error;
@@ -96,7 +97,7 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
-            console.log(error.response);
+            window.alert('La sesión ha expirado')
           }
         }
         throw error;
@@ -121,6 +122,7 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
+            window.alert('La sesión ha expirado')
           }
         }
         throw error;

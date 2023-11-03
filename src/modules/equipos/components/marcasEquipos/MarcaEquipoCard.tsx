@@ -1,5 +1,8 @@
 import React from 'react';
 import { MarcaEquipo } from '../../utils/types/MarcaEquipo.type';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+
+
 
 interface MarcaEquipoCardProps {
   marcaEquipo: MarcaEquipo;
@@ -8,23 +11,23 @@ interface MarcaEquipoCardProps {
 
 const MarcaEquipoCard: React.FC<MarcaEquipoCardProps> = ({ marcaEquipo, onViewDetails }) => {
   return (
-    <div key={marcaEquipo._id} className='MarcasEquipos-container-card'>
-      <div className='MarcasEquipos-card-section'>
         <ul className='MarcasEquipos-cards-list'>
           <li>
-            <a href='#' className='MarcasEquipos-card' onClick={onViewDetails}>
-              <div className='MarcasEquipos-card-cover'></div>
-              <div className='MarcasEquipos-card-overlay'>
-                <div className='MarcasEquipos-card-header'>
-                  <h2>{marcaEquipo._id}</h2>
-                  <h3 className='MarcasEquipos-card-title'>{marcaEquipo.marca}</h3>
+            <div key={marcaEquipo._id} onClick={onViewDetails} className="MarcasEquiposCard-box">
+                <div className="MarcasEquiposCard-overlap-group-wrapper">
+                  <div className="MarcasEquiposCard-overlap-group">
+                    <div className="MarcasEquiposCard-overlap">
+                      <LocalOfferOutlinedIcon className="MarcasEquiposCard-marcaequipo-icon"/>
+                    </div>
+                    <div className="MarcasEquiposCard-marcaequipo-title">{marcaEquipo.marca}</div>
+                    <div className="MarcasEquiposCard-marcaequipo-id">MARCA ID: {marcaEquipo._id}</div>
+                  </div>
                 </div>
               </div>
-            </a>
           </li>
         </ul>
-      </div>
-    </div>
+
+    
   );
 };
 

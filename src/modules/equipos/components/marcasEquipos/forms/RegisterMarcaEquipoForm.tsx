@@ -1,6 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createMarcaEquipo } from '../../../services/marcasEquipoService';
+import './styles/RegisterMarcaEquipoForm.css'
+import { useNavigate } from 'react-router-dom';
 
 const RegisterMarcaEquipoForm: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -12,7 +14,11 @@ const RegisterMarcaEquipoForm: React.FC = () => {
     const { name, value } = e.target;
     setMarcaEquipoData({ ...marcaEquipoData, [name]: value });
   };
+  const hangleCancel = () => {
+    navigate('/equipos/marcas')
+  };
 
+  const navigate = useNavigate();
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
@@ -21,6 +27,8 @@ const RegisterMarcaEquipoForm: React.FC = () => {
       await createMarcaEquipo(token, marcaEquipoData);
       // Puedes redirigir o mostrar un mensaje de éxito aquí
       console.log('Marca de equipo registrada exitosamente');
+      window.alert('Marca de equipo registrada exitosamente');
+      navigate('/equipos/marcas')
     } catch (error) {
       // Maneja errores, muestra mensajes de error, etc.
       console.error('Error al registrar la marca de equipo:', error);
@@ -29,19 +37,26 @@ const RegisterMarcaEquipoForm: React.FC = () => {
 
   return (
     <div>
-      <h2>Registrar Nueva Marca de Equipo</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="marca">Marca:</label>
-          <input
+        <form onSubmit={handleSubmit} className="RegisterMarcaEquipoForm-box">
+        <div className="RegisterMarcaEquipoForm-register-marca">
+          <div className="RegisterMarcaEquipoForm-overlap-group">
+            <div className="RegisterMarcaEquipoForm-overlap">
+              <p className="RegisterMarcaEquipoForm-register-marca-title">REGISTRAR NUEVA MARCA DE EQUIPO</p>
+            </div>
+            <label className="RegisterMarcaEquipoForm-register-marca-label">Ingrese el nombre de la marca de equipo que desea registrar:</label>
+            <input 
+            className="RegisterMarcaEquipoForm-register-marca-input"
             type="text"
             id="marca"
             name="marca"
             value={marcaEquipoData.marca}
             onChange={handleChange}
-          />
+            />
+            <button className="RegisterMarcaEquipoForm-registrar-button" type='submit'>Registrar</button>
+            <button className="RegisterMarcaEquipoForm-cancelar-button"  onClick={hangleCancel}>Cancelar</button>
+
+          </div>
         </div>
-        <button type="submit">Registrar Marca de Equipo</button>
       </form>
     </div>
   );

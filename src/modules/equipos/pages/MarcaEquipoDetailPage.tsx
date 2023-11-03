@@ -6,6 +6,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import EditMarcaEquipoButton from '../components/marcasEquipos/EditMarcaEquipoButton';
 import DeleteMarcaEquipoButton from '../components/marcasEquipos/DeleteMarcaEquipoButton';
 
+import './styles/MarcaEquipoDetailPage.css'
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+
 const MarcaEquipoDetailPage = () => {
   const { id } = useParams();
 
@@ -50,7 +54,6 @@ const MarcaEquipoDetailPage = () => {
   return (
     <div>
       <DashboardMenuLateral />
-      <h1>Detalles de la Marca de Equipo</h1>
 
       {isEditing ? (
         <EditMarcaEquipoButton
@@ -60,11 +63,20 @@ const MarcaEquipoDetailPage = () => {
           initialData={marcaEquipo}
         />
       ) : (
-        <div>
-          <h3>Marca: {marcaEquipo ? marcaEquipo.marca : ''}</h3>
-          <button onClick={() => setIsEditing(true)}>Editar</button>
-          <DeleteMarcaEquipoButton marcaEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
-        </div>
+          <div className="MarcaEquipoDetailPage-box">
+            <div className="MarcaEquipoDetailPage-overlap-group-wrapper">
+              <div className="MarcaEquipoDetailPage-overlap-group">
+                <div className="MarcaEquipoDetailPage-overlap">
+                  <LocalOfferOutlinedIcon className="MarcaEquipoDetailPage-marcaequipo-icon"/>
+                </div>
+                <div className="MarcaEquipoDetailPage-marcaequipo-title">{marcaEquipo ? marcaEquipo.marca : ''}</div>
+                <div className="MarcaEquipoDetailPage-marcaequipo-id">MARCA ID: {marcaEquipo ? marcaEquipo._id : ''}</div>
+                <EditOutlinedIcon onClick={() => setIsEditing(true)} className="MarcaEquipoDetailPage-marcaequipo-edit"/>
+                <DeleteMarcaEquipoButton marcaEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
+              </div>
+            </div>
+          </div>
+
       )}
     </div>
   );

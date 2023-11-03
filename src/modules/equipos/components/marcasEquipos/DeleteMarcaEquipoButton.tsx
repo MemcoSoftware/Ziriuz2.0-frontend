@@ -2,6 +2,7 @@ import React from 'react';
 import { deleteMarcaEquipoById } from '../../services/marcasEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 type DeleteMarcaEquipoButtonProps = {
   marcaEquipoId: string;
@@ -30,7 +31,8 @@ const DeleteMarcaEquipoButton: React.FC<DeleteMarcaEquipoButtonProps> = ({ marca
   };
 
   return (
-    <button onClick={handleDelete}>Eliminar Marca de Equipo</button>
+
+    <DeleteOutlinedIcon  className="MarcaEquipoDetailPage-marcaequipo-delete" onClick={handleDelete}></DeleteOutlinedIcon>
   );
 };
 

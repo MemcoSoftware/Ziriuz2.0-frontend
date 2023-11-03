@@ -6,7 +6,7 @@ import MarcaEquipoCard from '../components/marcasEquipos/MarcaEquipoCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchMarcasEquipos from '../components/searchEquiposTools/SearchMarcasEquipos'; // Importa el componente SearchMarcasEquipos
-
+import './styles/MarcasEquiposPage.css'
 const MarcasEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [marcasEquipos, setMarcasEquipos] = useState<Array<MarcaEquipo>>([]);
@@ -33,29 +33,29 @@ const MarcasEquiposPage = () => {
   };
 
   return (
-    <div>
+    <div className='MarcasEquiposPage-container'>
       <DashboardMenuLateral />
-      <h1>Marcas de Equipos</h1>
       {loggedIn ? (
         <div>
           <SearchMarcasEquipos // Renderiza el componente SearchMarcasEquipos
             showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
             setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
           />
+            <div className='MarcasEquiposPage-Container-Card'> 
           {showSearchResults ? (
             <p></p>
           ) : (
-            <ul>
-              {marcasEquipos.map((marcaEquipo) => (
-                <li key={marcaEquipo._id}>
-                  <MarcaEquipoCard
-                    marcaEquipo={marcaEquipo}
-                    onViewDetails={() => handleViewDetails(marcaEquipo._id)}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
+
+            
+            marcasEquipos.map((marcaEquipo) => (
+              <MarcaEquipoCard
+              key={marcaEquipo._id}
+              marcaEquipo={marcaEquipo}
+              onViewDetails={() => handleViewDetails(marcaEquipo._id)}
+              />
+              ))
+              )}
+              </div>
         </div>
       ) : (
         <p>Please log in to view data.</p>

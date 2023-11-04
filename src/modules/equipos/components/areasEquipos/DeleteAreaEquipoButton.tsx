@@ -3,6 +3,7 @@ import { deleteAreaEquipoById } from '../../services/areasEquiposService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import { useNavigate } from 'react-router-dom';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 type DeleteAreaEquipoButtonProps = {
   areaEquipoId: string;
@@ -31,7 +32,7 @@ const DeleteAreaEquipoButton: React.FC<DeleteAreaEquipoButtonProps> = ({ areaEqu
   };
 
   return (
-    <button onClick={handleDelete}>Eliminar Área de Equipo</button>
+    <DeleteOutlinedIcon className="AreaEquipoDetailPage-marcaequipo-delete" onClick={handleDelete}></DeleteOutlinedIcon>
   );
 };
 

@@ -5,6 +5,8 @@ import { ClaseEquipo } from '../utils/types/ClaseEquipo.type';
 import ClaseEquipoCard from '../components/clasesEquipos/ClaseEquipoCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
+
+import './styles/ClasesEquiposPage.css'
 import SearchClasesEquipos from '../components/searchEquiposTools/SearchClasesEquipos';
 
 const ClasesEquiposPage = () => {
@@ -33,29 +35,28 @@ const ClasesEquiposPage = () => {
   };
 
   return (
-    <div>
+    <div className='ClasesEquiposCard-container'>
       <DashboardMenuLateral />
-      <h1>Clases de Equipos</h1>
       {loggedIn ? (
         <div>
           <SearchClasesEquipos // Renderiza el componente SearchClasesEquipos
             showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
             setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
           />
+          <div className='ClasesEquiposCard-Container-Card'>
           {showSearchResults ? (
             <p></p>
           ) : (
-            <ul>
-              {clasesEquipos.map((claseEquipo) => (
-                <li key={claseEquipo._id}>
+            
+              clasesEquipos.map((claseEquipo) => (
                   <ClaseEquipoCard
+                    key={claseEquipo._id}
                     claseEquipo={claseEquipo}
                     onViewDetails={() => handleViewDetails(claseEquipo._id)}
                   />
-                </li>
-              ))}
-            </ul>
+              ))
           )}
+          </div>
         </div>
       ) : (
         <p>Please log in to view data.</p>

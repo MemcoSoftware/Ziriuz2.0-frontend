@@ -6,7 +6,8 @@ import AreaEquipoCard from '../components/areasEquipos/AreaEquipoCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchAreasEquipos from '../components/searchEquiposTools/SearchAreasEquipos';
-
+import './styles/AreasEquiposPage.css'
+import RegisterAreaEquipoButton from '../components/areasEquipos/RegisterAreaEquipoButton';
 const AreasEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [areasEquipos, setAreasEquipos] = useState<Array<AreaEquipo>>([]);
@@ -33,29 +34,28 @@ const AreasEquiposPage = () => {
   };
 
   return (
-    <div>
+    <div className='AreasEquiposCard-container'>
       <DashboardMenuLateral />
-      <h1>Áreas de Equipos</h1>
       {loggedIn ? (
         <div>
+          <RegisterAreaEquipoButton/>
           <SearchAreasEquipos // Renderiza el componente SearchAreasEquipos
             showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
             setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
           />
+          <div className='AreasEquiposCard-Container-Card'>
           {showSearchResults ? (
             <p></p>
           ) : (
-            <ul>
-              {areasEquipos.map((areaEquipo) => (
-                <li key={areaEquipo._id}>
+              areasEquipos.map((areaEquipo) => (
                   <AreaEquipoCard
+                    key={areaEquipo._id}
                     areaEquipo={areaEquipo}
                     onViewDetails={() => handleViewDetails(areaEquipo._id)}
                   />
-                </li>
-              ))}
-            </ul>
+              ))
           )}
+          </div>
         </div>
       ) : (
         <p>Please log in to view data.</p>

@@ -5,6 +5,10 @@ import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenu
 import { useNavigate, useParams } from 'react-router-dom';
 import EditAreaEquipoButton from '../components/areasEquipos/EditAreaEquipoButton';
 import DeleteAreaEquipoButton from '../components/areasEquipos/DeleteAreaEquipoButton';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+
+import './styles/AreaEquipoDetailPage.css'; 
 
 const AreaEquipoDetailPage = () => {
   const { id } = useParams();
@@ -50,7 +54,6 @@ const AreaEquipoDetailPage = () => {
   return (
     <div>
       <DashboardMenuLateral />
-      <h1>Detalles del Área de Equipo</h1>
 
       {isEditing ? (
         <EditAreaEquipoButton
@@ -60,10 +63,18 @@ const AreaEquipoDetailPage = () => {
           initialData={areaEquipo}
         />
       ) : (
-        <div>
-          <h3>Área: {areaEquipo ? areaEquipo.area : ''}</h3>
-          <button onClick={() => setIsEditing(true)}>Editar</button>
-          <DeleteAreaEquipoButton areaEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
+          <div className="AreaEquipoDetailPage-box">
+            <div className="AreaEquipoDetailPage-overlap-group-wrapper">
+              <div className="AreaEquipoDetailPage-overlap-group">
+                <div className="AreaEquipoDetailPage-overlap">
+                  <SpaceDashboardIcon className="AreaEquipoDetailPage-marcaequipo-icon"/>
+                </div>
+                <div className="AreaEquipoDetailPage-marcaequipo-title">{areaEquipo ? areaEquipo.area : ''}</div>
+                <div className="AreaEquipoDetailPage-marcaequipo-id">AREA ID: {areaEquipo ? areaEquipo._id : ''}</div>
+                <EditOutlinedIcon onClick={() => setIsEditing(true)} className="AreaEquipoDetailPage-marcaequipo-edit"/>
+                <DeleteAreaEquipoButton areaEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
+              </div>
+            </div>
         </div>
       )}
     </div>

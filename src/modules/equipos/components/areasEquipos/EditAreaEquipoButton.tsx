@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { updateAreaEquipo } from '../../services/areasEquiposService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-
+import './styles/EditAreaEquipoButton.css'
 type EditAreaEquipoButtonProps = {
   areaEquipoId: string;
   onEditSuccess: () => void;
@@ -30,17 +30,28 @@ const EditAreaEquipoButton: React.FC<EditAreaEquipoButtonProps> = ({ areaEquipoI
 
   return (
     <div>
-      <h2>Editar Área de Equipo</h2>
-      <div>
-        <label>Área:</label>
-        <input
-          type="text"
-          value={areaEquipoData.area || ''}
-          onChange={(e) => setAreaEquipoData({ ...areaEquipoData, area: e.target.value })}
-        />
-      </div>
-      <button onClick={handleEdit}>Guardar Cambios</button>
-      <button onClick={onCancel}>Cancelar</button>
+     <form  className="EditAreaEquipoButton-box">
+        <div className="EditAreaEquipoButton-register-marca">
+          <div className="EditAreaEquipoButton-overlap-group">
+            <div className="EditAreaEquipoButton-overlap">
+              <p className="EditAreaEquipoButton-register-marca-title">ACTUALIZAR ÁREA DE EQUIPO</p>
+              <p></p>
+            </div>
+            <label className="EditAreaEquipoButton-register-marca-label">Ingrese el nombre del área de equipo que desea registrar:</label>
+            <input 
+            className="EditAreaEquipoButton-register-marca-input"
+            type="text"
+            value={areaEquipoData.area || ''}
+            onChange={(e) => setAreaEquipoData({ ...areaEquipoData, area: e.target.value })}
+            />
+            <button className="EditAreaEquipoButton-img" type='submit' onClick={handleEdit}>Actualizar</button>
+            <button className="EditAreaEquipoButton-cancelar-button"  onClick={onCancel}>Cancelar</button>
+
+          </div>
+        </div>
+      </form>
+
+
     </div>
   );
 };

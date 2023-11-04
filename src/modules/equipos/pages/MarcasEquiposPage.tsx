@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchMarcasEquipos from '../components/searchEquiposTools/SearchMarcasEquipos'; // Importa el componente SearchMarcasEquipos
 import './styles/MarcasEquiposPage.css'
+import RegisterMarcaEquipoButton from '../components/marcasEquipos/RegisterMarcaEquipoButton';
 const MarcasEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [marcasEquipos, setMarcasEquipos] = useState<Array<MarcaEquipo>>([]);
@@ -37,6 +38,7 @@ const MarcasEquiposPage = () => {
       <DashboardMenuLateral />
       {loggedIn ? (
         <div>
+          <RegisterMarcaEquipoButton />
           <SearchMarcasEquipos // Renderiza el componente SearchMarcasEquipos
             showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
             setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente

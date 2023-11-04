@@ -3,6 +3,7 @@ import { deleteClaseEquipoById } from '../../services/clasesEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import { useNavigate } from 'react-router-dom';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 type DeleteClaseEquipoButtonProps = {
   claseEquipoId: string;
@@ -31,7 +32,7 @@ const DeleteClaseEquipoButton: React.FC<DeleteClaseEquipoButtonProps> = ({ clase
   };
 
   return (
-    <button onClick={handleDelete}>Eliminar Clase de Equipo</button>
+    <DeleteOutlinedIcon className='ClaseEquipoDetailPage-marcaequipo-delete' onClick={handleDelete}></DeleteOutlinedIcon>
   );
 };
 

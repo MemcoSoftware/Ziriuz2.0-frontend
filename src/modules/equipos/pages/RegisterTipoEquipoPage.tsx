@@ -8,7 +8,6 @@ const RegisterTipoEquipoPage: React.FC = () => {
 
         <div>
             <DashboardMenuLateral />
-            <h1>Registrar Nuevo Tipo de Equipo</h1>
             <RegisterTipoEquipoForm/>
         </div>
     )

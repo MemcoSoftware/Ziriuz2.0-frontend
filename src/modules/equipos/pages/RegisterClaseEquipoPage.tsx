@@ -8,7 +8,6 @@ const RegisterClaseEquipoPage: React.FC = () => {
 
         <div>
             <DashboardMenuLateral />
-            <h1>Registrar Nueva Area de Equipo</h1>
             <RegisterClaseEquipoForm />
         </div>
     )

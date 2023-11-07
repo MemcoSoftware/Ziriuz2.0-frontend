@@ -1,12 +1,14 @@
 import React, { useState, FormEvent } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createClaseEquipo } from '../../../services/clasesEquipoService';
-
+import { useNavigate } from 'react-router-dom';
+import './styles/RegisterClaseEquipoForm.css'
 const RegisterClaseEquipoForm: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [claseEquipoData, setClaseEquipoData] = useState({
     clase: '',
   });
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -21,27 +23,40 @@ const RegisterClaseEquipoForm: React.FC = () => {
       await createClaseEquipo(token, claseEquipoData);
       // Puedes redirigir o mostrar un mensaje de éxito aquí
       console.log('Clase de equipo registrada exitosamente');
+      navigate('/equipos/clases')
+      
     } catch (error) {
       // Maneja errores, muestra mensajes de error, etc.
       console.error('Error al registrar la clase de equipo:', error);
     }
   };
 
+  const hangleCancel = () => {
+    navigate('/equipos/areas')
+  };
+
   return (
     <div>
-      <h2>Registrar Nueva Clase de Equipo</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="clase">Clase:</label>
-          <input
+      <form onSubmit={handleSubmit} className="RegisterClaseEquipoForm-box">
+        <div className="RegisterClaseEquipoForm-register-marca">
+          <div className="RegisterClaseEquipoForm-overlap-group">
+            <div className="RegisterClaseEquipoForm-overlap">
+              <p className="RegisterClaseEquipoForm-register-marca-title">REGISTRAR NUEVA CLASE DE EQUIPO</p>
+            </div>
+            <label className="RegisterClaseEquipoForm-register-marca-label">Ingrese el nombre de la clase de equipo que desea registrar:</label>
+            <input 
+            className="RegisterClaseEquipoForm-register-marca-input"
             type="text"
             id="clase"
             name="clase"
             value={claseEquipoData.clase}
             onChange={handleChange}
-          />
+            />
+            <button className="RegisterClaseEquipoForm-registrar-button" type='submit'>Registrar</button>
+            <button className="RegisterClaseEquipoForm-cancelar-button"  onClick={hangleCancel}>Cancelar</button>
+
+          </div>
         </div>
-        <button type="submit">Registrar Clase de Equipo</button>
       </form>
     </div>
   );

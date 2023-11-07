@@ -8,6 +8,7 @@ import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenu
 
 import './styles/ClasesEquiposPage.css'
 import SearchClasesEquipos from '../components/searchEquiposTools/SearchClasesEquipos';
+import RegisterClaseEquipoButton from '../components/clasesEquipos/RegisterClaseEquipoButton';
 
 const ClasesEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -39,6 +40,7 @@ const ClasesEquiposPage = () => {
       <DashboardMenuLateral />
       {loggedIn ? (
         <div>
+          <RegisterClaseEquipoButton />
           <SearchClasesEquipos // Renderiza el componente SearchClasesEquipos
             showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
             setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente

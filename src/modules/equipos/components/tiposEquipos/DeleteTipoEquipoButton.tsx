@@ -3,6 +3,7 @@ import { deleteTipoEquipoById } from '../../services/tiposEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import { useNavigate } from 'react-router-dom';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 type DeleteTipoEquipoButtonProps = {
   tipoEquipoId: string;
@@ -31,7 +32,7 @@ const DeleteTipoEquipoButton: React.FC<DeleteTipoEquipoButtonProps> = ({ tipoEqu
   };
 
   return (
-    <button onClick={handleDelete}>Eliminar Tipo de Equipo</button>
+    <DeleteOutlinedIcon  className="TipoEquipoDetailPage-marcaequipo-delete" onClick={handleDelete}>Eliminar Tipo de Equipo</DeleteOutlinedIcon>
   );
 };
 

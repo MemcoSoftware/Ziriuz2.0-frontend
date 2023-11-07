@@ -4,7 +4,11 @@ import { getTipoEquipoById, deleteTipoEquipoById } from '../services/tiposEquipo
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import { useNavigate, useParams } from 'react-router-dom';
 import EditTipoEquipoButton from '../components/tiposEquipos/EditTipoEquipoButton';
+
+import './styles/TipoEquipoDetailPage.css'
 import DeleteTipoEquipoButton from '../components/tiposEquipos/DeleteTipoEquipoButton';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import TypeSpecimenOutlinedIcon from '@mui/icons-material/TypeSpecimenOutlined';
 
 const TipoEquipoDetailPage = () => {
   const { id } = useParams();
@@ -50,7 +54,6 @@ const TipoEquipoDetailPage = () => {
   return (
     <div>
       <DashboardMenuLateral />
-      <h1>Detalles del Tipo de Equipo</h1>
 
       {isEditing ? (
         <EditTipoEquipoButton
@@ -60,11 +63,19 @@ const TipoEquipoDetailPage = () => {
           initialData={tipoEquipo}
         />
       ) : (
-        <div>
-          <h3>Tipo: {tipoEquipo ? tipoEquipo.tipo : ''}</h3>
-          <button onClick={() => setIsEditing(true)}>Editar</button>
-          <DeleteTipoEquipoButton tipoEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
-        </div>
+          <div className="TipoEquipoDetailPage-box">
+            <div className="TipoEquipoDetailPage-overlap-group-wrapper">
+              <div className="TipoEquipoDetailPage-overlap-group">
+                <div className="TipoEquipoDetailPage-overlap">
+                  <TypeSpecimenOutlinedIcon className="TipoEquipoDetailPage-marcaequipo-icon"/>
+                </div>
+                <div className="TipoEquipoDetailPage-marcaequipo-title">{tipoEquipo ? tipoEquipo.tipo : ''}</div>
+                <div className="TipoEquipoDetailPage-marcaequipo-id">AREA ID: {tipoEquipo ? tipoEquipo._id : ''}</div>
+                <EditOutlinedIcon onClick={() => setIsEditing(true)} className="TipoEquipoDetailPage-marcaequipo-edit"/>
+                <DeleteTipoEquipoButton tipoEquipoId={id || ''} onDeleteSuccess={handleDeleteSuccess} />
+              </div>
+            </div>
+          </div>
       )}
     </div>
   );

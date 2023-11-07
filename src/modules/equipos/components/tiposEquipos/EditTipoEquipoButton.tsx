@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { updateTipoEquipo } from '../../services/tiposEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-
+import './styles/EditTipoEquipoButton.css'
 type EditTipoEquipoButtonProps = {
   tipoEquipoId: string;
   onEditSuccess: () => void;
@@ -30,17 +30,25 @@ const EditTipoEquipoButton: React.FC<EditTipoEquipoButtonProps> = ({ tipoEquipoI
 
   return (
     <div>
-      <h2>Editar Tipo de Equipo</h2>
-      <div>
-        <label>Tipo:</label>
-        <input
-          type="text"
-          value={tipoEquipoData.tipo || ''}
-          onChange={(e) => setTipoEquipoData({ ...tipoEquipoData, tipo: e.target.value })}
-        />
-      </div>
-      <button onClick={handleEdit}>Guardar Cambios</button>
-      <button onClick={onCancel}>Cancelar</button>
+      <form  className="EditTipoEquipoButton-box">
+        <div className="EditTipoEquipoButton-register-marca">
+          <div className="EditTipoEquipoButton-overlap-group">
+            <div className="EditTipoEquipoButton-overlap">
+              <p className="EditTipoEquipoButton-register-marca-title">ACTUALIZAR TIPO DE EQUIPO</p>
+              <p></p>
+            </div>
+            <label className="EditTipoEquipoButton-register-marca-label">Ingrese el nombre del tipo de equipo que desea actualizar:</label>
+            <input 
+            className="EditTipoEquipoButton-register-marca-input"
+            type="text"
+            value={tipoEquipoData.tipo || ''}
+            onChange={(e) => setTipoEquipoData({ ...tipoEquipoData, area: e.target.value })}
+            />
+            <button className="EditTipoEquipoButton-img" type='submit' onClick={handleEdit}>Actualizar</button>
+            <button className="EditTipoEquipoButton-cancelar-button"  onClick={onCancel}>Cancelar</button>
+          </div>
+        </div>
+      </form>
     </div>
   );
 };

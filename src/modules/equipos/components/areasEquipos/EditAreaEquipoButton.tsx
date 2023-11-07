@@ -37,7 +37,7 @@ const EditAreaEquipoButton: React.FC<EditAreaEquipoButtonProps> = ({ areaEquipoI
               <p className="EditAreaEquipoButton-register-marca-title">ACTUALIZAR ÁREA DE EQUIPO</p>
               <p></p>
             </div>
-            <label className="EditAreaEquipoButton-register-marca-label">Ingrese el nombre del área de equipo que desea registrar:</label>
+            <label className="EditAreaEquipoButton-register-marca-label">Ingrese el nombre del área de equipo que desea actualizar:</label>
             <input 
             className="EditAreaEquipoButton-register-marca-input"
             type="text"

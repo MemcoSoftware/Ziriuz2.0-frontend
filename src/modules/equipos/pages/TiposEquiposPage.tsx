@@ -4,8 +4,11 @@ import { getAllTiposEquipos } from '../services/tiposEquipoService';
 import { TipoEquipo } from '../utils/types/TipoEquipo.type';
 import TipoEquipoCard from '../components/tiposEquipos/TipoEquipoCard';
 import { useNavigate } from 'react-router-dom';
+
+import './styles/TiposEquiposPage.css'
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchTiposEquipos from '../components/searchEquiposTools/SearchTiposEquipos'; // Importa SearchTiposEquipos
+import RegisterTipoEquipoButton from '../components/tiposEquipos/RegisterTipoEquipoButton';
 
 const TiposEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -35,28 +38,28 @@ const TiposEquiposPage = () => {
   return (
     <div>
       <DashboardMenuLateral />
-      <h1>Tipos de Equipos</h1>
       {loggedIn ? (
         <div>
+          <RegisterTipoEquipoButton />
           <SearchTiposEquipos // Renderiza el componente SearchTiposEquipos
             showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
             setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
           />
+          <div className='TipoEquipoCard-Container-Card'>
+
           {showSearchResults ? (
             <p></p>
           ) : (
-            <ul>
-              {tiposEquipos.map((tipoEquipo) => (
-                <li key={tipoEquipo._id}>
+              tiposEquipos.map((tipoEquipo) => (
                   <TipoEquipoCard
+                    key={tipoEquipo._id}
                     tipoEquipo={tipoEquipo}
                     onViewDetails={() => handleViewDetails(tipoEquipo._id)}
                   />
-                </li>
-              ))}
-            </ul>
+              ))
           )}
-        </div>
+          </div>
+      </div>
       ) : (
         <p>Please log in to view data.</p>
       )}

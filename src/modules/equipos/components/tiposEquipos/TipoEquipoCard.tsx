@@ -1,5 +1,6 @@
 import React from 'react';
 import { TipoEquipo } from '../../utils/types/TipoEquipo.type';
+import TypeSpecimenOutlinedIcon from '@mui/icons-material/TypeSpecimenOutlined';
 
 interface TipoEquipoCardProps {
   tipoEquipo: TipoEquipo;
@@ -8,22 +9,23 @@ interface TipoEquipoCardProps {
 
 const TipoEquipoCard: React.FC<TipoEquipoCardProps> = ({ tipoEquipo, onViewDetails }) => {
   return (
-    <div key={tipoEquipo._id} className='TiposEquipos-container-card'>
-      <div className='TiposEquipos-card-section'>
-        <ul className='TiposEquipos-cards-list'>
+    <div key={tipoEquipo._id} className='TipoEquipoCard-container-card'>
+       <ul className='TipoEquipoCard-cards-list'>
           <li>
-            <a href='#' className='TiposEquipos-card' onClick={onViewDetails}>
-              <div className='TiposEquipos-card-cover'></div>
-              <div className='TiposEquipos-card-overlay'>
-                <div className='TiposEquipos-card-header'>
-                  <h2>{tipoEquipo._id}</h2>
-                  <h3 className='TiposEquipos-card-title'>{tipoEquipo.tipo}</h3>
+              <div onClick={onViewDetails} className="TipoEquipoCard-box">
+                <div className="TipoEquipoCard-overlap-group-wrapper">
+                  <div className="TipoEquipoCard-overlap-group">
+                    <div className="TipoEquipoCard-overlap">
+                      <TypeSpecimenOutlinedIcon className="TipoEquipoCard-marcaequipo-icon"/>
+                    </div>
+                    <div className="TipoEquipoCard-marcaequipo-title">{tipoEquipo.tipo}</div>
+                    <div className="TipoEquipoCard-marcaequipo-id">AREA ID: {tipoEquipo._id}</div>
+                  </div>
                 </div>
               </div>
-            </a>
+          
           </li>
         </ul>
-      </div>
     </div>
   );
 };

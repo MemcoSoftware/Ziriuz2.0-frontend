@@ -23,7 +23,7 @@ const DeleteClaseEquipoButton: React.FC<DeleteClaseEquipoButtonProps> = ({ clase
       const token = loggedIn;
       await deleteClaseEquipoById(token, claseEquipoId);
 
-      navigate('/clases-equipos');
+      navigate('/equipos/clases/');
       window.alert('La clase de equipo se ha eliminado satisfactoriamente');
       onDeleteSuccess();
     } catch (error) {

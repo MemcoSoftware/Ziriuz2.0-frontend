@@ -9,6 +9,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 
 import './styles/AreaEquipoDetailPage.css'; 
+import { logoutService } from '../../users/services/authService';
 
 const AreaEquipoDetailPage = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ const AreaEquipoDetailPage = () => {
 
   useEffect(() => {
     if (!loggedIn) {
-      return;
+      logoutService();
     }
 
     const fetchAreaEquipo = async () => {

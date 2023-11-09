@@ -1,8 +1,9 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createAreaEquipo } from '../../../services/areasEquiposService';
 import { useNavigate } from 'react-router-dom';
 import './styles/RegisterAreaEquipoForm.css'
+import { logoutService } from '../../../../users/services/authService';
 const RegisterAreaEquipoForm: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [areaEquipoData, setAreaEquipoData] = useState({
@@ -32,6 +33,13 @@ const RegisterAreaEquipoForm: React.FC = () => {
   const hangleCancel = () => {
     navigate('/equipos/areas')
   };
+
+  useEffect(() => {
+    if (!loggedIn) {
+      logoutService();
+    }
+  }, [loggedIn, navigate]);
+
 
   return (
     <div>

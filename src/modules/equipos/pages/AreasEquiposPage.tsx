@@ -8,6 +8,7 @@ import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenu
 import SearchAreasEquipos from '../components/searchEquiposTools/SearchAreasEquipos';
 import './styles/AreasEquiposPage.css'
 import RegisterAreaEquipoButton from '../components/areasEquipos/RegisterAreaEquipoButton';
+import { logoutService } from '../../users/services/authService';
 const AreasEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [areasEquipos, setAreasEquipos] = useState<Array<AreaEquipo>>([]);
@@ -26,6 +27,8 @@ const AreasEquiposPage = () => {
           console.error('Error fetching data:', error);
           setLoading(false);
         });
+    } else {
+      logoutService();
     }
   }, [loggedIn]);
 

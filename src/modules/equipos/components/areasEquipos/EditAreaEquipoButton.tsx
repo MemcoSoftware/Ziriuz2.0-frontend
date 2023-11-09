@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { updateAreaEquipo } from '../../services/areasEquiposService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import './styles/EditAreaEquipoButton.css'
+import { logoutService } from '../../../users/services/authService';
 type EditAreaEquipoButtonProps = {
   areaEquipoId: string;
   onEditSuccess: () => void;
@@ -15,6 +16,10 @@ const EditAreaEquipoButton: React.FC<EditAreaEquipoButtonProps> = ({ areaEquipoI
 
   const handleEdit = async () => {
     try {
+
+      if (!loggedIn){
+        logoutService();
+      }
       const token = loggedIn;
 
       // Realizar una solicitud PUT para actualizar el área de equipo

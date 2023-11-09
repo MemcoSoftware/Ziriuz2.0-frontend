@@ -21,7 +21,6 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
         if (status === 500) {
           console.error('Error 500:', data);
           window.location.href = '/login';
-          window.alert('La sesión ha expirado')
         }
       } else {
         console.error('Error desconocido:', error);
@@ -52,7 +51,6 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
-            window.alert('La sesión ha expirado')
           }
         }
         throw error;
@@ -74,7 +72,6 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
-            window.alert('La sesión ha expirado')
           }
         }
         throw error;
@@ -97,7 +94,6 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
-            window.alert('La sesión ha expirado')
           }
         }
         throw error;
@@ -122,7 +118,6 @@ export const getAllEquipos = (token: string, limit?: number, page?: number) => {
           const { status } = error.response;
           if (status === 500) {
             window.location.href = '/login';
-            window.alert('La sesión ha expirado')
           }
         }
         throw error;

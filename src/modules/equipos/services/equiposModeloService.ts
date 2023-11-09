@@ -87,13 +87,13 @@ const handleError = (error: any) => {
     const { status, data } = error.response;
     if (status === 500) {
       console.error(`Error 500: ${data}`);
-      window.alert('No puedes hacer esto')
-      // You can handle the error and display a message to the user here.
+      window.alert('No puedes hacer esto');
+      window.location.href = '/login'; // Redirige al usuario a la página de inicio de sesión
     }
   } else {
     console.error('Unknown error:', error);
-    window.alert('No puedes hacer esto')
-    
+    window.alert('No puedes hacer esto');
+    window.location.href = '/login'; // Redirige al usuario a la página de inicio de sesión
   }
   throw error;
 };

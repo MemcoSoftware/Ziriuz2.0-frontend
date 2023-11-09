@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { updateModeloEquipo } from '../../services/equiposModeloService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import './styles/EditEquipoButton.css'
+import { useNavigate } from 'react-router-dom';
 
 
 type EditEquipoModeloButtonProps = {
@@ -15,9 +16,15 @@ const EditEquipoModeloButton: React.FC<EditEquipoModeloButtonProps> = ({ modeloE
   const [modeloEquipoData, setModeloEquipoData] = useState(initialData);
 
   const loggedIn = useSessionStorage('sessionJWTToken');
-
+  const navigate = useNavigate();
   const handleEdit = async () => {
     try {
+      if (!loggedIn) {
+        // Redirige al usuario a la página de inicio de sesión si no está autenticado
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      }
       const token = loggedIn;
 
       // Mapear los campos relacionados al formato correcto
@@ -47,7 +54,7 @@ const EditEquipoModeloButton: React.FC<EditEquipoModeloButtonProps> = ({ modeloE
         <div className="EditEquipoModeloButton-overlap-group">
           <div className="EditEquipoModeloButton-overlap">
             <p className="EditEquipoModeloButton-title">ACTUALIZAR MODELO DE EQUIPO</p>
-            <p className='EditEquipoModeloButton-ID'>{modeloEquipoData._id}</p>
+            <p className='EditEquipoModeloButton-ID'>{modeloEquipoData._id || ''}</p>
           </div>
           <div className="EditEquipoModeloButton-container-separator" />
           

@@ -31,8 +31,10 @@ const EquipoModeloDetailPage = () => {
 
   useEffect(() => {
     if (!loggedIn) {
-      // Manejar la redirección si el usuario no está autenticado
-      return;
+      // Redirige al usuario a la página de inicio de sesión si no está autenticado
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
     }
 
     const fetchModeloEquipo = async () => {
@@ -48,7 +50,8 @@ const EquipoModeloDetailPage = () => {
     };
 
     fetchModeloEquipo();
-  }, [loggedIn, id]);
+  }, [loggedIn, id, navigate]);
+
 
   const handleEditSuccess = () => {
     console.log('Modelo de equipo editado con éxito');

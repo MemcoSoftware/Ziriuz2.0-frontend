@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createModeloEquipo } from '../../../services/equiposModeloService';
 import './styles/RegisterEquipoModeloForm.css'
@@ -37,7 +37,16 @@ const RegisterEquipoModeloForm: React.FC = () => {
 
   const hancleCancelForm = () => {
     navigate('/equipos/modelos')
-  }
+  };
+
+  useEffect(() => {
+    if (!loggedIn) {
+      // Redirige al usuario a la página de inicio de sesión si no está autenticado
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+    }
+  }, [loggedIn, navigate]);
 
   return (
     <div>

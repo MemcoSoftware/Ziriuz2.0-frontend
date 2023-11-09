@@ -4,64 +4,65 @@ import { getAllModeloEquipos } from '../services/equiposModeloService';
 import { EquiposModelo } from '../utils/types/EquipoModelo.type';
 import EquipoModeloCard from '../components/equiposModelos/EquipoModeloCard';
 import { useNavigate } from 'react-router-dom';
-import './styles/EquipoModeloPage.css'
+import './styles/EquipoModeloPage.css';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchModelosEquipos from '../components/searchEquiposTools/SearchModeloEquipos';
 import RegisterModeloEquipoButton from '../components/equiposModelos/RegisterModeloEquipoButton';
+import { WindPowerOutlined } from '@mui/icons-material';
 
 const EquipoModeloPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [modelosEquipos, setModelosEquipos] = useState<Array<EquiposModelo>>([]);
-  const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
-
+  const [showSearchResults, setShowSearchResults] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loggedIn) {
-      getAllModeloEquipos(loggedIn)
-        .then((data: EquiposModelo[]) => {
-          setModelosEquipos(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-          setLoading(false);
-        });
+    if (!loggedIn) {
+      // Redirige al usuario a la página de inicio de sesión si no está autenticado
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
     }
-  }, [loggedIn]);
+
+    getAllModeloEquipos(loggedIn)
+      .then((data: EquiposModelo[]) => {
+        setModelosEquipos(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        // También puedes redirigir a la página de inicio de sesión en caso de error aquí
+        navigate('/login');
+      });
+  }, [loggedIn, navigate]);
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
 
   const handleViewDetails = (id: string) => {
     navigate(`/equipos/modelo/${id}`);
   };
 
   return (
-    <div className='EquipoModeloPage-container'>
+    <div className="EquipoModeloPage-container">
       <DashboardMenuLateral />
       <RegisterModeloEquipoButton />
-      <SearchModelosEquipos // Renderiza el componente SearchModelosEquipos
-        showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
-        setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
+      <SearchModelosEquipos
+        showSearchResults={showSearchResults}
+        setShowSearchResults={setShowSearchResults}
       />
-      <div className='EquipoModeloPage-Container-Card'>
-
-          {showSearchResults ? (
-            <p></p>
-            ):
-            (
-              
-              modelosEquipos.map((modeloEquipo) => (
-                <EquipoModeloCard
-                key={modeloEquipo._id}
-                modeloEquipo={modeloEquipo}
-                onViewDetails={() => handleViewDetails(modeloEquipo._id)}
-                />
-                ))
-                
-                )}    
+      <div className="EquipoModeloPage-Container-Card">
+        {showSearchResults ? <p></p> : modelosEquipos.map((modeloEquipo) => (
+          <EquipoModeloCard
+            key={modeloEquipo._id}
+            modeloEquipo={modeloEquipo}
+            onViewDetails={() => handleViewDetails(modeloEquipo._id)}
+          />
+        ))}
       </div>
-      
     </div>
   );
 };

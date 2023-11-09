@@ -91,3 +91,9 @@
       width: 1200px;
       height: 100%;
   }
+
+
+  .ClasesEquiposPage-loggedIn-p{
+    text-align: center;
+    color: #00ddfa;
+  }

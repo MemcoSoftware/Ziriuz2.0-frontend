@@ -6,7 +6,7 @@ import ClaseEquipoCard from '../components/clasesEquipos/ClaseEquipoCard';
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 
-import './styles/ClasesEquiposPage.css'
+import './styles/ClasesEquiposPage.css';
 import SearchClasesEquipos from '../components/searchEquiposTools/SearchClasesEquipos';
 import RegisterClaseEquipoButton from '../components/clasesEquipos/RegisterClaseEquipoButton';
 
@@ -18,7 +18,12 @@ const ClasesEquiposPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loggedIn) {
+    if (!loggedIn) {
+      // Redirige al usuario a la página de inicio de sesión si no está autenticado
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+    } else {
       getAllClasesEquipos(loggedIn)
         .then((data: ClaseEquipo[]) => {
           setClasesEquipos(data);
@@ -26,10 +31,11 @@ const ClasesEquiposPage = () => {
         })
         .catch((error) => {
           console.error('Error fetching data:', error);
+          window.alert('Error fetching data');
           setLoading(false);
         });
     }
-  }, [loggedIn]);
+  }, [loggedIn, navigate]);
 
   const handleViewDetails = (id: string) => {
     navigate(`/equipos/clases/${id}`);
@@ -61,7 +67,7 @@ const ClasesEquiposPage = () => {
           </div>
         </div>
       ) : (
-        <p>Please log in to view data.</p>
+        <p className='ClasesEquiposPage-loggedIn-p'>Please log in to view data.</p>  
       )}
     </div>
   );

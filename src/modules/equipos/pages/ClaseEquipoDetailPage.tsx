@@ -23,23 +23,24 @@ const ClaseEquipoDetailPage = () => {
 
   useEffect(() => {
     if (!loggedIn) {
-      return;
+        navigate('/login');
+    } else {
+      const fetchClaseEquipo = async () => {
+        try {
+          const token = loggedIn;
+          const result = await getClaseEquipoById(token, id);
+
+          setClaseEquipo(result);
+          setLoading(false);
+        } catch (error) {
+          console.error('Error al obtener detalles de la clase de equipo:', error);
+        }
+      };
+
+      fetchClaseEquipo();
     }
+  }, [loggedIn, id, navigate]);
 
-    const fetchClaseEquipo = async () => {
-      try {
-        const token = loggedIn;
-        const result = await getClaseEquipoById(token, id);
-
-        setClaseEquipo(result);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error al obtener detalles de la clase de equipo:', error);
-      }
-    };
-
-    fetchClaseEquipo();
-  }, [loggedIn, id]);
 
   const handleEditSuccess = () => {
     setIsEditing(false);

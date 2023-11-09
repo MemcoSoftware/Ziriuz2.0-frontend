@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { updateClaseEquipo } from '../../services/clasesEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import './styles/EditClaseEquipoButton.css'
+import { useNavigate } from 'react-router-dom';
 
 
 type EditClaseEquipoButtonProps = {
@@ -14,9 +15,17 @@ type EditClaseEquipoButtonProps = {
 const EditClaseEquipoButton: React.FC<EditClaseEquipoButtonProps> = ({ claseEquipoId, onEditSuccess, onCancel, initialData }) => {
   const [claseEquipoData, setClaseEquipoData] = useState(initialData);
   const loggedIn = useSessionStorage('sessionJWTToken');
+  const navigate = useNavigate();
 
   const handleEdit = async () => {
     try {
+
+      if (!loggedIn) {
+        // Redirige al usuario a la página de inicio de sesión si no está autenticado
+          navigate('/login');
+          
+      }
+
       const token = loggedIn;
 
       // Realizar una solicitud PUT para actualizar la clase de equipo

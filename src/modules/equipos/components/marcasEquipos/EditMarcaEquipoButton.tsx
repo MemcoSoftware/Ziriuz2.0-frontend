@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { updateMarcaEquipo } from '../../services/marcasEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import './styles/EditMarcaEquipoButton.css'
+import { logoutService } from '../../../users/services/authService';
 type EditMarcaEquipoButtonProps = {
   marcaEquipoId: string;
   onEditSuccess: () => void;
@@ -15,6 +16,10 @@ const EditMarcaEquipoButton: React.FC<EditMarcaEquipoButtonProps> = ({ marcaEqui
 
   const handleEdit = async () => {
     try {
+
+      if (!loggedIn){
+        logoutService();
+      }
       const token = loggedIn;
 
       // Realizar una solicitud PUT para actualizar la marca de equipo

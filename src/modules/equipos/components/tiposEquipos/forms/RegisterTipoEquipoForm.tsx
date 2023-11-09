@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createTipoEquipo } from '../../../services/tiposEquipoService';
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +34,12 @@ const RegisterTipoEquipoForm: React.FC = () => {
   const hangleCancel = () => {
     navigate('/equipos/tipos')
   };
+  useEffect(() => {
+    if (!loggedIn) {
+      // Redirige al usuario a la página de inicio de sesión si no está autenticado
+      navigate('/login');
+    }
+  }, [loggedIn, navigate]);
 
   return (
     <div>

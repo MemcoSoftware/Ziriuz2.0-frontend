@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { updateTipoEquipo } from '../../services/tiposEquipoService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import './styles/EditTipoEquipoButton.css'
+import { logoutService } from '../../../users/services/authService';
 type EditTipoEquipoButtonProps = {
   tipoEquipoId: string;
   onEditSuccess: () => void;
@@ -15,6 +16,9 @@ const EditTipoEquipoButton: React.FC<EditTipoEquipoButtonProps> = ({ tipoEquipoI
 
   const handleEdit = async () => {
     try {
+      if (!loggedIn){
+        logoutService();
+      };
       const token = loggedIn;
 
       // Realizar una solicitud PUT para actualizar el tipo de equipo

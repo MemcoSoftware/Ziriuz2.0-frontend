@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createMarcaEquipo } from '../../../services/marcasEquipoService';
 import './styles/RegisterMarcaEquipoForm.css'
@@ -34,6 +34,12 @@ const RegisterMarcaEquipoForm: React.FC = () => {
       console.error('Error al registrar la marca de equipo:', error);
     }
   };
+  useEffect(() => {
+    if (!loggedIn) {
+      // Redirige al usuario a la página de inicio de sesión si no está autenticado
+      navigate('/login');
+    }
+  }, [loggedIn, navigate]);
 
   return (
     <div>

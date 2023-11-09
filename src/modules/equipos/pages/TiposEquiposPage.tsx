@@ -9,6 +9,7 @@ import './styles/TiposEquiposPage.css'
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import SearchTiposEquipos from '../components/searchEquiposTools/SearchTiposEquipos'; // Importa SearchTiposEquipos
 import RegisterTipoEquipoButton from '../components/tiposEquipos/RegisterTipoEquipoButton';
+import { logoutService } from '../../users/services/authService';
 
 const TiposEquiposPage = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -28,6 +29,8 @@ const TiposEquiposPage = () => {
           console.error('Error fetching data:', error);
           setLoading(false);
         });
+    }else {
+      logoutService();
     }
   }, [loggedIn]);
 

@@ -9,6 +9,7 @@ import './styles/TipoEquipoDetailPage.css'
 import DeleteTipoEquipoButton from '../components/tiposEquipos/DeleteTipoEquipoButton';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import TypeSpecimenOutlinedIcon from '@mui/icons-material/TypeSpecimenOutlined';
+import { logoutService } from '../../users/services/authService';
 
 const TipoEquipoDetailPage = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ const TipoEquipoDetailPage = () => {
 
   useEffect(() => {
     if (!loggedIn) {
-      return;
+      logoutService();
     }
 
     const fetchTipoEquipo = async () => {

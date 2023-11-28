@@ -17,19 +17,17 @@
   order: 0;
   padding: 10px;
   margin: center;
-
-
 }
 
 
 .DashboardMenuCentral-title{
   font-size: 20px;
-  margin: 10px;
+  margin: 0px;
   text-align: center;
   color: aqua;
   border-radius: 20px;
-  width: 90%;
-  padding: 0px 10px 0px 10px;   
+  width: 100%;
+  padding: 0px;   
   background-color: #1f1f1f;
 }
 
@@ -41,7 +39,7 @@
   color: #fff;
 }
 .DashboardMenuCentral-button{
-  padding: 0px 20px;
+  padding: 0px 15px;
   width: 110px;
   height: 110px; 
   border: none; 
@@ -58,15 +56,11 @@
   
 }
 .DashboardMenuCentral-nav{
-  height: 700px;
   width: 100vh;
   position: relative;
   text-align: center;
   background-color:#28292d;
-  border-radius: 30px;
-
-
-  
+  border-radius: 30px; 
 }
 .DashboardMenuCentral-nav-ul{
   height: 100%;
@@ -104,7 +98,7 @@
 /*//////////////////////////LINEAS DE CONTORNO//////////////////////////////////////*/
 
 .DashboardMenuCentral-a{
-  position: relative;
+  position: absolute;
   display: inline-block;
   padding: 25px 30px;
   margin: 40px;
@@ -115,7 +109,8 @@
   letter-spacing: 4px;
   overflow: hidden;
   margin-right: 50px;
-  
+  left: 43%;
+  top:5%;
   
 }
 .DashboardMenuCentral-a:nth-child(4){
@@ -199,41 +194,39 @@
 
 
 @media screen and (min-device-width: 412px) and (max-device-width: 914px) {
-  /*.DashboardMenuCentral{
-    display: flex;
-    flex-direction: column;
-  }*/
+
   .DashboardMenuCentral-LogoPrincipal{
-    padding: 0px;
+    padding: 10px;
     border: 1px solid #05050500;
-    width:80px;
-    height: 90px;
-    position: relative; 
-    top:-150px ;
-    left: -145px;
-   
+    width:70px;
+    height: 80px;
+    position: absolute; 
+    top:  0% ;
+    left: 90px;
   }
+
   .DashboardMenuCentral-logo-Ziriuz{
     width:150px;
     height:100px;
   }
   .DashboardMenuCentral-button{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
   }
   .DashboardMenuCentral-nav{
-    height: 400px;
+    
     width: 30vh;
-    position: relative;
+    position: absolute;
     text-align: center;
     background-color:#28292d;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    top: -120px;
-    right:25px ;
+    top: 30%;
+    right:45px ;
+   overflow: auto;
    
-  }
+  } 
   .DashboardMenuCentral-nav-li{
     display: flex;
     flex-direction: column;
@@ -241,42 +234,32 @@
     margin: 10px;
 
   }
+  .DashboardMenuCentral-nav-ul{
+    height: 100%;
+    width: 100%;
+    padding: 10px 10px;
+    list-style-type: none;
+    margin: 10px;
+  }
+  .DashboardMenuCentral-a{
+    position: absolute;
+    display: inline-block;
+    padding: 25px 25px;
+    margin: 5px;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    left:-28%;
+    top: 25%;
+  }
+ 
   
 }
 
-/*@media screen and (min-device-width: 412px) and (max-device-width: 914px) {
-  .DashboardMenuCentral-LogoPrincipal{
-    padding: 0px;
-    border: 1px solid #05050500;
-    width:80px;
-    height: 90px;
-    position: relative;
-    
-  }
-  .DashboardMenuCentral-logo-Ziriuz{
-    width:150px;
-    height:100px;
-  }
-  .DashboardMenuCentral-button{
-    height: 40px;
-    width: 40px;
-  }
-  .DashboardMenuCentral-nav{
-    height: 200px;
-    width: 80vh;
-    position: relative;
-    text-align: center;
-    background-color:#28292d;
-    border-radius: 30px;
-  }
-  .DashboardMenuCentral-nav-li{
-    display: flex;
-    flex-wrap: nowrap;
-    margin: 10px;
-
-  }
-  
-}*/
 
 @media screen and (min-device-width: 600px) and (max-device-width: 845px){
   .DashboardMenuCentral-LogoPrincipal{
@@ -314,58 +297,243 @@
   }
 }
 @media screen and (min-device-width: 820px) and (max-device-width: 1180px) {
+  .DashboardMenuCentral-LogoPrincipal{
+    padding: 0px;
+    border: 1px solid #05050500;
+    width:110px;
+    height: 100px;
+    position: relative; 
+    top:  -200px ;
+    left: -175px;
+   
+  }
+  .DashboardMenuCentral-logo-Ziriuz{
+    width:170px;
+    height:130px;
+  }
   .DashboardMenuCentral-button{
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
   }
   .DashboardMenuCentral-nav{
-    height: 400px;
-    width: 100vh;
+    height: 100%;
+    width: 60vh;
     position: relative;
     text-align: center;
     background-color:#28292d;
     border-radius: 30px;
-  }
-}
-
-@media screen and (min-device-width: 1920px) and (max-device-width: 1080px) {
-  .DashboardMenuCentral-button{
-    height: 80px;
-    width: 80px;
-  }
-  .DashboardMenuCentral-nav{
-    height: 200px;
-    width: 80vh;
-    position: relative;
-    text-align: center;
-    background-color:#28292d;
-    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    top: 90px;
+    right:25px ;
+   
   }
   .DashboardMenuCentral-nav-li{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    margin: 0 10px;
+    margin: 5px;
+
   }
+  .DashboardMenuCentral-a{
+    position: relative;
+    display: inline-block;
+    padding: 25px 25px;
+    margin: 5px;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    left: 345px;
+  }
+  
+input:checked ~ .acordeon-content {
+  max-height: 25em;
+}
 }
 /* Extra large devices (large laptops and desktop, 1200px and up */
-@media screen and  (min-device-width: 1920px) and (max-device-width: 1200px) {
-  .DashboardMenuCentral-button{
-    height: 150px;
-    width: 150px;
+@media screen and  (min-device-width: 1200px)  {
+  *{
+    margin: 0;
+    padding: 0;
   }
-  .DashboardMenuCentral-nav-ul{
-    height: 100%;
-    width: 100%;
-    padding: 30px 30px;
-    list-style-type: none;
-    margin: 10px;
+  .DashboardMenuCentral-LogoPrincipal{
+    padding: 0px;
+    border: 1px solid #05050500;
+    width:110px;
+    height: 100px;
+    position: absolute; 
+    top:  15% ;
+    left: 43%;
+   
+  }
+  .DashboardMenuCentral-logo-Ziriuz{
+    width:170px;
+    height:130px;
+  }
+  .DashboardMenuCentral-button{
+    height: 90px;
+    width: 90px;
   }
   .DashboardMenuCentral-nav{
-    height: 700px;
-    width: 150vh;
+    height: auto;
+    width: 110vh;
+    padding: 10px;
     position: relative;
     text-align: center;
     background-color:#28292d;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    top: 190px;
+    right:35px ;
+    /* overflow-y: scroll; */
+    /* scroll-behavior: auto; */
+    
   }
+  .DashboardMenuCentral-nav-li{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 5px;
+
+  }
+  .DashboardMenuCentral-a{
+    position: absolute;
+    display: inline-block;
+    padding: 25px 25px;
+    margin: 5px;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    left: -1px;
+    top: -115px;
+  }
+  
+  .acordeon {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    color: #00ddfa;
+    top: 10%;
+    
+  }
+
+/* .DashboardMenuCentral-nav::-webkit-scrollbar{
+  border: #03e9f4;
+} */
+.acordeon-content {
+  text-align: center;
+  max-height: 0;
+  background: #28292d;
+  border-radius: 15px;
+  -webkit-transition: max-height .35s;
+  transition: max-height .35s;
+}
+
+.acordeon-content p {
+  margin: 15px;
+}
+
+.acordeon input {
+  display:none;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+input:checked ~ .acordeon-content {
+  max-height: 25em;
+}
+}
+
+/*----------------------------------------------------------------*/
+
+/* acordeon  */
+
+.acordeon-tabs { 
+  padding: 0;
+  margin: 0;
+}
+
+.acordeon {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  color: #00ddfa;
+  padding: 2%;
+}
+
+.acordeon label {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+  justify-self: center;
+  display: block;
+  padding:0 0 0 1em;
+  background: #1f1f1f;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.acordeon-content {
+  text-align: center;
+  max-height: 0;
+  overflow: hidden;
+  background: #28292d;
+  border-radius: 15px;
+  -webkit-transition: max-height .35s;
+  transition: max-height .35s;
+}
+
+.acordeon-content p {
+  margin: 15px;
+}
+.acordeon-core{
+  margin: 0;
+  padding: 0;
+}
+.acordeon input {
+  display:none;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+
+
+label::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 5em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+
+}
+input:checked ~ .acordeon-content {
+  max-height: 100%;
+}
+
+input[type=checkbox] + label::after {
+  content: "▼";
+}
+
+input[type=checkbox]:checked + label::after {
+  -webkit-transform: rotate(340deg);
+  transform: rotate(315deg);
 }

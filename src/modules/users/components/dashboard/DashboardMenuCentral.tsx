@@ -2,26 +2,26 @@ import React from 'react';
 import './styles/DashboardMenuCentral.css';
 import ZiriuzDashboardLogo from './img/ziriuzDashboardLogo.png'
 import { useNavigate } from 'react-router-dom';
+import DashboardMenuCentralGenerales  from './DashboardMenuCentralGenerales';
 import DashboardMenuCentralEquipos from '../../../equipos/components/dashboard_equipos/DashboardMenuCentralEquipos';
-import DashboardMenuCentralGenerales from './DashboardMenuCentralGenerales';
 const DashboardMenuCentral = () => {
     const navigate = useNavigate();
 
     return (
        
-        <div className='DashboardMenuCentral'>
-                <section className="DashboardMenuCentral-LogoPrincipal">
-                    <div className="DashboardMenuCentral-logo">
-                            <a className="DashboardMenuCentral-a" href="">
-                                <img  src={ZiriuzDashboardLogo} alt="" width = "250px" height = "150px" />
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
-                    </div>
-                </section>
-                {/* <section className="DashboardMenuCentral-Block"> */}
+      <div className='DashboardMenuCentral'>
+              <section className="DashboardMenuCentral-LogoPrincipal">
+                  <div className="DashboardMenuCentral-logo">
+                          <a className="DashboardMenuCentral-a" href="">
+                              <img  src={ZiriuzDashboardLogo} alt="" width = "250px" height = "150px" />
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </a>
+                  </div>
+              </section>
+              <section className="DashboardMenuCentral-Block">
                     <nav className="DashboardMenuCentral-nav">
                         {/* <div className='menuGenerales'>
                             <DashboardMenuCentralGenerales />
@@ -29,7 +29,7 @@ const DashboardMenuCentral = () => {
                         <div className='MenuEquipos'>
                             <DashboardMenuCentralEquipos/>
                         </div> */}
-                    
+                   
                         <div className="wrapper">
                             <div className="acordeon-core">
                                 <div className="acordeon">
@@ -53,10 +53,34 @@ const DashboardMenuCentral = () => {
                                 </div>
                             </div>
                         </div>
+
+                        {/* <div className="wrapper">
+                            <div className="acordeon-core">
+                                <div className="acordeon">
+                                    <input id="acordeon-3" type="checkbox" name="acordeons"/>
+                                    <label htmlFor="acordeon-3">Generales</label>
+                                        <div className="acordeon-content">
+                                            <DashboardMenuCentralGenerales />                     
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="wrapper">
+                            <div className="acordeon-core">
+                                <div className="acordeon">
+                                    <input id="acordeon-4" type="checkbox" name="acordeons"/>
+                                    <label htmlFor="acordeon-4">Equipos</label>
+                                        <div className="acordeon-content">
+                                        <DashboardMenuCentralEquipos/>                    
+                                        </div>
+                                </div>
+                            </div>
+                        </div> */}
                         
                     </nav>
-                {/* </section> */}
-        </div>
+              </section>
+      </div>
     ); 
   };
   

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PersonIcon from '@mui/icons-material/Person';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import Groups3OutlinedIcon from '@mui/icons-material/Groups3Outlined';
+import ShieldIcon from '@mui/icons-material/Shield';
 
 const DashboardMenuCentralGenerales = () => {
     const navigate = useNavigate();
@@ -48,7 +48,7 @@ const DashboardMenuCentralGenerales = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
                                         {/* <img  alt="" width="40px" height="30px"/> */}
-                                        <Groups3OutlinedIcon/>
+                                        <ShieldIcon/>
                                     </i>
                                     <p className="DashboardMenuCentral-p">Roles </p>  
                                     </div>

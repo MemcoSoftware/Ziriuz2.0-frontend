@@ -2,8 +2,6 @@
     font-size: 15px;
     text-decoration:none;
     display:flex;
-    justify-content: baseline;
-    overscroll-behavior-y: auto;
     height: 100%;
     width: 100%;
 }

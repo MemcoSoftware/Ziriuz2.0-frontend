@@ -9,7 +9,10 @@
 	display:grid;
 	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
 	gap:2rem;
-	margin:4rem 5vw;
+	margin-top: 2rem; /* Ajusta el valor para bajar el contenedor */
+  	margin-bottom: 0rem; /* Ajusta el valor para reducir la parte inferior del contenedor */
+  	margin-left: 2vw; /* Ajusta el valor para la margen izquierda */
+ 	 margin-right: 2vw; /* Ajusta el valor para la margen derecha */
 	padding:0;
 	list-style: none;
 	
@@ -132,12 +135,15 @@
 	}
 
 	.UserPages-Container-Card{
-		width: 1200px;
-		height: 100%;
+	width: 1200px;
+	height: 100%;
 	display:grid;
 	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
 	gap:2rem;
-	margin:2rem 3vw;
+	margin-top: 6rem; /* Ajusta el valor para bajar el contenedor */
+  	margin-bottom: 0rem; /* Ajusta el valor para reducir la parte inferior del contenedor */
+  	margin-left: 1vw; /* Ajusta el valor para la margen izquierda */
+  	margin-right: 1vw; /* Ajusta el valor para la margen derecha */
 	padding:0;
 	list-style: none
 	}

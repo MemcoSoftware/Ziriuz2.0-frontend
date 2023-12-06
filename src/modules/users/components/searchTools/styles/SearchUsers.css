@@ -1,21 +1,29 @@
 .SearchUser-section{
-  position: absolute;
-  top: 80px;
-  left: 180px;
+  justify-content: center;
+  position: fixed;
+  align-items: center;
+  display: flex;
+  top: 15%;
+  left: 50%;
 } 
 
 .SearchUser-section-container{
-    width: 100%;
-    height: 100%;
-    left: 750px;
-    position: absolute;
-    color: #a0a0a0;
+  width: 100%;
+  position: fixed;
+  height: 5%;
+  top: 3%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a0a0a0;
   }
   
   .SearchUsers-input[type=text]{
-    position: absolute;
-    padding: 20px 30px 15px 20px;
-    width: 180px;
+    position: relative;
+    padding: 15px 30px 15px 10px;
+    width: 120px;
     color: #00ddfa;
     text-transform: uppercase;
     font-size: 16px;
@@ -31,10 +39,8 @@
   }
   .SearchUser-IconButton{
     position: relative;
-    top: 0px;
-    left: -0px;
+    left: -37px;
     color:#00ddfa;
-    background:#1c1c1c ;
   }
 
   .SearchUser-icon-search{
@@ -43,202 +49,5 @@
     color: #00ddfa;
     border-radius: 25px;
  }
-
- /* Medias Search button */
- @media screen and (min-device-width: 412px) and (max-device-width: 915px) {
-  .SearchUser-section{
-    top: 20px;
-    left: 100px;
-    background-color: #1c1c1c;
-    height: 45px;
-    width: 130px;
-    border-radius: 1rem;
-   
-  }
-
-  .SearchUser-section-container{
-    width: 100%;
-    height: 100%;
-    left: -25px;
-    position: absolute;
-    color: #a0a0a0;
-    display:flex;
-    background:#1c1c1c ;
-    border-radius: 1rem;
-  }
-  
-  .SearchUsers-input[type=text]{
-    position: absolute;
-    padding: 15px 0px 15px 20px;
-    width: 120px;
-    color: #00ddfa;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 100;
-    letter-spacing: 2px;
-    &:focus{ width: 200px; }
-  }
-  .SearchUser-IconButton{
-    position: absolute;
-    top: 0px;
-    left: -0px;
-    width: 50px;
-    height: 50px;
-    color:#00ddfa;
-    background:#1c1c1c ;
-  }
-
-  .SearchUser-icon-search{
-    height: 100%;
-    width: 100%;
-    color: #00ddfa;
-    
-    /* border-radius: 25px; */
-    background:#1c1c1c ;
- }
- 
- }
- @media screen and (min-device-width: 820px) and (max-device-width: 1180px) {
-  .SearchUser-section{
-    top: 20px;
-    left: 330px;
-    background-color: #1c1c1c;
-    height: 45px;
-    width: 130px;
-    border-radius: 1rem;
-  }
-
-  .SearchUser-section-container{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    color: #a0a0a0;
-    display:flex;
-    background:#1c1c1c ;
-    border-radius: 1rem;
-  }
-  
-  .SearchUsers-input[type=text]{
-    position: absolute;
-    margin: 0px 0px 0px 25px;
-    padding: 15px 5px 15px 20px;
-    width: 120px;
-    color: #00ddfa;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 100;
-    letter-spacing: 2px;
-    &:focus{ width: 200px; }
-  }
-  .SearchUser-IconButton{
-    position: absolute;
-    top: 0px;
-    left: -0px;
-    width: 50px;
-    height: 50px;
-    color:#00ddfa;
-    background:#1c1c1c ;
-  }
-
-  .SearchUser-icon-search{
-    height: 100%;
-    width: 100%;
-    color: #00ddfa;
-    
-    /* border-radius: 25px; */
-    background:#1c1c1c ;
- }
- }
- 
-  
-
-
-
-@media screen and (min-device-width: 1080px) {
- 
-  .SearchUser-section{
-    top: 50px;
-    left: 960px;
-    background-color: #1c1c1c;
-    height: 45px;
-    width: 130px;
-    border-radius: 1rem;
-   
-  }
-
-  .SearchUser-section-container{
-    width: 100%;
-    height: 100%;
-    left: -25px;
-    position: absolute;
-    color: #a0a0a0;
-    display:flex;
-    background:#1c1c1c ;
-    border-radius: 1rem;
-  }
-  
-  .SearchUsers-input[type=text]{
-    position: absolute;
-    margin: 0px 0px 0px 25px;
-    padding: 15px 5px 15px 20px;
-    width: 140px;
-    color: #00ddfa;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 100;
-    letter-spacing: 2px;
-    &:focus{ width: 220px; }
-  }
-  .SearchUser-IconButton{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    color:#00ddfa;
-    background:#1c1c1c ;
-  }
-
-  .SearchUser-icon-search{
-    height: 100%;
-    width: 100%;
-    color: #00ddfa;
-    background:#1c1c1c ;
- }
-}
-
-@media screen and  (min-device-width: 1920px) and (max-device-width: 1200px) {
-  .SearchUser-section{
-    position: absolute;
-    top: 80px;
-    left: 200px;
-  }
-  
-  .SearchUser-section-container{
-      width: 100%;
-      height: 100%;
-      margin-top: 20px;
-      left: 350px;
-      position: absolute;
-      color: #a0a0a0;
-    }
-    
-    .SearchUsers-input[type=text]{
-      position: absolute;
-      padding: 20px 30px 15px 20px;
-      width: 180px;
-      color: #00ddfa;
-      text-transform: uppercase;
-      font-size: 16px;
-      font-weight: 100;
-      letter-spacing: 2px;
-      border: none;
-      border-radius: 10px;
-      background:#1c1c1c ;
-      transition: width 0.4s ease;
-      outline: none;
-      
-      &:focus{ width: 300px; }
-    }
- }
- 
 
  

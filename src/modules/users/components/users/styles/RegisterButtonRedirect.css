@@ -1,21 +1,25 @@
 .RegisterUser-button-redirec-container{
-    position: relative;
-    left: 1200px;
-    top: -50px;
+  position: fixed;
+  left: 70%;
+  top: 3.3%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
 } 
 
 
  .RegisterUser-button-redirect{
-    position: absolute;
-    border-radius: 150px;
-    color:#00ddfa;
-    background-color: rgba(32, 32, 32,0.6);
-    padding: 5px;
-    height: 55px ;
-    width:55px ;
+  top: 0%;
+  border-radius: 150px;
+  color:#00ddfa;
+  background-color: rgba(32, 32, 32,0.6);
+  padding: 5px;
+  height: 55px ;
+  width:55px ;
 } 
 
-@media screen and (min-device-width: 412px) and (max-device-width: 915px) {
+/* @media screen and (min-device-width: 412px) and (max-device-width: 915px) {
     .RegisterUser-button-redirec-container{
         position: absolute;
         left: 330px;
@@ -105,4 +109,4 @@
       width:55px ;
   } 
 }
-  
+   */

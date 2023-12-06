@@ -66,7 +66,7 @@
 
   /* Style the scrollbar */
   scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #8f8f8fbe transparent; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox */
 
   /* WebKit (Chrome, Safari) */
   &::-webkit-scrollbar {
@@ -78,7 +78,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #8f8f8fbe;
+    background-color: transparent;
     border-radius: 5px;
   }
 }
@@ -86,7 +86,7 @@
 /* Add the following styles for Firefox */
 .DashboardMenuCentral-nav {
   scrollbar-width: thin;
-  scrollbar-color: #8f8f8f transparent;
+  scrollbar-color: transparent transparent;
 }
 
 

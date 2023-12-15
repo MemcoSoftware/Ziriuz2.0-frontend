@@ -1,0 +1,72 @@
+import React, { useState, useEffect } from 'react';
+import { getAllEquipos } from '../services/equiposService';
+import { useSessionStorage } from '../hooks/useSessionStorage';
+import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
+import './styles/EquiposPages.css';
+import { RepuestoEquipo } from '../utils/types/RepuestoEquipo.type';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import SearchEquipos from '../components/searchEquiposTools/SearchEquipos';
+import RegisterEquipoButton from '../components/equipos/RegisterEquipoButton';
+import RepuestoEquipoCard from '../components/RepuestosEquipos/RepuestoEquipoCard';
+
+const RepuestosEquiposPages: React.FC = () => {
+  const loggedIn = useSessionStorage('sessionJWTToken');
+  const [repuestosEquipos, setRepuestosEquipos] = useState<Array<RepuestoEquipo>>([]);
+  const [showSearchResults, setShowSearchResults] = useState(false); // Nuevo estado
+
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Agrega useNavigate para la navegación
+
+  useEffect(() => {
+    const fetchRepuestosEquipos = async () => {
+      try {
+        const token = loggedIn;
+        // Cambiado el servicio a obtener repuestos_equipos
+        const result = await getAllEquipos(token);
+
+        setRepuestosEquipos(result);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error al obtener repuestos_equipos:', error);
+        window.location.href = '/login';
+      }
+    };
+
+    fetchRepuestosEquipos();
+  }, [loggedIn]);
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  // Define la función navigateToRepuestoEquipoDetail para la navegación
+  const navigateToRepuestoEquipoDetail = (id: string) => {
+    navigate(`/repuestos_equipos/${id}`);
+  };
+
+  return (
+    <div className='RepuestosEquiposPages-container'>
+      <DashboardMenuLateral />
+      <RegisterEquipoButton />
+      <SearchEquipos // Renderiza el componente SearchEquipos
+        showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
+        setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
+      />
+      <div className='RepuestosEquiposPages-Container-Card'>
+        {showSearchResults ? (
+          <p></p>
+        ) : (
+          repuestosEquipos.map((repuestoEquipo) => (
+            <RepuestoEquipoCard
+              key={repuestoEquipo._id}
+              repuestoEquipo={repuestoEquipo}
+              onClick={() => navigateToRepuestoEquipoDetail(repuestoEquipo._id)}
+            />
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default RepuestosEquiposPages;

@@ -43,6 +43,7 @@ import RegisterMarcaEquipoPage from '../modules/equipos/pages/RegisterMarcaEquip
 import TiposEquiposPage from '../modules/equipos/pages/TiposEquiposPage';
 import TipoEquipoDetailPage from '../modules/equipos/pages/TipoEquipoDetailPage';
 import RegisterTipoEquipoPage from '../modules/equipos/pages/RegisterTipoEquipoPage';
+import RepuestosEquiposPages from '../modules/equipos/pages/RepuestosEquiposPages';
 
 
 export const AppRoutes = ()=>{
@@ -53,14 +54,16 @@ export const AppRoutes = ()=>{
         <Routes>
           {/* Routes Definition */}
           <Route path="/home" element={<HomePage />} ></Route>
+
           <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/register" element={<RegisterPage />} ></Route>
-          <Route path="/users" element={<UsersPages />}></Route>
-          <Route path="/users/:id" element={<UserDetailPage />}></Route>
           <Route path="/forgot-password/" element={<ForgotPasswordPage />}></Route>
           <Route path="/otp-validator" element={<OTPValidationPage/>}></Route>
           <Route path="/update-password" element={<UpdatePasswordPage/>}></Route>
           <Route path="/pass-update-successfull" element={<PassUpdateSuccessfullPage/>}></Route>
+
+          <Route path="/users" element={<UsersPages />}></Route>
+          <Route path="/users/:id" element={<UserDetailPage />}></Route>
+          <Route path="/register" element={<RegisterPage />} ></Route>
           <Route path="/user-registered-successfull" element={<RegisterSuccessPage/>}></Route>
           <Route path="/searchUsers" element={<SearchUsersResults users={[]} />} />
 
@@ -99,7 +102,11 @@ export const AppRoutes = ()=>{
           <Route path="/equipos/tipos/:id" element={<TipoEquipoDetailPage/>} />
           <Route path="/equipos/tipos/register" element={<RegisterTipoEquipoPage/>} />
 
-
+          <Route path="/equipos/repuestos" element={<RepuestosEquiposPages/>} />
+          {/* <Route path="/equipos/tipos/:id" element={<TipoEquipoDetailPage/>} /> */}
+          {/* <Route path="/equipos/tipos/register" element={<RegisterTipoEquipoPage/>} /> */}
+    
+    
           {/* Unauthorized Page */}
           {/* <Route path="/unauthorized" element={<UnauthorizedPage />}/> */}
 

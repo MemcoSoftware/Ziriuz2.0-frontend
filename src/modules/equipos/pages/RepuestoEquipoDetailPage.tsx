@@ -1,99 +1,118 @@
-// import React, { useState, useEffect } from 'react';
-// import { useSessionStorage } from '../hooks/useSessionStorage';
-// import { getRepuestoEquipoById } from '../services/repuestosEquiposService'; // Ajusta el servicio según tus necesidades
-// import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
-// import { useNavigate, useParams } from 'react-router-dom';
-// import EditRepuestoEquipoButton from '../components/repuestosEquipos/EditRepuestoEquipoButton'; // Ajusta el componente según tus necesidades
-// import DeleteRepuestoEquipoButton from '../components/repuestosEquipos/DeleteRepuestoEquipoButton'; // Ajusta el componente según tus necesidades
-// import { getClientById } from '../../users/services/clientsService';
-// import { RepuestoEquipo } from '../utils/types/RepuestoEquipo.type';
-// import { Client } from '../../users/utils/types/Client.type';
+import React, { useState, useEffect } from 'react';
+import { useSessionStorage } from '../hooks/useSessionStorage';
+import { getRepuestoEquipoById, deleteRepuestoEquipoById } from '../services/repuestosEquiposService'; // Asegúrate de tener la ruta correcta
+import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
+import { useNavigate, useParams } from 'react-router-dom';
+import BusinessIcon from '@mui/icons-material/Business';
+import EditRepuestoEquipoButton from '../components/RepuestosEquipos/EditRepuestoEquipoButton';
 
-// // Estilos e iconos importados
-// import './styles/RepuestoEquipoDetailPage.css'; // Ajusta la ruta según tus necesidades
-// import FaxOutlinedIcon from '@mui/icons-material/FaxOutlined';
-// import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
-// import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-// import ApartmentOutlinedIcon from '@mui/icons-material/ApartmentOutlined';
-// import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-// import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
-// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-// import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
-// import QrCodeOutlinedIcon from '@mui/icons-material/QrCodeOutlined';
-// import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
-// import AlarmOnOutlinedIcon from '@mui/icons-material/AlarmOnOutlined';
-// import DeviceThermostatOutlinedIcon from '@mui/icons-material/DeviceThermostatOutlined';
+import './styles/RepuestoEquipoDetailPage.css'; // Asegúrate de tener la ruta correcta
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
+import DeleteRepuestoEquipoButton from '../components/RepuestosEquipos/DeleteRepuestoEquipoButton';
 
-// const RepuestoEquipoDetailPage: React.FC = () => {
-//   const loggedIn = useSessionStorage('sessionJWTToken');
-//   const { id } = useParams();
-//   const [repuestoEquipo, setRepuestoEquipo] = useState<RepuestoEquipo | null>(null);
-//   const [loading, setLoading] = useState(true);
-//   const [isEditing, setIsEditing] = useState(false);
-//   const [client, setClient] = useState<Client | null>(null);
-//   const navigate = useNavigate();
+const RepuestoEquipoDetailPage = () => {
+  const { id } = useParams();
 
-//   useEffect(() => {
-//     if (!loggedIn) {
-//       // Manejar la redirección si el usuario no está autenticado
-//       return;
-//     }
+  if (!id) {
+    return <p>Repuesto Equipo no encontrado.</p>;
+  }
 
-//     if (!id) {
-//       // Maneja el caso en el que id es undefined (parámetro no encontrado en la URL)
-//       console.error('ID del repuesto_equipo no encontrado en la URL');
-//       return;
-//     }
+  const loggedIn = useSessionStorage('sessionJWTToken');
+  const [repuestoEquipo, setRepuestoEquipo] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
-//     const fetchRepuestoEquipo = async () => {
-//       try {
-//         const token = loggedIn;
-//         // Cambiado el servicio para obtener detalles de repuesto_equipo
-//         const result = await getRepuestoEquipoById(token, id);
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate('/login');
+    } else {
+      const fetchRepuestoEquipo = async () => {
+        try {
+          const token = loggedIn;
+          const result = await getRepuestoEquipoById(token, id);
 
-//         setRepuestoEquipo(result);
-//         setLoading(false);
+          setRepuestoEquipo(result);
+          setLoading(false);
+        } catch (error) {
+          console.error('Error al obtener detalles del repuesto equipo:', error);
+        }
+      };
 
-//         // Obtener los detalles del cliente utilizando la función getClientById
-//         if (result && result.id_sede && result.id_sede.id_client) {
-//           const clientResponse = await getClientById(token, result.id_sede.id_client);
-//           const clientData = clientResponse.data; // Extraer el cuerpo de la respuesta
-//           setClient(clientData);
-//         }
-//       } catch (error) {
-//         console.error('Error al obtener detalles del repuesto_equipo:', error);
-//       }
-//     };
+      fetchRepuestoEquipo();
+    }
+  }, [loggedIn, id, navigate]);
 
-//     fetchRepuestoEquipo();
-//   }, [loggedIn, id]);
+  const handleEditSuccess = () => {
+    setIsEditing(false);
+  };
 
-//   const handleEditSuccess = () => {
-//     console.log('Repuesto_equipo editado con éxito');
-//     setIsEditing(false);
-//   };
+  const handleDeleteSuccess = () => {
+    navigate('/equipos-repuestos');
+  };
 
-//   return (
-//     <div>
-//       <DashboardMenuLateral />
+  return (
+    <div>
+      <DashboardMenuLateral />
 
-//       {isEditing ? (
-//         <EditRepuestoEquipoButton
-//           repuestoEquipoId={id || ''}
-//           onEditSuccess={handleEditSuccess}
-//           onCancel={() => setIsEditing(false)}
-//           initialData={repuestoEquipo}
-//         />
-//       ) : (
-//         <div className="RepuestoEquipoDetailPage-box">
-//           <div className="RepuestoEquipoDetailPage-complete-details">
-//             {/* Estructura del detalle del repuesto_equipo */}
-//             {/* Ajusta las clases y estilos según tus necesidades */}
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
+      {isEditing ? (
+        <EditRepuestoEquipoButton
+          repuestoEquipoId={id || ''}
+          onEditSuccess={handleEditSuccess}
+          onCancel={() => setIsEditing(false)}
+          initialData={repuestoEquipo}
+        />
+      ) : (
+            <div>
+                <div className="RepuestoEquipoDetailPage-box">
+                        <div className="RepuestoEquipoDetailPage-repuestos-equipos">
+                                <div className="RepuestoEquipoDetailPage-overlap-group">
+                                        <div className="RepuestoEquipoDetailPage-overlap">
+                                            <div className="RepuestoEquipoDetailPage-div">
+                                            <div className="RepuestoEquipoDetailPage-repuestoequipo-name">{repuestoEquipo ? repuestoEquipo.repuesto_name : ''}</div>
+                                            <div className="RepuestoEquipoDetailPage-repuestoequipo-id">REPUESTO EQUIPO ID: {repuestoEquipo ? repuestoEquipo._id : ''}</div>
+                                            </div>
+                                            <DeleteRepuestoEquipoButton repuestoEquipoId={id || ''} repuestoName={repuestoEquipo ? repuestoEquipo.repuesto_name : ''} />
+                                            <EditOutlinedIcon onClick={() => setIsEditing(true)} className="RepuestoEquipoDetailPage-edit-icon-header"/>
+                                        </div>
+                                    <div className="RepuestoEquipoDetailPage-overlap-2">
+                                    <div className="RepuestoEquipoDetailPage-repuestoequipo" />
+                                    <div className="RepuestoEquipoDetailPage-client-name">{repuestoEquipo && repuestoEquipo.id_cliente ? repuestoEquipo.id_cliente.client_name : ''}</div>
+                                    <div className="RepuestoEquipoDetailPage-client-id">ID CLIENTE: {repuestoEquipo && repuestoEquipo.id_cliente ? repuestoEquipo.id_cliente._id : ''}</div>
+                                    <FeedOutlinedIcon className="RepuestoEquipoDetailPage-client-nit-icon"/>
+                                    <div className="RepuestoEquipoDetailPage-client-nit">NIT: {repuestoEquipo && repuestoEquipo.id_cliente ? repuestoEquipo.id_cliente.client_nit : ''}</div>
+                                    <LocationOnOutlinedIcon className="RepuestoEquipoDetailPage-client-location-icon"/>
+                                    <div className="RepuestoEquipoDetailPage-client-address">{repuestoEquipo && repuestoEquipo.id_cliente ? repuestoEquipo.id_cliente.client_address : ''}</div>
+                                    <CallOutlinedIcon className="RepuestoEquipoDetailPage-client-telefono-icon" />
+                                    <div className="RepuestoEquipoDetailPage-client-telefono">{repuestoEquipo && repuestoEquipo.id_cliente ? repuestoEquipo.id_cliente.client_telefono : ''}</div>
+                                    <div className="RepuestoEquipoDetailPage-overlap-3">
+                                    <EmailOutlinedIcon className="RepuestoEquipoDetailPage-client-email-icon"/>
+                                    <div className="RepuestoEquipoDetailPage-client-email">{repuestoEquipo && repuestoEquipo.id_cliente ? repuestoEquipo.id_cliente.client_email : ''}</div>
+                                    </div>
+                                </div>
+                                <div className="RepuestoEquipoDetailPage-overlap-4">
+                                    <div className="RepuestoEquipoDetailPage-text-wrapper">CANTIDAD</div>
+                                    <DashboardCustomizeOutlinedIcon className="RepuestoEquipoDetailPage-img"  />
+                                    <div className="RepuestoEquipoDetailPage-cantidad-value">{repuestoEquipo ? repuestoEquipo.repuesto_cantidad : ''}</div>
+                                </div>
+                                <div className="RepuestoEquipoDetailPage-overlap-5">
+                                    <PaidOutlinedIcon className="RepuestoEquipoDetailPage-img" />
+                                    <div className="RepuestoEquipoDetailPage-text-wrapper">PRECIO SIN IVA</div>
+                                    <div className="RepuestoEquipoDetailPage-precio-value">{repuestoEquipo ? repuestoEquipo.repuesto_precio : ''}</div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+      )}
+    </div>
+  );
+};
 
-// export default RepuestoEquipoDetailPage;
+export default RepuestoEquipoDetailPage;

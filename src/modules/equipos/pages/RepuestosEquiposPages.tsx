@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { getAllEquipos } from '../services/equiposService';
 import { useSessionStorage } from '../hooks/useSessionStorage';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
-import './styles/EquiposPages.css';
 import { RepuestoEquipo } from '../utils/types/RepuestoEquipo.type';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import SearchEquipos from '../components/searchEquiposTools/SearchEquipos';
 import RegisterEquipoButton from '../components/equipos/RegisterEquipoButton';
 import RepuestoEquipoCard from '../components/RepuestosEquipos/RepuestoEquipoCard';
+import { getAllRepuestosEquipos } from '../services/repuestosEquiposService';
+import './styles/RepuestosEquiposPages.css';
 
 const RepuestosEquiposPages: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -22,7 +22,7 @@ const RepuestosEquiposPages: React.FC = () => {
       try {
         const token = loggedIn;
         // Cambiado el servicio a obtener repuestos_equipos
-        const result = await getAllEquipos(token);
+        const result = await getAllRepuestosEquipos(token);
 
         setRepuestosEquipos(result);
         setLoading(false);
@@ -41,7 +41,7 @@ const RepuestosEquiposPages: React.FC = () => {
 
   // Define la función navigateToRepuestoEquipoDetail para la navegación
   const navigateToRepuestoEquipoDetail = (id: string) => {
-    navigate(`/repuestos_equipos/${id}`);
+    navigate(`/equipos-repuestos/${id}`);
   };
 
   return (

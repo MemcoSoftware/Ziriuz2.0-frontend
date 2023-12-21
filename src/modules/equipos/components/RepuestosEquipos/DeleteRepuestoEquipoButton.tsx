@@ -21,7 +21,7 @@ const DeleteRepuestoEquipoButton: React.FC<{ repuestoEquipoId: string, repuestoN
       await deleteRepuestoEquipoById(token, repuestoEquipoId);
 
       // Realizar la redirección y mostrar un mensaje de éxito
-      navigate('/equipos/repuestos');
+      navigate('/equipos-repuestos');
       window.alert(`El repuesto ${repuestoName} se ha eliminado satisfactoriamente`);
     } catch (error) {
       console.error('Error al eliminar el repuesto equipo:', error);

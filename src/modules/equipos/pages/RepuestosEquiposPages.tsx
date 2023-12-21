@@ -4,9 +4,10 @@ import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenu
 import { RepuestoEquipo } from '../utils/types/RepuestoEquipo.type';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import SearchEquipos from '../components/searchEquiposTools/SearchEquipos';
-import RegisterEquipoButton from '../components/equipos/RegisterEquipoButton';
 import RepuestoEquipoCard from '../components/RepuestosEquipos/RepuestoEquipoCard';
 import { getAllRepuestosEquipos } from '../services/repuestosEquiposService';
+import RegisterRepuestoEquipoButton from '../components/RepuestosEquipos/RegisterRepuestoEquipoButton';
+
 import './styles/RepuestosEquiposPages.css';
 
 const RepuestosEquiposPages: React.FC = () => {
@@ -47,7 +48,7 @@ const RepuestosEquiposPages: React.FC = () => {
   return (
     <div className='RepuestosEquiposPages-container'>
       <DashboardMenuLateral />
-      <RegisterEquipoButton />
+      <RegisterRepuestoEquipoButton />
       <SearchEquipos // Renderiza el componente SearchEquipos
         showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
         setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente

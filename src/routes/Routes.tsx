@@ -45,6 +45,7 @@ import TipoEquipoDetailPage from '../modules/equipos/pages/TipoEquipoDetailPage'
 import RegisterTipoEquipoPage from '../modules/equipos/pages/RegisterTipoEquipoPage';
 import RepuestosEquiposPages from '../modules/equipos/pages/RepuestosEquiposPages';
 import RepuestoEquipoDetailPage from '../modules/equipos/pages/RepuestoEquipoDetailPage';
+import RegisterRepuestoEquipoPage from '../modules/equipos/pages/RegisterRepuestoEquipoPage';
 
 
 export const AppRoutes = ()=>{
@@ -105,7 +106,7 @@ export const AppRoutes = ()=>{
 
           <Route path="/equipos-repuestos" element={<RepuestosEquiposPages/>} />
           <Route path="/equipos-repuestos/:id" element={<RepuestoEquipoDetailPage/>} />
-          {/* <Route path="/equipos/tipos/register" element={<RegisterTipoEquipoPage/>} /> */}
+          <Route path="/equipos-repuestos/register" element={<RegisterRepuestoEquipoPage/>} />
     
     
           {/* Unauthorized Page */}

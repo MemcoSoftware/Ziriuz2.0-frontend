@@ -44,50 +44,50 @@ const EditRepuestoEquipoButton: React.FC<EditRepuestoEquipoButtonProps> = ({ rep
   return (
     <div>
     <form className="EditRepuestoEquipoButton-form">
-        <div className="box">
-          <div className="edit-repuesto-equipo">
-            <div className="overlap-group">
-              <div className="overlap">
-                <div className="edit-title">ACTUALIZAR INFORMACIÓN DE REPUESTO</div>
-                <div className="repuesto-id">ID: {repuestoEquipoData._id}</div>
+        <div className="EditRepuestoEquipoButton-box">
+          <div className="EditRepuestoEquipoButton-edit-repuesto-equipo">
+            <div className="EditRepuestoEquipoButton-overlap-group">
+              <div className="EditRepuestoEquipoButton-overlap">
+                <div className="EditRepuestoEquipoButton-edit-title">ACTUALIZAR INFORMACIÓN DE REPUESTO</div>
+                <div className="EditRepuestoEquipoButton-repuesto-id">ID: {repuestoEquipoData._id}</div>
               </div>
-              <label className="repuesto-cliente">1.  Seleccione el cliente a relacionar:</label>
+              <label className="EditRepuestoEquipoButton-repuesto-cliente">1.  Seleccione el cliente a relacionar:</label>
               <input
-              className="cliente-input"
+              className="EditRepuestoEquipoButton-cliente-input"
               type="text"
               value={repuestoEquipoData.id_cliente ? repuestoEquipoData.id_cliente.client_name: ''}
               onChange={(e) => setRepuestoEquipoData({ ...repuestoEquipoData, id_cliente: {client_name: e.target.value }})}
               />
-              <label className="repuesto-nombre">2.  Ingrese el nombre del repuesto:</label>
+              <label className="EditRepuestoEquipoButton-repuesto-nombre">2.  Ingrese el nombre del repuesto:</label>
               <input 
-              className="nombre-input" 
+              className="EditRepuestoEquipoButton-nombre-input" 
               type="text"
               value={repuestoEquipoData.repuesto_name || ''}
               onChange={(e) => setRepuestoEquipoData({ ...repuestoEquipoData, repuesto_name: e.target.value })}
                />
 
-              <label className="repuesto-cantidad">3.  Ingrese la cantidad del repuesto:</label>
-              <input className="cantidad-input"
+              <label className="EditRepuestoEquipoButton-repuesto-cantidad">3.  Ingrese la cantidad del repuesto:</label>
+              <input className="EditRepuestoEquipoButton-cantidad-input"
               type="number"
               value={repuestoEquipoData.repuesto_cantidad || 0}
               onChange={(e) => setRepuestoEquipoData({ ...repuestoEquipoData, repuesto_cantidad: e.target.value })}
               />
 
-              <label className="repuesto-precio">4.  Ingrese el precio del repuesto</label>
+              <label className="EditRepuestoEquipoButton-repuesto-precio">4.  Ingrese el precio del repuesto</label>
               <input 
-              className="precio-input"
+              className="EditRepuestoEquipoButton-precio-input"
               type="number"
               value={repuestoEquipoData.repuesto_precio || 0}
               onChange={(e) => setRepuestoEquipoData({ ...repuestoEquipoData, repuesto_precio: e.target.value })}
               />
 
-              <div className="actualizar-texto-wrapper">
-                <div className="text-wrapper" onClick={handleEdit}>ACTUALIZAR</div>
+              <div className="EditRepuestoEquipoButton-actualizar-texto-wrapper">
+                <div className="EditRepuestoEquipoButton-text-wrapper" onClick={handleEdit}>ACTUALIZAR</div>
               </div>
-              <div className="cancelar-texto-wrapper">
-                <div className="text-wrapper" onClick={onCancel}>CANCELAR</div>
+              <div className="EditRepuestoEquipoButton-cancelar-texto-wrapper">
+                <div className="EditRepuestoEquipoButton-text-wrapper" onClick={onCancel}>CANCELAR</div>
               </div>
-              <div className="repuesto-separator" />
+              <div className="EditRepuestoEquipoButton-repuesto-separator" />
             </div>
           </div>
         </div>

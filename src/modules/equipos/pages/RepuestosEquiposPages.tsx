@@ -3,12 +3,12 @@ import { useSessionStorage } from '../hooks/useSessionStorage';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
 import { RepuestoEquipo } from '../utils/types/RepuestoEquipo.type';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-import SearchEquipos from '../components/searchEquiposTools/SearchEquipos';
 import RepuestoEquipoCard from '../components/RepuestosEquipos/RepuestoEquipoCard';
 import { getAllRepuestosEquipos } from '../services/repuestosEquiposService';
 import RegisterRepuestoEquipoButton from '../components/RepuestosEquipos/RegisterRepuestoEquipoButton';
 
 import './styles/RepuestosEquiposPages.css';
+import SearchRepuestosEquipos from '../components/searchEquiposTools/SearchRepuestosEquipos';
 
 const RepuestosEquiposPages: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -49,7 +49,7 @@ const RepuestosEquiposPages: React.FC = () => {
     <div className='RepuestosEquiposPages-container'>
       <DashboardMenuLateral />
       <RegisterRepuestoEquipoButton />
-      <SearchEquipos // Renderiza el componente SearchEquipos
+      <SearchRepuestosEquipos // Renderiza el componente SearchEquipos
         showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
         setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
       />

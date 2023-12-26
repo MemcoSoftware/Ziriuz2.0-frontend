@@ -46,7 +46,7 @@ const RegisterRepuestoEquipoForm: React.FC = () => {
                     <div className="register-title">REGISTRAR NUEVO REPUESTO</div>
                   </div>
 
-                  <label htmlFor="id_cliente" className="repuesto-cliente">Seleccione el cliente a relacionar:</label>
+                  <label htmlFor="id_cliente" className="repuesto-cliente">1.  Seleccione el cliente a relacionar:</label>
                   <input 
                   type='text'
                   id="id_cliente"
@@ -56,7 +56,7 @@ const RegisterRepuestoEquipoForm: React.FC = () => {
                   onChange={handleChange}
                   />
 
-                  <label htmlFor="repuesto_name" className="repuesto-nombre">Ingrese el nombre del repuesto:</label>
+                  <label htmlFor="repuesto_name" className="repuesto-nombre">2.  Ingrese el nombre del repuesto:</label>
                   <input
                   type="text"
                   id="repuesto_name"
@@ -66,7 +66,7 @@ const RegisterRepuestoEquipoForm: React.FC = () => {
                   className="nombre-input"
                   />
 
-                  <label htmlFor="repuesto_cantidad" className="repuesto-cantidad">Ingrese la cantidad del repuesto:</label>
+                  <label htmlFor="repuesto_cantidad" className="repuesto-cantidad">3.  Ingrese la cantidad del repuesto:</label>
                   <input 
                   type="number"
                   id="repuesto_cantidad"
@@ -76,7 +76,7 @@ const RegisterRepuestoEquipoForm: React.FC = () => {
                   className="cantidad-input" 
                   />
 
-                  <label className="repuesto-precio">Ingrese el precio del repuesto</label>
+                  <label className="repuesto-precio">4.  Ingrese el precio del repuesto sin IVA</label>
                   <input className="precio-input" 
                   type="number"
                   id="repuesto_precio"

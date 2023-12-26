@@ -6,6 +6,7 @@ import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import ClassIcon from '@mui/icons-material/Class'
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import TypeSpecimenOutlinedIcon from '@mui/icons-material/TypeSpecimenOutlined';
+import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
 
 const DashboardMenuCentralEquipos = () => {
     const navigate = useNavigate();
@@ -77,6 +78,17 @@ const DashboardMenuCentralEquipos = () => {
                                         <TypeSpecimenOutlinedIcon />
                                     </i>
                                     <p className="DashboardMenuCentral-p"> Tipos </p>  
+                                    </div>
+                                </li>
+                            </button>
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos-repuestos')}>
+                                <li>
+                                    <div className="DashboardMenuCentral-nav-icon">
+                                    <i className='DashboardMenuCentral-nav-icon-i'>
+                                        {/* <img  alt="" width="40px" height="30px"/> */}
+                                        <HandymanOutlinedIcon />
+                                    </i>
+                                    <p className="DashboardMenuCentral-p"> Repuestos </p>  
                                     </div>
                                 </li>
                             </button>

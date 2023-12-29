@@ -4,6 +4,7 @@ import ZiriuzDashboardLogo from './img/ziriuzDashboardLogo.png'
 import { useNavigate } from 'react-router-dom';
 import DashboardMenuCentralGenerales  from './DashboardMenuCentralGenerales';
 import DashboardMenuCentralEquipos from '../../../equipos/components/dashboard_equipos/DashboardMenuCentralEquipos';
+import DashboardMenuCentralProcesosProtocolos from '../../../procesos_&_protocolos/components/dashboard_procesos&protocolos/DashboardMenuCentral_Procesos&Protocolos';
 const DashboardMenuCentral = () => {
     const navigate = useNavigate();
 
@@ -49,6 +50,18 @@ const DashboardMenuCentral = () => {
                                     <label htmlFor="acordeon-2">Equipos</label>
                                         <div className="acordeon-content">
                                         <DashboardMenuCentralEquipos/>                    
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="wrapper">
+                            <div className="acordeon-core">
+                                <div className="acordeon">
+                                    <input id="acordeon-3" type="checkbox" name="acordeons"/>
+                                    <label htmlFor="acordeon-3">Procesos & Protocolos</label>
+                                        <div className="acordeon-content">
+                                        <DashboardMenuCentralProcesosProtocolos/>                    
                                         </div>
                                 </div>
                             </div>

@@ -82,9 +82,10 @@ const PreventivoDetailPage: React.FC = () => {
                             <ul className="PreventivoDetailPage-ul">
                             {preventivo && preventivo.cualitativo
                                   ? preventivo.cualitativo.map((item: any) => (
-                                    <div className="PreventivoDetailPage-div-wrapper">
-                                      <li className="PreventivoDetailPage-text-wrapper-2" key={item._id}>{item.title}</li>
-                                    </div>
+                                    <li className="PreventivoDetailPage-div-wrapper" key={item._id}>
+                                      {item.title}
+                                      {/* <li className="PreventivoDetailPage-text-wrapper-2" key={item._id}>{item.title}</li> */}
+                                    </li>
                                     ))
                                   : null}
                             </ul>

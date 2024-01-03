@@ -167,9 +167,15 @@
   background-color: #0000007d;
   border-radius: 5px;
   height: 38px;
+  list-style: none;
+  color: #ffffff;
+  text-align: center;
   left: 44px;
-  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
   top: 67px;
+  margin-bottom: 16px;
   width: 494px;
 }
 

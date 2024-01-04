@@ -73,7 +73,7 @@ const PreventivoDetailPage: React.FC = () => {
                               <div className="PreventivoDetailPage-code">Code: {preventivo ? preventivo.codigo : ''}</div>
                               <div className="PreventivoDetailPage-version">Versión: {preventivo ? preventivo.version : ''}</div>
                               <div className="PreventivoDetailPage-date">Date: {preventivo ? preventivo.fecha : ''}</div>
-                              <EditOutlinedIcon className="PreventivoDetailPage-edit-icon"/>
+                              <EditOutlinedIcon className="PreventivoDetailPage-edit-icon" onClick={() => setIsEditing(true)}/>
                               <DeleteOutlinedIcon className="PreventivoDetailPage-delete-icon"/>
                               <div className="PreventivoDetailPage-oid">ID: {preventivo ? preventivo._id : ''}</div>
                             </div>
@@ -92,21 +92,35 @@ const PreventivoDetailPage: React.FC = () => {
                             </div>
                             <div className="PreventivoDetailPage-overlap-2">
                               <div className="PreventivoDetailPage-text-wrapper">PROTOCOLOS DE MANTENIMIENTO</div>
-                              <div className="PreventivoDetailPage-div-wrapper">
-                                <p className="PreventivoDetailPage-text-wrapper-2">Revision estado de encendido de motor</p>
-                              </div>
+                                <ul className="PreventivoDetailPage-ul">
+                                    {preventivo && preventivo.mantenimiento
+                                      ? preventivo.mantenimiento.map((item: any) => (
+                                          <li className="PreventivoDetailPage-div-wrapper" key={item._id}>{item.title}</li>
+                                        ))
+                                      : null}
+                                  </ul>
                             </div>
                             <div className="PreventivoDetailPage-overlap-3">
                               <div className="PreventivoDetailPage-otros-name">OTROS PROTOCOLOS</div>
-                              <div className="PreventivoDetailPage-otros-text-wrapper">
-                                <p className="PreventivoDetailPage-otros-text">Revision estado de encendido de motor</p>
-                              </div>
+                                  <ul className="PreventivoDetailPage-ul">
+                                    {preventivo && preventivo.otros
+                                      ? preventivo.otros.map((item: any) => (
+                                          <li className="PreventivoDetailPage-otros-text-wrapper" key={item._id}>{ item ? item.title : 'N/A'}</li>
+                                        ))
+                                      : null}
+                                  </ul>
                             </div>
+
                             <div className="PreventivoDetailPage-overlap-4">
                               <div className="PreventivoDetailPage-cuantitativo-title">PROTOCOLOS CUANTITATIVOS</div>
-                              <div className="PreventivoDetailPage-cuantitativo-text-wrapper">
-                                <p className="PreventivoDetailPage-cuantitativo-text">REVISION VOLTAJE DE ENTRADA 440 VAC</p>
-                              </div>
+                                  <ul className="PreventivoDetailPage-ul">
+                                    {preventivo && preventivo.cuantitativo
+                                      ? preventivo.cuantitativo.map((item: any) => (
+                                          <li className="PreventivoDetailPage-cuantitativo-text-wrapper" key={item._id}>{item.title}</li>
+                                        ))
+                                      : null}
+                                  </ul>
+
                               <div className="PreventivoDetailPage-minimo">MÍNIMO</div>
                               <div className="PreventivoDetailPage-maximo">MÁXIMO</div>
                               <div className="PreventivoDetailPage-unidad">UNIDAD</div>

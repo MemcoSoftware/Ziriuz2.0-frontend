@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { updatePreventivo } from '../../services/preventivosService'; // Ajusta la importación según la ubicación correcta
-// import './styles/EditPreventivoButton.css'; // Asegúrate de importar el archivo CSS correcto
+import { updatePreventivo } from '../../services/preventivosService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+// import './styles/EditPreventivoButton.css';
 
 type EditPreventivoButtonProps = {
   preventivoId: string;
@@ -22,7 +20,6 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({ preventivoI
       const token = loggedIn;
 
       // Mapear los campos relacionados al formato correcto
-      // Asegúrate de ajustar según la estructura de datos de tu entidad de Preventivo
       const mappedData = {
         ...preventivoData,
         // Mapear otros campos según tu estructura
@@ -41,13 +38,91 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({ preventivoI
   };
 
   return (
-    <div>
-      <div className="EditPreventivoButton-box">
-        <form className="EditPreventivoButton-form">
-          {/* Resto del formulario según tus requerimientos */}
-          {/* Recuerda utilizar etiquetas <p> para los campos del preventivo */}
-        </form>
-      </div>
+    <div className="EditPreventivoButton-box">
+      <form className="EditPreventivoButton-form">
+        {/* Campos comunes */}
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Título:</label>
+          <input
+            type="text"
+            value={preventivoData.title}
+            onChange={(e) => setPreventivoData({ ...preventivoData, title: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Código:</label>
+          <input
+            type="text"
+            value={preventivoData.codigo}
+            onChange={(e) => setPreventivoData({ ...preventivoData, codigo: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Versión:</label>
+          <input
+            type="number"
+            value={preventivoData.version}
+            onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Fecha:</label>
+          <input
+            type="date"
+            value={preventivoData.fecha}
+            onChange={(e) => setPreventivoData({ ...preventivoData, fecha: e.target.value })}
+          />
+        </div>
+
+        {/* Campos específicos de cada entidad */}
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Cualitativo:</label>
+          <input
+            type="text"
+            value={preventivoData.cualitativo ? preventivoData.cualitativo.title : 'N/A'}
+            onChange={(e) => setPreventivoData({ ...preventivoData, cualitativo: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Mantenimiento:</label>
+          <input
+            type="text"
+            value={preventivoData.mantenimiento ? preventivoData.mantenimiento.title : 'N/A'}
+            onChange={(e) => setPreventivoData({ ...preventivoData, mantenimiento: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Cuantitativo:</label>
+          <input
+            type="text"
+            value={preventivoData.cuantitativo ? preventivoData.cuantitativo.title : 'N/A'}
+            onChange={(e) => setPreventivoData({ ...preventivoData, cuantitativo: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-input-wrapper">
+          <label>Otros:</label>
+          <input
+            type="text"
+            value={preventivoData.otros ? preventivoData.otros.title : 'N/A'}
+            onChange={(e) => setPreventivoData({ ...preventivoData, otros: e.target.value })}
+          />
+        </div>
+
+        <div className="EditPreventivoButton-button-wrapper">
+          <button type="button" onClick={handleEdit} className="EditPreventivoButton-edit-button">
+            Editar
+          </button>
+          <button type="button" onClick={onCancel} className="EditPreventivoButton-cancel-button">
+            Cancelar
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

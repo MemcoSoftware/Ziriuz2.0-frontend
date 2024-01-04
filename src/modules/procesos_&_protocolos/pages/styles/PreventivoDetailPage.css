@@ -233,11 +233,17 @@
 .PreventivoDetailPage-box .PreventivoDetailPage-otros-text-wrapper {
   background-color: #0000007d;
   border-radius: 5px;
+  list-style: none;
+  color: #ffffff;
+  text-align: center;
   height: 27px;
   left: 35px;
-  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
   top: 47px;
   width: 384px;
+  margin-bottom: 16px;
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-otros-text {
@@ -283,10 +289,15 @@
   background-color: #0000007d;
   border-radius: 5px;
   height: 38px;
+  color: #ffffff;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
   left: 34px;
-  position: absolute;
   top: 67px;
   width: 386px;
+  margin-bottom: 16px;
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-cuantitativo-text {

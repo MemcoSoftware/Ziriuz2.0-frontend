@@ -67,7 +67,7 @@ const PreventivoDetailPage: React.FC = () => {
                         <div className="PreventivoDetailPage-preventivo-detail">
                           <div className="PreventivoDetailPage-overlap-group">
                             <div className="PreventivoDetailPage-overlap">
-                              <div className="PreventivoDetailPage-title">PREVENTIVO TITLE</div>
+                              <div className="PreventivoDetailPage-title">{preventivo ? preventivo.title : 'N/A'}</div>
                               <CheckOutlinedIcon className="PreventivoDetailPage-check-funcionamiento" />
                               <FlakyOutlinedIcon className="PreventivoDetailPage-icon" />
                               <div className="PreventivoDetailPage-code">Code: {preventivo ? preventivo.codigo : ''}</div>

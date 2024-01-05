@@ -48,6 +48,7 @@ import RepuestoEquipoDetailPage from '../modules/equipos/pages/RepuestoEquipoDet
 import RegisterRepuestoEquipoPage from '../modules/equipos/pages/RegisterRepuestoEquipoPage';
 import PreventivosPages from '../modules/procesos_&_protocolos/pages/PreventivosPages';
 import PreventivoDetailPage from '../modules/procesos_&_protocolos/pages/PreventivosDetailPage';
+import RegisterPreventivoPage from '../modules/procesos_&_protocolos/pages/RegisterPreventivoPage';
 
 
 export const AppRoutes = ()=>{
@@ -116,7 +117,7 @@ export const AppRoutes = ()=>{
           {/* MODULO PROCESOS & PROTOCOLOS */}
           <Route path="/preventivos" element={<PreventivosPages/>} />
           <Route path="/preventivos/:id" element={<PreventivoDetailPage/>} />
-          {/* <Route path="/equipos-repuestos/register" element={<RegisterRepuestoEquipoPage/>} />  */}
+          <Route path="/preventivos/register" element={<RegisterPreventivoPage/>} /> 
 
 
           {/* Unauthorized Page */}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { updatePreventivo } from '../../services/preventivosService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-// import './styles/EditPreventivoButton.css';
 
 type EditPreventivoButtonProps = {
   preventivoId: string;
@@ -10,7 +9,12 @@ type EditPreventivoButtonProps = {
   initialData: any;
 };
 
-const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({ preventivoId, onEditSuccess, onCancel, initialData }) => {
+const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
+  preventivoId,
+  onEditSuccess,
+  onCancel,
+  initialData,
+}) => {
   const [preventivoData, setPreventivoData] = useState(initialData);
 
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -21,8 +25,15 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({ preventivoI
 
       // Mapear los campos relacionados al formato correcto
       const mappedData = {
-        ...preventivoData,
-        // Mapear otros campos según tu estructura
+        title: preventivoData.title,
+        codigo: preventivoData.codigo,
+        version: preventivoData.version,
+        fecha: preventivoData.fecha,
+        cualitativo: preventivoData.cualitativo.map((item: any) => item.title),
+        mantenimiento: preventivoData.mantenimiento.map((item: any) => item.title),
+        cuantitativo: preventivoData.cuantitativo.map((item: any) => item.title),
+        otros: preventivoData.otros.map((item: any) => item.title),
+        // Asegúrate de incluir otros campos según tu estructura
       };
 
       await updatePreventivo(token, preventivoId, mappedData);
@@ -35,6 +46,78 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({ preventivoI
     } catch (error) {
       console.error('Error al editar el preventivo:', error);
     }
+  };
+
+  // Lógica para agregar y eliminar CUALITATIVO
+  const handleCualitativoChange = (index: number, newValue: string) => {
+    const updatedCualitativo = [...preventivoData.cualitativo];
+    updatedCualitativo[index].title = newValue;
+    setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+  };
+
+  const handleAddCualitativo = () => {
+    const updatedCualitativo = [...preventivoData.cualitativo, { _id: '', id_tipo: '', title: '' }];
+    setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+  };
+
+  const handleRemoveCualitativo = (index: number) => {
+    const updatedCualitativo = [...preventivoData.cualitativo];
+    updatedCualitativo.splice(index, 1);
+    setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+  };
+
+  // Lógica para agregar y eliminar MANTENIMIENTO
+  const handleMantenimientoChange = (index: number, newValue: string) => {
+    const updatedMantenimiento = [...preventivoData.mantenimiento];
+    updatedMantenimiento[index].title = newValue;
+    setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
+  };
+
+  const handleAddMantenimiento = () => {
+    const updatedMantenimiento = [...preventivoData.mantenimiento, { _id: '', id_tipo: '', title: '' }];
+    setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
+  };
+
+  const handleRemoveMantenimiento = (index: number) => {
+    const updatedMantenimiento = [...preventivoData.mantenimiento];
+    updatedMantenimiento.splice(index, 1);
+    setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
+  };
+
+  // Lógica para agregar y eliminar CUANTITATIVO
+  const handleCuantitativoChange = (index: number, newValue: string) => {
+    const updatedCuantitativo = [...preventivoData.cuantitativo];
+    updatedCuantitativo[index].title = newValue;
+    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+  };
+
+  const handleAddCuantitativo = () => {
+    const updatedCuantitativo = [...preventivoData.cuantitativo, { _id: '', id_tipo: '', title: '' }];
+    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+  };
+
+  const handleRemoveCuantitativo = (index: number) => {
+    const updatedCuantitativo = [...preventivoData.cuantitativo];
+    updatedCuantitativo.splice(index, 1);
+    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+  };
+
+  // Lógica para agregar y eliminar OTROS
+  const handleOtrosChange = (index: number, newValue: string) => {
+    const updatedOtros = [...preventivoData.otros];
+    updatedOtros[index].title = newValue;
+    setPreventivoData({ ...preventivoData, otros: updatedOtros });
+  };
+
+  const handleAddOtros = () => {
+    const updatedOtros = [...preventivoData.otros, { _id: '', id_tipo: '', title: '' }];
+    setPreventivoData({ ...preventivoData, otros: updatedOtros });
+  };
+
+  const handleRemoveOtros = (index: number) => {
+    const updatedOtros = [...preventivoData.otros];
+    updatedOtros.splice(index, 1);
+    setPreventivoData({ ...preventivoData, otros: updatedOtros });
   };
 
   return (
@@ -77,41 +160,84 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({ preventivoI
           />
         </div>
 
-        {/* Campos específicos de cada entidad */}
+        {/* CUALITATIVO LOGIC */}
         <div className="EditPreventivoButton-input-wrapper">
           <label>Cualitativo:</label>
-          <input
-            type="text"
-            value={preventivoData.cualitativo ? preventivoData.cualitativo.title : 'N/A'}
-            onChange={(e) => setPreventivoData({ ...preventivoData, cualitativo: e.target.value })}
-          />
+          {preventivoData.cualitativo.map((item: any, index: number) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={item.title}
+                onChange={(e) => handleCualitativoChange(index, e.target.value)}
+              />
+              <button type="button" onClick={() => handleRemoveCualitativo(index)}>
+                Eliminar
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddCualitativo}>
+            Agregar Cualitativo
+          </button>
         </div>
 
+        {/* MANTENIMIENTO LOGIC */}
         <div className="EditPreventivoButton-input-wrapper">
           <label>Mantenimiento:</label>
-          <input
-            type="text"
-            value={preventivoData.mantenimiento ? preventivoData.mantenimiento.title : 'N/A'}
-            onChange={(e) => setPreventivoData({ ...preventivoData, mantenimiento: e.target.value })}
-          />
+          {preventivoData.mantenimiento.map((item: any, index: number) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={item.title}
+                onChange={(e) => handleMantenimientoChange(index, e.target.value)}
+              />
+              <button type="button" onClick={() => handleRemoveMantenimiento(index)}>
+                Eliminar
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddMantenimiento}>
+            Agregar Mantenimiento
+          </button>
         </div>
 
+        {/* CUANTITATIVO LOGIC */}
         <div className="EditPreventivoButton-input-wrapper">
           <label>Cuantitativo:</label>
-          <input
-            type="text"
-            value={preventivoData.cuantitativo ? preventivoData.cuantitativo.title : 'N/A'}
-            onChange={(e) => setPreventivoData({ ...preventivoData, cuantitativo: e.target.value })}
-          />
+          {preventivoData.cuantitativo.map((item: any, index: number) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={item.title}
+                onChange={(e) => handleCuantitativoChange(index, e.target.value)}
+              />
+              <button type="button" onClick={() => handleRemoveCuantitativo(index)}>
+                Eliminar
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddCuantitativo}>
+            Agregar Cuantitativo
+          </button>
         </div>
 
+        {/* OTROS LOGIC */}
         <div className="EditPreventivoButton-input-wrapper">
           <label>Otros:</label>
-          <input
-            type="text"
-            value={preventivoData.otros ? preventivoData.otros.title : 'N/A'}
-            onChange={(e) => setPreventivoData({ ...preventivoData, otros: e.target.value })}
-          />
+          {preventivoData.otros.map((item: any, index: number) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={item.title}
+                onChange={(e) => handleOtrosChange(index, e.target.value)}
+              />
+              <button type="button" onClick={() => handleRemoveOtros(index)}>
+                Eliminar
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={handleAddOtros}>
+            Agregar Otro
+          </button>
         </div>
 
         <div className="EditPreventivoButton-button-wrapper">

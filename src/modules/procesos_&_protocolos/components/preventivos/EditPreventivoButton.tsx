@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { updatePreventivo } from '../../services/preventivosService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+import { searchPreventivosByKeyword } from '../../services/searchProcesos&ProtocolosService';
 
 type EditPreventivoButtonProps = {
   preventivoId: string;
@@ -16,7 +17,8 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
   initialData,
 }) => {
   const [preventivoData, setPreventivoData] = useState(initialData);
-
+  const [cualitativoResults, setCualitativoResults] = useState<any[]>([]); // Resultados del buscador cualitativo
+  const [selectedCualitativoIndex, setSelectedCualitativoIndex] = useState<number | null>(null); // Índice del elemento seleccionado
   const loggedIn = useSessionStorage('sessionJWTToken');
 
   const handleEdit = async () => {
@@ -53,17 +55,45 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
     const updatedCualitativo = [...preventivoData.cualitativo];
     updatedCualitativo[index].title = newValue;
     setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+    // Limpiar los resultados y el índice seleccionado al cambiar el valor manualmente
+    setCualitativoResults([]);
+    setSelectedCualitativoIndex(null);
   };
 
   const handleAddCualitativo = () => {
-    const updatedCualitativo = [...preventivoData.cualitativo, { _id: '', id_tipo: '', title: '' }];
-    setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+    // Si hay un elemento seleccionado, agrégalo a la lista
+    if (selectedCualitativoIndex !== null && cualitativoResults[selectedCualitativoIndex]) {
+      const selectedCualitativo = cualitativoResults[selectedCualitativoIndex];
+      const updatedCualitativo = [...preventivoData.cualitativo, selectedCualitativo];
+      setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+      // Limpiar los resultados y el índice seleccionado al agregar
+      setCualitativoResults([]);
+      setSelectedCualitativoIndex(null);
+    } else {
+      // Si no hay un elemento seleccionado, simplemente agrega un elemento vacío
+      const updatedCualitativo = [...preventivoData.cualitativo, { _id: '', id_tipo: '', title: '' }];
+      setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+    }
   };
 
   const handleRemoveCualitativo = (index: number) => {
     const updatedCualitativo = [...preventivoData.cualitativo];
     updatedCualitativo.splice(index, 1);
     setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
+    // Limpiar los resultados y el índice seleccionado al eliminar
+    setCualitativoResults([]);
+    setSelectedCualitativoIndex(null);
+  };
+
+   // Función para manejar la búsqueda de cualitativos
+   const handleSearchCualitativo = async (keyword: string) => {
+    try {
+      const token = loggedIn;
+      const results = await searchPreventivosByKeyword(token, keyword);
+      setCualitativoResults(results);
+    } catch (error) {
+      console.error('Error al buscar cualitativos:', error);
+    }
   };
 
   // Lógica para agregar y eliminar MANTENIMIENTO
@@ -160,8 +190,8 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
           />
         </div>
 
-        {/* CUALITATIVO LOGIC */}
-        <div className="EditPreventivoButton-input-wrapper">
+          {/* CUALITATIVO LOGIC */}
+          <div className="EditPreventivoButton-input-wrapper">
           <label>Cualitativo:</label>
           {preventivoData.cualitativo.map((item: any, index: number) => (
             <div key={index}>
@@ -175,9 +205,25 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
               </button>
             </div>
           ))}
-          <button type="button" onClick={handleAddCualitativo}>
-            Agregar Cualitativo
-          </button>
+          <div>
+            {/* Input para búsqueda de cualitativos */}
+            <input
+              type="text"
+              placeholder="Buscar cualitativo"
+              onChange={(e) => handleSearchCualitativo(e.target.value)}
+            />
+            {/* Resultados del buscador */}
+            <ul>
+              {cualitativoResults.map((result, index) => (
+                <li key={index} onClick={() => setSelectedCualitativoIndex(index)}>
+                  {result.title}
+                </li>
+              ))}
+            </ul>
+            <button type="button" onClick={handleAddCualitativo}>
+              Agregar Cualitativo
+            </button>
+          </div>
         </div>
 
         {/* MANTENIMIENTO LOGIC */}

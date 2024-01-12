@@ -29,6 +29,12 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
   const [selectedCuantitativoIndex, setSelectedCuantitativoIndex] = useState<number | null>(null); // Índice del elemento seleccionado
   const [selectedCuantitativo, setSelectedCuantitativo] = useState<string | null>(null);
 
+  // Estados para la lógica de OTROS
+  const [otrosResults, setOtrosResults] = useState<any[]>([]); // Resultados del buscador de otros
+  const [selectedOtrosIndex, setSelectedOtrosIndex] = useState<number | null>(null); // Índice del elemento seleccionado de otros
+  const [selectedOtros, setSelectedOtros] = useState<string | null>(null); // Elemento seleccionado de otros
+
+
 
   const loggedIn = useSessionStorage('sessionJWTToken');
 
@@ -210,23 +216,51 @@ const handleRemoveCuantitativo = (index: number) => {
 };
 
 
-  // Lógica para agregar y eliminar OTROS
-  const handleOtrosChange = (index: number, newValue: string) => {
-    const updatedOtros = [...preventivoData.otros];
-    updatedOtros[index].title = newValue;
-    setPreventivoData({ ...preventivoData, otros: updatedOtros });
+// Lógica para agregar y eliminar OTROS
+const handleOtrosChange = (index: number, newValue: string) => {
+  const updatedOtros = [...preventivoData.otros];
+  updatedOtros[index].title = newValue;
+  setPreventivoData({ ...preventivoData, otros: updatedOtros });
+  // Limpiar los resultados y el índice seleccionado al cambiar el valor manualmente
+  setOtrosResults([]);
+  setSelectedOtrosIndex(null);
+};
+
+useEffect(() => {
+  // Actualiza los resultados cada vez que cambia el valor de selectedOtros
+  const handleSearch = async () => {
+    if (selectedOtros) {
+      try {
+        const token = loggedIn;
+        const results = await searchCamposByKeyword(token, selectedOtros);
+        setOtrosResults(results);
+      } catch (error) {
+        console.error('Error al buscar de otros:', error);
+      }
+    }
   };
 
-  const handleAddOtros = () => {
-    const updatedOtros = [...preventivoData.otros, { _id: '', id_tipo: '', title: '' }];
-    setPreventivoData({ ...preventivoData, otros: updatedOtros });
-  };
+  handleSearch();
+}, [loggedIn, selectedOtros]);
 
-  const handleRemoveOtros = (index: number) => {
-    const updatedOtros = [...preventivoData.otros];
-    updatedOtros.splice(index, 1);
-    setPreventivoData({ ...preventivoData, otros: updatedOtros });
-  };
+
+const handleSelectOtros = (title: string) => {
+  // Agregar el campo seleccionado a la lista
+  const updatedOtros = [...preventivoData.otros, { _id: '', id_tipo: '', title }];
+  setPreventivoData({ ...preventivoData, otros: updatedOtros });
+  // Limpiar el campo seleccionado al agregar
+  setSelectedOtros(null);
+};
+
+const handleRemoveOtros = (index: number) => {
+  const updatedOtros = [...preventivoData.otros];
+  updatedOtros.splice(index, 1);
+  setPreventivoData({ ...preventivoData, otros: updatedOtros });
+  // Limpiar los resultados y el índice seleccionado al eliminar
+  setOtrosResults([]);
+  setSelectedOtrosIndex(null);
+};
+
 
   return (
     <div className="EditPreventivoButton-box">
@@ -378,7 +412,7 @@ const handleRemoveCuantitativo = (index: number) => {
           </div>
         </div>
 
-        {/* OTROS LOGIC */}
+       {/* OTROS LOGIC */}
         <div className="EditPreventivoButton-input-wrapper">
           <label>Otros:</label>
           {preventivoData.otros.map((item: any, index: number) => (
@@ -393,10 +427,28 @@ const handleRemoveCuantitativo = (index: number) => {
               </button>
             </div>
           ))}
-          <button type="button" onClick={handleAddOtros}>
-            Agregar Otro
-          </button>
+          <div>
+            {/* Input para búsqueda de otros */}
+            <input
+              type="text"
+              placeholder="Agregar otros"
+              value={selectedOtros || ''}
+              onChange={(e) => setSelectedOtros(e.target.value)}
+            />
+            {/* Resultados del buscador como opciones de una lista */}
+            {otrosResults.length > 0 && (
+              <ul>
+                {otrosResults.map((result, index) => (
+                  <li key={index} onClick={() => handleSelectOtros(result.title)}>
+                    {result.title}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {/* Quita el botón de "Agregar Otros" ya que ahora se agrega al seleccionar */}
+          </div>
         </div>
+
 
         <div className="EditPreventivoButton-button-wrapper">
           <button type="button" onClick={handleEdit} className="EditPreventivoButton-edit-button">

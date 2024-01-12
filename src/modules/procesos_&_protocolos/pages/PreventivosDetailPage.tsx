@@ -112,25 +112,27 @@ const PreventivoDetailPage: React.FC = () => {
                             </div>
 
                             <div className="PreventivoDetailPage-overlap-4">
-                              <div className="PreventivoDetailPage-cuantitativo-title">PROTOCOLOS CUANTITATIVOS</div>
-                                  <ul className="PreventivoDetailPage-ul">
-                                    {preventivo && preventivo.cuantitativo
-                                      ? preventivo.cuantitativo.map((item: any) => (
-                                          <li className="PreventivoDetailPage-cuantitativo-text-wrapper" key={item._id}>{item.title}</li>
-                                        ))
-                                      : null}
-                                  </ul>
-
-                              <div className="PreventivoDetailPage-minimo">MÍNIMO</div>
-                              <div className="PreventivoDetailPage-maximo">MÁXIMO</div>
-                              <div className="PreventivoDetailPage-unidad">UNIDAD</div>
-                              <div className="PreventivoDetailPage-separator"/>
-                              <div className="PreventivoDetailPage-img"/>
-                              <div className="PreventivoDetailPage-separator-2"/>
-                              <div className="PreventivoDetailPage-minimo-value">220</div>
-                              <div className="PreventivoDetailPage-maximo-value">440</div>
-                              <div className="PreventivoDetailPage-unidad-value">V</div>
-                            </div>
+                                <div className="PreventivoDetailPage-cuantitativo-title">PROTOCOLOS CUANTITATIVOS</div>
+                                <ul className="PreventivoDetailPage-ul">
+                                  {preventivo && preventivo.cuantitativo
+                                    ? preventivo.cuantitativo.map((item: any) => (
+                                        <li className="PreventivoDetailPage-cuantitativo-text-wrapper" key={item._id}>
+                                          {item.campo.title}
+                                          <div className="PreventivoDetailPage-minimo">MÍNIMO</div>
+                                          <div className="PreventivoDetailPage-maximo">MÁXIMO</div>
+                                          <div className="PreventivoDetailPage-unidad">UNIDAD</div>
+                                          <div className="PreventivoDetailPage-separator"/>
+                                          <div className="PreventivoDetailPage-img"/>
+                                          <div className="PreventivoDetailPage-separator-2"/>
+                                          <div className="PreventivoDetailPage-minimo-value">{item.minimo}</div>
+                                          <div className="PreventivoDetailPage-maximo-value">{item.maximo}</div>
+                                          <div className="PreventivoDetailPage-unidad-value">{item.unidad}</div>
+                                        </li>
+                                      ))
+                                    : null}
+                                </ul>
+                                <br></br>
+                              </div>
                           </div>
                         </div>
                       </div>

@@ -47,12 +47,7 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
         title: preventivoData.title,
         codigo: preventivoData.codigo,
         version: preventivoData.version,
-        fecha: preventivoData.fecha,
-        cualitativo: preventivoData.cualitativo.map((item: any) => item.title),
-        mantenimiento: preventivoData.mantenimiento.map((item: any) => item.title),
-        cuantitativo: preventivoData.cuantitativo.map((item: any) => item.title),
-        otros: preventivoData.otros.map((item: any) => item.title),
-        // Asegúrate de incluir otros campos según tu estructura
+        fecha: preventivoData.fecha
       };
 
       await updatePreventivo(token, preventivoId, mappedData);
@@ -170,12 +165,18 @@ const handleRemoveMantenimiento = (index: number) => {
 // Lógica para agregar y eliminar CUANTITATIVO
 const handleCuantitativoChange = (index: number, newValue: string) => {
   const updatedCuantitativo = [...preventivoData.cuantitativo];
-  updatedCuantitativo[index].title = newValue;
-  setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+
+  // Asegúrate de que 'campo' exista antes de actualizar 'title'
+  if (updatedCuantitativo[index].campo) {
+    updatedCuantitativo[index].campo.title = newValue;
+    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+  }
+
   // Limpiar los resultados y el índice seleccionado al cambiar el valor manualmente
   setCuantitativoResults([]);
   setSelectedCuantitativoIndex(null);
 };
+
 
 useEffect(() => {
   // Actualiza los resultados cada vez que cambia el valor de selectedCuantitativo
@@ -200,10 +201,14 @@ useEffect(() => {
 
 const handleSelectCuantitativo = (title: string) => {
   // Agregar el campo seleccionado a la lista
-  const updatedCuantitativo = [...preventivoData.cuantitativo, { _id: '', id_tipo: '', title }];
-  setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
-  // Limpiar el campo seleccionado al agregar
-  setSelectedCuantitativo(null);
+  const selectedCuantitativo = cuantitativoResults.find(result => result.title === title);
+
+  if (selectedCuantitativo) {
+    const updatedCuantitativo = [...preventivoData.cuantitativo, { _id: '', id_tipo: '', campo: selectedCuantitativo }];
+    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+    // Limpiar el campo seleccionado al agregar
+    setSelectedCuantitativo(null);
+  }
 };
 
 const handleRemoveCuantitativo = (index: number) => {
@@ -375,15 +380,46 @@ const handleRemoveOtros = (index: number) => {
             </div>
           </div>
 
-       {/* CUANTITATIVO LOGIC */}
-        <div className="EditPreventivoButton-input-wrapper">
+      {/* CUANTITATIVO LOGIC */}
+      <div className="EditPreventivoButton-input-wrapper">
           <label>Cuantitativo:</label>
           {preventivoData.cuantitativo.map((item: any, index: number) => (
             <div key={index}>
               <input
                 type="text"
-                value={item.title}
+                value={item.campo ? item.campo.title : ''}
                 onChange={(e) => handleCuantitativoChange(index, e.target.value)}
+              />
+              {/* Agregar lógica para mostrar y actualizar los campos minimo, maximo y valor */}
+              <input
+                type="number"
+                value={item.minimo}
+                onChange={(e) => {
+                  const updatedCuantitativo = [...preventivoData.cuantitativo];
+                  updatedCuantitativo[index].minimo = e.target.value;
+                  setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+                }}
+                placeholder="Minimo"
+              />
+              <input
+                type="number"
+                value={item.maximo}
+                onChange={(e) => {
+                  const updatedCuantitativo = [...preventivoData.cuantitativo];
+                  updatedCuantitativo[index].maximo = e.target.value;
+                  setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+                }}
+                placeholder="Maximo"
+              />
+              <input
+                type="text"
+                value={item.unidad}  
+                onChange={(e) => {
+                  const updatedCuantitativo = [...preventivoData.cuantitativo];
+                  updatedCuantitativo[index].unidad = e.target.value;
+                  setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+                }}
+                placeholder={item.unidad}
               />
               <button type="button" onClick={() => handleRemoveCuantitativo(index)}>
                 Eliminar

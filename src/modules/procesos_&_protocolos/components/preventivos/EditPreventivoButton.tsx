@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { updatePreventivo } from '../../services/preventivosService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { searchCamposByKeyword, searchPreventivosByKeyword } from '../../services/searchProcesos&ProtocolosService';
+import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+import './styles/EditPreventivoButton.css'
 
 type EditPreventivoButtonProps = {
   preventivoId: string;
@@ -38,6 +40,7 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
 
   const loggedIn = useSessionStorage('sessionJWTToken');
 
+  // Función para manejar la edición del preventivo
   const handleEdit = async () => {
     try {
       const token = loggedIn;
@@ -47,12 +50,23 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
         title: preventivoData.title,
         codigo: preventivoData.codigo,
         version: preventivoData.version,
-        fecha: preventivoData.fecha
+        fecha: preventivoData.fecha,
+        cualitativo: preventivoData.cualitativo.map((item: any) => item.title),
+        mantenimiento: preventivoData.mantenimiento.map((item: any) => item.title),
+        cuantitativo: preventivoData.cuantitativo.map((item: any) => ({
+          title: item.campo ? item.campo.title : '',
+          minimo: item.minimo,
+          maximo: item.maximo,
+          unidad: item.unidad,
+        })),
+        otros: preventivoData.otros.map((item: any) => item.title),
       };
 
+      // Llamar a la función de actualización
       await updatePreventivo(token, preventivoId, mappedData);
       onEditSuccess();
-      // Mostrar la alerta y luego recargar la página después de 2 segundos
+
+      // Mostrar la alerta y recargar la página después de 2 segundos
       window.alert(`Preventivo ID: ${preventivoData._id} actualizado satisfactoriamente`);
       setTimeout(() => {
         window.location.reload();
@@ -495,6 +509,100 @@ const handleRemoveOtros = (index: number) => {
           </button>
         </div>
       </form>
+
+      <div className="box">
+      <div className="edit-preventivo">
+        <div className="overlap">
+          <div className="overlap-group">
+            <p className="preventivo-title">ACTUALIZAR PREVENTIVO - {preventivoData.title}</p>
+            <div className="preventivo-id">ID: {preventivoData._id}</div>
+          </div>
+          <p className="title-p">1.  Ingrese el titulo del Preventivo:</p>
+          <input 
+          className="title-input"
+          type="text"
+          value={preventivoData.title}
+          onChange={(e) => setPreventivoData({ ...preventivoData, title: e.target.value })}
+           />
+          <div className="codigo-p">2.  Ingrese el codigo:</div>
+          <input 
+          className="codigo-input"
+          type='text'
+          value={preventivoData.codigo}
+          onChange={(e) => setPreventivoData({ ...preventivoData, codigo: e.target.value })}
+           />
+          <div className="version-p">3.  Ingrese la versión:</div>
+          <input 
+          className="version-input"
+          type='number'
+          value={preventivoData.version}
+          onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
+          />
+          <p className="date-p">4.  Ingrese la fecha de creación:</p>
+          <input
+          className="date-input" 
+          type='date'
+          value={preventivoData.fecha}
+          onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
+          />
+          <div className="separator" />
+          <div className="div">
+            <div className="cualitativo-space">
+              <div className="cualitativos-p">5.  Edite los campos cualitativos:</div>
+          {preventivoData.cualitativo.map((item: any, index: number) => (
+              <div key={index}>
+                <input 
+                className="x-wrapper"
+                type='text'
+                value={item.title}
+                onChange={(e) => handleCualitativoChange(index, e.target.value)}
+                >
+                </input>
+                  <ClearOutlinedIcon className="x"  onClick={() => handleRemoveCualitativo(index)}/>
+              </div>
+               ))}
+              <input className="cualitativo-selected"
+              type="text"
+              placeholder="Buscar Cualitativo"
+              value={selectedCualitativo || ''}
+              onChange={(e) => setSelectedCualitativo(e.target.value)}
+              />
+               {cualitativoResults.length > 0 && (
+              <ul>
+                {cualitativoResults.map((result, index) => (
+                  <li className="cualitativo-result" key={index} onClick={() => handleSelectCualitativo(result.title)}>
+                    {result.title}
+                  </li>
+                ))}
+              </ul>
+            )}
+            </div>
+            <div className="cuantitativo-space">
+              <div className="cualitativos-p">7.  Edite los campos cuantitativos:</div>
+              <div className="cuantitativo">
+                <div className="cualitativos-search" />
+                <div className="img"/>
+                <input className="cualitativos-search-2"/>
+                <div className="cualitativos-search-3" />
+                <img className="x-2" alt="X" src="image.png" />
+                <div className="text-wrapper">mínimo</div>
+                <div className="text-wrapper-2">cuantitativo</div>
+                <div className="text-wrapper-3">máximo</div>
+                <div className="unidad"> unidad</div>
+              </div>
+              <input className="cualitativo-selected-2"
+              type="text"
+              placeholder="Buscar Cuantitativo"
+              />
+              <div className="cualitativo-result-2" />
+            </div>
+          </div>
+          <button className="update-cancelar">CANCELAR</button> 
+          <button className="actualizar-button">ACTUALIZAR</button>
+        </div>
+      </div>
+    </div>
+
     </div>
   );
 };

@@ -1,12 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import FaxOutlinedIcon from '@mui/icons-material/FaxOutlined';
-import DevicesOtherOutlinedIcon from '@mui/icons-material/DevicesOtherOutlined';
-import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
-import ClassIcon from '@mui/icons-material/Class'
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import TypeSpecimenOutlinedIcon from '@mui/icons-material/TypeSpecimenOutlined';
-import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 
 const DashboardMenuCentralProcesosProtocolos = () => {
     const navigate = useNavigate();
@@ -23,6 +18,17 @@ const DashboardMenuCentralProcesosProtocolos = () => {
                                     <FaxOutlinedIcon/>                
                                     </i>
                                     <p className="DashboardMenuCentral-p">Preventivos</p> 
+                                    </div>
+                                </li>
+                            </button>
+
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/campos')}>
+                                <li>
+                                    <div className="DashboardMenuCentral-nav-icon">
+                                    <i className='DashboardMenuCentral-nav-icon-i'>    
+                                    <FormatListBulletedOutlinedIcon/>                
+                                    </i>
+                                    <p className="DashboardMenuCentral-p">Campos</p> 
                                     </div>
                                 </li>
                             </button>

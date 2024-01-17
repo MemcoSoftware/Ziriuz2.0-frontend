@@ -283,66 +283,66 @@ const handleRemoveOtros = (index: number) => {
 
   return (
     <div className="EditPreventivoButton-box">
-      <div className="box">
-      <div className="edit-preventivo">
-        <div className="overlap">
-          <div className="overlap-group">
-            <p className="preventivo-title">ACTUALIZAR PREVENTIVO - {preventivoData.title}</p>
-            <div className="preventivo-id">ID: {preventivoData._id}</div>
+      <div className="EditPreventivoButton-box-1">
+      <div className="EditPreventivoButton-edit-preventivo">
+        <div className="EditPreventivoButton-overlap">
+          <div className="EditPreventivoButton-overlap-group">
+            <p className="EditPreventivoButton-preventivo-title">ACTUALIZAR PREVENTIVO - {preventivoData.title}</p>
+            <div className="EditPreventivoButton-preventivo-id">ID: {preventivoData._id}</div>
           </div>
-          <p className="title-p">1.  Ingrese el titulo del Preventivo:</p>
+          <p className="EditPreventivoButton-title-p">1.  Ingrese el titulo del Preventivo:</p>
           <input 
-          className="title-input"
+          className="EditPreventivoButton-title-input"
           type="text"
           value={preventivoData.title}
           onChange={(e) => setPreventivoData({ ...preventivoData, title: e.target.value })}
            />
-          <div className="codigo-p">2.  Ingrese el codigo:</div>
+          <div className="EditPreventivoButton-codigo-p">2.  Ingrese el codigo:</div>
           <input 
-          className="codigo-input"
+          className="EditPreventivoButton-codigo-input"
           type='text'
           value={preventivoData.codigo}
           onChange={(e) => setPreventivoData({ ...preventivoData, codigo: e.target.value })}
            />
-          <div className="version-p">3.  Ingrese la versión:</div>
+          <div className="EditPreventivoButton-version-p">3.  Ingrese la versión:</div>
           <input 
-          className="version-input"
+          className="EditPreventivoButton-version-input"
           type='number'
           value={preventivoData.version}
           onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
           />
-          <p className="date-p">4.  Ingrese la fecha de creación:</p>
+          <p className="EditPreventivoButton-date-p">4.  Ingrese la fecha de creación:</p>
           <input
-          className="date-input" 
+          className="EditPreventivoButton-date-input" 
           type='date'
           value={preventivoData.fecha}
           onChange={(e) => setPreventivoData({ ...preventivoData, fecha: e.target.value })}
           />
 
 
-          <div className="separator" />
+          <div className="EditPreventivoButton-separator" />
 
 
-          <div className="div">
+          <div className="EditPreventivoButton-div">
 
             {/* CUALITATIVO LOGIC */}
-            <div className="cualitativo-space">
-              <div className="cualitativos-p">5.  Edite los campos cualitativos:</div>
+            <div className="EditPreventivoButton-cualitativo-space">
+              <div className="EditPreventivoButton-cualitativos-p">5.  Edite los campos cualitativos:</div>
           {preventivoData.cualitativo.map((item: any, index: number) => (
               <div key={index}>
                 <input 
-                className="x-wrapper"
+                className="EditPreventivoButton-x-wrapper"
                 type='text'
                 value={item.title}
                 readOnly={true}
                 onChange={(e) => handleCualitativoChange(index, e.target.value)}
                 >
                 </input>
-                  <ClearOutlinedIcon className="x"  onClick={() => handleRemoveCualitativo(index)}/>
+                  <ClearOutlinedIcon className="EditPreventivoButton-x"  onClick={() => handleRemoveCualitativo(index)}/>
               </div>
                 ))}
 
-                <input className="cualitativo-selected"
+                <input className="EditPreventivoButton-cualitativo-selected"
                 type="text"
                 placeholder="Buscar Cualitativo"
                 value={selectedCualitativo || ''}
@@ -351,7 +351,7 @@ const handleRemoveOtros = (index: number) => {
                 {cualitativoResults.length > 0 && (
                 <ul>
                   {cualitativoResults.map((result, index) => (
-                    <li className="cualitativo-result" key={index} onClick={() => handleSelectCualitativo(result.title)}>
+                    <li className="EditPreventivoButton-cualitativo-result" key={index} onClick={() => handleSelectCualitativo(result.title)}>
                       {result.title}
                     </li>
                   ))}
@@ -361,23 +361,23 @@ const handleRemoveOtros = (index: number) => {
             <div className='EditPreventivoButton-separator'/>
 
           {/* MANTENIMIENTO LOGIC */}
-            <div className="mantenimiento-space">
-              <div className="mantenimiento-p">6.  Edite los campos de mantenimiento:</div>
+            <div className="EditPreventivoButton-mantenimiento-space">
+              <div className="EditPreventivoButton-mantenimiento-p">6.  Edite los campos de mantenimiento:</div>
           {preventivoData.mantenimiento.map((item: any, index: number) => (
               <div key={index}>
                 <input 
-                className="mantenimiento-x-wrapper"
+                className="EditPreventivoButton-mantenimiento-x-wrapper"
                 type='text'
                 value={item.title}
                 readOnly={true}
                 onChange={(e) => handleMantenimientoChange(index, e.target.value)}
                 >
                 </input>
-                  <ClearOutlinedIcon className="mantenimiento-x"  onClick={() => handleRemoveMantenimiento(index)}/>
+                  <ClearOutlinedIcon className="EditPreventivoButton-mantenimiento-x"  onClick={() => handleRemoveMantenimiento(index)}/>
               </div>
                 ))}
 
-                <input className="mantenimiento-selected"
+                <input className="EditPreventivoButton-mantenimiento-selected"
                 type="text"
                 placeholder="Buscar Mantenimiento"
                 value={selectedMantenimiento || ''}
@@ -386,7 +386,7 @@ const handleRemoveOtros = (index: number) => {
                 {mantenimientoResults.length > 0 && (
                 <ul>
                   {mantenimientoResults.map((result, index) => (
-                    <li className="mantenimiento-result" key={index} onClick={() => handleSelectMantenimiento(result.title)}>
+                    <li className="EditPreventivoButton-mantenimiento-result" key={index} onClick={() => handleSelectMantenimiento(result.title)}>
                       {result.title}
                     </li>
                   ))}
@@ -396,20 +396,20 @@ const handleRemoveOtros = (index: number) => {
             <div className='EditPreventivoButton-separator2'/>
 
             {/* CUANTITATIVO LOGIC */}
-            <div className="cuantitativo-space">
-              <div className="cuantitativo-p">7.  Edite los campos cuantitativos:</div>
+            <div className="EditPreventivoButton-cuantitativo-space">
+              <div className="EditPreventivoButton-cuantitativo-p">7.  Edite los campos cuantitativos:</div>
             {preventivoData.cuantitativo.map((item: any, index: number) => (
 
-              <div className="cuantitativo" key={index}>
+              <div className="EditPreventivoButton-cuantitativo" key={index}>
                 <input 
-                className="cuantitativo-search"
+                className="EditPreventivoButton-cuantitativo-search"
                 type="text"
                 value={item.campo ? item.campo.title : ''}
                 onChange={(e) => handleCuantitativoChange(index, e.target.value)}
                 readOnly={true}
                 />
                 <input 
-                className="img"
+                className="EditPreventivoButton-img"
                 type="number"
                 value={item.minimo}
                 onChange={(e) => {
@@ -420,7 +420,7 @@ const handleRemoveOtros = (index: number) => {
                 placeholder="Minimo"
                 />
                 <input 
-                className="cuantitativo-search-2"
+                className="EditPreventivoButton-cuantitativo-search-2"
                 type="number"
                 value={item.maximo}
                 onChange={(e) => {
@@ -431,7 +431,7 @@ const handleRemoveOtros = (index: number) => {
                 placeholder="Maximo"
                 />
                 <input 
-                className="cuantitativo-search-3"
+                className="EditPreventivoButton-cuantitativo-search-3"
                 type="text"
                 value={item.unidad}  
                 onChange={(e) => {
@@ -441,14 +441,14 @@ const handleRemoveOtros = (index: number) => {
                 }}
                 placeholder={item.unidad}
                 />
-                <ClearOutlinedIcon className="x-2" onClick={() => handleRemoveCuantitativo(index)}/>
-                <div className="text-wrapper">mínimo</div>
-                <div className="text-wrapper-2">cuantitativo</div>
-                <div className="text-wrapper-3">máximo</div>
-                <div className="unidad"> unidad</div>
+                <ClearOutlinedIcon className="EditPreventivoButton-x-2" onClick={() => handleRemoveCuantitativo(index)}/>
+                <div className="EditPreventivoButton-text-wrapper">mínimo</div>
+                <div className="EditPreventivoButton-text-wrapper-2">cuantitativo</div>
+                <div className="EditPreventivoButton-text-wrapper-3">máximo</div>
+                <div className="EditPreventivoButton-unidad"> unidad</div>
               </div>
               ))}
-              <input className="cuantitativo-selected-2"
+              <input className="EditPreventivoButton-cuantitativo-selected-2"
               type="text"
               placeholder="Buscar Cuantitativo"
               value={selectedCuantitativo || ''}
@@ -458,7 +458,7 @@ const handleRemoveOtros = (index: number) => {
               {cuantitativoResults.length > 0 && (
               <ul>
                 {cuantitativoResults.map((result, index) => (
-                  <li className="cualitativo-result-2" key={index} onClick={() => handleSelectCuantitativo(result.title)}>
+                  <li className="EditPreventivoButton-cualitativo-result-2" key={index} onClick={() => handleSelectCuantitativo(result.title)}>
                     {result.title}
                   </li>
                 ))}
@@ -469,23 +469,23 @@ const handleRemoveOtros = (index: number) => {
             <div className='EditPreventivoButton-separator3'/>
 
              {/* OTROS LOGIC */}
-             <div className="otros-space">
-              <div className="otros-p">8.  Edite los campos de OTROS:</div>
+             <div className="EditPreventivoButton-otros-space">
+              <div className="EditPreventivoButton-otros-p">8.  Edite los campos de OTROS:</div>
           {preventivoData.otros.map((item: any, index: number) => (
               <div key={index}>
                 <input 
-                className="otros-x-wrapper"
+                className="EditPreventivoButton-otros-x-wrapper"
                 type='text'
                 value={item.title}
                 readOnly={true}
                 onChange={(e) => handleOtrosChange(index, e.target.value)}
                 >
                 </input>
-                  <ClearOutlinedIcon className="otros-x"  onClick={() => handleRemoveOtros(index)}/>
+                  <ClearOutlinedIcon className="EditPreventivoButton-otros-x"  onClick={() => handleRemoveOtros(index)}/>
               </div>
                 ))}
 
-                <input className="otros-selected"
+                <input className="EditPreventivoButton-otros-selected"
                 type="text"
                 placeholder="Buscar Otros"
                 value={selectedOtros || ''}
@@ -494,7 +494,7 @@ const handleRemoveOtros = (index: number) => {
                 {otrosResults.length > 0 && (
                 <ul>
                   {otrosResults.map((result, index) => (
-                    <li className="otros-result" key={index} onClick={() => handleSelectOtros(result.title)}>
+                    <li className="EditPreventivoButton-otros-result" key={index} onClick={() => handleSelectOtros(result.title)}>
                       {result.title}
                     </li>
                   ))}
@@ -504,8 +504,8 @@ const handleRemoveOtros = (index: number) => {
 
 
           </div>
-          <button className="update-cancelar" onClick={onCancel} >CANCELAR</button> 
-          <button className="actualizar-button" onClick={handleEdit} >ACTUALIZAR</button>
+          <button className="EditPreventivoButton-update-cancelar" onClick={onCancel} >CANCELAR</button> 
+          <button className="EditPreventivoButton-actualizar-button" onClick={handleEdit} >ACTUALIZAR</button>
         </div>
       </div>
     </div>

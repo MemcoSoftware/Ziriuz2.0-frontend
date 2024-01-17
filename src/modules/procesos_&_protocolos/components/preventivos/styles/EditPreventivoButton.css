@@ -1,16 +1,16 @@
-.box {
+.EditPreventivoButton-box-1 {
   height: 857px;
   width: 1138px;
 }
 
-.box .edit-preventivo {
+.EditPreventivoButton-box-1 .EditPreventivoButton-edit-preventivo {
   height: 857px;
   left: 0;
   top: 0;
   width: 1150px;
 }
 
-.box .overlap {
+.EditPreventivoButton-box-1 .EditPreventivoButton-overlap {
   background-color: #ffffff;
   background-size: 100% 100%;
   height: 857px;
@@ -18,7 +18,7 @@
   width: 1138px;
 }
 
-.box .overlap-group {
+.EditPreventivoButton-box-1 .EditPreventivoButton-overlap-group {
   background-color: #d9d9d9;
   background-size: 100% 100%;
   height: 184px;
@@ -28,7 +28,7 @@
   width: 1138px;
 }
 
-.box .preventivo-title {
+.EditPreventivoButton-box-1 .EditPreventivoButton-preventivo-title {
   -webkit-text-stroke: 1px #00ddfa33;
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
@@ -43,7 +43,7 @@
   width: 1107px;
 }
 
-.box .preventivo-id {
+.EditPreventivoButton-box-1 .EditPreventivoButton-preventivo-id {
   color: #ffffff;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -58,7 +58,7 @@
   width: 692px;
 }
 
-.box .title-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-title-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -71,7 +71,7 @@
   width: 543px;
 }
 
-.box .title-input {
+.EditPreventivoButton-box-1 .EditPreventivoButton-title-input {
   height: 49px;
   background-color: #d9d9d9;
   box-shadow: none;
@@ -84,7 +84,7 @@
   width: 505px;
 }
 
-.box .codigo-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-codigo-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -97,7 +97,7 @@
   width: 543px;
 }
 
-.box .codigo-input {
+.EditPreventivoButton-box-1 .EditPreventivoButton-codigo-input {
   height: 49px;
   left: 29px;
   background-color: #d9d9d9;
@@ -110,7 +110,7 @@
   width: 505px;
 }
 
-.box .version-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-version-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -123,7 +123,7 @@
   width: 543px;
 }
 
-.box .version-input {
+.EditPreventivoButton-box-1 .EditPreventivoButton-version-input {
   height: 49px;
   left: 29px;
   background-color: #d9d9d9;
@@ -136,7 +136,7 @@
   width: 505px;
 }
 
-.box .date-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-date-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -149,7 +149,7 @@
   width: 543px;
 }
 
-.box .date-input {
+.EditPreventivoButton-box-1 .EditPreventivoButton-date-input {
   height: 49px;
   left: 29px;
   background-color: #d9d9d9;
@@ -162,7 +162,7 @@
   width: 505px;
 }
 
-.box .separator {
+.EditPreventivoButton-box-1 .EditPreventivoButton-separator {
   background-color: #636b6f61;
   height: 636px;
   left: 568px;
@@ -172,7 +172,7 @@
   width: 1px;
 }
 
-.box .div {
+.EditPreventivoButton-box-1 .EditPreventivoButton-div {
   background-color: transparent;
   height: 593px;
   left: 570px;
@@ -200,7 +200,7 @@
   }
 }
 
-.box .cualitativo-space {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cualitativo-space {
   height: 200px;
   left: 16px;
   position: relative;
@@ -230,7 +230,7 @@
   }
 }
 
-.box .cualitativos-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cualitativos-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -243,7 +243,7 @@
   width: 481px;
 }
 
-.box .x-wrapper {
+.EditPreventivoButton-box-1 .EditPreventivoButton-x-wrapper {
   background-color: #d9d9d9;
   background-size: 100% 100%;
   border-radius: 5px;
@@ -258,7 +258,7 @@
   width: 505px;
 }
 
-.box .x {
+.EditPreventivoButton-box-1 .EditPreventivoButton-x {
   height: 20px;
   left: 474px;
   position: relative;
@@ -267,7 +267,7 @@
   width: 21px;
 }
 
-.box .cualitativo-selected {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cualitativo-selected {
   height: 49px;
   left: 0;
   background-color: #d9d9d9;
@@ -281,7 +281,7 @@
   width: 505px;
 }
 
-.box .cualitativo-result {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cualitativo-result {
   height: 49px;
   left: 0;
   list-style: none;
@@ -295,7 +295,7 @@
 
 
 
-.box .cuantitativo {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo {
   height: 68px;
   left: 0;
   position: relative;
@@ -303,7 +303,7 @@
   width: 503px;
 }
 
-.box .cuantitativo-search {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo-search {
   height: 49px;
   left: 0;
   background-color: #d9d9d9;
@@ -318,7 +318,7 @@
 }
 
 /* MANTENIMIENTO STYLES */
-.box .mantenimiento-space {
+.EditPreventivoButton-box-1 .EditPreventivoButton-mantenimiento-space {
   height: 200px;
   left: 16px;
   position: relative;
@@ -347,7 +347,7 @@
 
 }
 
-.box .mantenimiento-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-mantenimiento-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -360,7 +360,7 @@
   width: 481px;
 }
 
-.box .mantenimiento-x-wrapper {
+.EditPreventivoButton-box-1 .EditPreventivoButton-mantenimiento-x-wrapper {
   background-color: #d9d9d9;
   background-size: 100% 100%;
   border-radius: 5px;
@@ -376,7 +376,7 @@
 }
 
 
-.box .mantenimiento-x {
+.EditPreventivoButton-box-1 .EditPreventivoButton-mantenimiento-x {
   height: 20px;
   left: 474px;
   position: relative;
@@ -385,7 +385,7 @@
   width: 21px;
 }
 
-.box .mantenimiento-selected {
+.EditPreventivoButton-box-1 .EditPreventivoButton-mantenimiento-selected {
   height: 49px;
   left: 0;
   background-color: #d9d9d9;
@@ -399,7 +399,7 @@
   width: 505px;
 }
 
-.box .mantenimiento-result {
+.EditPreventivoButton-box-1 .EditPreventivoButton-mantenimiento-result {
   height: 49px;
   left: 0;
   list-style: none;
@@ -413,7 +413,7 @@
 
 /* CUANTITATIVOS STYLES */
 
-.box .cuantitativo-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -426,7 +426,7 @@
   width: 481px;
 }
 
-.box .cuantitativo-space {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo-space {
   height: 220px;
   left: 16px;
   position: relative;
@@ -474,7 +474,7 @@
 }
 
 
-.box .img {
+.EditPreventivoButton-box-1 .EditPreventivoButton-img {
   height: 49px;
   left: 171px;
   background-color: #d9d9d9;
@@ -488,7 +488,7 @@
   width: 85px;
 }
 
-.box .cuantitativo-search-2 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo-search-2 {
   height: 49px;
   left: 264px;
   background-color: #d9d9d9;
@@ -502,7 +502,7 @@
   width: 85px;
 }
 
-.box .cuantitativo-search-3 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo-search-3 {
   height: 49px;
   left: 357px;
   background-color: #d9d9d9;
@@ -516,7 +516,7 @@
   width: 85px;
 }
 
-.box .x-2 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-x-2 {
   height: 20px;
   left: 465px;
   position: absolute;
@@ -526,7 +526,7 @@
 }
 
 /* OTROS STYLES */
-.box .otros-space {
+.EditPreventivoButton-box-1 .EditPreventivoButton-otros-space {
   height: 200px;
   left: 16px;
   position: relative;
@@ -553,7 +553,7 @@
   }
 }
 
-.box .otros-p {
+.EditPreventivoButton-box-1 .EditPreventivoButton-otros-p {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 20px;
@@ -566,7 +566,7 @@
   width: 481px;
 }
 
-.box .otros-x-wrapper {
+.EditPreventivoButton-box-1 .EditPreventivoButton-otros-x-wrapper {
   background-color: #d9d9d9;
   background-size: 100% 100%;
   border-radius: 5px;
@@ -582,7 +582,7 @@
 }
 
 
-.box .otros-x {
+.EditPreventivoButton-box-1 .EditPreventivoButton-otros-x {
   height: 20px;
   left: 474px;
   position: relative;
@@ -591,7 +591,7 @@
   width: 21px;
 }
 
-.box .otros-selected {
+.EditPreventivoButton-box-1 .EditPreventivoButton-otros-selected {
   height: 49px;
   left: 0;
   background-color: #d9d9d9;
@@ -605,7 +605,7 @@
   width: 505px;
 }
 
-.box .otros-result {
+.EditPreventivoButton-box-1 .EditPreventivoButton-otros-result {
   height: 49px;
   left: 0;
   list-style: none;
@@ -619,7 +619,7 @@
 
 
 
-.box .text-wrapper {
+.EditPreventivoButton-box-1 .EditPreventivoButton-text-wrapper {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -635,7 +635,7 @@
   width: 85px;
 }
 
-.box .text-wrapper-2 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-text-wrapper-2 {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -651,7 +651,7 @@
   width: 85px;
 }
 
-.box .text-wrapper-3 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-text-wrapper-3 {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -667,7 +667,7 @@
   width: 85px;
 }
 
-.box .unidad {
+.EditPreventivoButton-box-1 .EditPreventivoButton-unidad {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -683,7 +683,7 @@
   width: 85px;
 }
 
-.box .cuantitativo-selected-2 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cuantitativo-selected-2 {
   height: 49px;
   left: 0;
   background-color: #d9d9d9;
@@ -697,7 +697,7 @@
   width: 505px;
 }
 
-.box .cualitativo-result-2 {
+.EditPreventivoButton-box-1 .EditPreventivoButton-cualitativo-result-2 {
   height: 49px;
   left: 0;
   list-style: none;
@@ -709,7 +709,7 @@
   width: 505px;
 }
 
-.box .update-cancelar {
+.EditPreventivoButton-box-1 .EditPreventivoButton-update-cancelar {
   height: 69px;
   left: 55px;
   border-radius: 5px;
@@ -723,7 +723,7 @@
   width: 196px;
 }
 
-.box .actualizar-button {
+.EditPreventivoButton-box-1 .EditPreventivoButton-actualizar-button {
   height: 69px;
   left: 312px;
   border-radius: 5px;

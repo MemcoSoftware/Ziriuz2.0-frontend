@@ -3,6 +3,8 @@ import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { createPreventivo } from '../../../services/preventivosService';
 import { searchCamposByKeyword } from '../../../services/searchProcesos&ProtocolosService';
 import { useNavigate } from 'react-router-dom';
+import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+import '../styles/EditPreventivoButton.css'
 
 const RegisterPreventivoForm: React.FC = () => {
   const [preventivoData, setPreventivoData] = useState<any>({
@@ -57,9 +59,9 @@ const RegisterPreventivoForm: React.FC = () => {
 
       // Mostrar la alerta y recargar la página después de 2 segundos
       window.alert('Preventivo creado satisfactoriamente');
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000); // 2000 milisegundos (2 segundos)
+
+      navigate('/preventivos');
+      
     } catch (error) {
       console.error('Error al crear el preventivo:', error);
     }
@@ -246,229 +248,232 @@ const RegisterPreventivoForm: React.FC = () => {
 
 return (
   <div className="EditPreventivoButton-box">
-    <form className="EditPreventivoButton-form">
-      {/* Campos comunes */}
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Título:</label>
-        <input
-          type="text"
-          value={preventivoData.title}
-          onChange={(e) => setPreventivoData({ ...preventivoData, title: e.target.value })}
-        />
+  <div className="box">
+  <div className="edit-preventivo">
+    <div className="overlap">
+      <div className="overlap-group">
+        <p className="preventivo-title">REGISTRAR NUEVO PREVENTIVO - {preventivoData.title}</p>
+        <div className="preventivo-id"></div>
       </div>
+      <p className="title-p">1.  Ingrese el titulo del nuevo Preventivo:</p>
+      <input 
+      className="title-input"
+      type="text"
+      value={preventivoData.title}
+      onChange={(e) => setPreventivoData({ ...preventivoData, title: e.target.value })}
+       />
+      <div className="codigo-p">2.  Ingrese el codigo:</div>
+      <input 
+      className="codigo-input"
+      type='text'
+      value={preventivoData.codigo}
+      onChange={(e) => setPreventivoData({ ...preventivoData, codigo: e.target.value })}
+       />
+      <div className="version-p">3.  Ingrese la versión:</div>
+      <input 
+      className="version-input"
+      type='number'
+      value={preventivoData.version}
+      onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
+      />
+      <p className="date-p">4.  Ingrese la fecha de creación:</p>
+      <input
+      className="date-input" 
+      type='date'
+      value={preventivoData.fecha}
+      onChange={(e) => setPreventivoData({ ...preventivoData, fecha: e.target.value })}
+      />
 
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Código:</label>
-        <input
-          type="text"
-          value={preventivoData.codigo}
-          onChange={(e) => setPreventivoData({ ...preventivoData, codigo: e.target.value })}
-        />
-      </div>
 
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Versión:</label>
-        <input
-          type="number"
-          value={preventivoData.version}
-          onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
-        />
-      </div>
+      <div className="separator" />
 
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Fecha:</label>
-        <input
-          type="date"
-          value={preventivoData.fecha}
-          onChange={(e) => setPreventivoData({ ...preventivoData, fecha: e.target.value })}
-        />
-      </div>
 
-      {/* CUALITATIVO LOGIC */}
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Cualitativo:</label>
-        {preventivoData.cualitativo.map((item: any, index: number) => (
+      <div className="div">
+
+        {/* CUALITATIVO LOGIC */}
+        <div className="cualitativo-space">
+          <div className="cualitativos-p">5.  Registre los campos cualitativos:</div>
+      {preventivoData.cualitativo.map((item: any, index: number) => (
           <div key={index}>
-            <input
-              type="text"
-              value={item.title}
-              onChange={(e) => handleCualitativoChange(index, e.target.value)}
-            />
-            <button type="button" onClick={() => handleRemoveCualitativo(index)}>
-              Eliminar
-            </button>
+            <input 
+            className="x-wrapper"
+            type='text'
+            value={item.title}
+            readOnly={true}
+            onChange={(e) => handleCualitativoChange(index, e.target.value)}
+            >
+            </input>
+              <ClearOutlinedIcon className="x"  onClick={() => handleRemoveCualitativo(index)}/>
           </div>
-        ))}
-        <div>
-          {/* Input para búsqueda de cualitativos */}
-          <input
+            ))}
+
+            <input className="cualitativo-selected"
             type="text"
-            placeholder="Agregar cualitativo"
+            placeholder="Buscar Cualitativo"
             value={selectedCualitativo || ''}
             onChange={(e) => setSelectedCualitativo(e.target.value)}
-          />
-          {/* Resultados del buscador como opciones de una lista */}
-          {cualitativoResults.length > 0 && (
+            />
+            {cualitativoResults.length > 0 && (
             <ul>
               {cualitativoResults.map((result, index) => (
-                <li key={index} onClick={() => handleSelectCualitativo(result.title)}>
+                <li className="cualitativo-result" key={index} onClick={() => handleSelectCualitativo(result.title)}>
                   {result.title}
                 </li>
               ))}
             </ul>
           )}
+       
         </div>
-      </div>
 
       {/* MANTENIMIENTO LOGIC */}
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Mantenimiento:</label>
-        {preventivoData.mantenimiento.map((item: any, index: number) => (
+        <div className="mantenimiento-space">
+          <div className="mantenimiento-p">6.  Registre los campos de mantenimiento:</div>
+      {preventivoData.mantenimiento.map((item: any, index: number) => (
           <div key={index}>
-            <input
-              type="text"
-              value={item.title}
-              onChange={(e) => handleMantenimientoChange(index, e.target.value)}
-            />
-            <button type="button" onClick={() => handleRemoveMantenimiento(index)}>
-              Eliminar
-            </button>
+            <input 
+            className="mantenimiento-x-wrapper"
+            type='text'
+            value={item.title}
+            readOnly={true}
+            onChange={(e) => handleMantenimientoChange(index, e.target.value)}
+            >
+            </input>
+              <ClearOutlinedIcon className="mantenimiento-x"  onClick={() => handleRemoveMantenimiento(index)}/>
           </div>
-        ))}
-        <div>
-          {/* Input para búsqueda de mantenimiento */}
-          <input
+            ))}
+
+            <input className="mantenimiento-selected"
             type="text"
-            placeholder="Agregar mantenimiento"
+            placeholder="Buscar Mantenimiento"
             value={selectedMantenimiento || ''}
             onChange={(e) => setSelectedMantenimiento(e.target.value)}
-          />
-          {/* Resultados del buscador como opciones de una lista */}
-          {mantenimientoResults.length > 0 && (
+            />
+            {mantenimientoResults.length > 0 && (
             <ul>
               {mantenimientoResults.map((result, index) => (
-                <li key={index} onClick={() => handleSelectMantenimiento(result.title)}>
+                <li className="mantenimiento-result" key={index} onClick={() => handleSelectMantenimiento(result.title)}>
                   {result.title}
                 </li>
               ))}
             </ul>
           )}
         </div>
-      </div>
 
-      {/* CUANTITATIVO LOGIC */}
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Cuantitativo:</label>
+        {/* CUANTITATIVO LOGIC */}
+        <div className="cuantitativo-space">
+          <div className="cuantitativo-p">7.  Registre los campos cuantitativos:</div>
         {preventivoData.cuantitativo.map((item: any, index: number) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={item.campo ? item.campo.title : ''}
-              onChange={(e) => handleCuantitativoChange(index, e.target.value)}
-            />
-            {/* Agregar lógica para mostrar y actualizar los campos minimo, maximo y valor */}
-            <input
-              type="number"
-              value={item.minimo}
-              onChange={(e) => {
-                const updatedCuantitativo = [...preventivoData.cuantitativo];
-                updatedCuantitativo[index].minimo = e.target.value;
-                setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
-              }}
-              placeholder="Minimo"
-            />
-            <input
-              type="number"
-              value={item.maximo}
-              onChange={(e) => {
-                const updatedCuantitativo = [...preventivoData.cuantitativo];
-                updatedCuantitativo[index].maximo = e.target.value;
-                setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
-              }}
-              placeholder="Maximo"
-            />
-            <input
-              type="text"
-              value={item.unidad}
-              onChange={(e) => {
-                const updatedCuantitativo = [...preventivoData.cuantitativo];
-                updatedCuantitativo[index].unidad = e.target.value;
-                setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
-              }}
-              placeholder={item.unidad}
-            />
-            <button type="button" onClick={() => handleRemoveCuantitativo(index)}>
-              Eliminar
-            </button>
-          </div>
-        ))}
-        <div>
-          {/* Input para búsqueda de cuantitativos */}
-          <input
+
+          <div className="cuantitativo" key={index}>
+            <input 
+            className="cuantitativo-search"
             type="text"
-            placeholder="Agregar cuantitativo"
-            value={selectedCuantitativo || ''}
-            onChange={(e) => setSelectedCuantitativo(e.target.value)}
+            value={item.campo ? item.campo.title : ''}
+            onChange={(e) => handleCuantitativoChange(index, e.target.value)}
+            readOnly={true}
+            />
+            <input 
+            className="img"
+            type="number"
+            value={item.minimo}
+            onChange={(e) => {
+              const updatedCuantitativo = [...preventivoData.cuantitativo];
+              updatedCuantitativo[index].minimo = e.target.value;
+              setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+            }}
+            placeholder="Minimo"
+            />
+            <input 
+            className="cuantitativo-search-2"
+            type="number"
+            value={item.maximo}
+            onChange={(e) => {
+              const updatedCuantitativo = [...preventivoData.cuantitativo];
+              updatedCuantitativo[index].maximo = e.target.value;
+              setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+            }}
+            placeholder="Maximo"
+            />
+            <input 
+            className="cuantitativo-search-3"
+            type="text"
+            value={item.unidad}  
+            onChange={(e) => {
+              const updatedCuantitativo = [...preventivoData.cuantitativo];
+              updatedCuantitativo[index].unidad = e.target.value;
+              setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+            }}
+            placeholder={item.unidad}
+            />
+            <ClearOutlinedIcon className="x-2" onClick={() => handleRemoveCuantitativo(index)}/>
+            <div className="text-wrapper">mínimo</div>
+            <div className="text-wrapper-2">cuantitativo</div>
+            <div className="text-wrapper-3">máximo</div>
+            <div className="unidad"> unidad</div>
+          </div>
+          ))}
+          <input className="cuantitativo-selected-2"
+          type="text"
+          placeholder="Buscar Cuantitativo"
+          value={selectedCuantitativo || ''}
+          onChange={(e) => setSelectedCuantitativo(e.target.value)}
           />
           {/* Resultados del buscador como opciones de una lista */}
           {cuantitativoResults.length > 0 && (
-            <ul>
-              {cuantitativoResults.map((result, index) => (
-                <li key={index} onClick={() => handleSelectCuantitativo(result.title)}>
-                  {result.title}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
+          <ul>
+            {cuantitativoResults.map((result, index) => (
+              <li className="cualitativo-result-2" key={index} onClick={() => handleSelectCuantitativo(result.title)}>
+                {result.title}
+              </li>
+            ))}
+          </ul>
+        )}
 
-      {/* OTROS LOGIC */}
-      <div className="EditPreventivoButton-input-wrapper">
-        <label>Otros:</label>
-        {preventivoData.otros.map((item: any, index: number) => (
+        </div>
+
+         {/* OTROS LOGIC */}
+         <div className="otros-space">
+          <div className="otros-p">8.  Registre los campos de OTROS:</div>
+      {preventivoData.otros.map((item: any, index: number) => (
           <div key={index}>
-            <input
-              type="text"
-              value={item.title}
-              onChange={(e) => handleOtrosChange(index, e.target.value)}
-            />
-            <button type="button" onClick={() => handleRemoveOtros(index)}>
-              Eliminar
-            </button>
+            <input 
+            className="otros-x-wrapper"
+            type='text'
+            value={item.title}
+            readOnly={true}
+            onChange={(e) => handleOtrosChange(index, e.target.value)}
+            >
+            </input>
+              <ClearOutlinedIcon className="otros-x"  onClick={() => handleRemoveOtros(index)}/>
           </div>
-        ))}
-        <div>
-          {/* Input para búsqueda de otros */}
-          <input
+            ))}
+
+            <input className="otros-selected"
             type="text"
-            placeholder="Agregar otros"
+            placeholder="Buscar Otros"
             value={selectedOtros || ''}
             onChange={(e) => setSelectedOtros(e.target.value)}
-          />
-          {/* Resultados del buscador como opciones de una lista */}
-          {otrosResults.length > 0 && (
+            />
+            {otrosResults.length > 0 && (
             <ul>
               {otrosResults.map((result, index) => (
-                <li key={index} onClick={() => handleSelectOtros(result.title)}>
+                <li className="otros-result" key={index} onClick={() => handleSelectOtros(result.title)}>
                   {result.title}
                 </li>
               ))}
             </ul>
           )}
         </div>
-      </div>
 
-      <div className="EditPreventivoButton-button-wrapper">
-        <button type="button" onClick={handleCreatePreventivo} className="EditPreventivoButton-edit-button">
-          Editar
-        </button>
-        <button type="button" onClick={onCancel} className="EditPreventivoButton-cancel-button">
-          Cancelar
-        </button>
+
       </div>
-    </form>
+      <button className="update-cancelar" onClick={onCancel} >CANCELAR</button> 
+      <button className="actualizar-button" onClick={handleCreatePreventivo} >REGISTRAR</button>
+    </div>
   </div>
+</div>
+
+</div>
   );
 };
 

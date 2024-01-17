@@ -8,7 +8,7 @@ import PreventivoCard from '../components/preventivos/PreventivoCard';
 import { Preventivo } from '../utils/types/Preventivo.type';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import RegisterPreventivoButton from '../components/preventivos/RegisterPreventivoButton';
-import SearchRepuestosEquipos from '../../equipos/components/searchEquiposTools/SearchRepuestosEquipos';
+import SearchPreventivos from '../components/searchProcesos&ProtocolosTool/searchPreventivos';
 // import SearchPreventivos from '../components/searchPreventivosTools/SearchPreventivos';
 
 const PreventivosPages: React.FC = () => {
@@ -49,7 +49,7 @@ const PreventivosPages: React.FC = () => {
     <div className='PreventivosPages-container'>
       <DashboardMenuLateral />
       <RegisterPreventivoButton />
-      <SearchRepuestosEquipos // Renderiza el componente SearchPreventivos
+      <SearchPreventivos // Renderiza el componente SearchPreventivos
         showSearchResults={showSearchResults} // Inicialmente, no muestra los resultados de la búsqueda
         setShowSearchResults={setShowSearchResults} // Esta función no se utiliza inicialmente
       />

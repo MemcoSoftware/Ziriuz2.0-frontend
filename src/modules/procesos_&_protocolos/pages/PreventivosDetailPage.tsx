@@ -11,6 +11,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import FlakyOutlinedIcon from '@mui/icons-material/FlakyOutlined';
 
 import './styles/PreventivoDetailPage.css';
+import DeletePreventivoButton from '../components/preventivos/DeletePreventivoButton';
 
 const PreventivoDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -74,7 +75,7 @@ const PreventivoDetailPage: React.FC = () => {
                               <div className="PreventivoDetailPage-version">Versión: {preventivo ? preventivo.version : ''}</div>
                               <div className="PreventivoDetailPage-date">Date: {preventivo ? preventivo.fecha : ''}</div>
                               <EditOutlinedIcon className="PreventivoDetailPage-edit-icon" onClick={() => setIsEditing(true)}/>
-                              <DeleteOutlinedIcon className="PreventivoDetailPage-delete-icon"/>
+                              <DeletePreventivoButton preventivoId={id ||''} title={preventivo ? preventivo.title : ''} />
                               <div className="PreventivoDetailPage-oid">ID: {preventivo ? preventivo._id : ''}</div>
                             </div>
                             <div className="PreventivoDetailPage-div">
@@ -113,11 +114,11 @@ const PreventivoDetailPage: React.FC = () => {
 
                             <div className="PreventivoDetailPage-overlap-4">
                                 <div className="PreventivoDetailPage-cuantitativo-title">PROTOCOLOS CUANTITATIVOS</div>
-                                <ul className="PreventivoDetailPage-ul">
                                   {preventivo && preventivo.cuantitativo
                                     ? preventivo.cuantitativo.map((item: any) => (
-                                        <li className="PreventivoDetailPage-cuantitativo-text-wrapper" key={item._id}>
-                                          {item.campo.title}
+                                      <ul className="PreventivoDetailPage-ul-cuantitativo">
+                                        <div className="PreventivoDetailPage-cuantitativo-text-wrapper" key={item._id}>
+                                          {item.campo && item.campo.title ? item.campo.title : 'N/A'}
                                           <div className="PreventivoDetailPage-minimo">MÍNIMO</div>
                                           <div className="PreventivoDetailPage-maximo">MÁXIMO</div>
                                           <div className="PreventivoDetailPage-unidad">UNIDAD</div>
@@ -127,10 +128,10 @@ const PreventivoDetailPage: React.FC = () => {
                                           <div className="PreventivoDetailPage-minimo-value">{item.minimo}</div>
                                           <div className="PreventivoDetailPage-maximo-value">{item.maximo}</div>
                                           <div className="PreventivoDetailPage-unidad-value">{item.unidad}</div>
-                                        </li>
+                                        </div>
+                                      </ul>
                                       ))
                                     : null}
-                                </ul>
                                 <br></br>
                               </div>
                           </div>
@@ -145,55 +146,3 @@ const PreventivoDetailPage: React.FC = () => {
 };
 
 export default PreventivoDetailPage;
-
-
-
-{/* <div className="sPreventivoDetailPage-box">
-<div className="sPreventivoDetailPage-complete-details">
-  <div className="sPreventivoDetailPage-overlap-group">
-    <div className="sPreventivoDetailPage-overlap">
-      <p>ID: {preventivo ? preventivo._id : ''}</p>
-      <p>Título: {preventivo ? preventivo.title : ''}</p>
-      <p>Código: {preventivo ? preventivo.codigo : ''}</p>
-      <p>Versión: {preventivo ? preventivo.version : ''}</p>
-      <p>Fecha: {preventivo ? preventivo.fecha : ''}</p>
-
-      <p>Cualitativo:</p>
-      <ul>
-        {preventivo && preventivo.cualitativo
-          ? preventivo.cualitativo.map((item: any) => (
-              <li key={item._id}>{item.title}</li>
-            ))
-          : null}
-      </ul>
-
-      <p>Mantenimiento:</p>
-      <ul>
-        {preventivo && preventivo.mantenimiento
-          ? preventivo.mantenimiento.map((item: any) => (
-              <li key={item._id}>{item.title}</li>
-            ))
-          : null}
-      </ul>
-
-      <p>Cuantitativo:</p>
-      <ul>
-        {preventivo && preventivo.cuantitativo
-          ? preventivo.cuantitativo.map((item: any) => (
-              <li key={item._id}>{item.title}</li>
-            ))
-          : null}
-      </ul>
-
-      <p>Otros:</p>
-      <ul>
-        {preventivo && preventivo.otros
-          ? preventivo.otros.map((item: any) => (
-              <li key={item._id}>{item.title}</li>
-            ))
-          : null}
-      </ul>
-
-    </div>
-  </div>
-</div> */}

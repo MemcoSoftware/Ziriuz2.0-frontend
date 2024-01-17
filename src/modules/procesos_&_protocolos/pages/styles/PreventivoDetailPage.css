@@ -140,6 +140,26 @@
   position: absolute;
   top: 181px;
   width: 582px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* Style the scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color:  #636b6f61 #636b6f61; /* Firefox */
+
+  /* WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #636b6f61;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #636b6f61;
+    border-radius: 5px;
+  }
+
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-text-wrapper {
@@ -156,13 +176,14 @@
   width: 552px;
 }
 
-/* .PreventivoDetailPage-ul{
+.PreventivoDetailPage-ul-cuantitativo{
 
-     display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
+  position: relative;
+  height: 150px;
+  width: 450px;
+  left: 0px;
 
-}  */
+} 
 .PreventivoDetailPage-box .PreventivoDetailPage-div-wrapper {
   background-color: #0000007d;
   border-radius: 5px;
@@ -202,6 +223,26 @@
   position: absolute;
   top: 469px;
   width: 582px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* Style the scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color:  #636b6f61 #636b6f61; /* Firefox */
+
+  /* WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #636b6f61;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #636b6f61;
+    border-radius: 5px;
+  }
+
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-overlap-3 {
@@ -213,6 +254,26 @@
   position: absolute;
   top: 549px;
   width: 454px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* Style the scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color:  #636b6f61 #636b6f61; /* Firefox */
+
+  /* WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #636b6f61;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #636b6f61;
+    border-radius: 5px;
+  }
+
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-otros-name {
@@ -269,6 +330,26 @@
   position: absolute;
   top: 181px;
   width: 454px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* Style the scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color:  #636b6f61 #636b6f61; /* Firefox */
+
+  /* WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #636b6f61;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #636b6f61;
+    border-radius: 5px;
+  }
+
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-cuantitativo-title {
@@ -291,8 +372,6 @@
   height: 38px;
   color: #ffffff;
   text-align: center;
-  display: grid;
-  grid-template-columns: 1fr;
   position: relative;
   left: 34px;
   top: 67px;
@@ -359,30 +438,30 @@
 .PreventivoDetailPage-box .PreventivoDetailPage-separator {
   height: 1px;
   left: 24px;
-  color: #537895;
+  background-color: #537895;
   object-fit: cover;
-  position: absolute;
-  top: 197px;
-  width: 406px;
+  position: relative;
+  top: 110px;
+  width: 330px;
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-img {
-  height: 91px;
-  left: 159px;
+  height: 45px;
+  left: 120px;
+  background-color: #537895;
   object-fit: cover;
-  position: absolute;
-  top: 234px;
+  position: relative;
+  top: 50px;
   width: 1px;
 }
 
 .PreventivoDetailPage-box .PreventivoDetailPage-separator-2 {
-  height: 91px;
-  left: 323px;
-  color: #537895;
-  border-color: #537895;
+  height: 45px;
+  left: 250px;
+  background-color: #537895;
   object-fit: cover;
-  position: absolute;
-  top: 234px;
+  position: relative;
+  top: 5px;
   width: 1px;
 }
 

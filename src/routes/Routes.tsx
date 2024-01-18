@@ -51,6 +51,7 @@ import PreventivoDetailPage from '../modules/procesos_&_protocolos/pages/Prevent
 import RegisterPreventivoPage from '../modules/procesos_&_protocolos/pages/RegisterPreventivoPage';
 import CamposPages from '../modules/procesos_&_protocolos/pages/CamposPages';
 import CampoDetailPage from '../modules/procesos_&_protocolos/pages/CamposDetailPage';
+import RegisterCamposPage from '../modules/procesos_&_protocolos/pages/RegisterCamposPage';
 
 
 export const AppRoutes = ()=>{
@@ -123,7 +124,7 @@ export const AppRoutes = ()=>{
 
           <Route path="/campos" element={<CamposPages/>} />
           <Route path="/campos/:id" element={<CampoDetailPage/>} />
-          {/* <Route path="/preventivos/register" element={<RegisterPreventivoPage/>} />  */}
+          <Route path="/campos/register" element={<RegisterCamposPage/>} /> 
 
 
           {/* Unauthorized Page */}

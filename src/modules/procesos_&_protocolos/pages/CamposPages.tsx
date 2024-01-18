@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllCampos } from '../services/camposService';
 import { useSessionStorage } from '../hooks/useSessionStorage';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
-// import './styles/CamposPages.css';
+import './styles/CamposPages.css';
 import { Campo } from '../utils/types/Campo.type';
 import { useNavigate } from 'react-router-dom';
 import RegisterCampoButton from '../components/campos/RegisterCampoButton';

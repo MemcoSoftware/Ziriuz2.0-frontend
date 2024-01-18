@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { updateCampos } from '../../services/camposService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
-// import './styles/EditCampoButton.css'; 
+import './styles/EditCampoButton.css'; 
 
 type EditCampoButtonProps = {
   campoId: string;
@@ -27,10 +27,9 @@ const EditCampoButton: React.FC<EditCampoButtonProps> = ({ campoId, onEditSucces
 
       await updateCampos(token, campoId, mappedData);
       onEditSuccess();
+      window.location.reload();
       window.alert(`Campo actualizado satisfactoriamente`);
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      
     } catch (error) {
       console.error('Error al editar el campo:', error);
     }
@@ -39,28 +38,34 @@ const EditCampoButton: React.FC<EditCampoButtonProps> = ({ campoId, onEditSucces
   return (
     <div className="EditCampoButton-box">
       <form className="EditCampoButton-form" onSubmit={(e) => {e.preventDefault(); handleEdit();}}>
-        <div className="EditCampoButton-overlap-group">
-          <div className="EditCampoButton-text-wrapper">ACTUALIZAR CAMPO</div>
-          
-          <label className="EditCampoButton-label">Tipo de Campo:</label>
-          <input
-            type="text"
-            value={campoData.id_tipo.nombre || ''}
-            onChange={(e) => setCampoData({ ...campoData, id_tipo: { ...campoData.id_tipo, nombre: e.target.value } })}
-            className="EditCampoButton-input" />
-
-          <label className="EditCampoButton-label">Título del Campo:</label>
-          <input
-            type="text"
-            value={campoData.title || ''}
-            onChange={(e) => setCampoData({ ...campoData, title: e.target.value })}
-            className="EditCampoButton-input" />
-
-          <div className="EditCampoButton-button-container">
-            <button className="EditCampoButton-button-cancel" onClick={onCancel}>CANCELAR</button>
-            <button type="submit" className="EditCampoButton-button-update">ACTUALIZAR</button>
+      <div className="EditCampoButton-box-1">
+          <div className="EditCampoButton-group">
+            <div className="EditCampoButton-overlap-group">
+              <div className="EditCampoButton-overlap">
+                <p className="EditCampoButton-campo-title">ACTUALIZAR CAMPO - {campoData.title}</p>
+                <div className="EditCampoButton-id-title">ID: {campoData._id}</div>
+              </div>
+              <p className="EditCampoButton-tipo-p">Seleccione el tipo de campo:</p>
+              <select
+                className="EditCampoButton-tipo-input"
+                value={campoData.id_tipo.nombre || ''}
+                onChange={(e) => setCampoData({ ...campoData, id_tipo: { ...campoData.id_tipo, nombre: e.target.value } })}
+                >
+                  <option value="Pasó ó Falló">Pasó ó Falló</option>
+                  <option value="Cuantitativo">Cuantitativo</option>
+                </select>
+              <p className="EditCampoButton-title-p">Ingrese el titulo del campo:</p>
+              <input 
+              className="EditCampoButton-title-input"
+              value={campoData.title || ''}
+              onChange={(e) => setCampoData({ ...campoData, title: e.target.value })}
+              />
+              <button className="EditCampoButton-cancelar" onClick={onCancel}>CANCELAR</button>
+              <button type="submit" className="EditCampoButton-actualizar">ACTUALIZAR</button>
+            </div>
           </div>
         </div>
+
       </form>
     </div>
   );

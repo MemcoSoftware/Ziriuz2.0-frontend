@@ -6,9 +6,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import EditCampoButton from '../components/campos/EditCampoButton';
 import { Campo } from '../utils/types/Campo.type';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-// import './styles/CampoDetailPage.css'; 
+import './styles/CamposDetailPage.css'; 
 import DeleteCampoButton from '../components/campos/DeleteCampoButton';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 
 const CampoDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -64,17 +64,21 @@ const CampoDetailPage: React.FC = () => {
           <div>Cargando...</div>
         ) : (
           campo && (
-            <div className="CampoDetailPage-box">
-              <div className="CampoDetailPage-campo-detail">
-                {/* Aquí va el contenido de la página de detalles del campo */}
-                <div className="CampoDetailPage-title">{campo.title}</div>
-                <div className="CampoDetailPage-id">ID: {campo._id}</div>
-                <div className="CampoDetailPage-tipo">Tipo: {campo.id_tipo.nombre}</div>
-
-                <EditOutlinedIcon className="CampoDetailPage-edit-icon" onClick={() => setIsEditing(true)} />
-                <DeleteCampoButton campoId={id || ''} title={campo.title} />
-              </div>
-            </div>
+            
+               <div className="CampoDetailPage-box">
+                  <div className="CampoDetailPage-campobyid-container">
+                    <div className="CampoDetailPage-overlap-group">
+                      <div className="CampoDetailPage-overlap">
+                        <FormatListBulletedOutlinedIcon className="CampoDetailPage-icon"/>
+                      </div>
+                      <div className="CampoDetailPage-title">{campo.title}</div>
+                      <div className="CampoDetailPage-id">ID: {campo._id}</div>
+                      <div className="CampoDetailPage-tipo">TIPO: {campo.id_tipo.nombre}</div>
+                      <EditOutlinedIcon className="CampoDetailPage-edit-icon" onClick={() => setIsEditing(true)}/>
+                      <DeleteCampoButton campoId={id || ''} title={campo ? campo.title : ''}/>
+                    </div>
+                  </div>
+                </div>
           )
         )
       )}

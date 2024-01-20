@@ -4,6 +4,7 @@ import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { searchCamposByKeyword, searchPreventivosByKeyword } from '../../services/searchProcesos&ProtocolosService';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 import './styles/EditPreventivoButton.css'
+import { Campo } from '../../utils/types/Campo.type';
 
 type EditPreventivoButtonProps = {
   preventivoId: string;
@@ -18,7 +19,18 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
   onCancel,
   initialData,
 }) => {
-  const [preventivoData, setPreventivoData] = useState(initialData);
+  const [preventivoData, setPreventivoData] = useState({
+    _id: initialData._id,
+    title: initialData.title,
+    codigo: initialData.codigo,
+    version: initialData.version,
+    fecha: initialData.fecha,
+    cualitativo: initialData.cualitativo,
+    mantenimiento: initialData.mantenimiento,
+    cuantitativo: initialData.cuantitativo,
+    otros: initialData.otros,
+  });
+
   const [cualitativoResults, setCualitativoResults] = useState<any[]>([]); // Resultados del buscador cualitativo
   const [selectedCualitativoIndex, setSelectedCualitativoIndex] = useState<number | null>(null); // Índice del elemento seleccionado
   const [selectedCualitativo, setSelectedCualitativo] = useState<string | null>(null);
@@ -54,7 +66,7 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
         cualitativo: preventivoData.cualitativo.map((item: any) => item.title),
         mantenimiento: preventivoData.mantenimiento.map((item: any) => item.title),
         cuantitativo: preventivoData.cuantitativo.map((item: any) => ({
-          title: item.campo ? item.campo.title : '',
+          title: item.title,
           minimo: item.minimo,
           maximo: item.maximo,
           unidad: item.unidad,
@@ -87,15 +99,13 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
   };
   
   useEffect(() => {
-    // Actualiza los resultados cada vez que cambia el valor de selectedCualitativo
     const handleSearch = async () => {
       if (selectedCualitativo) {
         try {
           const token = loggedIn;
-          const results = await searchCamposByKeyword(token, selectedCualitativo);
-          // Filtra los resultados para mostrar solo los que tienen "tipoCampo" con "nombre" igual a "Pasó ó Falló"
-          const filteredResults = results.filter((result: any) =>
-            result.tipoCampo.some((tipo: any) => tipo.nombre === "Pasó ó Falló")
+          const results: Campo[] = await searchCamposByKeyword(token, selectedCualitativo);
+          const filteredResults = results.filter(result =>
+            result.id_tipo && result.id_tipo.nombre === 'Pasó ó Falló'
           );
           setCualitativoResults(filteredResults);
         } catch (error) {
@@ -106,15 +116,13 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
   
     handleSearch();
   }, [loggedIn, selectedCualitativo]);
-
   
 
    
   const handleSelectCualitativo = (title: string) => {
-    // Agregar el campo seleccionado a la lista
-    const updatedCualitativo = [...preventivoData.cualitativo, { _id: '', id_tipo: '', title }];
+    // Añadir el campo seleccionado al array de cualitativo
+    const updatedCualitativo = [...preventivoData.cualitativo, { title }];
     setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
-    // Limpiar el campo seleccionado al agregar
     setSelectedCualitativo(null);
   };
 
@@ -137,34 +145,32 @@ const handleMantenimientoChange = (index: number, newValue: string) => {
   setSelectedMantenimiento(null);
 };
 
-useEffect(() => {
-  // Actualiza los resultados cada vez que cambia el valor de selectedMantenimiento
-  const handleSearch = async () => {
-    if (selectedMantenimiento) {
-      try {
-        const token = loggedIn;
-        const results = await searchCamposByKeyword(token, selectedMantenimiento);
-        // Filtra los resultados para mostrar solo los que tienen "tipoCampo" con "nombre" igual a "Pasó ó Falló"
-        const filteredResults = results.filter((result: any) =>
-          result.tipoCampo.some((tipo: any) => tipo.nombre === "Pasó ó Falló")
-        );
-        setMantenimientoResults(filteredResults);
-      } catch (error) {
-        console.error('Error al buscar de mantenimiento:', error);
+  useEffect(() => {
+    const handleSearch = async () => {
+      if (selectedMantenimiento) {
+        try {
+          const token = loggedIn;
+          const results: Campo[] = await searchCamposByKeyword(token, selectedMantenimiento);
+          const filteredResults = results.filter(result =>
+            result.id_tipo && result.id_tipo.nombre === 'Pasó ó Falló'
+          );
+          setMantenimientoResults(filteredResults);
+        } catch (error) {
+          console.error('Error al buscar mantenimientos:', error);
+        }
       }
-    }
+    };
+  
+    handleSearch();
+  }, [loggedIn, selectedMantenimiento]);
+  
+  const handleSelectMantenimiento = (title: string) => {
+    // Añadir el campo seleccionado al array de mantenimiento
+    const updatedMantenimiento = [...preventivoData.mantenimiento, { title }];
+    setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
+    setSelectedMantenimiento(null);
   };
 
-  handleSearch();
-}, [loggedIn, selectedMantenimiento]);
-
-const handleSelectMantenimiento = (title: string) => {
-  // Agregar el campo seleccionado a la lista
-  const updatedMantenimiento = [...preventivoData.mantenimiento, { _id: '', id_tipo: '', title }];
-  setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
-  // Limpiar el campo seleccionado al agregar
-  setSelectedMantenimiento(null);
-};
 
 const handleRemoveMantenimiento = (index: number) => {
   const updatedMantenimiento = [...preventivoData.mantenimiento];
@@ -176,55 +182,49 @@ const handleRemoveMantenimiento = (index: number) => {
 };
 
 
-// Lógica para agregar y eliminar CUANTITATIVO
-const handleCuantitativoChange = (index: number, newValue: string) => {
-  const updatedCuantitativo = [...preventivoData.cuantitativo];
-
-  // Asegúrate de que 'campo' exista antes de actualizar 'title'
-  if (updatedCuantitativo[index].campo) {
-    updatedCuantitativo[index].campo.title = newValue;
-    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
-  }
-
-  // Limpiar los resultados y el índice seleccionado al cambiar el valor manualmente
-  setCuantitativoResults([]);
-  setSelectedCuantitativoIndex(null);
+const handleCuantitativoChange = (index: number, field: string, value: string | number) => {
+  let updatedCuantitativos = [...preventivoData.cuantitativo];
+  updatedCuantitativos[index] = { ...updatedCuantitativos[index], [field]: value };
+  setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativos });
 };
-
 
 useEffect(() => {
-  // Actualiza los resultados cada vez que cambia el valor de selectedCuantitativo
-  const handleSearch = async () => {
-    if (selectedCuantitativo) {
-      try {
-        const token = loggedIn;
-        const results = await searchCamposByKeyword(token, selectedCuantitativo);
-        // Filtra los resultados para mostrar solo los que tienen "tipoCampo" con "nombre" igual a "Pasó ó Falló"
-        const filteredResults = results.filter((result: any) =>
-          result.tipoCampo.some((tipo: any) => tipo.nombre === "Cuantitativo")
-        );
-        setCuantitativoResults(filteredResults);
-      } catch (error) {
-        console.error('Error al buscar cuantitativos:', error);
+    const handleSearch = async () => {
+      if (selectedCuantitativo) {
+        try {
+          const token = loggedIn;
+          const results: Campo[] = await searchCamposByKeyword(token, selectedCuantitativo);
+          const filteredResults = results.filter(result =>
+            result.id_tipo && result.id_tipo.nombre === 'Cuantitativo'
+          );
+          setCuantitativoResults(filteredResults);
+        } catch (error) {
+          console.error('Error al buscar cuantitativos:', error);
+        }
       }
+    };
+  
+    handleSearch();
+  }, [loggedIn, selectedCuantitativo]);
+  
+  const handleSelectCuantitativo = (title: string) => {
+    const selectedCuantitativo = cuantitativoResults.find(result => result.title === title);
+    
+    if (selectedCuantitativo) {
+      const updatedCuantitativos = [
+        ...preventivoData.cuantitativo,
+        {
+          title: selectedCuantitativo.title, // El título se extrae del item seleccionado
+          minimo: '', // Inicializamos minimo, maximo y unidad con valores vacíos
+          maximo: '',
+          unidad: ''
+        }
+      ];
+      setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativos });
+      setSelectedCuantitativo(null);
     }
   };
-
-  handleSearch();
-}, [loggedIn, selectedCuantitativo]);
-
-const handleSelectCuantitativo = (title: string) => {
-  // Agregar el campo seleccionado a la lista
-  const selectedCuantitativo = cuantitativoResults.find(result => result.title === title);
-
-  if (selectedCuantitativo) {
-    const updatedCuantitativo = [...preventivoData.cuantitativo, { _id: '', id_tipo: '', campo: selectedCuantitativo }];
-    setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
-    // Limpiar el campo seleccionado al agregar
-    setSelectedCuantitativo(null);
-  }
-};
-
+  
 const handleRemoveCuantitativo = (index: number) => {
   const updatedCuantitativo = [...preventivoData.cuantitativo];
   updatedCuantitativo.splice(index, 1);
@@ -404,8 +404,8 @@ const handleRemoveOtros = (index: number) => {
                 <input 
                 className="EditPreventivoButton-cuantitativo-search"
                 type="text"
-                value={item.campo ? item.campo.title : ''}
-                onChange={(e) => handleCuantitativoChange(index, e.target.value)}
+                value={item.title}
+                onChange={(e) => handleCuantitativoChange(index, 'title', e.target.value)}
                 readOnly={true}
                 />
                 <input 

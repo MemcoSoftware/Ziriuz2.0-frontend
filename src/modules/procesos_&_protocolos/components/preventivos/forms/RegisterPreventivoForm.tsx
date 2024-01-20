@@ -4,7 +4,9 @@ import { createPreventivo } from '../../../services/preventivosService';
 import { searchCamposByKeyword } from '../../../services/searchProcesos&ProtocolosService';
 import { useNavigate } from 'react-router-dom';
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
-import '../styles/EditPreventivoButton.css'
+import './styles/RegisterPreventivoForm.css'
+import { Campo } from '../../../utils/types/Campo.type';
+
 
 const RegisterPreventivoForm: React.FC = () => {
   const [preventivoData, setPreventivoData] = useState<any>({
@@ -46,7 +48,7 @@ const RegisterPreventivoForm: React.FC = () => {
         cualitativo: preventivoData.cualitativo.map((item: any) => item.title),
         mantenimiento: preventivoData.mantenimiento.map((item: any) => item.title),
         cuantitativo: preventivoData.cuantitativo.map((item: any) => ({
-          title: item.campo ? item.campo.title : '',
+          title: item.title,
           minimo: item.minimo,
           maximo: item.maximo,
           unidad: item.unidad,
@@ -84,9 +86,9 @@ const RegisterPreventivoForm: React.FC = () => {
       if (selectedCualitativo) {
         try {
           const token = loggedIn;
-          const results = await searchCamposByKeyword(token, selectedCualitativo);
-          const filteredResults = results.filter((result: any) =>
-            result.tipoCampo.some((tipo: any) => tipo.nombre === 'Pasó ó Falló')
+          const results: Campo[] = await searchCamposByKeyword(token, selectedCualitativo);
+          const filteredResults = results.filter(result =>
+            result.id_tipo && result.id_tipo.nombre === 'Pasó ó Falló'
           );
           setCualitativoResults(filteredResults);
         } catch (error) {
@@ -94,12 +96,14 @@ const RegisterPreventivoForm: React.FC = () => {
         }
       }
     };
-
+  
     handleSearch();
   }, [loggedIn, selectedCualitativo]);
+  
 
   const handleSelectCualitativo = (title: string) => {
-    const updatedCualitativo = [...preventivoData.cualitativo, { _id: '', id_tipo: '', title }];
+    // Añadir el campo seleccionado al array de cualitativo
+    const updatedCualitativo = [...preventivoData.cualitativo, { title }];
     setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
     setSelectedCualitativo(null);
   };
@@ -126,26 +130,27 @@ const RegisterPreventivoForm: React.FC = () => {
       if (selectedMantenimiento) {
         try {
           const token = loggedIn;
-          const results = await searchCamposByKeyword(token, selectedMantenimiento);
-          const filteredResults = results.filter((result: any) =>
-            result.tipoCampo.some((tipo: any) => tipo.nombre === 'Pasó ó Falló')
+          const results: Campo[] = await searchCamposByKeyword(token, selectedMantenimiento);
+          const filteredResults = results.filter(result =>
+            result.id_tipo && result.id_tipo.nombre === 'Pasó ó Falló'
           );
           setMantenimientoResults(filteredResults);
         } catch (error) {
-          console.error('Error al buscar de mantenimiento:', error);
+          console.error('Error al buscar mantenimientos:', error);
         }
       }
     };
-
+  
     handleSearch();
   }, [loggedIn, selectedMantenimiento]);
-
+  
   const handleSelectMantenimiento = (title: string) => {
-    const updatedMantenimiento = [...preventivoData.mantenimiento, { _id: '', id_tipo: '', title }];
+    // Añadir el campo seleccionado al array de mantenimiento
+    const updatedMantenimiento = [...preventivoData.mantenimiento, { title }];
     setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
     setSelectedMantenimiento(null);
   };
-
+  
   const handleRemoveMantenimiento = (index: number) => {
     const updatedMantenimiento = [...preventivoData.mantenimiento];
     updatedMantenimiento.splice(index, 1);
@@ -172,9 +177,9 @@ const RegisterPreventivoForm: React.FC = () => {
       if (selectedCuantitativo) {
         try {
           const token = loggedIn;
-          const results = await searchCamposByKeyword(token, selectedCuantitativo);
-          const filteredResults = results.filter((result: any) =>
-            result.tipoCampo.some((tipo: any) => tipo.nombre === 'Cuantitativo')
+          const results: Campo[] = await searchCamposByKeyword(token, selectedCuantitativo);
+          const filteredResults = results.filter(result =>
+            result.id_tipo && result.id_tipo.nombre === 'Cuantitativo'
           );
           setCuantitativoResults(filteredResults);
         } catch (error) {
@@ -182,23 +187,29 @@ const RegisterPreventivoForm: React.FC = () => {
         }
       }
     };
-
+  
     handleSearch();
   }, [loggedIn, selectedCuantitativo]);
-
+  
   const handleSelectCuantitativo = (title: string) => {
-    const selectedCuantitativoItem = cuantitativoResults.find(result => result.title === title);
-
-    if (selectedCuantitativoItem) {
-      const updatedCuantitativo = [
+    const selectedCuantitativo = cuantitativoResults.find(result => result.title === title);
+    
+    if (selectedCuantitativo) {
+      const updatedCuantitativos = [
         ...preventivoData.cuantitativo,
-        { _id: '', id_tipo: '', campo: selectedCuantitativoItem },
+        {
+          title: selectedCuantitativo.title, // El título se extrae del item seleccionado
+          minimo: '', // Inicializamos minimo, maximo y unidad con valores vacíos
+          maximo: '',
+          unidad: ''
+        }
       ];
-      setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativo });
+      setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativos });
       setSelectedCuantitativo(null);
     }
   };
-
+  
+  
   const handleRemoveCuantitativo = (index: number) => {
     const updatedCuantitativo = [...preventivoData.cuantitativo];
     updatedCuantitativo.splice(index, 1);
@@ -247,67 +258,69 @@ const RegisterPreventivoForm: React.FC = () => {
   };
 
 return (
-  <div className="EditPreventivoButton-box">
-  <div className="box">
-  <div className="edit-preventivo">
-    <div className="overlap">
-      <div className="overlap-group">
-        <p className="preventivo-title">REGISTRAR NUEVO PREVENTIVO - {preventivoData.title}</p>
-        <div className="preventivo-id"></div>
+  <div className="RegisterPreventivoForm-box">
+  <div className="RegisterPreventivoForm-box-1">
+  <div className="RegisterPreventivoForm-edit-preventivo">
+    <div className="RegisterPreventivoForm-overlap">
+      <div className="RegisterPreventivoForm-overlap-group">
+        <p className="RegisterPreventivoForm-preventivo-title">REGISTRAR NUEVO PREVENTIVO - {preventivoData.title}</p>
+        <div className="RegisterPreventivoForm-preventivo-id"></div>
       </div>
-      <p className="title-p">1.  Ingrese el titulo del nuevo Preventivo:</p>
+      <p className="RegisterPreventivoForm-title-p">1.  Ingrese el titulo del nuevo Preventivo:</p>
       <input 
-      className="title-input"
+      className="RegisterPreventivoForm-title-input"
       type="text"
       value={preventivoData.title}
       onChange={(e) => setPreventivoData({ ...preventivoData, title: e.target.value })}
        />
-      <div className="codigo-p">2.  Ingrese el codigo:</div>
+      <div className="RegisterPreventivoForm-codigo-p">2.  Ingrese el codigo:</div>
       <input 
-      className="codigo-input"
+      className="RegisterPreventivoForm-codigo-input"
       type='text'
       value={preventivoData.codigo}
       onChange={(e) => setPreventivoData({ ...preventivoData, codigo: e.target.value })}
        />
-      <div className="version-p">3.  Ingrese la versión:</div>
+      <div className="RegisterPreventivoForm-version-p">3.  Ingrese la versión:</div>
       <input 
-      className="version-input"
+      className="RegisterPreventivoForm-version-input"
       type='number'
       value={preventivoData.version}
       onChange={(e) => setPreventivoData({ ...preventivoData, version: e.target.value })}
       />
-      <p className="date-p">4.  Ingrese la fecha de creación:</p>
+      <p className="RegisterPreventivoForm-date-p">4.  Ingrese la fecha de creación:</p>
       <input
-      className="date-input" 
+      className="RegisterPreventivoForm-date-input" 
       type='date'
       value={preventivoData.fecha}
       onChange={(e) => setPreventivoData({ ...preventivoData, fecha: e.target.value })}
       />
 
 
-      <div className="separator" />
+      <div className="RegisterPreventivoForm-separator" />
 
 
-      <div className="div">
+      <div className="RegisterPreventivoForm-div">
 
         {/* CUALITATIVO LOGIC */}
-        <div className="cualitativo-space">
-          <div className="cualitativos-p">5.  Registre los campos cualitativos:</div>
-      {preventivoData.cualitativo.map((item: any, index: number) => (
-          <div key={index}>
-            <input 
-            className="x-wrapper"
-            type='text'
-            value={item.title}
-            readOnly={true}
-            onChange={(e) => handleCualitativoChange(index, e.target.value)}
-            >
-            </input>
-              <ClearOutlinedIcon className="x"  onClick={() => handleRemoveCualitativo(index)}/>
-          </div>
-            ))}
+        <div className="RegisterPreventivoForm-cualitativo-space">
+          <div className="RegisterPreventivoForm-cualitativos-p">5.  Registre los campos cualitativos:</div>
+          {preventivoData.cualitativo.map((item: any, index: number) => (
+              <div key={index}>
+                <input 
+                  className="RegisterPreventivoForm-x-wrapper"
+                  type='text'
+                  value={item.title}
+                  readOnly={true}
+                  onChange={(e) => handleCualitativoChange(index, e.target.value)}
+                />
+                <ClearOutlinedIcon 
+                  className="RegisterPreventivoForm-x"  
+                  onClick={() => handleRemoveCualitativo(index)}
+                />
+              </div>
+              ))}
 
-            <input className="cualitativo-selected"
+            <input className="RegisterPreventivoForm-cualitativo-selected"
             type="text"
             placeholder="Buscar Cualitativo"
             value={selectedCualitativo || ''}
@@ -316,7 +329,7 @@ return (
             {cualitativoResults.length > 0 && (
             <ul>
               {cualitativoResults.map((result, index) => (
-                <li className="cualitativo-result" key={index} onClick={() => handleSelectCualitativo(result.title)}>
+                <li className="RegisterPreventivoForm-cualitativo-result" key={index} onClick={() => handleSelectCualitativo(result.title)}>
                   {result.title}
                 </li>
               ))}
@@ -326,23 +339,23 @@ return (
         </div>
 
       {/* MANTENIMIENTO LOGIC */}
-        <div className="mantenimiento-space">
-          <div className="mantenimiento-p">6.  Registre los campos de mantenimiento:</div>
+        <div className="RegisterPreventivoForm-mantenimiento-space">
+          <div className="RegisterPreventivoForm-mantenimiento-p">6.  Registre los campos de mantenimiento:</div>
       {preventivoData.mantenimiento.map((item: any, index: number) => (
           <div key={index}>
             <input 
-            className="mantenimiento-x-wrapper"
+            className="RegisterPreventivoForm-mantenimiento-x-wrapper"
             type='text'
             value={item.title}
             readOnly={true}
             onChange={(e) => handleMantenimientoChange(index, e.target.value)}
             >
             </input>
-              <ClearOutlinedIcon className="mantenimiento-x"  onClick={() => handleRemoveMantenimiento(index)}/>
+              <ClearOutlinedIcon className="RegisterPreventivoForm-mantenimiento-x"  onClick={() => handleRemoveMantenimiento(index)}/>
           </div>
             ))}
 
-            <input className="mantenimiento-selected"
+            <input className="RegisterPreventivoForm-mantenimiento-selected"
             type="text"
             placeholder="Buscar Mantenimiento"
             value={selectedMantenimiento || ''}
@@ -351,7 +364,7 @@ return (
             {mantenimientoResults.length > 0 && (
             <ul>
               {mantenimientoResults.map((result, index) => (
-                <li className="mantenimiento-result" key={index} onClick={() => handleSelectMantenimiento(result.title)}>
+                <li className="RegisterPreventivoForm-mantenimiento-result" key={index} onClick={() => handleSelectMantenimiento(result.title)}>
                   {result.title}
                 </li>
               ))}
@@ -360,20 +373,20 @@ return (
         </div>
 
         {/* CUANTITATIVO LOGIC */}
-        <div className="cuantitativo-space">
-          <div className="cuantitativo-p">7.  Registre los campos cuantitativos:</div>
+        <div className="RegisterPreventivoForm-cuantitativo-space">
+          <div className="RegisterPreventivoForm-cuantitativo-p">7.  Registre los campos cuantitativos:</div>
         {preventivoData.cuantitativo.map((item: any, index: number) => (
 
-          <div className="cuantitativo" key={index}>
+          <div className="RegisterPreventivoForm-cuantitativo" key={index}>
             <input 
-            className="cuantitativo-search"
+            className="RegisterPreventivoForm-cuantitativo-search"
             type="text"
-            value={item.campo ? item.campo.title : ''}
+            value={item.title || ''}
             onChange={(e) => handleCuantitativoChange(index, e.target.value)}
             readOnly={true}
             />
             <input 
-            className="img"
+            className="RegisterPreventivoForm-img"
             type="number"
             value={item.minimo}
             onChange={(e) => {
@@ -384,7 +397,7 @@ return (
             placeholder="Minimo"
             />
             <input 
-            className="cuantitativo-search-2"
+            className="RegisterPreventivoForm-cuantitativo-search-2"
             type="number"
             value={item.maximo}
             onChange={(e) => {
@@ -395,7 +408,7 @@ return (
             placeholder="Maximo"
             />
             <input 
-            className="cuantitativo-search-3"
+            className="RegisterPreventivoForm-cuantitativo-search-3"
             type="text"
             value={item.unidad}  
             onChange={(e) => {
@@ -405,14 +418,14 @@ return (
             }}
             placeholder={item.unidad}
             />
-            <ClearOutlinedIcon className="x-2" onClick={() => handleRemoveCuantitativo(index)}/>
-            <div className="text-wrapper">mínimo</div>
-            <div className="text-wrapper-2">cuantitativo</div>
-            <div className="text-wrapper-3">máximo</div>
-            <div className="unidad"> unidad</div>
+            <ClearOutlinedIcon className="RegisterPreventivoForm-x-2" onClick={() => handleRemoveCuantitativo(index)}/>
+            <div className="RegisterPreventivoForm-text-wrapper">mínimo</div>
+            <div className="RegisterPreventivoForm-text-wrapper-2">cuantitativo</div>
+            <div className="RegisterPreventivoForm-text-wrapper-3">máximo</div>
+            <div className="RegisterPreventivoForm-unidad"> unidad</div>
           </div>
           ))}
-          <input className="cuantitativo-selected-2"
+          <input className="RegisterPreventivoForm-cuantitativo-selected-2"
           type="text"
           placeholder="Buscar Cuantitativo"
           value={selectedCuantitativo || ''}
@@ -422,7 +435,7 @@ return (
           {cuantitativoResults.length > 0 && (
           <ul>
             {cuantitativoResults.map((result, index) => (
-              <li className="cualitativo-result-2" key={index} onClick={() => handleSelectCuantitativo(result.title)}>
+              <li className="RegisterPreventivoForm-cualitativo-result-2" key={index} onClick={() => handleSelectCuantitativo(result.title)}>
                 {result.title}
               </li>
             ))}
@@ -432,23 +445,23 @@ return (
         </div>
 
          {/* OTROS LOGIC */}
-         <div className="otros-space">
-          <div className="otros-p">8.  Registre los campos de OTROS:</div>
+         <div className="RegisterPreventivoForm-otros-space">
+          <div className="RegisterPreventivoForm-otros-p">8.  Registre los campos de OTROS:</div>
       {preventivoData.otros.map((item: any, index: number) => (
           <div key={index}>
             <input 
-            className="otros-x-wrapper"
+            className="RegisterPreventivoForm-otros-x-wrapper"
             type='text'
             value={item.title}
             readOnly={true}
             onChange={(e) => handleOtrosChange(index, e.target.value)}
             >
             </input>
-              <ClearOutlinedIcon className="otros-x"  onClick={() => handleRemoveOtros(index)}/>
+              <ClearOutlinedIcon className="RegisterPreventivoForm-otros-x"  onClick={() => handleRemoveOtros(index)}/>
           </div>
             ))}
 
-            <input className="otros-selected"
+            <input className="RegisterPreventivoForm-otros-selected"
             type="text"
             placeholder="Buscar Otros"
             value={selectedOtros || ''}
@@ -457,7 +470,7 @@ return (
             {otrosResults.length > 0 && (
             <ul>
               {otrosResults.map((result, index) => (
-                <li className="otros-result" key={index} onClick={() => handleSelectOtros(result.title)}>
+                <li className="RegisterPreventivoForm-otros-result" key={index} onClick={() => handleSelectOtros(result.title)}>
                   {result.title}
                 </li>
               ))}
@@ -467,8 +480,8 @@ return (
 
 
       </div>
-      <button className="update-cancelar" onClick={onCancel} >CANCELAR</button> 
-      <button className="actualizar-button" onClick={handleCreatePreventivo} >REGISTRAR</button>
+      <button className="RegisterPreventivoForm-update-cancelar" onClick={onCancel} >CANCELAR</button> 
+      <button className="RegisterPreventivoForm-actualizar-button" onClick={handleCreatePreventivo} >REGISTRAR</button>
     </div>
   </div>
 </div>

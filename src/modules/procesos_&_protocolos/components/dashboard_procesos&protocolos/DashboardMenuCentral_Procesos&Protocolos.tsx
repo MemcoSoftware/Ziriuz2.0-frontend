@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import FaxOutlinedIcon from '@mui/icons-material/FaxOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import FlakyOutlinedIcon from '@mui/icons-material/FlakyOutlined';
 
 const DashboardMenuCentralProcesosProtocolos = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const DashboardMenuCentralProcesosProtocolos = () => {
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>    
-                                    <FaxOutlinedIcon/>                
+                                    <FlakyOutlinedIcon className='DashboardMenuCentral-icon'/>                
                                     </i>
                                     <p className="DashboardMenuCentral-p">Preventivos</p> 
                                     </div>
@@ -26,7 +26,7 @@ const DashboardMenuCentralProcesosProtocolos = () => {
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>    
-                                    <FormatListBulletedOutlinedIcon/>                
+                                    <FormatListBulletedOutlinedIcon className='DashboardMenuCentral-icon'/>                
                                     </i>
                                     <p className="DashboardMenuCentral-p">Campos</p> 
                                     </div>

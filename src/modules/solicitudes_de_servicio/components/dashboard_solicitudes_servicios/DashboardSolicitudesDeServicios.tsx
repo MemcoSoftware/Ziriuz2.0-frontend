@@ -1,14 +1,13 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import FaxOutlinedIcon from '@mui/icons-material/FaxOutlined';
-import DevicesOtherOutlinedIcon from '@mui/icons-material/DevicesOtherOutlined';
-import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
-import ClassIcon from '@mui/icons-material/Class'
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import TypeSpecimenOutlinedIcon from '@mui/icons-material/TypeSpecimenOutlined';
-import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
+import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
+import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSearchOutlined';
+import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
+import ContentPasteGoOutlinedIcon from '@mui/icons-material/ContentPasteGoOutlined';
+import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
 
-const DashboardMenuCentralEquipos = () => {
+const DashboardSolicitudesDeServicios = () => {
     const navigate = useNavigate();
 
     return (
@@ -20,9 +19,10 @@ const DashboardMenuCentralEquipos = () => {
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>    
-                                    <FaxOutlinedIcon className='DashboardMenuCentral-icon'/>                
+                                    <ContentPasteOutlinedIcon className='DashboardMenuCentral-icon'/>
+                                    <AddCircleOutlinedIcon className='DashboardMenuCentral-add-icon'/>                
                                     </i>
-                                    <p className="DashboardMenuCentral-p">Equipos</p> 
+                                    <p className="DashboardMenuCentral-p">Nueva Solicitud</p> 
                                     </div>
                                 </li>
                             </button>
@@ -31,9 +31,10 @@ const DashboardMenuCentralEquipos = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                         <i className='DashboardMenuCentral-nav-icon-i'> 
                                             {/* <img  alt=""width="40px" height="30px"/> */}
-                                            <DevicesOtherOutlinedIcon className='DashboardMenuCentral-icon'/>       
+                                            <ContentPasteSearchOutlinedIcon className='DashboardMenuCentral-icon'/>       
                                         </i>
-                                        <p className="DashboardMenuCentral-p">Modelos</p>
+                                        <p className="DashboardMenuCentral-p">Solicitudes</p>
+
                                     </div>
                                 </li>
                             </button>
@@ -42,9 +43,11 @@ const DashboardMenuCentralEquipos = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                         <i className='DashboardMenuCentral-nav-icon-i'>
                                             {/* <img  alt="" width="40px" height="30px"/> */}
-                                            <SpaceDashboardIcon className='DashboardMenuCentral-icon'/>
+                                            <ContentPasteOutlinedIcon className='DashboardMenuCentral-icon' />
+                                            <HelpOutlinedIcon className='DashboardMenuCentral-add-icon'/>                
+
                                         </i>
-                                        <p className="DashboardMenuCentral-p"> Areas </p>
+                                        <p className="DashboardMenuCentral-p">Solicitudes Pendientes Preventivo</p>
                                     </div>
                                 </li>
                             </button>
@@ -52,10 +55,10 @@ const DashboardMenuCentralEquipos = () => {
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
-                                        {/* <img  alt="" width="40px" height="30px"/> */}
-                                        <ClassIcon className='DashboardMenuCentral-icon'/>
+                                        <ContentPasteOutlinedIcon className='DashboardMenuCentral-icon' />
+                                        <HelpOutlinedIcon className='DashboardMenuCentral-add-icon'/>    
                                     </i>
-                                    <p className="DashboardMenuCentral-p"> Clases </p>  
+                                    <p className="DashboardMenuCentral-p">Solicitudes Pendientes CIG</p>  
                                     </div>
                                 </li>
                             </button>
@@ -64,9 +67,9 @@ const DashboardMenuCentralEquipos = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
                                         {/* <img  alt="" width="40px" height="30px"/> */}
-                                        <LocalOfferOutlinedIcon className='DashboardMenuCentral-icon'/>
+                                        <ContentPasteGoOutlinedIcon className='DashboardMenuCentral-icon'/>
                                     </i>
-                                    <p className="DashboardMenuCentral-p"> Marcas </p>  
+                                    <p className="DashboardMenuCentral-p"> Solicitudes Aprobadas </p>  
                                     </div>
                                 </li>
                             </button>
@@ -75,20 +78,9 @@ const DashboardMenuCentralEquipos = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
                                         {/* <img  alt="" width="40px" height="30px"/> */}
-                                        <TypeSpecimenOutlinedIcon className='DashboardMenuCentral-icon'/>
+                                        <ContentPasteOffOutlinedIcon className='DashboardMenuCentral-icon'/>
                                     </i>
-                                    <p className="DashboardMenuCentral-p"> Tipos </p>  
-                                    </div>
-                                </li>
-                            </button>
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos-repuestos')}>
-                                <li>
-                                    <div className="DashboardMenuCentral-nav-icon">
-                                    <i className='DashboardMenuCentral-nav-icon-i'>
-                                        {/* <img  alt="" width="40px" height="30px"/> */}
-                                        <HandymanOutlinedIcon className='DashboardMenuCentral-icon'/>
-                                    </i>
-                                    <p className="DashboardMenuCentral-p"> Repuestos </p>  
+                                    <p className="DashboardMenuCentral-p">Solicitudes Rechazadas</p>  
                                     </div>
                                 </li>
                             </button>
@@ -98,4 +90,4 @@ const DashboardMenuCentralEquipos = () => {
 };
   
   
-  export default DashboardMenuCentralEquipos;
+  export default DashboardSolicitudesDeServicios;

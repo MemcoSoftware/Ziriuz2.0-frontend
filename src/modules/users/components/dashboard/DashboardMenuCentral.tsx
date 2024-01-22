@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import DashboardMenuCentralGenerales  from './DashboardMenuCentralGenerales';
 import DashboardMenuCentralEquipos from '../../../equipos/components/dashboard_equipos/DashboardMenuCentralEquipos';
 import DashboardMenuCentralProcesosProtocolos from '../../../procesos_&_protocolos/components/dashboard_procesos&protocolos/DashboardMenuCentral_Procesos&Protocolos';
+import DashboardSolicitudesDeServicios from '../../../solicitudes_de_servicio/components/dashboard_solicitudes_servicios/DashboardSolicitudesDeServicios';
 const DashboardMenuCentral = () => {
     const navigate = useNavigate();
 
@@ -67,29 +68,19 @@ const DashboardMenuCentral = () => {
                             </div>
                         </div>
 
-                        {/* <div className="wrapper">
-                            <div className="acordeon-core">
-                                <div className="acordeon">
-                                    <input id="acordeon-3" type="checkbox" name="acordeons"/>
-                                    <label htmlFor="acordeon-3">Generales</label>
-                                        <div className="acordeon-content">
-                                            <DashboardMenuCentralGenerales />                     
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                        
                         <div className="wrapper">
                             <div className="acordeon-core">
                                 <div className="acordeon">
                                     <input id="acordeon-4" type="checkbox" name="acordeons"/>
-                                    <label htmlFor="acordeon-4">Equipos</label>
+                                    <label htmlFor="acordeon-4">Solicitudes de Servicio</label>
                                         <div className="acordeon-content">
-                                        <DashboardMenuCentralEquipos/>                    
+                                        <DashboardSolicitudesDeServicios/>                    
                                         </div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
+
+                       
                         
                     </nav>
               </section>

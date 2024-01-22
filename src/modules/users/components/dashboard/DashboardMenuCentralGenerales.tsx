@@ -15,7 +15,7 @@ const DashboardMenuCentralGenerales = () => {
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>    
-                                    <PersonIcon/>                
+                                    <PersonIcon className='DashboardMenuCentral-icon'/>                
                                     </i>
                                     <p className="DashboardMenuCentral-p">Usuarios</p> 
                                     </div>
@@ -26,7 +26,7 @@ const DashboardMenuCentralGenerales = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                         <i className='DashboardMenuCentral-nav-icon-i'> 
                                             {/* <img  alt=""width="40px" height="30px"/> */}
-                                            <ApartmentIcon/>       
+                                            <ApartmentIcon className='DashboardMenuCentral-icon'/>       
                                         </i>
                                         <p className="DashboardMenuCentral-p">Sedes</p>
                                     </div>
@@ -37,7 +37,7 @@ const DashboardMenuCentralGenerales = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                         <i className='DashboardMenuCentral-nav-icon-i'>
                                             {/* <img  alt="" width="40px" height="30px"/> */}
-                                            <AccountBalanceIcon/>
+                                            <AccountBalanceIcon className='DashboardMenuCentral-icon'/>
                                         </i>
                                         <p className="DashboardMenuCentral-p">  Clientes</p>
                                     </div>
@@ -48,7 +48,7 @@ const DashboardMenuCentralGenerales = () => {
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
                                         {/* <img  alt="" width="40px" height="30px"/> */}
-                                        <ShieldIcon/>
+                                        <ShieldIcon className='DashboardMenuCentral-icon'/>
                                     </i>
                                     <p className="DashboardMenuCentral-p">Roles </p>  
                                     </div>

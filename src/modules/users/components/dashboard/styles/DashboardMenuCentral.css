@@ -33,6 +33,16 @@
 
 .DashboardMenuCentral-p{
   color: aqua;
+  margin-top: -10px !important;
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+  margin-bottom: 0 !important;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 98px;
   transition: color 0.1s;
 }
 .DashboardMenuCentral-p:hover{
@@ -40,11 +50,11 @@
 }
 .DashboardMenuCentral-button{
   padding: 0px 15px;
-  width: 110px;
-  height: 110px; 
+  width: 115px !important;
+  height: 115px !important; 
   border: none; 
   cursor: pointer; 
-  margin: 30px; 
+  margin: 20px; 
   border-radius: 6px;
   background-color: #1f1f1f;
   transition: background-color 0.3s ease; 
@@ -110,7 +120,8 @@
 .DashboardMenuCentral-nav-icon-i{
   position: relative;
   display: inline-block;
-  padding: 12px 30px;
+  height: 50px;
+  width: 50px;
   margin: 01px;
   color: #8f8f8f;
   text-decoration: none;
@@ -121,7 +132,27 @@
   border-radius: 20px;
 }
 
+.DashboardMenuCentral-icon{
+  height: 40px !important;
+  width: 40px !important;
 
+}
+
+
+.DashboardMenuCentral-add-icon {
+  /* Ajustar estos valores según tu diseño */
+  height: 30px !important;
+  width: 30px !important ;
+  border-radius: 50%;
+  position: absolute; /* o relative, dependiendo de la estructura de tu HTML */
+  top: 17px; /* Ajusta la posición vertical */
+  right: -2.2px; /* Ajusta la posición horizontal */
+  color: #00ddfa; /* O el color que desees */
+}
+
+.DashboardMenuCentral-add-icon:hover {
+  color: #fff;
+}
 
 /*//////////////////////////LINEAS DE CONTORNO//////////////////////////////////////*/
 

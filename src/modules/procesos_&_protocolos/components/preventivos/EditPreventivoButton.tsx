@@ -19,6 +19,18 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
   onCancel,
   initialData,
 }) => {
+
+  const transformedCuantitativos = initialData.cuantitativo.map((cq: any) => {
+    // Verifica si 'campo' existe y si tiene una propiedad 'title'
+    const title = cq.campo && cq.campo.title ? cq.campo.title : cq.title;
+    return {
+      title: title,
+      minimo: cq.minimo,
+      maximo: cq.maximo,
+      unidad: cq.unidad,
+    };
+  });
+  
   const [preventivoData, setPreventivoData] = useState({
     _id: initialData._id,
     title: initialData.title,
@@ -27,7 +39,7 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
     fecha: initialData.fecha,
     cualitativo: initialData.cualitativo,
     mantenimiento: initialData.mantenimiento,
-    cuantitativo: initialData.cuantitativo,
+    cuantitativo: transformedCuantitativos,
     otros: initialData.otros,
   });
 
@@ -52,7 +64,7 @@ const EditPreventivoButton: React.FC<EditPreventivoButtonProps> = ({
 
   const loggedIn = useSessionStorage('sessionJWTToken');
 
-  // Función para manejar la edición del preventivo
+  // Función para manejar la creación del preventivo
   const handleEdit = async () => {
     try {
       const token = loggedIn;
@@ -184,9 +196,16 @@ const handleRemoveMantenimiento = (index: number) => {
 
 const handleCuantitativoChange = (index: number, field: string, value: string | number) => {
   let updatedCuantitativos = [...preventivoData.cuantitativo];
-  updatedCuantitativos[index] = { ...updatedCuantitativos[index], [field]: value };
+  // Si field es 'title', actualizar directamente el title sin usar 'campo'
+  if (field === 'title') {
+    updatedCuantitativos[index][field] = value;
+  } else {
+    // Para otros campos como minimo, maximo, unidad, actualizar esos campos directamente
+    updatedCuantitativos[index] = { ...updatedCuantitativos[index], [field]: value };
+  }
   setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativos });
 };
+
 
 useEffect(() => {
     const handleSearch = async () => {
@@ -224,6 +243,7 @@ useEffect(() => {
       setSelectedCuantitativo(null);
     }
   };
+
   
 const handleRemoveCuantitativo = (index: number) => {
   const updatedCuantitativo = [...preventivoData.cuantitativo];

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import DashboardMenuCentralGenerales  from './DashboardMenuCentralGenerales';
 import DashboardMenuCentralEquipos from '../../../equipos/components/dashboard_equipos/DashboardMenuCentralEquipos';
 import DashboardMenuCentralProcesosProtocolos from '../../../procesos_&_protocolos/components/dashboard_procesos&protocolos/DashboardMenuCentral_Procesos&Protocolos';
-import DashboardSolicitudesDeServicios from '../../../solicitudes_de_servicio/components/dashboard_solicitudes_servicios/DashboardSolicitudesDeServicios';
+import DashboardSolicitudesDeServicios from '../../../solicitudes/components/dashboard_solicitudes_servicios/DashboardSolicitudesDeServicios';
 const DashboardMenuCentral = () => {
     const navigate = useNavigate();
 

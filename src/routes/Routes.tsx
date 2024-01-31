@@ -52,6 +52,7 @@ import RegisterPreventivoPage from '../modules/procesos_&_protocolos/pages/Regis
 import CamposPages from '../modules/procesos_&_protocolos/pages/CamposPages';
 import CampoDetailPage from '../modules/procesos_&_protocolos/pages/CamposDetailPage';
 import RegisterCamposPage from '../modules/procesos_&_protocolos/pages/RegisterCamposPage';
+import SolicitudesServiciosPages from '../modules/solicitudes/pages/SolicitudesServiciosPages';
 
 
 export const AppRoutes = ()=>{
@@ -125,6 +126,10 @@ export const AppRoutes = ()=>{
           <Route path="/campos" element={<CamposPages/>} />
           <Route path="/campos/:id" element={<CampoDetailPage/>} />
           <Route path="/campos/register" element={<RegisterCamposPage/>} /> 
+
+
+          {/* MODULO SOLICITUDES */}
+          <Route path="/solicitudes-servicios" element={<SolicitudesServiciosPages/>} />
 
 
           {/* Unauthorized Page */}

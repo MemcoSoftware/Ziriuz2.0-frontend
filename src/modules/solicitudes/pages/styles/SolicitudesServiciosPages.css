@@ -1,0 +1,290 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.container .div {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 234px;
+  overflow: hidden;
+  position: relative;
+  width: 418px;
+}
+
+.container .overlap-group {
+  height: 89px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 423px;
+}
+
+.container .header {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 89px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 418px;
+}
+
+.container .rectangle {
+  background-color: #d9d9d9;
+  height: 14px;
+  position: relative;
+  top: 75px;
+  width: 418px;
+}
+
+.container .header-info {
+  height: 78px;
+  left: 5px;
+  position: absolute;
+  top: 9px;
+  width: 418px;
+}
+
+.container .servicio-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 23px;
+  font-weight: 400;
+  height: 30px;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 327px;
+}
+
+.container .creation-date {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 12px;
+  left: 107px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 36px;
+  white-space: nowrap;
+  width: 194px;
+}
+
+.container .oid-solicitud {
+  color: #ffffff;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 11px;
+  left: 111px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 54px;
+  white-space: nowrap;
+  width: 188px;
+}
+
+.container .estado {
+  height: 36px;
+  left: 0;
+  color: #dac508;
+  position: absolute;
+  top: 1px;
+  width: 34px;
+}
+
+.container .username {
+  color: #ffffff;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 11px;
+  left: 300px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 66px;
+  width: 94px;
+}
+
+.container .update-icon {
+  height: 12px;
+  left: 395px;
+  color: #00ddfa;
+  position: absolute;
+  top: 66px;
+  width: 15px;
+}
+
+.container .overlap {
+  height: 124px;
+  left: 5px;
+  position: absolute;
+  top: 106px;
+  width: 416px;
+}
+
+.container .separator {
+  background-color: #d9d9d9;
+  height: 111px;
+  left: 205px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.container .equipo-info {
+  height: 124px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 208px;
+}
+
+.container .info-title {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 11px;
+  font-weight: 400;
+  height: 11px;
+  left: 8px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 188px;
+}
+
+.container .equipo-class {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 48px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+  width: 200px;
+}
+
+.container .oid-equipo {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 11px;
+  left: 8px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 60px;
+  width: 188px;
+}
+
+.container .text-wrapper {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 44px;
+  left: 4px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 80px;
+  width: 196px;
+}
+
+.container .sede-info {
+  height: 124px;
+  left: 208px;
+  position: absolute;
+  top: 0;
+  width: 208px;
+}
+
+.container .info-sede-title {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 11px;
+  font-weight: 400;
+  height: 11px;
+  left: 7px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 188px;
+}
+
+.container .sede-name {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 48px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+  width: 200px;
+}
+
+.container .oid-sede {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 11px;
+  font-weight: 400;
+  height: 11px;
+  left: 7px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 60px;
+  width: 188px;
+}
+
+.SolicitudesServiciosPages-Container-Card{
+    width: 100%;
+    height: 100%;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr); /* Hace que haya 3 tarjetas por fila */
+    gap: 0.5%; /* Espaciado entre las tarjetas */
+    row-gap: 5%;
+    margin:10rem 3vw;
+    padding:0;
+    list-style: none
+  }
+
+
+.SolicitudesServiciosPages-container{
+    width: 1350px;
+	  height: 100%;
+}
+
+.SolicitudServicioPages-cards-list{
+    list-style: none
+}

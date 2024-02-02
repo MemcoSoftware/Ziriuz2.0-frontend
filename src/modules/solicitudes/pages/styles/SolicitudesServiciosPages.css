@@ -9,6 +9,8 @@
   background-color: #ffffff;
   border-radius: 10px;
   height: 234px;
+  top: 30px;
+  right: 20px;
   overflow: hidden;
   position: relative;
   width: 418px;
@@ -95,10 +97,27 @@
   width: 188px;
 }
 
-.container .estado {
+.container .estado-pendiente {
   height: 36px;
   left: 0;
   color: #dac508;
+  position: absolute;
+  top: 1px;
+  width: 34px;
+}
+
+.container .estado-aprobada {
+  height: 36px;
+  left: 0;
+  color: #08da08;
+  position: absolute;
+  top: 1px;
+  width: 34px;
+}
+.container .estado-rechazada {
+  height: 36px;
+  left: 0;
+  color: #da2808;
   position: absolute;
   top: 1px;
   width: 34px;
@@ -287,4 +306,34 @@
 
 .SolicitudServicioPages-cards-list{
     list-style: none
+}
+
+
+
+/* SOLICITUDES PAGINATION CSS */
+
+.SolicitudesPagination-pagination-controls {
+  display: flex;
+  position: fixed;
+  top: 3%;
+  left: 25%;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  z-index: 1000;
+}
+
+.SolicitudesPagination-IconButton {
+  margin: 0 10px;
+  z-index: 1;
+}
+
+.SolicitudesPagination-ArrowBackIosNewIcon,
+.SolicitudesPagination-ArrowForwardIosIcon {
+  color: #00ddfa;
+}
+
+.SolicitudesPagination-page-number {
+  font-size: 1.2rem;
+  margin: 0 15px;
 }

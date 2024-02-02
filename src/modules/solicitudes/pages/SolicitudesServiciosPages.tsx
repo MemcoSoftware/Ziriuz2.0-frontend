@@ -8,11 +8,16 @@ import { SolicitudServicio } from '../utils/types/SolicitudServicio.type'; // Ve
 import { useNavigate } from 'react-router-dom';
 import SearchSolicitudesServicios from '../components/searchSolicitudesTools/SearchSolicitudesServicios';
 import RegisterSolicitudServicioButton from '../components/solicitudes_servicios/RegisterSolicitudServicioButton';
+import SolicitudesPagination from '../components/solicitudesPagination';
 
 const SolicitudesServiciosPages: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [solicitudesServicios, setSolicitudesServicios] = useState<Array<SolicitudServicio>>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0); 
+  const limitPerPage = 6; // Este es un valor fijo
+
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -20,8 +25,9 @@ const SolicitudesServiciosPages: React.FC = () => {
     const fetchSolicitudesServicios = async () => {
       try {
         const token = loggedIn;
-        const result = await getAllSolicitudesServicios(token);
-        setSolicitudesServicios(result.data.solicitudesServicios); 
+        const result = await getAllSolicitudesServicios(token, limitPerPage, currentPage);
+        setSolicitudesServicios(result.data.solicitudesServicios);
+        setTotalPages(result.data.totalPages); // Asumimos que el servidor devuelve el total de páginas
         setLoading(false);
       } catch (error) {
         console.error('Error al obtener solicitudes de servicios:', error);
@@ -30,7 +36,7 @@ const SolicitudesServiciosPages: React.FC = () => {
     };
 
     fetchSolicitudesServicios();
-  }, [loggedIn]);
+  }, [currentPage, loggedIn]);
 
   if (loading) {
     return <div>Cargando...</div>;
@@ -44,6 +50,11 @@ const SolicitudesServiciosPages: React.FC = () => {
     <div className='SolicitudesServiciosPages-container'>
       <DashboardMenuLateral />
       {/* <RegisterSolicitudServicioButton /> */}
+      <SolicitudesPagination // Utiliza el nuevo componente de paginación
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalPages={totalPages}
+      />
       <SearchSolicitudesServicios
         showSearchResults={showSearchResults}
         setShowSearchResults={setShowSearchResults}

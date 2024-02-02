@@ -3,12 +3,27 @@ import React from 'react';
 import { SolicitudServicio } from '../../utils/types/SolicitudServicio.type'; // Asegúrate de importar el tipo correctamente
 import PublishedWithChangesOutlinedIcon from '@mui/icons-material/PublishedWithChangesOutlined';
 import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 interface SolicitudServicioCardProps {
   solicitud: SolicitudServicio;
   onClick: () => void;
 }
 
 const SolicitudServicioCard: React.FC<SolicitudServicioCardProps> = ({ solicitud, onClick }) => {
+  // Función para seleccionar el icono según el estado
+  const renderEstadoIcon = (estado: string) => {
+    switch (estado) {
+      case 'Pendiente':
+        return <HelpOutlinedIcon className="estado-pendiente" />;
+      case 'Aprobada':
+        return <CheckCircleIcon className="estado-aprobada" />;
+      case 'Rechazada':
+        return <CancelIcon className="estado-rechazada" />;
+      default:
+        return null; // o puedes poner un icono por defecto
+    }
+  };
   return (
     <div key={solicitud._id} className='SolicitudServicioPages-container-card'>
       <div className='SolicitudServicioPages-card-section'>
@@ -25,7 +40,8 @@ const SolicitudServicioCard: React.FC<SolicitudServicioCardProps> = ({ solicitud
                           <div className="servicio-title">{solicitud.id_servicio.servicio}</div>
                           <div className="creation-date">{solicitud.creacion}</div>
                           <div className="oid-solicitud">{solicitud._id}</div>
-                          <HelpOutlinedIcon className="estado"  />
+                           {/* Renderizar el icono de estado adecuado */}
+                           {renderEstadoIcon(solicitud.id_solicitud_estado.estado)}
                           <div className="username">{solicitud.id_cambiador.name}</div>
                           <PublishedWithChangesOutlinedIcon className="update-icon"/>
                         </div>

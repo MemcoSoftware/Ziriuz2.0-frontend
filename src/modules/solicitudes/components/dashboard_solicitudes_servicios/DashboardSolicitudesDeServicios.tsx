@@ -26,7 +26,7 @@ const DashboardSolicitudesDeServicios = () => {
                                     </div>
                                 </li>
                             </button>
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos/modelos')}>
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                         <i className='DashboardMenuCentral-nav-icon-i'> 

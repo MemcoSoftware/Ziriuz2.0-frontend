@@ -15,6 +15,22 @@ export const getAllSolicitudesServicios = (token: string, limit?: number, page?:
   return axios.get('/solicitudes-servicios', options).catch(handleError);
 };
 
+export const getSolicitudServicioById = (token: string, id: string) => {
+  const options: AxiosRequestConfig = {
+    headers: {
+      'x-access-token': token,
+    },
+    params: {
+      id,
+    },
+  };
+
+  return axios
+    .get(`/solicitudes-servicios/`, options)
+    .then((response) => response.data)
+    .catch((error) => handleError(error));
+};
+
 export const createSolicitudServicio = (token: string, solicitudServicioData: any) => {
   const options: AxiosRequestConfig = {
     headers: {

@@ -1,11 +1,11 @@
-.container {
+.SolicitudServicioCard-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
 }
 
-.container .div {
+.SolicitudServicioCard-container .SolicitudServicioCard-div {
   background-color: #ffffff;
   border-radius: 10px;
   height: 234px;
@@ -16,7 +16,7 @@
   width: 418px;
 }
 
-.container .overlap-group {
+.SolicitudServicioCard-container .SolicitudServicioCard-overlap-group {
   height: 89px;
   left: 0;
   position: absolute;
@@ -24,7 +24,7 @@
   width: 423px;
 }
 
-.container .header {
+.SolicitudServicioCard-container .SolicitudServicioCard-header {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 89px;
@@ -34,7 +34,7 @@
   width: 418px;
 }
 
-.container .rectangle {
+.SolicitudServicioCard-container .SolicitudServicioCard-rectangle {
   background-color: #d9d9d9;
   height: 14px;
   position: relative;
@@ -42,7 +42,7 @@
   width: 418px;
 }
 
-.container .header-info {
+.SolicitudServicioCard-container .SolicitudServicioCard-header-info {
   height: 78px;
   left: 5px;
   position: absolute;
@@ -50,7 +50,7 @@
   width: 418px;
 }
 
-.container .servicio-title {
+.SolicitudServicioCard-container .SolicitudServicioCard-servicio-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 23px;
@@ -65,7 +65,7 @@
   width: 327px;
 }
 
-.container .creation-date {
+.SolicitudServicioCard-container .SolicitudServicioCard-creation-date {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -81,7 +81,7 @@
   width: 194px;
 }
 
-.container .oid-solicitud {
+.SolicitudServicioCard-container .SolicitudServicioCard-oid-solicitud {
   color: #ffffff;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -97,7 +97,7 @@
   width: 188px;
 }
 
-.container .estado-pendiente {
+.SolicitudServicioCard-container .SolicitudServicioCard-estado-pendiente {
   height: 36px;
   left: 0;
   color: #dac508;
@@ -106,7 +106,7 @@
   width: 34px;
 }
 
-.container .estado-aprobada {
+.SolicitudServicioCard-container .SolicitudServicioCard-estado-aprobada {
   height: 36px;
   left: 0;
   color: #08da08;
@@ -114,7 +114,7 @@
   top: 1px;
   width: 34px;
 }
-.container .estado-rechazada {
+.SolicitudServicioCard-container .SolicitudServicioCard-estado-rechazada {
   height: 36px;
   left: 0;
   color: #da2808;
@@ -123,7 +123,7 @@
   width: 34px;
 }
 
-.container .username {
+.SolicitudServicioCard-container .SolicitudServicioCard-username {
   color: #ffffff;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -138,7 +138,7 @@
   width: 94px;
 }
 
-.container .update-icon {
+.SolicitudServicioCard-container .SolicitudServicioCard-update-icon {
   height: 12px;
   left: 395px;
   color: #00ddfa;
@@ -147,7 +147,7 @@
   width: 15px;
 }
 
-.container .overlap {
+.SolicitudServicioCard-container .SolicitudServicioCard-overlap {
   height: 124px;
   left: 5px;
   position: absolute;
@@ -155,7 +155,7 @@
   width: 416px;
 }
 
-.container .separator {
+.SolicitudServicioCard-container .SolicitudServicioCard-separator {
   background-color: #d9d9d9;
   height: 111px;
   left: 205px;
@@ -165,7 +165,7 @@
   width: 1px;
 }
 
-.container .equipo-info {
+.SolicitudServicioCard-container .SolicitudServicioCard-equipo-info {
   height: 124px;
   left: 0;
   position: absolute;
@@ -173,7 +173,7 @@
   width: 208px;
 }
 
-.container .info-title {
+.SolicitudServicioCard-container .SolicitudServicioCard-info-title {
   color: #d9d9d9;
   font-family: "Inter-Regular", Helvetica;
   font-size: 11px;
@@ -188,7 +188,7 @@
   width: 188px;
 }
 
-.container .equipo-class {
+.SolicitudServicioCard-container .SolicitudServicioCard-equipo-class {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 16px;
@@ -203,7 +203,7 @@
   width: 200px;
 }
 
-.container .oid-equipo {
+.SolicitudServicioCard-container .SolicitudServicioCard-oid-equipo {
   color: #d9d9d9;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -218,7 +218,7 @@
   width: 188px;
 }
 
-.container .text-wrapper {
+.SolicitudServicioCard-container .SolicitudServicioCard-text-wrapper {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -233,7 +233,7 @@
   width: 196px;
 }
 
-.container .sede-info {
+.SolicitudServicioCard-container .SolicitudServicioCard-sede-info {
   height: 124px;
   left: 208px;
   position: absolute;
@@ -241,7 +241,7 @@
   width: 208px;
 }
 
-.container .info-sede-title {
+.SolicitudServicioCard-container .SolicitudServicioCard-info-sede-title {
   color: #d9d9d9;
   font-family: "Inter-Regular", Helvetica;
   font-size: 11px;
@@ -256,7 +256,7 @@
   width: 188px;
 }
 
-.container .sede-name {
+.SolicitudServicioCard-container .SolicitudServicioCard-sede-name {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -271,7 +271,7 @@
   width: 200px;
 }
 
-.container .oid-sede {
+.SolicitudServicioCard-container .SolicitudServicioCard-oid-sede {
   color: #d9d9d9;
   font-family: "Inter-Regular", Helvetica;
   font-size: 11px;

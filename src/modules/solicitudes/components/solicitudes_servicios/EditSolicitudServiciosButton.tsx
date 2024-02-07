@@ -4,6 +4,8 @@ import { updateSolicitudServicio } from '../../services/solicitudesServiciosServ
 import { getAllServiciosTipos } from '../../services/serviciosTiposService';
 import { Servicios } from '../../utils/types/Servicios.type';
 import { searchEquiposByKeyword } from '../../../equipos/services/searchEquiposService';
+import { DateTime } from 'luxon';
+import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 
 type EditSolicitudServiciosButtonProps = {
   solicitudId: string;
@@ -22,6 +24,8 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
   // Asegura que serviciosTipos siempre sea un arreglo
   const [serviciosTipos, setServiciosTipos] = useState<Servicios[]>([]); 
   const token = useSessionStorage('sessionJWTToken');
+  const isAdmin = useUserRoleVerifier(['administrador']);
+  const userId = useSessionStorage('userId');
 
   // Estados busqueda & asignación de Equipo
   const [selectedEquipo, setSelectedEquipo] = useState<any>(null);
@@ -29,9 +33,17 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
   const [searchInput, setSearchInput] = useState<string>('');
   const [searchError, setSearchError] = useState<string | null>(null);
   const [useSelectedEquipo, setUseSelectedEquipo] = useState<boolean>(false);
+  const [equiposEncontrados, setEquiposEncontrados] = useState<any[]>([]); // Nuevo estado para almacenar equipos encontrados
 
+  // Estados id_solicitud_estado
+  const estadoAprobadoId = "65aff1402643ef00d73c7545";
+  const estadoRechazadoId = "65aff1442643ef00d73c7547";
+  const [estadoAccion, setEstadoAccion] = useState('');
 
+  // Estado para realizar un seguimiento del valor anterior de id_solicitud_estado
+  const [prevSolicitudEstado, setPrevSolicitudEstado] = useState(initialData.id_solicitud_estado);
 
+  
   useEffect(() => {
     const fetchServiciosTipos = async () => {
       try {
@@ -52,37 +64,70 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
       setConfirmedSelection(true); // Confirma automáticamente el equipo inicial
     }
   }, [token, solicitudData.id_equipo]);
-  
 
+  
+ // Función para formatear la fecha y hora actuales al formato local de Colombia
+ const formatDateTimeLocal = () => {
+  const now = DateTime.now().setZone('America/Bogota');
+  return now.toFormat('yyyy-MM-dd HH:mm:ss');
+};
+
+  
+const handleEstadoChange = (nuevoEstadoId: string) => {
+  const esAprobado = nuevoEstadoId === estadoAprobadoId;
+
+  // Verificar si id_solicitud_estado ha cambiado antes de actualizar cambio_estado
+  if (solicitudData.id_solicitud_estado !== nuevoEstadoId) {
+    setSolicitudData((prevData: typeof initialData) => ({
+      ...prevData,
+      id_solicitud_estado: nuevoEstadoId,
+      id_cambiador: userId,
+      cambio_estado: formatDateTimeLocal(), // Usar la nueva función para establecer la fecha y hora locales
+    }));
+    setEstadoAccion(esAprobado ? "Aprobando Solicitud de Servicio" : "Rechazando Solicitud de Servicio");
+  }
+};
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!confirmedSelection) {
+    // Confirma que la selección del equipo sea válida y no `null` o `undefined`
+    if (!confirmedSelection || !selectedEquipo) {
       alert('Debes confirmar la selección del equipo antes de enviar el formulario.');
       return;
     }
-    // Asegúrate de validar o manejar la posibilidad de que alguno de los valores anidados pueda ser undefined
-    const mappedData = {
-      // Aquí podrías necesitar manejar casos donde id_creador, id_cambiador, etc., puedan ser undefined
-      id_creador: solicitudData.id_creador.name,
-      id_cambiador: solicitudData.id_cambiador.name,
-      id_servicio: solicitudData.id_servicio,
-      id_solicitud_estado: solicitudData.id_solicitud_estado.estado,
-      id_equipo: solicitudData.id_equipo.modelo_equipos.id_clase.clase,
-    };
+
+      const currentDateTime = formatDateTimeLocal();
+
+      const mappedData = {
+        id_creador: solicitudData.id_creador,
+        id_cambiador: userId, // Este debe ser el _id del usuario que hace el cambio
+        id_servicio: solicitudData.id_servicio,
+        id_solicitud_estado: solicitudData.id_solicitud_estado,
+        id_equipo: selectedEquipo._id, // Este debe ser el _id del equipo seleccionado
+        creacion: solicitudData.creacion,
+        aviso: solicitudData.aviso,
+        cambio_estado: currentDateTime, // Agrega la fecha y hora actuales aquí
+        observacion: solicitudData.observacion,
+        observacion_estado: solicitudData.observacion_estado
+      };
+        
 
     try {
-      await updateSolicitudServicio(token, solicitudId, mappedData);
+      const response = await updateSolicitudServicio(token, solicitudId, mappedData);
+      console.log(response); // Asegúrate de que la respuesta sea la esperada
       onEditSuccess();
       alert('Solicitud actualizada con éxito');
+      window.location.reload();
     } catch (error) {
       console.error('Error al actualizar la solicitud:', error);
     }
   };
 
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
-    setSolicitudData({ ...solicitudData, [name]: value });
+    setSolicitudData((prevData: typeof solicitudData) => ({ ...prevData, [name]: value }));
   };
+  
 
   const handleServicioChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -93,7 +138,7 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
     try {
       const equipos = await searchEquiposByKeyword(token, searchInput);
       if (equipos.length > 0) {
-        setSelectedEquipo(equipos[0]); // Selección automática del primer equipo
+        setEquiposEncontrados(equipos); // Almacena todos los equipos encontrados en un estado
         setSearchError(null);
       } else {
         setSearchError('No se encontraron equipos.');
@@ -127,58 +172,83 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
           </select>
         </div>
 
-        <div>
-              <label>Búsqueda de Equipo:</label>
-              <input
-                type="text"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-              />
-              <button type="button" onClick={handleSearch}>
-                Buscar
-              </button>
-        </div>
-
-            {selectedEquipo && (
               <div>
-                <h3>Información del Equipo:</h3>
-                <p>ID: {selectedEquipo._id}</p>
-                <p>Serie: {selectedEquipo.serie}</p>
-                <p>Activo Fijo: {selectedEquipo.activo_fijo}</p>
-                <p>Mtto: {selectedEquipo.mtto}</p>
-                {confirmedSelection && (
-                  <button type="button" onClick={() => setConfirmedSelection(false)}>
-                    Cambiar Equipo
+                  <label>Búsqueda de Equipo:</label>
+                  <input
+                    type="text"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                  />
+                  <button type="button" onClick={handleSearch}>
+                    Buscar
                   </button>
-                )}
-              </div>
-            )}
 
-            {searchError && <p>{searchError}</p>}
+                  {equiposEncontrados && equiposEncontrados.length > 0 && (
+                    <div>
+                      <h3>Equipos Encontrados:</h3>
+                      <ul>
+                        {equiposEncontrados.map((equipo) => (
+                          <li key={equipo._id}>
+                            <p>ID: {equipo._id}</p>
+                            <p>Serie: {equipo.serie}</p>
+                            <p>Activo Fijo: {equipo.activo_fijo}</p>
+                            <p>Mtto: {equipo.mtto}</p>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setSelectedEquipo(equipo);
+                                setConfirmedSelection(true);
+                                setUseSelectedEquipo(true);
+                                setEquiposEncontrados([]); // Limpia la lista de equipos encontrados
+                              }}
+                            >
+                              Seleccionar este Equipo
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-            {selectedEquipo && !confirmedSelection && (
-              <div>
-                <p>¿La información del equipo es la correcta para relacionar?</p>
-                <button
-                    type="button"
-                    onClick={() => {
-                      setConfirmedSelection(true);
-                      setUseSelectedEquipo(true);
-                    }}
-                    >
-                    Sí
-                  </button>
-                  <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedEquipo(null);
-                        setUseSelectedEquipo(false);
-                      }}
-                    >
-                      No
-                    </button>
-              </div>
-            )}
+                  {selectedEquipo && confirmedSelection && (
+                    <div>
+                      <h3>Información del Equipo Seleccionado:</h3>
+                      <p>ID: {selectedEquipo._id}</p>
+                      <p>Serie: {selectedEquipo.serie}</p>
+                      <p>Activo Fijo: {selectedEquipo.activo_fijo}</p>
+                      <p>Mtto: {selectedEquipo.mtto}</p>
+                      <button type="button" onClick={() => setConfirmedSelection(false)}>
+                        Cambiar Equipo
+                      </button>
+                    </div>
+                  )}
+
+                  {searchError && <p>{searchError}</p>}
+
+                  {selectedEquipo && !confirmedSelection && (
+                    <div>
+                      <p>¿La información del equipo es la correcta para relacionar?</p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setConfirmedSelection(true);
+                          setUseSelectedEquipo(true);
+                        }}
+                      >
+                        Sí
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSelectedEquipo(null);
+                          setUseSelectedEquipo(false);
+                        }}
+                      >
+                        No
+                      </button>
+                    </div>
+                  )}
+          </div>
         <div>
           <label>ID Equipo:</label>
           <input
@@ -200,6 +270,7 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
             name="creacion"
             value={solicitudData.creacion}
             onChange={handleChange}
+            readOnly // Hace que el campo sea de solo lectura
           />
         </div>
         <div>
@@ -212,15 +283,6 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
           />
         </div>
         <div>
-          <label>Cambio de Estado:</label>
-          <input
-            type="text"
-            name="cambio_estado"
-            value={solicitudData.cambio_estado}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
           <label>Observación:</label>
           <textarea
             name="observacion"
@@ -228,6 +290,18 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
             onChange={handleChange}
           />
         </div>
+        {isAdmin && (
+          <div>
+            <label>ID Estado Solicitud:</label>
+            {/* Mostramos el estado de la acción si se ha seleccionado uno, de lo contrario el estado actual de la solicitud */}
+            <p>{estadoAccion || solicitudData.id_solicitud_estado.estado}</p>
+            <div>
+              <button type="button" onClick={() => handleEstadoChange(estadoAprobadoId)}>Aprobar</button>
+              <button type="button" onClick={() => handleEstadoChange(estadoRechazadoId)}>Rechazar</button>
+            </div>
+          </div>
+        )}
+
         <div>
           <label>Observación Estado:</label>
           <textarea
@@ -236,6 +310,8 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
             onChange={handleChange}
           />
         </div>
+
+
         <button type="submit">Actualizar Solicitud</button>
         <button type="button" onClick={onCancel}>Cancelar</button>
       </form>

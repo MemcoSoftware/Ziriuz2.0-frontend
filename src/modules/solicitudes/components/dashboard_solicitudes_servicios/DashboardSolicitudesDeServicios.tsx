@@ -6,16 +6,18 @@ import ContentPasteSearchOutlinedIcon from '@mui/icons-material/ContentPasteSear
 import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
 import ContentPasteGoOutlinedIcon from '@mui/icons-material/ContentPasteGoOutlined';
 import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
+import useUserRoleVerifier from "../../hooks/useUserRoleVerifier";
 
 const DashboardSolicitudesDeServicios = () => {
     const navigate = useNavigate();
-
+    const isAdmin = useUserRoleVerifier(['administrador']);
     return (
     
                    
                         <ul className="DashboardMenuCentral-nav-ul">
                         {/* <h1 className='DashboardMenuCentral-title'> Equipos</h1> */}
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos')}>
+                        {isAdmin && (
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios-register')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>    
@@ -26,6 +28,7 @@ const DashboardSolicitudesDeServicios = () => {
                                     </div>
                                 </li>
                             </button>
+                        )}
                             <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
@@ -38,7 +41,7 @@ const DashboardSolicitudesDeServicios = () => {
                                     </div>
                                 </li>
                             </button>
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos/areas')}>
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios-pendiente-preventivos')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                         <i className='DashboardMenuCentral-nav-icon-i'>
@@ -51,7 +54,7 @@ const DashboardSolicitudesDeServicios = () => {
                                     </div>
                                 </li>
                             </button>
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos/clases')}>
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios-pendiente-cig')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
@@ -62,7 +65,7 @@ const DashboardSolicitudesDeServicios = () => {
                                     </div>
                                 </li>
                             </button>
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos/marcas')}>
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios-abrobadas')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>
@@ -73,7 +76,7 @@ const DashboardSolicitudesDeServicios = () => {
                                     </div>
                                 </li>
                             </button>
-                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/equipos/tipos')}>
+                            <button className="DashboardMenuCentral-button" onClick={() => navigate('/solicitudes-servicios-rechazadas')}>
                                 <li>
                                     <div className="DashboardMenuCentral-nav-icon">
                                     <i className='DashboardMenuCentral-nav-icon-i'>

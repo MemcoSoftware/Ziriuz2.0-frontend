@@ -55,6 +55,10 @@ import RegisterCamposPage from '../modules/procesos_&_protocolos/pages/RegisterC
 import SolicitudesServiciosPages from '../modules/solicitudes/pages/SolicitudesServiciosPages';
 import SolicitudesServicioDetailPage from '../modules/solicitudes/pages/SolicitudesServicioDetailPage';
 import RegisterSolicitudServicioPage from '../modules/solicitudes/pages/RegisterSolicitudServicioPage';
+import SolicitudesServiciosPendientePreventivo from '../modules/solicitudes/pages/SolicitudesServiciosPendientePreventivo';
+import SolicitudesServiciosPendienteCIG from '../modules/solicitudes/pages/SolicitudesServiciosPendienteCIG';
+import SolicitudesServiciosAprobadas from '../modules/solicitudes/pages/SolicitudesServiciosAprobadas';
+import SolicitudesServiciosRechazadas from '../modules/solicitudes/pages/SolicitudesServiciosRechazadas';
 
 
 export const AppRoutes = ()=>{
@@ -132,6 +136,10 @@ export const AppRoutes = ()=>{
 
           {/* MODULO SOLICITUDES */}
           <Route path="/solicitudes-servicios" element={<SolicitudesServiciosPages/>} />
+          <Route path="/solicitudes-servicios-pendiente-preventivos" element={<SolicitudesServiciosPendientePreventivo/>} />
+          <Route path="/solicitudes-servicios-pendiente-cig" element={<SolicitudesServiciosPendienteCIG/>} />
+          <Route path="/solicitudes-servicios-abrobadas" element={<SolicitudesServiciosAprobadas/>} />
+          <Route path="/solicitudes-servicios-rechazadas" element={<SolicitudesServiciosRechazadas/>} />
           <Route path="/solicitudes-servicios/:id" element={<SolicitudesServicioDetailPage/>} />
           <Route path="/solicitudes-servicios-register" element={<RegisterSolicitudServicioPage/>} />
           {/* Unauthorized Page */}

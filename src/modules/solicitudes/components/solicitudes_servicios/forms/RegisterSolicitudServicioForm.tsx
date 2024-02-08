@@ -14,7 +14,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CallIcon from '@mui/icons-material/Call';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
-import '../styles/EditSolicitudServiciosButton.css';
+import './styles/RegisterSolicitudServicioForm.css';
 
 type RegisterSolicitudServicioFormProps = {
   onCancel: () => void;
@@ -174,7 +174,7 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                   <div className="container" />
                   <header className="header">
                     <div className="overlap-group">
-                      <p className="solicitud-id">SOLICITUD DE SERVICIO - 65baa109d9d9486412afd0e9</p>
+                      <p className="solicitud-id">REGISTRAR NUEVA SOLICITUD DE SERVICIO</p>
                     </div>
                   </header>
                   <div className="section">

@@ -183,21 +183,21 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-         <div className="div-wrapper">
-              <div className="overlap-wrapper">
-                <div className="overlap">
-                  <div className="container" />
-                  <header className="header">
-                    <div className="overlap-group">
-                      <p className="solicitud-id">SOLICITUD DE SERVICIO - 65baa109d9d9486412afd0e9</p>
+         <div className="EditSolicitudServiciosButton-form">
+              <div className="EditSolicitudServiciosButton-overlap-wrapper">
+                <div className="EditSolicitudServiciosButton-overlap">
+                  <div className="EditSolicitudServiciosButton-container" />
+                  <header className="EditSolicitudServiciosButton-header">
+                    <div className="EditSolicitudServiciosButton-overlap-group">
+                      <p className="EditSolicitudServiciosButton-solicitud-id">SOLICITUD DE SERVICIO - {solicitudData._id}</p>
                     </div>
                   </header>
-                  <div className="section">
+                  <div className="EditSolicitudServiciosButton-section">
 
                     {/* SERVICIO SELECTOR */}
-                    <div className="tipo-servicio-p">1- Tipo de servicio:</div>
+                    <div className="EditSolicitudServiciosButton-tipo-servicio-p">1- Tipo de servicio:</div>
                     <select 
-                    className="tipo-servicio-input"
+                    className="EditSolicitudServiciosButton-tipo-servicio-input"
                     name="id_servicio"
                     value={solicitudData.id_servicio}
                     onChange={handleServicioChange}
@@ -210,17 +210,17 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                     </select> 
 
                         {/* BUSQUEDA DE EQUIPOS */}
-                    <p className="busqueda-equipos-p">
+                    <p className="EditSolicitudServiciosButton-busqueda-equipos-p">
                       2- Busqueda de equipo por SN, MTTO o ACTIVO FIJO&nbsp;&nbsp;&nbsp;&nbsp; (Si se desea reemplazar):
                     </p>
                     <input 
-                    className="busqueda-equipos"
+                    className="EditSolicitudServiciosButton-busqueda-equipos"
                     type="text"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                     />
                     <button 
-                    className="div"
+                    className="EditSolicitudServiciosButton-div"
                     type="button" 
                     onClick={handleSearch}
                     >
@@ -229,36 +229,36 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
 
                     {/* EQUIPOS ENCONTRADOS Y SELECCION */}
                     {equiposEncontrados && equiposEncontrados.length > 0 && (
-                        <div className="equipos-encontrados">
-                          <ul className="equipos-list">
+                        <div className="EditSolicitudServiciosButton-equipos-encontrados">
+                          <ul className="EditSolicitudServiciosButton-equipos-list">
                           {equiposEncontrados.map((equipo) => (
-                            <li key={equipo._id} className='equipo-card-list'>
-                              <div className="equipo-card">
-                                <div className="overlap-group-2">
-                                  <div className="equipo-classname-p">{equipo.modelo_equipos.id_clase.clase}</div>
-                                  <div className="equipo-oid">ID: {equipo._id}</div>
-                                  <div className="serial-p">SN: {equipo.serie}</div>
-                                  <LocationOnIcon className="location-icon" />
-                                  <div className="location-text">{equipo.ubicacion}</div>
-                                  <ManageHistoryIcon className="frequency-icon" />
-                                  <div className="frequency-value">{equipo.frecuencia}</div>
-                                  <div className="sede-name">{equipo.id_sede.sede_nombre}</div>
-                                  <div className="sede-oid">ID: {equipo.id_sede._id}</div>
-                                  <AccountBalanceIcon className="client-icon"/>
-                                  <div className="client-name">{equipo.id_sede.id_client.client_name}</div>
-                                  <LocationOnIcon className="icon"/>
-                                  <div className="sede-address">{equipo.id_sede.sede_address}</div>
-                                  <CallIcon className="sede-telephone-icon"/>
-                                  <div className="sede-telephone-value">{equipo.id_sede.sede_telefono}</div>
+                            <li key={equipo._id} className='EditSolicitudServiciosButton-equipo-card-list'>
+                              <div className="EditSolicitudServiciosButton-equipo-card">
+                                <div className="EditSolicitudServiciosButton-overlap-group-2">
+                                  <div className="EditSolicitudServiciosButton-equipo-classname-p">{equipo.modelo_equipos.id_clase.clase}</div>
+                                  <div className="EditSolicitudServiciosButton-equipo-oid">ID: {equipo._id}</div>
+                                  <div className="EditSolicitudServiciosButton-serial-p">SN: {equipo.serie}</div>
+                                  <LocationOnIcon className="EditSolicitudServiciosButton-location-icon" />
+                                  <div className="EditSolicitudServiciosButton-location-text">{equipo.ubicacion}</div>
+                                  <ManageHistoryIcon className="EditSolicitudServiciosButton-frequency-icon" />
+                                  <div className="EditSolicitudServiciosButton-frequency-value">{equipo.frecuencia}</div>
+                                  <div className="EditSolicitudServiciosButton-sede-name">{equipo.id_sede.sede_nombre}</div>
+                                  <div className="EditSolicitudServiciosButton-sede-oid">ID: {equipo.id_sede._id}</div>
+                                  <AccountBalanceIcon className="EditSolicitudServiciosButton-client-icon"/>
+                                  <div className="EditSolicitudServiciosButton-client-name">{equipo.id_sede.id_client.client_name}</div>
+                                  <LocationOnIcon className="EditSolicitudServiciosButton-icon"/>
+                                  <div className="EditSolicitudServiciosButton-sede-address">{equipo.id_sede.sede_address}</div>
+                                  <CallIcon className="EditSolicitudServiciosButton-sede-telephone-icon"/>
+                                  <div className="EditSolicitudServiciosButton-sede-telephone-value">{equipo.id_sede.sede_telefono}</div>
                                   <button 
-                                  className="seleccionar-button"
+                                  className="EditSolicitudServiciosButton-seleccionar-button"
                                   type="button"
                                   onClick={() => handleEquipoSelection(equipo)}
                                   >
                                     Seleccionar Equipo
                                   </button>
                                   <RemoveRedEyeIcon 
-                                    className="eye"
+                                    className="EditSolicitudServiciosButton-eye"
                                     onClick={() => handleEquipoFoundRedirect(equipo)}
                                   />
                                 </div>
@@ -266,50 +266,50 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                             </li>
                            ))}
                           </ul>
-                          <div className="text-wrapper">Equipos encontrados</div>
+                          <div className="EditSolicitudServiciosButton-text-wrapper">Equipos encontrados</div>
                         </div>
                       )}
 
 
                   {selectedEquipo && confirmedSelection && (
-                  <div className={`equipo-selected ${isSearchActive ? "search-active" : ""}`}>
-                      <div className="overlap-group-wrapper">
-                        <div className="overlap-group-3">
-                          <div className="equipo">{selectedEquipo.modelo_equipos.id_clase.clase}</div>
-                          <div className="equipo-2">ID: {selectedEquipo._id}</div>
-                          <div className="serial">SN: {selectedEquipo.serie}</div>
-                          <LocationOnIcon className="location"/>
-                          <div className="location-value">{selectedEquipo.ubicacion}</div>
-                          <ManageHistoryIcon className="frecuency" />
-                          <div className="frecuency-value">{selectedEquipo.frecuencia}</div>
-                          <div className="sede-name-title">{selectedEquipo.id_sede.sede_nombre}</div>
-                          <div className="sede">ID: {selectedEquipo.id_sede._id}</div>
-                          <AccountBalanceIcon className="client"/>
-                          <div className="client-2">{selectedEquipo.id_sede.id_client.client_name}</div>
-                          <LocationOnIcon className="img"/>
-                          <div className="sede-2">{selectedEquipo.id_sede.sede_address}</div>
-                          <CallIcon className="sede-telephone" />
-                          <div className="sede-telephone-2">{selectedEquipo.id_sede.sede_telefono}</div>
+                  <div className={`EditSolicitudServiciosButton-equipo-selected ${isSearchActive ? "search-active" : ""}`}>
+                      <div className="EditSolicitudServiciosButton-overlap-group-wrapper">
+                        <div className="EditSolicitudServiciosButton-overlap-group-3">
+                          <div className="EditSolicitudServiciosButton-equipo">{selectedEquipo.modelo_equipos.id_clase.clase}</div>
+                          <div className="EditSolicitudServiciosButton-equipo-2">ID: {selectedEquipo._id}</div>
+                          <div className="EditSolicitudServiciosButton-serial">SN: {selectedEquipo.serie}</div>
+                          <LocationOnIcon className="EditSolicitudServiciosButton-location"/>
+                          <div className="EditSolicitudServiciosButton-location-value">{selectedEquipo.ubicacion}</div>
+                          <ManageHistoryIcon className="EditSolicitudServiciosButton-frecuency" />
+                          <div className="EditSolicitudServiciosButton-frecuency-value">{selectedEquipo.frecuencia}</div>
+                          <div className="EditSolicitudServiciosButton-sede-name-title">{selectedEquipo.id_sede.sede_nombre}</div>
+                          <div className="EditSolicitudServiciosButton-sede">ID: {selectedEquipo.id_sede._id}</div>
+                          <AccountBalanceIcon className="EditSolicitudServiciosButton-client"/>
+                          <div className="EditSolicitudServiciosButton-client-2">{selectedEquipo.id_sede.id_client.client_name}</div>
+                          <LocationOnIcon className="EditSolicitudServiciosButton-img"/>
+                          <div className="EditSolicitudServiciosButton-sede-2">{selectedEquipo.id_sede.sede_address}</div>
+                          <CallIcon className="EditSolicitudServiciosButton-sede-telephone" />
+                          <div className="EditSolicitudServiciosButton-sede-telephone-2">{selectedEquipo.id_sede.sede_telefono}</div>
                           <RemoveRedEyeIcon 
-                          className="eye"
+                          className="EditSolicitudServiciosButton-eye"
                           onClick={handleEquipoSelectedRedirect}
                           />
-                          <button className="confirmed-selection" onClick={() => setConfirmedSelection(false)}>
+                          <button className="EditSolicitudServiciosButton-confirmed-selection" onClick={() => setConfirmedSelection(false)}>
                             Confirmar Selección
                           </button>
                         </div>
                       </div>
-                      <div className="equipo-selected-2">Información del Equipo Seleccionado</div>
+                      <div className="EditSolicitudServiciosButton-equipo-selected-2">Información del Equipo Seleccionado</div>
                     </div>
                   )}
                   
                   {searchError && <p>{searchError}</p>}
 
                   {selectedEquipo && !confirmedSelection && (
-                    <div className='confirmation-div'>
-                      <p className='confirmation-question'>¿La información del equipo es la correcta para relacionar?</p>
+                    <div className='EditSolicitudServiciosButton-confirmation-div'>
+                      <p className='EditSolicitudServiciosButton-confirmation-question'>¿La información del equipo es la correcta para relacionar?</p>
                       <button
-                        className='confirmation-yes'
+                        className='EditSolicitudServiciosButton-confirmation-yes'
                         type="button"
                         onClick={() => {
                           setConfirmedSelection(true);
@@ -319,7 +319,7 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                         Sí
                       </button>
                       <button
-                        className='confirmation-no'
+                        className='EditSolicitudServiciosButton-confirmation-no'
                         type="button"
                         onClick={() => {
                           setSelectedEquipo(null);
@@ -333,12 +333,12 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                   </div>
 
 
-                  <div className="middle-separator"/>
-                  <div className="section-2">
-                    <div className="overlap-2">
-                      <p className="text-wrapper-2">3- Solicitud creada en la fecha:</p>
+                  <div className="EditSolicitudServiciosButton-middle-separator"/>
+                  <div className="EditSolicitudServiciosButton-section-2">
+                    <div className="EditSolicitudServiciosButton-overlap-2">
+                      <p className="EditSolicitudServiciosButton-text-wrapper-2">3- Solicitud creada en la fecha:</p>
                       <input
-                      className="div-2"
+                      className="EditSolicitudServiciosButton-div-2"
                       type="text"
                       name="creacion"
                       value={solicitudData.creacion}
@@ -346,19 +346,19 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                       readOnly 
                       />
                     </div>
-                    <div className="overlap-3">
-                      <div className="text-wrapper-2">4- Aviso:</div>
+                    <div className="EditSolicitudServiciosButton-overlap-3">
+                      <div className="EditSolicitudServiciosButton-text-wrapper-2">4- Aviso:</div>
                       <input 
-                      className="div-2"
+                      className="EditSolicitudServiciosButton-div-2"
                       name="aviso"
                       value={solicitudData.aviso}
                       onChange={handleChange}
                       />
                     </div>
-                    <div className="overlap-4">
-                      <div className="text-wrapper-2">5- Observación:</div>
+                    <div className="EditSolicitudServiciosButton-overlap-4">
+                      <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Observación:</div>
                       <input
-                      className="div-2"
+                      className="EditSolicitudServiciosButton-div-2"
                       name="observacion"
                       value={solicitudData.observacion}
                       onChange={handleChange}
@@ -368,24 +368,24 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                     {isAdmin && (
 
                       <div>
-                        <div className="overlap-5">
-                          <div className="text-wrapper-2">5- Estado Solicitud:</div>
-                          <input className="div-2"
+                        <div className="EditSolicitudServiciosButton-overlap-5">
+                          <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Estado Solicitud:</div>
+                          <input className="EditSolicitudServiciosButton-div-2"
                           name='id_solicitud_estado'
                           value={estadoAccion || solicitudData.id_solicitud_estado.estado}
                           readOnly
                           />
                         </div>
-                        <CheckCircleIcon className="aprobar-icon" 
+                        <CheckCircleIcon className="EditSolicitudServiciosButton-aprobar-icon" 
                         onClick={() => handleEstadoChange(estadoAprobadoId)} />
-                        <div className="aprobar-text">Aprobar</div>
-                        <CancelIcon className="rechazar-icon"
+                        <div className="EditSolicitudServiciosButton-aprobar-text">Aprobar</div>
+                        <CancelIcon className="EditSolicitudServiciosButton-rechazar-icon"
                         onClick={() => handleEstadoChange(estadoRechazadoId)}
                         />
-                        <div className="rechazar-text">Rechazar</div>
-                        <div className="overlap-6">
-                          <div className="text-wrapper-2">5- Observación Estado:</div>
-                          <textarea className="div-2"
+                        <div className="EditSolicitudServiciosButton-rechazar-text">Rechazar</div>
+                        <div className="EditSolicitudServiciosButton-overlap-6">
+                          <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Observación Estado:</div>
+                          <textarea className="EditSolicitudServiciosButton-div-2"
                           name="observacion_estado"
                           value={solicitudData.observacion_estado}
                           onChange={handleChange}
@@ -394,14 +394,14 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                       </div>
 )}
                     <button 
-                    className="cancelar-button"
+                    className="EditSolicitudServiciosButton-cancelar-button"
                     type="button"
                     onClick={onCancel}
                     >
                       Cancelar
                     </button>
                     <button
-                    className="actualizar-button" 
+                    className="EditSolicitudServiciosButton-actualizar-button" 
                     type='submit'
                     >
                       Actualizar

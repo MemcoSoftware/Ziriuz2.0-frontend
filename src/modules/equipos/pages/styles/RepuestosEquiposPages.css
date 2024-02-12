@@ -189,22 +189,25 @@
   }
   
   .RepuestosEquiposPages-cards-list{
-	display:grid;
-	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-	gap:2rem;
-	margin:4rem 5vw;
-	padding:0;
-	list-style: none;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:2rem;
+    margin:4rem 5vw;
+    padding:0;
+    list-style: none;
 	
   }
 
   .RepuestosEquiposPages-Container-Card{
-    width: 1200px;
+    width: 900px;
+    position: relative;
     height: 100%;
+    left: -10%;
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:2rem;
-    margin:2rem 3vw;
+    grid-template-columns: repeat(2, 1fr); /* Hace que haya 3 tarjetas por fila */
+    gap: 12rem; /* Espaciado entre las tarjetas */
+    row-gap: 5%;
+    margin:2rem 2vw;
     padding:0;
     list-style: none
   }

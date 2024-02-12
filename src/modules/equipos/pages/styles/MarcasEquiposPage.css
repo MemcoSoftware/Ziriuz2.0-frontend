@@ -66,24 +66,25 @@
 }
 
   .MarcasEquipos-cards-list{
-	display:grid;
-	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-	gap:2rem;
-	margin:4rem 5vw;
-	padding:0;
-	list-style: none;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:2rem;
+    margin:4rem 5vw;
+    padding:0;
+    list-style: none;
 	
   }
 
   .MarcasEquiposPage-Container-Card{
-    width: 1200px;
-    height: 100%;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:2rem;
-    margin:2rem 3vw;
-    padding:0;
-    list-style: none
+      width: 900px;
+      height: 100%;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr); /* Hace que haya 3 tarjetas por fila */
+      gap: 10rem; /* Espaciado entre las tarjetas */
+      row-gap: 5%;
+      margin:2rem 2vw;
+      padding:0;
+      list-style: none
   }
 
 

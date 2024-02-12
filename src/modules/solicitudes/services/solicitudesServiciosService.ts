@@ -70,7 +70,7 @@ const handleError = (error: any) => {
     if (status === 500) {
       // Token inválido o expirado
       // Redirigir al usuario a la página de inicio de sesión (/login)
-      window.location.href = '/login';
+      console.log(error.response);
     }
   }
   throw error;

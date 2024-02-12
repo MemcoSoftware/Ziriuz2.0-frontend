@@ -103,11 +103,18 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     
-    if (!confirmedSelection || !selectedEquipo) {
-      alert('Debes confirmar la selección del equipo antes de enviar el formulario.');
-      return;
-    }
+    // Verificar la selección del equipo y la existencia de ID
+  if (!confirmedSelection || !selectedEquipo || !selectedEquipo._id) {
+    alert('Debes confirmar la selección del equipo antes de enviar el formulario.');
+    return;
+  }
 
+  // Asegurarse de que todos los campos necesarios tienen valores válidos
+  if (!solicitudData.id_servicio || !userId || !estadoPendienteId) {
+    alert('Algunos campos obligatorios están vacíos o no son válidos.');
+    return;
+  }
+  
     const currentDateTime = formatDateTimeLocal();
 
     const solicitudServicioData = {
@@ -196,7 +203,7 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
 
                         {/* BUSQUEDA DE EQUIPOS */}
                     <p className="busqueda-equipos-p">
-                      2- Busqueda de equipo por SN, MTTO o ACTIVO FIJO&nbsp;&nbsp;&nbsp;&nbsp; (Si se desea reemplazar):
+                      2- Busqueda de equipo por SN, MTTO o ACTIVO FIJO&nbsp; (Si se desea reemplazar):
                     </p>
                     <input 
                     className="busqueda-equipos"

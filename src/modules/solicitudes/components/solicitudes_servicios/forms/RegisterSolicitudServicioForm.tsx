@@ -175,21 +175,21 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
   return (
     <div>
       <form onSubmit={handleSubmit}>
-         <div className="div-wrapper">
-              <div className="overlap-wrapper">
-                <div className="overlap">
-                  <div className="container" />
-                  <header className="header">
-                    <div className="overlap-group">
-                      <p className="solicitud-id">REGISTRAR NUEVA SOLICITUD DE SERVICIO</p>
+         <div className="RegisterSolicitudServicioForm-div-wrapper">
+              <div className="RegisterSolicitudServicioForm-overlap-wrapper">
+                <div className="RegisterSolicitudServicioForm-overlap">
+                  <div className="RegisterSolicitudServicioForm-container" />
+                  <header className="RegisterSolicitudServicioForm-header">
+                    <div className="RegisterSolicitudServicioForm-overlap-group">
+                      <p className="RegisterSolicitudServicioForm-solicitud-id">REGISTRAR NUEVA SOLICITUD DE SERVICIO</p>
                     </div>
                   </header>
-                  <div className="section">
+                  <div className="RegisterSolicitudServicioForm-section">
 
                     {/* SERVICIO SELECTOR */}
-                    <div className="tipo-servicio-p">1- Tipo de servicio:</div>
+                    <div className="RegisterSolicitudServicioForm-tipo-servicio-p">1- Tipo de servicio:</div>
                     <select 
-                    className="tipo-servicio-input"
+                    className="RegisterSolicitudServicioForm-tipo-servicio-input"
                     name="id_servicio"
                     value={solicitudData.id_servicio}
                     onChange={handleServicioChange}
@@ -202,17 +202,17 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                     </select> 
 
                         {/* BUSQUEDA DE EQUIPOS */}
-                    <p className="busqueda-equipos-p">
+                    <p className="RegisterSolicitudServicioForm-busqueda-equipos-p">
                       2- Busqueda de equipo por SN, MTTO o ACTIVO FIJO&nbsp; (Si se desea reemplazar):
                     </p>
                     <input 
-                    className="busqueda-equipos"
+                    className="RegisterSolicitudServicioForm-busqueda-equipos"
                     type="text"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                     />
                     <button 
-                    className="div"
+                    className="RegisterSolicitudServicioForm-div"
                     type="button" 
                     onClick={handleSearch}
                     >
@@ -221,36 +221,36 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
 
                     {/* EQUIPOS ENCONTRADOS Y SELECCION */}
                     {equiposEncontrados && equiposEncontrados.length > 0 && (
-                        <div className="equipos-encontrados">
-                          <ul className="equipos-list">
+                        <div className="RegisterSolicitudServicioForm-equipos-encontrados">
+                          <ul className="RegisterSolicitudServicioForm-equipos-list">
                           {equiposEncontrados.map((equipo) => (
-                            <li key={equipo._id} className='equipo-card-list'>
-                              <div className="equipo-card">
-                                <div className="overlap-group-2">
-                                  <div className="equipo-classname-p">{equipo.modelo_equipos.id_clase.clase}</div>
-                                  <div className="equipo-oid">ID: {equipo._id}</div>
-                                  <div className="serial-p">SN: {equipo.serie}</div>
-                                  <LocationOnIcon className="location-icon" />
-                                  <div className="location-text">{equipo.ubicacion}</div>
-                                  <ManageHistoryIcon className="frequency-icon" />
-                                  <div className="frequency-value">{equipo.frecuencia}</div>
-                                  <div className="sede-name">{equipo.id_sede.sede_nombre}</div>
-                                  <div className="sede-oid">ID: {equipo.id_sede._id}</div>
-                                  <AccountBalanceIcon className="client-icon"/>
-                                  <div className="client-name">{equipo.id_sede.id_client.client_name}</div>
-                                  <LocationOnIcon className="icon"/>
-                                  <div className="sede-address">{equipo.id_sede.sede_address}</div>
-                                  <CallIcon className="sede-telephone-icon"/>
-                                  <div className="sede-telephone-value">{equipo.id_sede.sede_telefono}</div>
+                            <li key={equipo._id} className='RegisterSolicitudServicioForm-equipo-card-list'>
+                              <div className="RegisterSolicitudServicioForm-equipo-card">
+                                <div className="RegisterSolicitudServicioForm-overlap-group-2">
+                                  <div className="RegisterSolicitudServicioForm-equipo-classname-p">{equipo.modelo_equipos.id_clase.clase}</div>
+                                  <div className="RegisterSolicitudServicioForm-equipo-oid">ID: {equipo._id}</div>
+                                  <div className="RegisterSolicitudServicioForm-serial-p">SN: {equipo.serie}</div>
+                                  <LocationOnIcon className="RegisterSolicitudServicioForm-location-icon" />
+                                  <div className="RegisterSolicitudServicioForm-location-text">{equipo.ubicacion}</div>
+                                  <ManageHistoryIcon className="RegisterSolicitudServicioForm-frequency-icon" />
+                                  <div className="RegisterSolicitudServicioForm-frequency-value">{equipo.frecuencia}</div>
+                                  <div className="RegisterSolicitudServicioForm-sede-name">{equipo.id_sede.sede_nombre}</div>
+                                  <div className="RegisterSolicitudServicioForm-sede-oid">ID: {equipo.id_sede._id}</div>
+                                  <AccountBalanceIcon className="RegisterSolicitudServicioForm-client-icon"/>
+                                  <div className="RegisterSolicitudServicioForm-client-name">{equipo.id_sede.id_client.client_name}</div>
+                                  <LocationOnIcon className="RegisterSolicitudServicioForm-icon"/>
+                                  <div className="RegisterSolicitudServicioForm-sede-address">{equipo.id_sede.sede_address}</div>
+                                  <CallIcon className="RegisterSolicitudServicioForm-sede-telephone-icon"/>
+                                  <div className="RegisterSolicitudServicioForm-sede-telephone-value">{equipo.id_sede.sede_telefono}</div>
                                   <button 
-                                  className="seleccionar-button"
+                                  className="RegisterSolicitudServicioForm-seleccionar-button"
                                   type="button"
                                   onClick={() => handleEquipoSelection(equipo)}
                                   >
                                     Seleccionar Equipo
                                   </button>
                                   <RemoveRedEyeIcon 
-                                    className="eye"
+                                    className="RegisterSolicitudServicioForm-eye"
                                     onClick={() => handleEquipoFoundRedirect(equipo)}
                                   />
                                 </div>
@@ -258,50 +258,50 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                             </li>
                            ))}
                           </ul>
-                          <div className="text-wrapper">Equipos encontrados</div>
+                          <div className="RegisterSolicitudServicioForm-text-wrapper">Equipos encontrados</div>
                         </div>
                       )}
 
 
                   {selectedEquipo && confirmedSelection && (
-                  <div className={`equipo-selected ${isSearchActive ? "search-active" : ""}`}>
-                      <div className="overlap-group-wrapper">
-                        <div className="overlap-group-3">
-                          <div className="equipo">{selectedEquipo.modelo_equipos.id_clase.clase}</div>
-                          <div className="equipo-2">ID: {selectedEquipo._id}</div>
-                          <div className="serial">SN: {selectedEquipo.serie}</div>
-                          <LocationOnIcon className="location"/>
-                          <div className="location-value">{selectedEquipo.ubicacion}</div>
-                          <ManageHistoryIcon className="frecuency" />
-                          <div className="frecuency-value">{selectedEquipo.frecuencia}</div>
-                          <div className="sede-name-title">{selectedEquipo.id_sede.sede_nombre}</div>
-                          <div className="sede">ID: {selectedEquipo.id_sede._id}</div>
-                          <AccountBalanceIcon className="client"/>
-                          <div className="client-2">{selectedEquipo.id_sede.id_client.client_name}</div>
-                          <LocationOnIcon className="img"/>
-                          <div className="sede-2">{selectedEquipo.id_sede.sede_address}</div>
-                          <CallIcon className="sede-telephone" />
-                          <div className="sede-telephone-2">{selectedEquipo.id_sede.sede_telefono}</div>
+                  <div className={`RegisterSolicitudServicioForm-equipo-selected ${isSearchActive ? "RegisterSolicitudServicioForm-search-active" : ""}`}>
+                      <div className="RegisterSolicitudServicioForm-overlap-group-wrapper">
+                        <div className="RegisterSolicitudServicioForm-overlap-group-3">
+                          <div className="RegisterSolicitudServicioForm-equipo">{selectedEquipo.modelo_equipos.id_clase.clase}</div>
+                          <div className="RegisterSolicitudServicioForm-equipo-2">ID: {selectedEquipo._id}</div>
+                          <div className="RegisterSolicitudServicioForm-serial">SN: {selectedEquipo.serie}</div>
+                          <LocationOnIcon className="RegisterSolicitudServicioForm-location"/>
+                          <div className="RegisterSolicitudServicioForm-location-value">{selectedEquipo.ubicacion}</div>
+                          <ManageHistoryIcon className="RegisterSolicitudServicioForm-frecuency" />
+                          <div className="RegisterSolicitudServicioForm-frecuency-value">{selectedEquipo.frecuencia}</div>
+                          <div className="RegisterSolicitudServicioForm-sede-name-title">{selectedEquipo.id_sede.sede_nombre}</div>
+                          <div className="RegisterSolicitudServicioForm-sede">ID: {selectedEquipo.id_sede._id}</div>
+                          <AccountBalanceIcon className="RegisterSolicitudServicioForm-client"/>
+                          <div className="RegisterSolicitudServicioForm-client-2">{selectedEquipo.id_sede.id_client.client_name}</div>
+                          <LocationOnIcon className="RegisterSolicitudServicioForm-img"/>
+                          <div className="RegisterSolicitudServicioForm-sede-2">{selectedEquipo.id_sede.sede_address}</div>
+                          <CallIcon className="RegisterSolicitudServicioForm-sede-telephone" />
+                          <div className="RegisterSolicitudServicioForm-sede-telephone-2">{selectedEquipo.id_sede.sede_telefono}</div>
                           <RemoveRedEyeIcon 
-                          className="eye"
+                          className="RegisterSolicitudServicioForm-eye"
                           onClick={handleEquipoSelectedRedirect}
                           />
-                          <button className="confirmed-selection" onClick={() => setConfirmedSelection(false)}>
+                          <button className="RegisterSolicitudServicioForm-confirmed-selection" onClick={() => setConfirmedSelection(false)}>
                             Confirmar Selección
                           </button>
                         </div>
                       </div>
-                      <div className="equipo-selected-2">Información del Equipo Seleccionado</div>
+                      <div className="RegisterSolicitudServicioForm-equipo-selected-2">Información del Equipo Seleccionado</div>
                     </div>
                   )}
                   
                   {searchError && <p>{searchError}</p>}
 
                   {selectedEquipo && !confirmedSelection && (
-                    <div className='confirmation-div'>
-                      <p className='confirmation-question'>¿La información del equipo es la correcta para relacionar?</p>
+                    <div className='RegisterSolicitudServicioForm-confirmation-div'>
+                      <p className='RegisterSolicitudServicioForm-confirmation-question'>¿La información del equipo es la correcta para relacionar?</p>
                       <button
-                        className='confirmation-yes'
+                        className='RegisterSolicitudServicioForm-confirmation-yes'
                         type="button"
                         onClick={() => {
                           setConfirmedSelection(true);
@@ -311,7 +311,7 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                         Sí
                       </button>
                       <button
-                        className='confirmation-no'
+                        className='RegisterSolicitudServicioForm-confirmation-no'
                         type="button"
                         onClick={() => {
                           setSelectedEquipo(null);
@@ -325,8 +325,8 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                   </div>
 
 
-                  <div className="middle-separator"/>
-                  <div className="section-2">
+                  <div className="RegisterSolicitudServicioForm-middle-separator"/>
+                  <div className="RegisterSolicitudServicioForm-section-2">
                     {/* <div className="overlap-2">
                       <p className="text-wrapper-2">3- Solicitud creada en la fecha:</p>
                       <input
@@ -338,19 +338,19 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                       readOnly 
                       />
                     </div> */}
-                    <div className="overlap-3">
-                      <div className="text-wrapper-2">3- Aviso:</div>
+                    <div className="RegisterSolicitudServicioForm-overlap-3">
+                      <div className="RegisterSolicitudServicioForm-text-wrapper-2">3- Aviso:</div>
                       <input 
-                      className="div-2"
+                      className="RegisterSolicitudServicioForm-div-2"
                       name="aviso"
                       value={solicitudData.aviso}
                       onChange={handleChange}
                       />
                     </div>
-                    <div className="overlap-4">
-                      <div className="text-wrapper-2">4- Observación:</div>
+                    <div className="RegisterSolicitudServicioForm-overlap-4">
+                      <div className="RegisterSolicitudServicioForm-text-wrapper-2">4- Observación:</div>
                       <input
-                      className="div-2"
+                      className="RegisterSolicitudServicioForm-div-2"
                       name="observacion"
                       value={solicitudData.observacion}
                       onChange={handleChange}
@@ -386,14 +386,14 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                       </div>
 )} */}
                     <button 
-                    className="cancelar-button"
+                    className="RegisterSolicitudServicioForm-cancelar-button"
                     type="button"
                     onClick={handleCancel}
                     >
                       Cancelar
                     </button>
                     <button
-                    className="actualizar-button" 
+                    className="RegisterSolicitudServicioForm-actualizar-button" 
                     type='submit'
                     >
                       Registrar

@@ -1,4 +1,4 @@
-.div-wrapper {
+.RegisterSolicitudServicioForm-div-wrapper {
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -6,19 +6,19 @@
     width: 100%;
   }
   
-  .div-wrapper .overlap-wrapper {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-wrapper {
     height: 733px;
     width: 1012px;
   }
   
-  .div-wrapper .overlap {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap {
     height: 727px;
     left: 19px;
     position: relative;
     width: 978px;
   }
   
-  .div-wrapper .container {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-container {
     background-color: #ffffff;
     border-radius: 10px;
     height: 730px;
@@ -28,7 +28,7 @@
     width: 976px;
   }
   
-  .div-wrapper .header {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-header {
     background-color: transparent;
     height: 149px;
     left: 0;
@@ -37,7 +37,7 @@
     width: 978px;
   }
   
-  .div-wrapper .overlap-group {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-group {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 149px;
@@ -45,7 +45,7 @@
     width: 976px;
   }
   
-  .div-wrapper .solicitud-id {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-solicitud-id {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 28px;
@@ -60,7 +60,7 @@
     width: 817px;
   }
   
-  .div-wrapper .section {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-section {
     height: 540px;
     left: 34px;
     position: absolute;
@@ -68,7 +68,7 @@
     width: 442px;
   }
   
-  .div-wrapper .tipo-servicio-p {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-tipo-servicio-p {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
@@ -83,7 +83,7 @@
     width: 416px;
   }
   
-  .div-wrapper .tipo-servicio-input {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-tipo-servicio-input {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 40px;
@@ -93,7 +93,7 @@
     width: 417px;
   }
   
-  .div-wrapper .busqueda-equipos-p {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-busqueda-equipos-p {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
@@ -107,7 +107,7 @@
     width: 416px;
   }
   
-  .div-wrapper .busqueda-equipos {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-busqueda-equipos {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 40px;
@@ -118,7 +118,7 @@
     width: 305px;
   }
   
-  .div-wrapper .div {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-div {
     background-color: #00ddfa;
     border-radius: 10px;
     height: 40px;
@@ -130,7 +130,7 @@
     width: 100px;
   }
   
-  .div-wrapper .equipos-encontrados {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipos-encontrados {
       display: flex;
       overflow-x: auto; /* Permite desplazamiento horizontal */
       overflow-y: hidden; /* Oculta el desplazamiento vertical */
@@ -141,14 +141,14 @@
       width: 440px;
   }
   
-  .div-wrapper .equipo-card {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-card {
     height: 146px;
     left: 89px; 
     margin-top: 30px;
     width: 280px;
   }
   
-  .div-wrapper .overlap-group-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-group-2 {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 146px;
@@ -156,7 +156,7 @@
     width: 260px;
   }
   
-  .div-wrapper .equipo-classname-p {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-classname-p {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 13px;
@@ -171,7 +171,7 @@
     width: 190px;
   }
   
-  .div-wrapper .equipo-oid {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-oid {
     color: #ffffff;
     font-family: "Inter-Regular", Helvetica;
     font-size: 10px;
@@ -187,7 +187,7 @@
     width: 260px;
   }
   
-  .div-wrapper .serial-p {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-serial-p {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -201,7 +201,7 @@
     width: 84px;
   }
   
-  .div-wrapper .location-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-location-icon {
     height: 14px;
     left: 95px;
     color: #00ddfa;
@@ -210,7 +210,7 @@
     width: 18px;
   }
   
-  .div-wrapper .location-text {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-location-text {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -224,7 +224,7 @@
     width: 74px;
   }
   
-  .div-wrapper .frequency-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-frequency-icon {
     height: 14px;
     left: 189px;
     color: #00ddfa;
@@ -233,7 +233,7 @@
     width: 17px;
   }
   
-  .div-wrapper .frequency-value {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-frequency-value {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -247,7 +247,7 @@
     width: 50px;
   }
   
-  .div-wrapper .sede-name {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-name {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 10px;
@@ -263,7 +263,7 @@
     width: 259px;
   }
   
-  .div-wrapper .sede-oid {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-oid {
     color: #ffffff;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -279,7 +279,7 @@
     width: 260px;
   }
   
-  .div-wrapper .client-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-client-icon {
     height: 16px;
     color: #00ddfa;
     left: 4px;
@@ -288,7 +288,7 @@
     width: 17px;
   }
   
-  .div-wrapper .client-name {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-client-name {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -302,7 +302,7 @@
     width: 69px;
   }
   
-  .div-wrapper .icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-icon {
     height: 14px;
     color: #00ddfa;
     left: 95px;
@@ -311,7 +311,7 @@
     width: 17px;
   }
   
-  .div-wrapper .sede-address {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-address {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -325,7 +325,7 @@
     width: 74px;
   }
   
-  .div-wrapper .sede-telephone-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-telephone-icon {
     height: 14px;
     color: #00ddfa;
     left: 189px;
@@ -334,7 +334,7 @@
     width: 17px;
   }
   
-  .div-wrapper .sede-telephone-value {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-telephone-value {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -347,7 +347,7 @@
     width: 49px;
   }
   
-  .div-wrapper .seleccionar-button {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-seleccionar-button {
     background-color: #00ddfa;
     border-radius: 5px;
     height: 15px;
@@ -360,7 +360,7 @@
     width: 170px;
   }
   
-  .div-wrapper .eye-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-eye-icon {
     height: 19px;
     left: 230px;
     color: #00ddfa;
@@ -370,7 +370,7 @@
     width: 22px;
   }
   
-  .div-wrapper .text-wrapper {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-text-wrapper {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
@@ -385,7 +385,7 @@
     width: 438px;
   }
   
-  .div-wrapper .equipo-selected {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-selected {
       height: 177px;
       left: 11px;
       position: absolute;
@@ -394,12 +394,12 @@
       transition: top 0.3s; /* Añade una transición para el cambio de posición */
     }
     
-    .div-wrapper .equipo-selected.search-active {
+    .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-selected.search-active {
       top: 380px; /* Nueva posición cuando la búsqueda está activa */
     }
   
   
-  .div-wrapper .overlap-group-wrapper {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-group-wrapper {
     height: 145px;
     left: 73px;
     position: absolute;
@@ -409,7 +409,7 @@
   
   }
   
-  .div-wrapper .overlap-group-3 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-group-3 {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 145px;
@@ -417,7 +417,7 @@
     width: 270px;
   }
   
-  .div-wrapper .equipo {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 13px;
@@ -432,7 +432,7 @@
     width: 197px;
   }
   
-  .div-wrapper .equipo-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-2 {
     color: #ffffff;
     font-family: "Inter-Regular", Helvetica;
     font-size: 10px;
@@ -448,7 +448,7 @@
     width: 270px;
   }
   
-  .div-wrapper .serial {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-serial {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -462,7 +462,7 @@
     width: 88px;
   }
   
-  .div-wrapper .location {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-location {
     height: 14px;
     color: #00ddfa;
     left: 99px;
@@ -471,7 +471,7 @@
     width: 18px;
   }
   
-  .div-wrapper .location-value {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-location-value {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -485,7 +485,7 @@
     width: 77px;
   }
   
-  .div-wrapper .frecuency {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-frecuency {
     height: 14px;
     left: 196px;
     color: #00ddfa;
@@ -494,7 +494,7 @@
     width: 17px;
   }
   
-  .div-wrapper .frecuency-value {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-frecuency-value {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -508,7 +508,7 @@
     width: 52px;
   }
   
-  .div-wrapper .sede-name-title {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-name-title {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 10px;
@@ -524,7 +524,7 @@
     width: 269px;
   }
   
-  .div-wrapper .sede {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede {
     color: #ffffff;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -540,7 +540,7 @@
     width: 270px;
   }
   
-  .div-wrapper .client {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-client {
     height: 16px;
     left: 5px;
     color: #00ddfa;
@@ -549,7 +549,7 @@
     width: 17px;
   }
   
-  .div-wrapper .client-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-client-2 {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -563,7 +563,7 @@
     width: 72px;
   }
   
-  .div-wrapper .img {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-img {
     height: 14px;
     left: 99px;
     color: #00ddfa;
@@ -572,7 +572,7 @@
     width: 17px;
   }
   
-  .div-wrapper .sede-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-2 {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -586,7 +586,7 @@
     width: 77px;
   }
   
-  .div-wrapper .sede-telephone {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-telephone {
     height: 14px;
     left: 196px;
     color: #00ddfa;
@@ -595,7 +595,7 @@
     width: 17px;
   }
   
-  .div-wrapper .sede-telephone-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-sede-telephone-2 {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -608,7 +608,7 @@
     width: 52px;
   }
   
-  .div-wrapper .eye {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-eye {
     height: 19px;
     left: 239px;
     color: #00ddfa;
@@ -618,7 +618,7 @@
     width: 23px;
   }
   
-  .div-wrapper .confirmed-selection {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-confirmed-selection {
     background-color: #00ddfa;
     border-radius: 5px;
     height: 15px;
@@ -631,7 +631,7 @@
     width: 170px;
   }
   
-  .div-wrapper .equipo-selected-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-selected-2 {
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
@@ -646,7 +646,7 @@
     width: 416px;
   }
   
-  .div-wrapper .middle-separator {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-middle-separator {
     height: 539px;
     left: 487px;
     object-fit: cover;
@@ -655,7 +655,7 @@
     width: 5px;
   }
   
-  .div-wrapper .section-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-section-2 {
     height: 541px;
     left: 517px;
     position: absolute;
@@ -663,7 +663,7 @@
     width: 440px;
   }
   
-  .div-wrapper .overlap-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-2 {
     height: 72px;
     left: 0;
     position: absolute;
@@ -671,7 +671,7 @@
     width: 417px;
   }
   
-  .div-wrapper .text-wrapper-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-text-wrapper-2 {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
@@ -685,7 +685,7 @@
     width: 416px;
   }
   
-  .div-wrapper .div-2 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-div-2 {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 40px;
@@ -696,7 +696,7 @@
     width: 417px;
   }
   
-  .div-wrapper .overlap-3 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-3 {
     height: 72px;
     left: 0;
     position: absolute;
@@ -704,7 +704,7 @@
     width: 417px;
   }
   
-  .div-wrapper .overlap-4 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-4 {
     height: 72px;
     left: 0;
     position: absolute;
@@ -712,7 +712,7 @@
     width: 417px;
   }
   
-  .div-wrapper .overlap-5 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-5 {
     height: 72px;
     left: 0;
     position: absolute;
@@ -720,7 +720,7 @@
     width: 417px;
   }
   
-  .div-wrapper .aprobar-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-aprobar-icon {
     height: 55px;
     left: 129px;
     color: #08da08;
@@ -730,7 +730,7 @@
     width: 55px;
   }
   
-  .div-wrapper .aprobar-text {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-aprobar-text {
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
     font-weight: 400;
@@ -745,7 +745,7 @@
     width: 86px;
   }
   
-  .div-wrapper .rechazar-icon {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-rechazar-icon {
     height: 55px;
     color: #da2808;
     left: 233px;
@@ -754,7 +754,7 @@
     width: 55px;
   }
   
-  .div-wrapper .rechazar-text {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-rechazar-text {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 15px;
@@ -770,7 +770,7 @@
     width: 86px;
   }
   
-  .div-wrapper .overlap-6 {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-overlap-6 {
     height: 72px;
     left: 9px;
     position: absolute;
@@ -778,7 +778,7 @@
     width: 417px;
   }
   
-  .div-wrapper .cancelar-button {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-cancelar-button {
     background-color: #d9d9d9;
     border-radius: 5px;
     border-style: none;
@@ -789,7 +789,7 @@
     width: 121px;
   }
   
-  .div-wrapper .actualizar-button {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-actualizar-button {
     background-color: #00ddfa;
     border-radius: 5px;
     border-style: none;
@@ -800,7 +800,7 @@
     width: 121px;
   }
   
-  .div-wrapper .equipos-list {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipos-list {
       display: flex; /* Alinea los elementos de forma flexible */
       flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
       overflow-x: auto; /* Permite desplazamiento horizontal */
@@ -811,13 +811,13 @@
   
   
   /* Este estilo es para cada LI individual, que contiene la tarjeta del equipo */
-  .div-wrapper .equipo-card-list {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-equipo-card-list {
       flex: 0 0 auto; /* Los elementos no crecerán o encogerán y tendrán un ancho automático basado en su contenido */
       margin-right: 10px; /* Espacio a la derecha de cada tarjeta */
       /* margin-right es opcional dependiendo de si quieres un espacio entre las tarjetas */
   }
   
-  .div-wrapper .confirmation-div {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-confirmation-div {
   
       height: 20px;
       width: 430px;
@@ -826,7 +826,7 @@
       position: relative;
   }
   
-  .div-wrapper .confirmation-yes {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-confirmation-yes {
       position: relative;
       height: 42px;
       width: 121px;
@@ -838,7 +838,7 @@
       background-color: #00ddfa;
   }
   
-  .div-wrapper .confirmation-no {
+  .RegisterSolicitudServicioForm-div-wrapper .RegisterSolicitudServicioForm-confirmation-no {
       position: relative;
       height: 42px;
       width: 121px;

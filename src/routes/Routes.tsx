@@ -59,6 +59,8 @@ import SolicitudesServiciosPendientePreventivo from '../modules/solicitudes/page
 import SolicitudesServiciosPendienteCIG from '../modules/solicitudes/pages/SolicitudesServiciosPendienteCIG';
 import SolicitudesServiciosAprobadas from '../modules/solicitudes/pages/SolicitudesServiciosAprobadas';
 import SolicitudesServiciosRechazadas from '../modules/solicitudes/pages/SolicitudesServiciosRechazadas';
+import OrdenesPages from '../modules/ordenes/pages/OrdenesServicioPages';
+import OrdenesDetailPage from '../modules/ordenes/pages/OrdenesDetailPage';
 
 
 export const AppRoutes = ()=>{
@@ -142,6 +144,13 @@ export const AppRoutes = ()=>{
           <Route path="/solicitudes-servicios-rechazadas" element={<SolicitudesServiciosRechazadas/>} />
           <Route path="/solicitudes-servicios/:id" element={<SolicitudesServicioDetailPage/>} />
           <Route path="/solicitudes-servicios-register" element={<RegisterSolicitudServicioPage/>} />
+
+
+           {/* MODULO ORDENES */}
+           <Route path="/ordenes" element={<OrdenesPages/>} />
+           <Route path="/ordenes/:id" element={<OrdenesDetailPage/>} />
+
+
           {/* Unauthorized Page */}
           {/* <Route path="/unauthorized" element={<UnauthorizedPage />}/> */}
 

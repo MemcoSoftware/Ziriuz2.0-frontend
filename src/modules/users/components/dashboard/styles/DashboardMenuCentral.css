@@ -154,6 +154,20 @@
   color: #fff;
 }
 
+.DashboardMenuCentral-closed-icon {
+  /* Ajustar estos valores según tu diseño */
+  height: 30px !important;
+  width: 30px !important ;
+  border-radius: 50%;
+  position: absolute; /* o relative, dependiendo de la estructura de tu HTML */
+  top: 17px; /* Ajusta la posición vertical */
+  right: -2.2px; /* Ajusta la posición horizontal */
+  color: #00ddfa; /* O el color que desees */
+}
+
+.DashboardMenuCentral-closed-icon:hover {
+  color: #fff;
+}
 /*//////////////////////////LINEAS DE CONTORNO//////////////////////////////////////*/
 
 .DashboardMenuCentral-a{

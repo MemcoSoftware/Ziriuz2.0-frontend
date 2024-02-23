@@ -6,6 +6,7 @@ import DashboardMenuCentralGenerales  from './DashboardMenuCentralGenerales';
 import DashboardMenuCentralEquipos from '../../../equipos/components/dashboard_equipos/DashboardMenuCentralEquipos';
 import DashboardMenuCentralProcesosProtocolos from '../../../procesos_&_protocolos/components/dashboard_procesos&protocolos/DashboardMenuCentral_Procesos&Protocolos';
 import DashboardSolicitudesDeServicios from '../../../solicitudes/components/dashboard_solicitudes_servicios/DashboardSolicitudesDeServicios';
+import DashboardOrdenesDeServicios from '../../../ordenes/components/dashboard_ordenes_servicios/DashboardOrdenesServicios';
 const DashboardMenuCentral = () => {
     const navigate = useNavigate();
 
@@ -75,6 +76,18 @@ const DashboardMenuCentral = () => {
                                     <label htmlFor="acordeon-4">Solicitudes de Servicio</label>
                                         <div className="acordeon-content">
                                         <DashboardSolicitudesDeServicios/>                    
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="wrapper">
+                            <div className="acordeon-core">
+                                <div className="acordeon">
+                                    <input id="acordeon-5" type="checkbox" name="acordeons"/>
+                                    <label htmlFor="acordeon-5">Ordenes de Servicio</label>
+                                        <div className="acordeon-content">
+                                        <DashboardOrdenesDeServicios/>                    
                                         </div>
                                 </div>
                             </div>

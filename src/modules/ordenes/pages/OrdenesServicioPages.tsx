@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllOrdenes } from '../services/ordenesService';
 import DashboardMenuLateral from '../../users/components/dashboard/DashboardMenulateral';
-// import './styles/OrdenesPages.css';
+import './styles/OrdenesServicioPages.css';
 import { Orden } from '../utils/types/Orden.type';
 import { useNavigate } from 'react-router-dom';
 import OrdenCard from '../components/ordenes_servicios/OrdenCard';

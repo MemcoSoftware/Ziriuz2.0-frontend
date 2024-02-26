@@ -1,11 +1,46 @@
 import React from 'react';
 import { SolicitudServicio } from '../../../solicitudes/utils/types/SolicitudServicio.type';
+import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import DescriptionIcon from '@mui/icons-material/Description';
+
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import PersonIcon from '@mui/icons-material/Person';
+import CallIcon from '@mui/icons-material/Call';
+import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
+import EmailIcon from '@mui/icons-material/Email';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ClassIcon from '@mui/icons-material/Class';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import DevicesOtherOutlinedIcon from '@mui/icons-material/DevicesOtherOutlined';
+import QrCodeIcon from '@mui/icons-material/QrCode';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 
 interface SolicitudServicioComponentProps {
   solicitudServicio: SolicitudServicio;
 }
 
 const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({ solicitudServicio }) => {
+  const renderEstadoIcon = (estado: string) => {
+    switch (estado) {
+      case 'Pendiente':
+        return <HelpOutlinedIcon className="SolicitudServicioComponent-estado-pendiente" />;
+      case 'Aprobada':
+        return <CheckCircleIcon className="SolicitudServicioComponent-estado-aprobada" />;
+      case 'Rechazada':
+        return <CancelIcon className="SolicitudServicioComponent-estado-rechazada" />;
+      default:
+        return null; // o puedes poner un icono por defecto
+    }
+  };
   return (
     <div>
       <p>ID Solicitud Servicio: {solicitudServicio._id || 'N/A'}</p>
@@ -23,20 +58,21 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
               <div className="geninfo-section">
                 <div className="overlap">
                   <div className="geninfo-title">GENERAL</div>
-                  <img className="service-icon" alt="Service icon" src="service-icon.png" />
+                  <HomeRepairServiceIcon className="service-icon"/>
                   <div className="service-value">{solicitudServicio.id_servicio.servicio || 'N/A'}</div>
-                  <img className="created-icon" alt="Created icon" src="created-icon.png" />
+                  <CalendarMonthIcon className="created-icon"/>
                   <div className="created-value">{solicitudServicio.creacion || 'N/A'}</div>
                   <img className="geninfo-separator" alt="Geninfo separator" src="geninfo-separator.svg" />
-                  <img className="aviso-icon" alt="Aviso icon" src="aviso-icon.png" />
+                  <AnnouncementIcon className="aviso-icon"/>
                   <div className="aviso-value">{solicitudServicio.aviso || 'N/A'}</div>
-                  <img className="observacion-icon" alt="Observacion icon" src="observacion-icon.png" />
+                  <DescriptionIcon className="observacion-icon"/>
                   <div className="observacion-value">{solicitudServicio.observacion || 'N/A'}</div>
                 </div>
               </div>
               <div className="estado-section">
                 <div className="overlap-2">
-                  <img className="estado-icon" alt="Estado icon" src="estado-icon.png" />
+                {renderEstadoIcon(solicitudServicio.id_solicitud_estado.estado)}
+
                   <div className="estado-value">{solicitudServicio.id_solicitud_estado.estado || 'N/A'}</div>
                   <img className="estado-separator" alt="Estado separator" src="estado-separator.svg" />
                   <div className="text-wrapper">{solicitudServicio.observacion_estado || 'N/A'}</div>

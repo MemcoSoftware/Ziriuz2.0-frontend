@@ -1311,3 +1311,29 @@
   top: 77px;
   width: 173px;
 }
+
+.solicitudes .SolicitudServicioComponent-estado-pendiente {
+  height: 45px;
+  left: 13px;
+  position: absolute;
+  top: 9px;
+  width: 47px;
+  color: #dac508;
+}
+
+.solicitudes .SolicitudServicioComponent-estado-aprobada {
+  height: 45px;
+  left: 13px;
+  position: absolute;
+  top: 9px;
+  width: 47px;
+  color: #08da08;
+}
+.solicitudes .SolicitudServicioComponent-estado-rechazada {
+  height: 45px;
+  left: 13px;
+  position: absolute;
+  top: 9px;
+  width: 47px;
+  color: #da2808;
+}

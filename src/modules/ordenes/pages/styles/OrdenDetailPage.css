@@ -165,6 +165,7 @@
   height: 40px;
   left: 85px;
   letter-spacing: 0;
+  cursor: pointer;
   line-height: normal;
   position: absolute;
   text-align: center;
@@ -205,6 +206,7 @@
 
 .solicitudes .service-icon {
   height: 19px;
+  color: #00ddfa;
   left: 15px;
   position: absolute;
   top: 55px;
@@ -228,6 +230,7 @@
 .solicitudes .created-icon {
   height: 19px;
   left: 15px;
+  color: #00ddfa;
   position: absolute;
   top: 95px;
   width: 28px;
@@ -250,6 +253,7 @@
 .solicitudes .geninfo-separator {
   height: 88px;
   left: 200px;
+  background-color: #636b6f61;
   object-fit: cover;
   position: absolute;
   top: 42px;
@@ -259,6 +263,7 @@
 .solicitudes .aviso-icon {
   height: 19px;
   left: 219px;
+  color: #00ddfa;
   position: absolute;
   top: 55px;
   width: 28px;
@@ -280,6 +285,7 @@
 .solicitudes .observacion-icon {
   height: 19px;
   left: 219px;
+  color: #00ddfa;
   position: absolute;
   top: 95px;
   width: 28px;
@@ -317,6 +323,7 @@
 .solicitudes .estado-icon {
   height: 37px;
   left: 13px;
+  color: #00ddfa;
   position: absolute;
   top: 7px;
   width: 49px;
@@ -339,6 +346,7 @@
 .solicitudes .estado-separator {
   height: 34px;
   left: 216px;
+  background-color: #636b6f61;
   object-fit: cover;
   position: absolute;
   top: 11px;
@@ -411,7 +419,7 @@
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 15px;
+  top: 17px;
   white-space: nowrap;
   width: 400px;
 }
@@ -419,6 +427,8 @@
 .solicitudes .eye {
   height: 17px;
   left: 364px;
+  color: #636b6f;
+  cursor: pointer;
   position: absolute;
   top: 0;
   width: 21px;
@@ -435,6 +445,7 @@
 .solicitudes .username-icon {
   height: 14px;
   left: 7px;
+  color: #00ddfa;
   position: absolute;
   top: 2px;
   width: 28px;
@@ -458,6 +469,7 @@
 .solicitudes .telephone-icon {
   height: 14px;
   left: 229px;
+  color: #00ddfa;
   position: absolute;
   top: 2px;
   width: 28px;
@@ -489,6 +501,7 @@
 .solicitudes .cc-icon {
   height: 14px;
   left: 7px;
+  color: #00ddfa;
   position: absolute;
   top: 26px;
   width: 28px;
@@ -512,6 +525,7 @@
 .solicitudes .email-icon {
   height: 14px;
   left: 229px;
+  color: #00ddfa;
   position: absolute;
   top: 26px;
   width: 28px;
@@ -554,6 +568,7 @@
 .solicitudes .line {
   height: 1px;
   left: 0;
+  background-color: #537895;
   object-fit: cover;
   position: absolute;
   top: 5px;
@@ -563,6 +578,7 @@
 .solicitudes .img {
   height: 1px;
   left: 207px;
+  background-color: #537895;
   object-fit: cover;
   position: absolute;
   top: 5px;
@@ -584,6 +600,7 @@
   height: 46px;
   left: 199px;
   object-fit: cover;
+  background-color: #636b6f61;
   position: absolute;
   top: 0;
   width: 2px;
@@ -624,7 +641,7 @@
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 16px;
+  top: 19px;
   white-space: nowrap;
   width: 400px;
 }
@@ -632,6 +649,7 @@
 .solicitudes .user {
   height: 14px;
   left: 7px;
+  color: #00ddfa;
   position: absolute;
   top: 142px;
   width: 28px;
@@ -656,6 +674,7 @@
   height: 14px;
   left: 7px;
   position: absolute;
+  color: #00ddfa;
   top: 166px;
   width: 28px;
 }
@@ -679,6 +698,7 @@
   height: 14px;
   left: 229px;
   position: absolute;
+  color: #00ddfa;
   top: 141px;
   width: 28px;
 }
@@ -700,6 +720,7 @@
 
 .solicitudes .email {
   height: 14px;
+  color: #00ddfa;
   left: 229px;
   position: absolute;
   top: 165px;
@@ -723,6 +744,7 @@
   height: 46px;
   left: 199px;
   object-fit: cover;
+  background-color: #636b6f61;
   position: absolute;
   top: 139px;
   width: 2px;
@@ -779,6 +801,8 @@
 
 .solicitudes .eye-2 {
   height: 21px;
+  color: #636b6f;
+  cursor: pointer;
   left: 489px;
   position: absolute;
   top: 0;
@@ -804,6 +828,7 @@
 .solicitudes .clientname-icon {
   height: 22px;
   left: 39px;
+  color: #00ddfa;
   position: absolute;
   top: 45px;
   width: 28px;
@@ -825,6 +850,7 @@
 .solicitudes .nit-icon {
   height: 22px;
   left: 39px;
+  color: #00ddfa;
   position: absolute;
   top: 76px;
   width: 28px;
@@ -847,6 +873,7 @@
 .solicitudes .clientphone-icon {
   height: 22px;
   left: 306px;
+  color: #00ddfa;
   position: absolute;
   top: 45px;
   width: 28px;
@@ -869,6 +896,7 @@
 .solicitudes .clientinfo-separator {
   height: 66px;
   left: 263px;
+  background-color: #636b6f61;
   object-fit: cover;
   position: absolute;
   top: 43px;
@@ -878,6 +906,7 @@
 .solicitudes .clientemail-icon {
   height: 22px;
   left: 306px;
+  color: #00ddfa;
   position: absolute;
   top: 76px;
   width: 28px;
@@ -907,6 +936,7 @@
 .solicitudes .line-2 {
   height: 1px;
   left: 0;
+  background-color: #537895;
   object-fit: cover;
   position: absolute;
   top: 5px;
@@ -916,6 +946,7 @@
 .solicitudes .line-3 {
   height: 1px;
   left: 271px;
+  background-color: #537895;
   object-fit: cover;
   position: absolute;
   top: 5px;
@@ -983,6 +1014,8 @@
 
 .solicitudes .eye-3 {
   height: 21px;
+  color: #636b6f;
+  cursor: pointer;
   left: 489px;
   position: absolute;
   top: 1px;
@@ -992,6 +1025,7 @@
 .solicitudes .class-icon {
   height: 20px;
   left: 39px;
+  color: #00ddfa;
   position: absolute;
   top: 40px;
   width: 28px;
@@ -1013,6 +1047,7 @@
 .solicitudes .marca-icon {
   height: 20px;
   left: 39px;
+  color: #00ddfa;
   position: absolute;
   top: 68px;
   width: 28px;
@@ -1034,6 +1069,7 @@
 .solicitudes .model-icon {
   height: 20px;
   left: 39px;
+  color: #00ddfa;
   position: absolute;
   top: 94px;
   width: 28px;
@@ -1056,6 +1092,7 @@
   height: 75px;
   left: 263px;
   object-fit: cover;
+  background-color: #636b6f61;
   position: absolute;
   top: 38px;
   width: 1px;
@@ -1064,6 +1101,7 @@
 .solicitudes .serial-icon {
   height: 20px;
   left: 306px;
+  color: #00ddfa;
   position: absolute;
   top: 40px;
   width: 28px;
@@ -1096,6 +1134,7 @@
 .solicitudes .client {
   height: 20px;
   left: 0;
+  color: #00ddfa;
   position: absolute;
   top: 0;
   width: 28px;
@@ -1126,6 +1165,7 @@
 .solicitudes .ubicacion-icon {
   height: 20px;
   left: 306px;
+  color: #00ddfa;
   position: absolute;
   top: 94px;
   width: 28px;
@@ -1157,6 +1197,7 @@
   left: 0;
   object-fit: cover;
   position: absolute;
+  background-color: #537895;
   top: 5px;
   width: 256px;
 }
@@ -1165,6 +1206,7 @@
   height: 1px;
   left: 270px;
   object-fit: cover;
+  background-color: #537895;
   position: absolute;
   top: 5px;
   width: 255px;
@@ -1221,6 +1263,7 @@
 .solicitudes .sede-icon {
   height: 22px;
   left: 39px;
+  color: #00ddfa;
   position: absolute;
   top: 39px;
   width: 28px;
@@ -1243,6 +1286,7 @@
   height: 22px;
   left: 39px;
   position: absolute;
+  color: #00ddfa;
   top: 67px;
   width: 28px;
 }
@@ -1263,6 +1307,7 @@
 .solicitudes .sedeinfo-separator {
   height: 48px;
   left: 263px;
+  background-color: #636b6f61;
   object-fit: cover;
   position: absolute;
   top: 41px;
@@ -1272,6 +1317,7 @@
 .solicitudes .sedetelephone-icon {
   height: 22px;
   left: 306px;
+  color: #00ddfa;
   position: absolute;
   top: 39px;
   width: 28px;
@@ -1294,6 +1340,7 @@
 .solicitudes .sedeemail-icon {
   height: 22px;
   left: 306px;
+  color: #00ddfa;
   position: absolute;
   top: 67px;
   width: 28px;

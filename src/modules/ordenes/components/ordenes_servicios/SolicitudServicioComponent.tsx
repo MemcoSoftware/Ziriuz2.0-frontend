@@ -23,12 +23,15 @@ import QrCodeIcon from '@mui/icons-material/QrCode';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import { useNavigate } from 'react-router-dom';
 
 interface SolicitudServicioComponentProps {
   solicitudServicio: SolicitudServicio;
 }
 
 const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({ solicitudServicio }) => {
+  const navigate = useNavigate();
+
   const renderEstadoIcon = (estado: string) => {
     switch (estado) {
       case 'Pendiente':
@@ -39,6 +42,41 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
         return <CancelIcon className="SolicitudServicioComponent-estado-rechazada" />;
       default:
         return null; // o puedes poner un icono por defecto
+    }
+  };
+
+  const handleClickIdCreador = () => {
+    if (solicitudServicio !== null && solicitudServicio.id_creador) {
+      navigate(`/users/${solicitudServicio.id_creador._id}`);
+    }
+  };
+  
+  const handleClickIdCambiador = () => {
+    if (solicitudServicio !== null && solicitudServicio.id_cambiador) {
+      navigate(`/users/${solicitudServicio.id_cambiador._id}`);
+    }
+  };
+  
+  const handleClickIdCliente = () => {
+    if (solicitudServicio !== null && solicitudServicio.id_equipo.id_sede.id_client._id) {
+      navigate(`/clientes/${solicitudServicio.id_equipo.id_sede.id_client._id}`);
+    }
+  };
+
+  const handleClickIdEquipo = () => {
+    if (solicitudServicio !== null && solicitudServicio.id_equipo._id) {
+      navigate(`/equipos/${solicitudServicio.id_equipo._id}`);
+    }
+  };
+
+  const handleClickIdSede = () => {
+    if (solicitudServicio !== null && solicitudServicio.id_equipo.id_sede._id) {
+      navigate(`/sedes/${solicitudServicio.id_equipo.id_sede._id}`);
+    }
+  };
+  const handleClickIdSolicitud = () => {
+    if (solicitudServicio !== null && solicitudServicio._id) {
+      navigate(`/solicitudes-servicios/${solicitudServicio._id}`);
     }
   };
   return (
@@ -52,7 +90,7 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
             <div className="div">
               <header className="header">
                 <div className="overlap-group">
-                  <p className="solicitud-id">SOLICITUD DE SERVICIO - {solicitudServicio._id || 'N/A'}</p>
+                  <p className="solicitud-id" onClick={handleClickIdSolicitud}>SOLICITUD DE SERVICIO - {solicitudServicio._id || 'N/A'}</p>
                 </div>
               </header>
               <div className="geninfo-section">
@@ -62,7 +100,7 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
                   <div className="service-value">{solicitudServicio.id_servicio.servicio || 'N/A'}</div>
                   <CalendarMonthIcon className="created-icon"/>
                   <div className="created-value">{solicitudServicio.creacion || 'N/A'}</div>
-                  <img className="geninfo-separator" alt="Geninfo separator" src="geninfo-separator.svg" />
+                  <div className="geninfo-separator"/>
                   <AnnouncementIcon className="aviso-icon"/>
                   <div className="aviso-value">{solicitudServicio.aviso || 'N/A'}</div>
                   <DescriptionIcon className="observacion-icon"/>
@@ -74,7 +112,7 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
                 {renderEstadoIcon(solicitudServicio.id_solicitud_estado.estado)}
 
                   <div className="estado-value">{solicitudServicio.id_solicitud_estado.estado || 'N/A'}</div>
-                  <img className="estado-separator" alt="Estado separator" src="estado-separator.svg" />
+                  <div className="estado-separator"/>
                   <div className="text-wrapper">{solicitudServicio.observacion_estado || 'N/A'}</div>
                 </div>
               </div>
@@ -83,44 +121,44 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
                   <div className="overlap-4">
                     <div className="creador-title">CREADOR SOLICITUD</div>
                     <div className="creador-oid">ID: {solicitudServicio.id_creador._id || 'N/A'}</div>
-                    <img className="eye" alt="Eye" src="eye.png" />
+                    <RemoveRedEyeIcon className="eye" onClick={handleClickIdCreador}/>
                   </div>
                   <div className="overlap-5">
-                    <img className="username-icon" alt="Username icon" src="username-icon.png" />
+                    <PersonIcon className="username-icon"/>
                     <div className="creador-username">{solicitudServicio.id_creador.username || 'N/A'}</div>
-                    <img className="telephone-icon" alt="Telephone icon" src="telephone-icon.png" />
+                    <CallIcon className="telephone-icon"/>
                     <div className="creador-telephone">{solicitudServicio.id_creador.telefono || 'N/A'}</div>
                     <div className="overlap-6">
-                      <img className="cc-icon" alt="Cc icon" src="cc-icon.png" />
+                      <ContactEmergencyIcon className="cc-icon"/>
                       <div className="creador-cc">{solicitudServicio.id_creador.cedula || 'N/A'}</div>
-                      <img className="email-icon" alt="Email icon" src="email-icon.png" />
+                      <EmailIcon className="email-icon"/>
                       <div className="overlap-7">
                         <div className="creador-email">{solicitudServicio.id_creador.email || 'N/A'}</div>
                         <div className="separator-info">
                           <div className="overlap-group-2">
-                            <img className="line" alt="Line" src="line-4.svg" />
-                            <img className="img" alt="Line" src="line-5.svg" />
+                            <div className="line"/>
+                            <div className="img"/>
                             <div className="ellipse" />
                           </div>
                         </div>
                       </div>
-                      <img className="separator" alt="Separator" src="separator-1.svg" />
+                      <div className="separator"/>
                     </div>
                   </div>
                   <div className="overlap-8">
                     <div className="actualizador-title">ACTUALIZADOR ESTADO</div>
                     <div className="actualizador-oid">ID: {solicitudServicio.id_cambiador._id || 'N/A'}</div>
-                    <img className="eye" alt="Eye" src="image.png" />
+                    <RemoveRedEyeIcon className="eye" onClick={handleClickIdCambiador}/>
                   </div>
-                  <img className="user" alt="User" src="user-icon2.png" />
+                  <PersonIcon className="user"/>
                   <div className="actualizador">{solicitudServicio.id_cambiador.username || 'N/A'}</div>
-                  <img className="cc" alt="Cc" src="cc-icon2.png" />
+                  <ContactEmergencyIcon className="cc"/>
                   <div className="actualizador-cc">{solicitudServicio.id_cambiador.cedula || 'N/A'}</div>
-                  <img className="telephone" alt="Telephone" src="telephone-icon2.png" />
+                  <CallIcon className="telephone"/>
                   <div className="actualizador-2">{solicitudServicio.id_cambiador.telefono || 'N/A'}</div>
-                  <img className="email" alt="Email" src="email-icon2.png" />
+                  <EmailIcon className="email"/>
                   <div className="actualizador-email">{solicitudServicio.id_cambiador.email || 'N/A'}</div>
-                  <img className="separator-2" alt="Separator" src="separator-3.svg" />
+                  <div className="separator-2"/>
                 </div>
               </div>
               <div className="equipo-section">
@@ -128,22 +166,22 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
                   <div className="client-info">
                     <div className="overlap-group-3">
                       <div className="client-title">CLIENTE</div>
-                      <img className="eye-2" alt="Eye" src="eye-2.png" />
+                      <RemoveRedEyeIcon className="eye-2" onClick={handleClickIdCliente}/>
                     </div>
                     <div className="client-oid">ID: {solicitudServicio.id_equipo.id_sede.id_client._id || 'N/A'}</div>
-                    <img className="clientname-icon" alt="Clientname icon" src="clientname-icon.png" />
+                    <AccountBalanceIcon className="clientname-icon"/>
                     <div className="clientname-value">{solicitudServicio.id_equipo.id_sede.id_client.client_name || 'N/A'}</div>
-                    <img className="nit-icon" alt="Nit icon" src="nit-icon.png" />
+                    <ReceiptLongIcon className="nit-icon"/>
                     <div className="nit-value">{solicitudServicio.id_equipo.id_sede.id_client.client_nit || 'N/A'}</div>
-                    <img className="clientphone-icon" alt="Clientphone icon" src="clientphone-icon.png" />
+                    <CallIcon className="clientphone-icon"/>
                     <div className="clientphone-value">{solicitudServicio.id_equipo.id_sede.id_client.client_telefono || 'N/A'}</div>
-                    <img className="clientinfo-separator" alt="Clientinfo separator" src="clientinfo-separator.svg" />
-                    <img className="clientemail-icon" alt="Clientemail icon" src="clientemail-icon.png" />
+                    <div className="clientinfo-separator"/>
+                    <EmailIcon className="clientemail-icon"/>
                     <div className="clientemail-value">{solicitudServicio.id_equipo.id_sede.id_client.client_email || 'N/A'}</div>
                   </div>
                   <div className="separator-info-2">
-                    <img className="line-2" alt="Line" src="image.svg" />
-                    <img className="line-3" alt="Line" src="line-5-2.svg" />
+                    <div className="line-2" />
+                    <div className="line-3"/>
                     <div className="ellipse-2" />
                   </div>
                 </div>
@@ -151,47 +189,47 @@ const SolicitudServicioComponent: React.FC<SolicitudServicioComponentProps> = ({
                   <div className="overlap-10">
                     <div className="equipo-title">EQUIPO</div>
                     <div className="equipo-oid">ID: {solicitudServicio.id_equipo._id || 'N/A'}</div>
-                    <img className="eye-3" alt="Eye" src="eye-3.png" />
+                    <RemoveRedEyeIcon className="eye-3" onClick={handleClickIdEquipo} />
                   </div>
-                  <img className="class-icon" alt="Class icon" src="class-icon.png" />
+                  <ClassIcon className="class-icon"/>
                   <div className="class-value">{solicitudServicio.id_equipo.modelo_equipos.id_clase.clase || 'N/A'}</div>
-                  <img className="marca-icon" alt="Marca icon" src="marca-icon.png" />
+                  <LocalOfferOutlinedIcon className="marca-icon"/>
                   <div className="marca-value">{solicitudServicio.id_equipo.modelo_equipos.id_marca.marca || 'N/A'}</div>
-                  <img className="model-icon" alt="Model icon" src="model-icon.png" />
+                  <DevicesOtherOutlinedIcon className="model-icon"/>
                   <div className="model-value">{solicitudServicio.id_equipo.modelo_equipos.modelo || 'N/A'}</div>
-                  <img className="equipoinfo-separator" alt="Equipoinfo separator" src="equipoinfo-separator.svg" />
-                  <img className="serial-icon" alt="Serial icon" src="serial-icon.png" />
+                  <div className="equipoinfo-separator"/>
+                  <QrCodeIcon className="serial-icon"/>
                   <div className="serial-value">{solicitudServicio.id_equipo.serie || 'N/A'}</div>
                   <div className="client-wrapper">
-                    <img className="client" alt="Client" src="client.png" />
+                    <SpaceDashboardIcon className="client"/>
                   </div>
                   <div className="overlap-11">
                     <div className="text-wrapper-2">{solicitudServicio.id_equipo.id_area.area || 'N/A'}</div>
                   </div>
-                  <img className="ubicacion-icon" alt="Ubicacion icon" src="ubicacion-icon.png" />
+                  <LocationOnIcon className="ubicacion-icon"/>
                   <div className="ubicacion-value">{solicitudServicio.id_equipo.ubicacion || 'N/A'}</div>
                 </div>
                 <div className="overlap-wrapper">
                   <div className="overlap-group-2">
-                    <img className="line-4" alt="Line" src="line-4-2.svg" />
-                    <img className="line-5" alt="Line" src="line-5-3.svg" />
+                    <div className="line-4" />
+                    <div className="line-5" />
                     <div className="ellipse-2" />
                   </div>
                 </div>
                 <div className="sede-info">
                   <div className="overlap-12">
                     <div className="sede-title">SEDE</div>
-                    <img className="eye-2" alt="Eye" src="eye-4.png" />
+                    <RemoveRedEyeIcon className="eye-2" onClick={handleClickIdSede}/>
                   </div>
                   <div className="sede-oid">ID: {solicitudServicio.id_equipo.id_sede._id || 'N/A'}</div>
-                  <img className="sede-icon" alt="Sede icon" src="sede-icon.png" />
+                  <ApartmentIcon className="sede-icon"/>
                   <div className="sede-nombre">{solicitudServicio.id_equipo.id_sede.sede_nombre || 'N/A'}</div>
-                  <img className="location-icon" alt="Location icon" src="location-icon.png" />
+                  <LocationOnIcon className="location-icon"/>
                   <div className="sede-address">{solicitudServicio.id_equipo.id_sede.sede_address || 'N/A'}</div>
-                  <img className="sedeinfo-separator" alt="Sedeinfo separator" src="sedeinfo-separator.svg" />
-                  <img className="sedetelephone-icon" alt="Sedetelephone icon" src="sedetelephone-icon.png" />
+                  <div className="sedeinfo-separator"/>
+                  <CallIcon className="sedetelephone-icon"/>
                   <div className="sede-telefono">{solicitudServicio.id_equipo.id_sede.sede_telefono || 'N/A'}</div>
-                  <img className="sedeemail-icon" alt="Sedeemail icon" src="sedeemail-icon.png" />
+                  <EmailIcon className="sedeemail-icon"/>
                   <div className="sede-email">{solicitudServicio.id_equipo.id_sede.sede_email || 'N/A'}</div>
                 </div>
               </div>

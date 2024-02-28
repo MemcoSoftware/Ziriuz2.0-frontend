@@ -1,0 +1,400 @@
+.visitas {
+  /* background-color: #ffffff; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 205px;
+  width: 100%;
+}
+
+.visitas .div {
+  background-color: #ffffff;
+  border-radius: 10px;
+  top: 205px;
+  height: 566px;
+  overflow: hidden;
+  position: relative;
+  width: 1006px;
+}
+
+.visitas .header {
+  background-color: transparent;
+  height: 124px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1008px;
+}
+
+.visitas .overlap-group {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 124px;
+  position: relative;
+  width: 1006px;
+}
+
+.visitas .visita-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  height: 42px;
+  left: 82px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 41px;
+  width: 842px;
+}
+
+.visitas .all-visitas {
+  height: 398px;
+  left: 12px;
+  position: absolute;
+  top: 147px;
+  width: 407px;
+}
+
+.visitas .overlap {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 398px;
+  position: relative;
+  width: 399px;
+}
+
+.visitas .navbar {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 47px;
+  left: 7px;
+  position: absolute;
+  top: 9px;
+  width: 383px;
+}
+
+.visitas .pendiente-t {
+  color: #dac508;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 26px;
+  left: 5px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 88px;
+  cursor: pointer;
+}
+
+.visitas .estados {
+  height: 34px;
+  left: 98px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 6px;
+  width: 1px;
+}
+
+.visitas .abierta-t {
+  color: #08da08;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 26px;
+  left: 101px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 77px;
+  cursor: pointer;
+}
+
+.visitas .estados-separator {
+  height: 34px;
+  left: 182px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 6px;
+  width: 1px;
+}
+
+.visitas .cerrada-title {
+  color: #555555;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 26px;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 82px;
+  cursor: pointer;
+}
+
+.visitas .img {
+  height: 34px;
+  left: 273px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 6px;
+  width: 1px;
+}
+
+.visitas .rechazada-t {
+  color: #da2808;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  height: 26px;
+  left: 279px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 101px;
+  cursor: pointer;
+}
+
+.visitas .visitas-list {
+  background-color: #d9d9d9;
+  height: 319px;
+  left: 0;
+  position: absolute;
+  top: 66px;
+  width: 399px;
+  overflow-y: scroll; /* Habilita el scroll vertical */
+  overflow-x: hidden;
+  scrollbar-width: thin; /* Ajusta el ancho del scrollbar para Firefox */
+  scrollbar-color:  #636b6f61 transparent; /* Firefox */
+}
+
+/* Para Chrome, Safari y Edge */
+.visitas .visitas-list::-webkit-scrollbar {
+  width: 3px; /* Ajusta el ancho del scrollbar */
+}
+
+.visitas .visitas-list::-webkit-scrollbar-track {
+  background-color: transparent;
+
+}
+
+.visitas .visitas-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+    border-radius: 3px;
+}
+
+.visitas .visita-card {
+  height: 94px;
+  left: 12px;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  top: 8px;
+  width: 365px;
+  margin-bottom: 10px;
+}
+
+.visitas .overlap-group-2 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 94px;
+  position: relative;
+  width: 355px;
+}
+
+.visitas .oid-card {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 18px;
+  left: 92px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+  width: 252px;
+}
+
+.visitas .separator {
+  height: 77px;
+  left: 85px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 10px;
+  width: 1px;
+}
+
+.visitas .separator-card {
+  height: 56px;
+  left: 219px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 31px;
+  width: 1px;
+}
+
+.visitas .estado {
+  height: 50px;
+  left: 16px;
+  position: absolute;
+  top: 22px;
+  width: 53px;
+}
+
+.visitas .estado-pendiente {
+    height: 50px;
+    left: 16px;
+    position: absolute;
+    top: 22px;
+    width: 53px;
+    color: #dac508;
+
+  }
+
+  .visitas .estado-cerrado {
+    height: 50px;
+    left: 16px;
+    position: absolute;
+    top: 22px;
+    width: 53px;
+    color: #555555;
+
+  }
+
+  .visitas .estado-abierto {
+    height: 50px;
+    left: 16px;
+    position: absolute;
+    top: 22px;
+    width: 53px;
+    color: #08da08;
+  }
+
+  .visitas .estado-rechazado {
+    height: 50px;
+    left: 16px;
+    position: absolute;
+    top: 22px;
+    width: 53px;
+    color: #da2808;
+  }
+
+
+.visitas .inicio-icon {
+  height: 18px;
+  left: 92px;
+  color: #00ddfa;
+  position: absolute;
+  top: 33px;
+  width: 19px;
+}
+
+.visitas .inicio-date {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 17px;
+  left: 116px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 34px;
+  width: 102px;
+}
+
+.visitas .tecnico-icon {
+  height: 18px;
+  left: 92px;
+  color: #00ddfa;
+  position: absolute;
+  top: 63px;
+  width: 19px;
+}
+
+.visitas .tecnico-name {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 17px;
+  left: 115px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 64px;
+  width: 103px;
+}
+
+.visitas .created-icon {
+  height: 18px;
+  left: 230px;
+  color: #00ddfa;
+  position: absolute;
+  top: 33px;
+  width: 18px;
+}
+
+.visitas .created-icon-add {
+  height: 13px;
+  left: 233px;
+  color: #00ddfa;
+  position: absolute;
+  top: 37px;
+  width: 13px;
+}
+
+.visitas .created-date {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 17px;
+  left: 252px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 34px;
+  width: 102px;
+}
+
+.visitas .user-icon {
+  height: 18px;
+  color: #00ddfa;
+  left: 230px;
+  position: absolute;
+  top: 63px;
+  width: 19px;
+}
+
+.visitas .user-creator {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 17px;
+  left: 253px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 64px;
+  width: 101px;
+}

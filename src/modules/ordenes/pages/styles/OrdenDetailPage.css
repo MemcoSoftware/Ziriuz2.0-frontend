@@ -99,30 +99,33 @@
   top: 137px;
   width: 203px;
 }
-
 .OrdenDetailPage-box .OrdenDetailPage-right-arrow {
   height: 70px;
   color: #00ddfa;
+  cursor: pointer;
   left: 1122px;
   position: absolute;
   top: 395px;
   width: 100px;
+  z-index: 10; /* Añade esta línea */
 }
 
 .OrdenDetailPage-box .OrdenDetailPage-left-arrow {
   height: 100px;
   color: #00ddfa;
+  cursor: pointer;
   left: 0;
   position: absolute;
   top: 395px;
   width: 70px;
+  z-index: 10; /* Añade esta línea */
 }
 
 
 /* /////////////////SOLICITUDES SERVICIO STYLES///////////////// */
 
 
-.solicitudes {
+.SolicitudServicioComponent-solicitudes {
   display: flex;
   top: 120px;
   position: relative;
@@ -131,7 +134,7 @@
   width: 100%;
 }
 
-.solicitudes .div {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-div {
   background-color: #ffffff;
   border-radius: 10px;
   height: 566px;
@@ -140,7 +143,7 @@
   width: 1006px;
 }
 
-.solicitudes .header {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-header {
   background-color: transparent;
   height: 124px;
   left: 0;
@@ -149,7 +152,7 @@
   width: 1008px;
 }
 
-.solicitudes .overlap-group {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-group {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 124px;
@@ -157,7 +160,7 @@
   width: 1006px;
 }
 
-.solicitudes .solicitud-id {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-solicitud-id {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 28px;
@@ -173,7 +176,7 @@
   width: 842px;
 }
 
-.solicitudes .geninfo-section {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-geninfo-section {
   height: 146px;
   left: 31px;
   position: absolute;
@@ -181,7 +184,7 @@
   width: 410px;
 }
 
-.solicitudes .overlap {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 146px;
@@ -189,7 +192,7 @@
   width: 400px;
 }
 
-.solicitudes .geninfo-title {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-geninfo-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -204,7 +207,7 @@
   width: 400px;
 }
 
-.solicitudes .service-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-service-icon {
   height: 19px;
   color: #00ddfa;
   left: 15px;
@@ -213,7 +216,7 @@
   width: 28px;
 }
 
-.solicitudes .service-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-service-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -227,7 +230,7 @@
   width: 127px;
 }
 
-.solicitudes .created-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-created-icon {
   height: 19px;
   left: 15px;
   color: #00ddfa;
@@ -236,7 +239,7 @@
   width: 28px;
 }
 
-.solicitudes .created-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-created-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -250,7 +253,7 @@
   width: 127px;
 }
 
-.solicitudes .geninfo-separator {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-geninfo-separator {
   height: 88px;
   left: 200px;
   background-color: #636b6f61;
@@ -260,7 +263,7 @@
   width: 2px;
 }
 
-.solicitudes .aviso-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-aviso-icon {
   height: 19px;
   left: 219px;
   color: #00ddfa;
@@ -269,7 +272,7 @@
   width: 28px;
 }
 
-.solicitudes .aviso-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-aviso-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -282,7 +285,7 @@
   width: 131px;
 }
 
-.solicitudes .observacion-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-observacion-icon {
   height: 19px;
   left: 219px;
   color: #00ddfa;
@@ -291,7 +294,7 @@
   width: 28px;
 }
 
-.solicitudes .observacion-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-observacion-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -304,7 +307,7 @@
   width: 131px;
 }
 
-.solicitudes .estado-section {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-section {
   height: 56px;
   left: 16px;
   position: absolute;
@@ -312,7 +315,7 @@
   width: 434px;
 }
 
-.solicitudes .overlap-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-2 {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 56px;
@@ -320,7 +323,7 @@
   width: 430px;
 }
 
-.solicitudes .estado-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-icon {
   height: 37px;
   left: 13px;
   color: #00ddfa;
@@ -329,7 +332,7 @@
   width: 49px;
 }
 
-.solicitudes .estado-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -343,7 +346,7 @@
   width: 132px;
 }
 
-.solicitudes .estado-separator {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-separator {
   height: 34px;
   left: 216px;
   background-color: #636b6f61;
@@ -353,7 +356,7 @@
   width: 1px;
 }
 
-.solicitudes .text-wrapper {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-text-wrapper {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 11px;
@@ -368,7 +371,7 @@
   width: 200px;
 }
 
-.solicitudes .creator-section {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creator-section {
   height: 188px;
   left: 29px;
   position: absolute;
@@ -376,7 +379,7 @@
   width: 424px;
 }
 
-.solicitudes .overlap-3 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-3 {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 188px;
@@ -384,7 +387,7 @@
   width: 400px;
 }
 
-.solicitudes .overlap-4 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-4 {
   height: 23px;
   left: 0;
   position: absolute;
@@ -392,7 +395,7 @@
   width: 400px;
 }
 
-.solicitudes .creador-title {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creador-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -408,7 +411,7 @@
   width: 400px;
 }
 
-.solicitudes .creador-oid {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creador-oid {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -424,7 +427,7 @@
   width: 400px;
 }
 
-.solicitudes .eye {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-eye {
   height: 17px;
   left: 364px;
   color: #636b6f;
@@ -434,7 +437,7 @@
   width: 21px;
 }
 
-.solicitudes .overlap-5 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-5 {
   height: 66px;
   left: 0;
   position: absolute;
@@ -442,7 +445,7 @@
   width: 400px;
 }
 
-.solicitudes .username-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-username-icon {
   height: 14px;
   left: 7px;
   color: #00ddfa;
@@ -451,7 +454,7 @@
   width: 28px;
 }
 
-.solicitudes .creador-username {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creador-username {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -466,7 +469,7 @@
   width: 148px;
 }
 
-.solicitudes .telephone-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-telephone-icon {
   height: 14px;
   left: 229px;
   color: #00ddfa;
@@ -475,7 +478,7 @@
   width: 28px;
 }
 
-.solicitudes .creador-telephone {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creador-telephone {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -490,7 +493,7 @@
   width: 127px;
 }
 
-.solicitudes .overlap-6 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-6 {
   height: 66px;
   left: 0;
   position: absolute;
@@ -498,7 +501,7 @@
   width: 400px;
 }
 
-.solicitudes .cc-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-cc-icon {
   height: 14px;
   left: 7px;
   color: #00ddfa;
@@ -507,7 +510,7 @@
   width: 28px;
 }
 
-.solicitudes .creador-cc {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creador-cc {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -522,7 +525,7 @@
   width: 148px;
 }
 
-.solicitudes .email-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-email-icon {
   height: 14px;
   left: 229px;
   color: #00ddfa;
@@ -531,7 +534,7 @@
   width: 28px;
 }
 
-.solicitudes .overlap-7 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-7 {
   height: 38px;
   left: 0;
   position: absolute;
@@ -539,7 +542,7 @@
   width: 400px;
 }
 
-.solicitudes .creador-email {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-creador-email {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 11px;
@@ -552,7 +555,7 @@
   width: 128px;
 }
 
-.solicitudes .separator-info {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-separator-info {
   height: 12px;
   left: 0;
   position: absolute;
@@ -560,12 +563,12 @@
   width: 400px;
 }
 
-.solicitudes .overlap-group-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-group-2 {
   height: 12px;
   position: relative;
 }
 
-.solicitudes .line {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-line {
   height: 1px;
   left: 0;
   background-color: #537895;
@@ -575,7 +578,7 @@
   width: 193px;
 }
 
-.solicitudes .img {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-img {
   height: 1px;
   left: 207px;
   background-color: #537895;
@@ -585,7 +588,7 @@
   width: 193px;
 }
 
-.solicitudes .ellipse {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-ellipse {
   border: 1px solid;
   border-color: #537895;
   border-radius: 8.25px/5.83px;
@@ -596,7 +599,7 @@
   width: 16px;
 }
 
-.solicitudes .separator {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-separator {
   height: 46px;
   left: 199px;
   object-fit: cover;
@@ -606,7 +609,7 @@
   width: 2px;
 }
 
-.solicitudes .overlap-8 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-8 {
   height: 24px;
   left: 0;
   position: absolute;
@@ -614,7 +617,7 @@
   width: 400px;
 }
 
-.solicitudes .actualizador-title {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-actualizador-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -630,7 +633,7 @@
   width: 400px;
 }
 
-.solicitudes .actualizador-oid {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-actualizador-oid {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -646,7 +649,7 @@
   width: 400px;
 }
 
-.solicitudes .user {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-user {
   height: 14px;
   left: 7px;
   color: #00ddfa;
@@ -655,7 +658,7 @@
   width: 28px;
 }
 
-.solicitudes .actualizador {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-actualizador {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -670,7 +673,7 @@
   width: 148px;
 }
 
-.solicitudes .cc {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-cc {
   height: 14px;
   left: 7px;
   position: absolute;
@@ -679,7 +682,7 @@
   width: 28px;
 }
 
-.solicitudes .actualizador-cc {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-actualizador-cc {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -694,7 +697,7 @@
   width: 148px;
 }
 
-.solicitudes .telephone {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-telephone {
   height: 14px;
   left: 229px;
   position: absolute;
@@ -703,7 +706,7 @@
   width: 28px;
 }
 
-.solicitudes .actualizador-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-actualizador-2 {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -718,7 +721,7 @@
   width: 127px;
 }
 
-.solicitudes .email {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-email {
   height: 14px;
   color: #00ddfa;
   left: 229px;
@@ -727,7 +730,7 @@
   width: 28px;
 }
 
-.solicitudes .actualizador-email {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-actualizador-email {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 11px;
@@ -740,7 +743,7 @@
   width: 128px;
 }
 
-.solicitudes .separator-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-separator-2 {
   height: 46px;
   left: 199px;
   object-fit: cover;
@@ -750,7 +753,7 @@
   width: 2px;
 }
 
-.solicitudes .equipo-section {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-equipo-section {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 409px;
@@ -760,7 +763,7 @@
   width: 525px;
 }
 
-.solicitudes .overlap-9 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-9 {
   height: 138px;
   left: 0;
   position: absolute;
@@ -768,7 +771,7 @@
   width: 537px;
 }
 
-.solicitudes .client-info {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-client-info {
   height: 127px;
   left: 0;
   position: absolute;
@@ -776,7 +779,7 @@
   width: 537px;
 }
 
-.solicitudes .overlap-group-3 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-group-3 {
   height: 23px;
   left: 0;
   position: absolute;
@@ -784,7 +787,7 @@
   width: 525px;
 }
 
-.solicitudes .client-title {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-client-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -799,7 +802,7 @@
   width: 525px;
 }
 
-.solicitudes .eye-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-eye-2 {
   height: 21px;
   color: #636b6f;
   cursor: pointer;
@@ -809,7 +812,7 @@
   width: 26px;
 }
 
-.solicitudes .client-oid {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-client-oid {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -825,7 +828,7 @@
   width: 525px;
 }
 
-.solicitudes .clientname-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientname-icon {
   height: 22px;
   left: 39px;
   color: #00ddfa;
@@ -834,7 +837,7 @@
   width: 28px;
 }
 
-.solicitudes .clientname-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientname-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -847,7 +850,7 @@
   width: 173px;
 }
 
-.solicitudes .nit-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-nit-icon {
   height: 22px;
   left: 39px;
   color: #00ddfa;
@@ -856,7 +859,7 @@
   width: 28px;
 }
 
-.solicitudes .nit-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-nit-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -870,7 +873,7 @@
   width: 173px;
 }
 
-.solicitudes .clientphone-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientphone-icon {
   height: 22px;
   left: 306px;
   color: #00ddfa;
@@ -879,7 +882,7 @@
   width: 28px;
 }
 
-.solicitudes .clientphone-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientphone-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -893,7 +896,7 @@
   width: 173px;
 }
 
-.solicitudes .clientinfo-separator {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientinfo-separator {
   height: 66px;
   left: 263px;
   background-color: #636b6f61;
@@ -903,7 +906,7 @@
   width: 1px;
 }
 
-.solicitudes .clientemail-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientemail-icon {
   height: 22px;
   left: 306px;
   color: #00ddfa;
@@ -912,7 +915,7 @@
   width: 28px;
 }
 
-.solicitudes .clientemail-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-clientemail-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -925,7 +928,7 @@
   width: 173px;
 }
 
-.solicitudes .separator-info-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-separator-info-2 {
   height: 12px;
   left: 0;
   position: absolute;
@@ -933,7 +936,7 @@
   width: 525px;
 }
 
-.solicitudes .line-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-line-2 {
   height: 1px;
   left: 0;
   background-color: #537895;
@@ -943,7 +946,7 @@
   width: 255px;
 }
 
-.solicitudes .line-3 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-line-3 {
   height: 1px;
   left: 271px;
   background-color: #537895;
@@ -953,7 +956,7 @@
   width: 254px;
 }
 
-.solicitudes .ellipse-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-ellipse-2 {
   border: 1px solid;
   border-color: #537895;
   border-radius: 8.25px/5.83px;
@@ -964,7 +967,7 @@
   width: 16px;
 }
 
-.solicitudes .equipo-info {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-equipo-info {
   height: 126px;
   left: 0;
   position: absolute;
@@ -972,7 +975,7 @@
   width: 543px;
 }
 
-.solicitudes .overlap-10 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-10 {
   height: 28px;
   left: 0;
   position: absolute;
@@ -980,7 +983,7 @@
   width: 525px;
 }
 
-.solicitudes .equipo-title {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-equipo-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -996,7 +999,7 @@
   width: 525px;
 }
 
-.solicitudes .equipo-oid {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-equipo-oid {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1012,7 +1015,7 @@
   width: 525px;
 }
 
-.solicitudes .eye-3 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-eye-3 {
   height: 21px;
   color: #636b6f;
   cursor: pointer;
@@ -1022,7 +1025,7 @@
   width: 26px;
 }
 
-.solicitudes .class-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-class-icon {
   height: 20px;
   left: 39px;
   color: #00ddfa;
@@ -1031,7 +1034,7 @@
   width: 28px;
 }
 
-.solicitudes .class-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-class-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1044,7 +1047,7 @@
   width: 178px;
 }
 
-.solicitudes .marca-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-marca-icon {
   height: 20px;
   left: 39px;
   color: #00ddfa;
@@ -1053,7 +1056,7 @@
   width: 28px;
 }
 
-.solicitudes .marca-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-marca-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1066,7 +1069,7 @@
   width: 178px;
 }
 
-.solicitudes .model-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-model-icon {
   height: 20px;
   left: 39px;
   color: #00ddfa;
@@ -1075,7 +1078,7 @@
   width: 28px;
 }
 
-.solicitudes .model-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-model-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1088,7 +1091,7 @@
   width: 178px;
 }
 
-.solicitudes .equipoinfo-separator {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-equipoinfo-separator {
   height: 75px;
   left: 263px;
   object-fit: cover;
@@ -1098,7 +1101,7 @@
   width: 1px;
 }
 
-.solicitudes .serial-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-serial-icon {
   height: 20px;
   left: 306px;
   color: #00ddfa;
@@ -1107,7 +1110,7 @@
   width: 28px;
 }
 
-.solicitudes .serial-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-serial-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1121,7 +1124,7 @@
   width: 173px;
 }
 
-.solicitudes .client-wrapper {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-client-wrapper {
   /* background-image: url(./area-icon.png); */
   background-size: 100% 100%;
   height: 20px;
@@ -1131,7 +1134,7 @@
   width: 28px;
 }
 
-.solicitudes .client {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-client {
   height: 20px;
   left: 0;
   color: #00ddfa;
@@ -1140,7 +1143,7 @@
   width: 28px;
 }
 
-.solicitudes .overlap-11 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-11 {
   height: 26px;
   left: 343px;
   position: absolute;
@@ -1148,7 +1151,7 @@
   width: 173px;
 }
 
-.solicitudes .text-wrapper-2 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-text-wrapper-2 {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1162,7 +1165,7 @@
   width: 173px;
 }
 
-.solicitudes .ubicacion-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-ubicacion-icon {
   height: 20px;
   left: 306px;
   color: #00ddfa;
@@ -1171,7 +1174,7 @@
   width: 28px;
 }
 
-.solicitudes .ubicacion-value {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-ubicacion-value {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1184,7 +1187,7 @@
   width: 173px;
 }
 
-.solicitudes .overlap-wrapper {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-wrapper {
   height: 12px;
   left: 0;
   position: absolute;
@@ -1192,7 +1195,7 @@
   width: 525px;
 }
 
-.solicitudes .line-4 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-line-4 {
   height: 1px;
   left: 0;
   object-fit: cover;
@@ -1202,7 +1205,7 @@
   width: 256px;
 }
 
-.solicitudes .line-5 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-line-5 {
   height: 1px;
   left: 270px;
   object-fit: cover;
@@ -1212,7 +1215,7 @@
   width: 255px;
 }
 
-.solicitudes .sede-info {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-info {
   height: 103px;
   left: 0;
   position: absolute;
@@ -1220,7 +1223,7 @@
   width: 537px;
 }
 
-.solicitudes .overlap-12 {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-overlap-12 {
   height: 21px;
   left: 0;
   position: absolute;
@@ -1228,7 +1231,7 @@
   width: 525px;
 }
 
-.solicitudes .sede-title {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -1244,7 +1247,7 @@
   width: 525px;
 }
 
-.solicitudes .sede-oid {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-oid {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1260,7 +1263,7 @@
   width: 525px;
 }
 
-.solicitudes .sede-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-icon {
   height: 22px;
   left: 39px;
   color: #00ddfa;
@@ -1269,7 +1272,7 @@
   width: 28px;
 }
 
-.solicitudes .sede-nombre {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-nombre {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1282,7 +1285,7 @@
   width: 178px;
 }
 
-.solicitudes .location-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-location-icon {
   height: 22px;
   left: 39px;
   position: absolute;
@@ -1291,7 +1294,7 @@
   width: 28px;
 }
 
-.solicitudes .sede-address {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-address {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1304,7 +1307,7 @@
   width: 176px;
 }
 
-.solicitudes .sedeinfo-separator {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sedeinfo-separator {
   height: 48px;
   left: 263px;
   background-color: #636b6f61;
@@ -1314,7 +1317,7 @@
   width: 1px;
 }
 
-.solicitudes .sedetelephone-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sedetelephone-icon {
   height: 22px;
   left: 306px;
   color: #00ddfa;
@@ -1323,7 +1326,7 @@
   width: 28px;
 }
 
-.solicitudes .sede-telefono {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-telefono {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1337,7 +1340,7 @@
   width: 173px;
 }
 
-.solicitudes .sedeemail-icon {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sedeemail-icon {
   height: 22px;
   left: 306px;
   color: #00ddfa;
@@ -1346,7 +1349,7 @@
   width: 28px;
 }
 
-.solicitudes .sede-email {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-sede-email {
   color: #636b6f;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -1359,7 +1362,7 @@
   width: 173px;
 }
 
-.solicitudes .SolicitudServicioComponent-estado-pendiente {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-pendiente {
   height: 45px;
   left: 13px;
   position: absolute;
@@ -1368,7 +1371,7 @@
   color: #dac508;
 }
 
-.solicitudes .SolicitudServicioComponent-estado-aprobada {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-aprobada {
   height: 45px;
   left: 13px;
   position: absolute;
@@ -1376,7 +1379,7 @@
   width: 47px;
   color: #08da08;
 }
-.solicitudes .SolicitudServicioComponent-estado-rechazada {
+.SolicitudServicioComponent-solicitudes .SolicitudServicioComponent-estado-rechazada {
   height: 45px;
   left: 13px;
   position: absolute;

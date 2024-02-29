@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/VisitaOrden.css';
 
 // Importamos todos los íconos necesarios
@@ -11,6 +11,7 @@ import EngineeringIcon from '@mui/icons-material/Engineering';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import PersonIcon from '@mui/icons-material/Person';
+import VisitaByIdOrden from './VisitaByIdOrden';
 
 
 interface VisitasOrdenProps {
@@ -19,7 +20,19 @@ interface VisitasOrdenProps {
 
 const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
 
-  // Función para seleccionar el ícono basado en el estado de la visita
+  const [selectedVisitaId, setSelectedVisitaId] = useState<string | null>(null);
+
+  const handleVisitaClick = (id: string) => {
+    setSelectedVisitaId(id);
+  };
+
+
+  // Function to filter visitas by estado
+  const [filtro, setFiltro] = useState<string | null>(null);
+  const filtrarVisitas = () => {
+    return filtro ? visitas.filter(visita => visita.id_visita_estado.estado === filtro) : visitas;
+  };
+  // Function to select icon depending of visita's estado
   const EstadoIcono = ( estado : string) => {
     switch (estado) {
       case 'Pendiente':
@@ -47,18 +60,18 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
           <div className="all-visitas">
             <div className="overlap">
               <div className="navbar">
-                <div className="pendiente-t">PENDIENTES</div>
+                <div className="pendiente-t" onClick={() => setFiltro('Pendiente')}>PENDIENTES</div>
                 <div className="estados" />
-                <div className="abierta-t">ABIERTAS</div>
+                <div className="abierta-t" onClick={() => setFiltro('Abierta')}>ABIERTAS</div>
                 <div className="estados-separator" />
-                <div className="cerrada-title">CERRADAS</div>
+                <div className="cerrada-title" onClick={() => setFiltro('Cerrada')}>CERRADAS</div>
                 <div className="img" />
-                <div className="rechazada-t">RECHAZADAS</div>
+                <div className="rechazada-t" onClick={() => setFiltro('Rechazada')}>RECHAZADAS</div>
               </div>
               <div className="visitas-list">
                 <ul>
-                  {visitas.map((visita, index) => (
-                    <li className="visita-card" key={index}>
+                  {filtrarVisitas().map((visita, index) => (
+                    <li className="visita-card" key={index} onClick={() => handleVisitaClick(visita._id)}>
                       <div className="overlap-group-2">
                         <div className="oid-card">ID: {visita._id}</div>
                         <div className="separator"/>
@@ -85,6 +98,11 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
           </div>
         </div>
       </div>
+
+
+      {/* ESPACIO DE RENDERIZADO DE VisitaByIdOrden.tsx  */}
+      {selectedVisitaId && <VisitaByIdOrden idVisita={selectedVisitaId} />}
+
     </div>
   );
 };

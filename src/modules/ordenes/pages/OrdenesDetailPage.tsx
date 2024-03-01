@@ -66,9 +66,6 @@ const OrdenDetailPage: React.FC = () => {
     <div>
       <DashboardMenuLateral />
 
-      {isEditing ? (
-        <></>
-      ) : (
         <div className="OrdenDetailPage">
           <div className="OrdenDetailPage-box">
             <div className="OrdenDetailPage-orden-servicio">
@@ -98,7 +95,6 @@ const OrdenDetailPage: React.FC = () => {
             </div>
           </div>
         </div>
-      )}
     </div>
   );
 };

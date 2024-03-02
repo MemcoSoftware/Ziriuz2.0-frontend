@@ -12,7 +12,9 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import PersonIcon from '@mui/icons-material/Person';
 import VisitaByIdOrden from './VisitaByIdOrden';
-
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
+import RegisterVisitaOrden from '../../../visitas/components/visitas/forms/RegisterVisitaOrden';
 
 interface VisitasOrdenProps {
   visitas: any[];
@@ -21,6 +23,8 @@ interface VisitasOrdenProps {
 const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
 
   const [selectedVisitaId, setSelectedVisitaId] = useState<string | null>(null);
+  const [showRegisterVisita, setShowRegisterVisita] = useState(false);
+  const isAdmin = useUserRoleVerifier(['administrador']);
 
   const handleVisitaClick = (id: string) => {
     setSelectedVisitaId(id);
@@ -36,59 +40,61 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
   const EstadoIcono = ( estado : string) => {
     switch (estado) {
       case 'Pendiente':
-        return <HelpIcon className="estado-pendiente" />;
+        return <HelpIcon className="VisitasOrden-estado-pendiente" />;
       case 'Abierta':
-        return <LockOpenIcon className="estado-abierto" />;
+        return <LockOpenIcon className="VisitasOrden-estado-abierto" />;
       case 'Cerrada':
-        return <DoNotDisturbOnOutlinedIcon className="estado-cerrado" />;
+        return <DoNotDisturbOnOutlinedIcon className="VisitasOrden-estado-cerrado" />;
       case 'Rechazada':
-        return <DoNotDisturbAltOutlinedIcon className="estado-rechazado" />;
+        return <DoNotDisturbAltOutlinedIcon className="VisitasOrden-estado-rechazado" />;
       default:
-        return <HelpIcon className="estado-desconocido" />;
+        return <HelpIcon className="VisitasOrden-estado-desconocido" />;
     }
   };
-
+  const handleAddVisitaClick = () => {
+    setShowRegisterVisita(true); // Mostrar el formulario al hacer clic en el ícono de añadir visita
+  };
   return (
     <div>
-      <div className="visitas">
-        <div className="div">
-          <header className="header">
-            <div className="overlap-group">
-              <div className="visita-title">VISITAS</div>
+      <div className="VisitasOrden-visitas">
+        <div className="VisitasOrden-div">
+          <header className="VisitasOrden-header">
+            <div className="VisitasOrden-overlap-group">
+              <div className="VisitasOrden-visita-title">VISITAS</div>
             </div>
           </header>
-          <div className="all-visitas">
-            <div className="overlap">
-              <div className="navbar">
-                <div className="pendiente-t" onClick={() => setFiltro('Pendiente')}>PENDIENTES</div>
-                <div className="estados" />
-                <div className="abierta-t" onClick={() => setFiltro('Abierta')}>ABIERTAS</div>
-                <div className="estados-separator" />
-                <div className="cerrada-title" onClick={() => setFiltro('Cerrada')}>CERRADAS</div>
-                <div className="img" />
-                <div className="rechazada-t" onClick={() => setFiltro('Rechazada')}>RECHAZADAS</div>
+          <div className="VisitasOrden-all-visitas">
+            <div className="VisitasOrden-overlap">
+              <div className="VisitasOrden-navbar">
+                <div className="VisitasOrden-pendiente-t" onClick={() => setFiltro('Pendiente')}>PENDIENTES</div>
+                <div className="VisitasOrden-estados" />
+                <div className="VisitasOrden-abierta-t" onClick={() => setFiltro('Abierta')}>ABIERTAS</div>
+                <div className="VisitasOrden-estados-separator" />
+                <div className="VisitasOrden-cerrada-title" onClick={() => setFiltro('Cerrada')}>CERRADAS</div>
+                <div className="VisitasOrden-img" />
+                <div className="VisitasOrden-rechazada-t" onClick={() => setFiltro('Rechazada')}>RECHAZADAS</div>
               </div>
-              <div className="visitas-list">
+              <div className="VisitasOrden-visitas-list">
                 <ul>
                   {filtrarVisitas().map((visita, index) => (
-                    <li className="visita-card" key={index} onClick={() => handleVisitaClick(visita._id)}>
-                      <div className="overlap-group-2">
-                        <div className="oid-card">ID: {visita._id}</div>
-                        <div className="separator"/>
-                        <div className="separator-card"/>
+                    <li className="VisitasOrden-visita-card" key={index} onClick={() => handleVisitaClick(visita._id)}>
+                      <div className="VisitasOrden-overlap-group-2">
+                        <div className="VisitasOrden-oid-card">ID: {visita._id}</div>
+                        <div className="VisitasOrden-separator"/>
+                        <div className="VisitasOrden-separator-card"/>
 
                         {/* Renderizamos el ícono basado en el estado de la visita */}
                         {EstadoIcono(visita.id_visita_estado.estado)}
 
-                        <CalendarMonthOutlinedIcon className="inicio-icon"/>
-                        <div className="inicio-date">{visita.fecha_inicio}</div>
-                        <EngineeringIcon className="tecnico-icon"/>
-                        <div className="tecnico-name">{visita.id_responsable.username}</div>
-                        <CalendarTodayOutlinedIcon className="created-icon"/>
-                        <AddOutlinedIcon className="created-icon-add"/>
-                        <div className="created-date">{visita.fecha_creacion}</div>
-                        <PersonIcon className="user-icon"/>
-                        <div className="user-creator">{visita.id_cerrador.username}</div>
+                        <CalendarMonthOutlinedIcon className="VisitasOrden-inicio-icon"/>
+                        <div className="VisitasOrden-inicio-date">{visita.fecha_inicio}</div>
+                        <EngineeringIcon className="VisitasOrden-tecnico-icon"/>
+                        <div className="VisitasOrden-tecnico-name">{visita.id_responsable.username}</div>
+                        <CalendarTodayOutlinedIcon className="VisitasOrden-created-icon"/>
+                        <AddOutlinedIcon className="VisitasOrden-created-icon-add"/>
+                        <div className="VisitasOrden-created-date">{visita.fecha_creacion}</div>
+                        <PersonIcon className="VisitasOrden-user-icon"/>
+                        <div className="VisitasOrden-user-creator">{visita.id_cerrador.username}</div>
                       </div>
                     </li>
                   ))}
@@ -96,9 +102,13 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
               </div>
             </div>
           </div>
+          {isAdmin && (
+         <AddCircleIcon className='VisitasOrden-addVisita-button' onClick={handleAddVisitaClick}/>
+
+          )}
+          {showRegisterVisita && <RegisterVisitaOrden />}
         </div>
       </div>
-
 
       {/* ESPACIO DE RENDERIZADO DE VisitaByIdOrden.tsx  */}
       {selectedVisitaId && <VisitaByIdOrden idVisita={selectedVisitaId} />}

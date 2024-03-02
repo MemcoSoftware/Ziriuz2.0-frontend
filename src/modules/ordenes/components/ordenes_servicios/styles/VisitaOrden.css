@@ -1,4 +1,4 @@
-.visitas {
+.VisitasOrden-visitas {
   /* background-color: #ffffff; */
   display: flex;
   flex-direction: row;
@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-.visitas .div {
+.VisitasOrden-visitas .VisitasOrden-div {
   background-color: #ffffff;
   border-radius: 10px;
   top: 205px;
@@ -17,7 +17,7 @@
   width: 1006px;
 }
 
-.visitas .header {
+.VisitasOrden-visitas .VisitasOrden-header {
   background-color: transparent;
   height: 124px;
   left: 0;
@@ -26,7 +26,7 @@
   width: 1008px;
 }
 
-.visitas .overlap-group {
+.VisitasOrden-visitas .VisitasOrden-overlap-group {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 124px;
@@ -34,7 +34,7 @@
   width: 1006px;
 }
 
-.visitas .visita-title {
+.VisitasOrden-visitas .VisitasOrden-visita-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 28px;
@@ -49,7 +49,7 @@
   width: 842px;
 }
 
-.visitas .all-visitas {
+.VisitasOrden-visitas .VisitasOrden-all-visitas {
   height: 398px;
   left: 12px;
   position: absolute;
@@ -57,7 +57,7 @@
   width: 407px;
 }
 
-.visitas .overlap {
+.VisitasOrden-visitas .VisitasOrden-overlap {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 398px;
@@ -65,7 +65,7 @@
   width: 399px;
 }
 
-.visitas .navbar {
+.VisitasOrden-visitas .VisitasOrden-navbar {
   background-color: #ffffff;
   border-radius: 10px;
   height: 47px;
@@ -75,7 +75,7 @@
   width: 383px;
 }
 
-.visitas .pendiente-t {
+.VisitasOrden-visitas .VisitasOrden-pendiente-t {
   color: #dac508;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -91,7 +91,7 @@
   cursor: pointer;
 }
 
-.visitas .estados {
+.VisitasOrden-visitas .VisitasOrden-estados {
   height: 34px;
   left: 98px;
   background-color: #d9d9d9;
@@ -101,7 +101,7 @@
   width: 1px;
 }
 
-.visitas .abierta-t {
+.VisitasOrden-visitas .VisitasOrden-abierta-t {
   color: #08da08;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -117,7 +117,7 @@
   cursor: pointer;
 }
 
-.visitas .estados-separator {
+.VisitasOrden-visitas .VisitasOrden-estados-separator {
   height: 34px;
   left: 182px;
   background-color: #d9d9d9;
@@ -127,7 +127,7 @@
   width: 1px;
 }
 
-.visitas .cerrada-title {
+.VisitasOrden-visitas .VisitasOrden-cerrada-title {
   color: #555555;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -143,7 +143,7 @@
   cursor: pointer;
 }
 
-.visitas .img {
+.VisitasOrden-visitas .VisitasOrden-img {
   height: 34px;
   left: 273px;
   background-color: #d9d9d9;
@@ -153,7 +153,7 @@
   width: 1px;
 }
 
-.visitas .rechazada-t {
+.VisitasOrden-visitas .VisitasOrden-rechazada-t {
   color: #da2808;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
@@ -169,7 +169,7 @@
   cursor: pointer;
 }
 
-.visitas .visitas-list {
+.VisitasOrden-visitas .VisitasOrden-visitas-list {
   background-color: #d9d9d9;
   height: 319px;
   left: 0;
@@ -183,21 +183,21 @@
 }
 
 /* Para Chrome, Safari y Edge */
-.visitas .visitas-list::-webkit-scrollbar {
+.VisitasOrden-visitas .VisitasOrden-visitas-list::-webkit-scrollbar {
   width: 3px; /* Ajusta el ancho del scrollbar */
 }
 
-.visitas .visitas-list::-webkit-scrollbar-track {
+.VisitasOrden-visitas .VisitasOrden-visitas-list::-webkit-scrollbar-track {
   background-color: transparent;
 
 }
 
-.visitas .visitas-list::-webkit-scrollbar-thumb {
+.VisitasOrden-visitas .VisitasOrden-visitas-list::-webkit-scrollbar-thumb {
   background-color: transparent;
     border-radius: 3px;
 }
 
-.visitas .visita-card {
+.VisitasOrden-visitas .VisitasOrden-visita-card {
   height: 94px;
   left: 12px;
   cursor: pointer;
@@ -208,7 +208,7 @@
   margin-bottom: 10px;
 }
 
-.visitas .overlap-group-2 {
+.VisitasOrden-visitas .VisitasOrden-overlap-group-2 {
   background-color: #ffffff;
   border-radius: 10px;
   height: 94px;
@@ -216,7 +216,7 @@
   width: 355px;
 }
 
-.visitas .oid-card {
+.VisitasOrden-visitas .VisitasOrden-oid-card {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -231,7 +231,7 @@
   width: 252px;
 }
 
-.visitas .separator {
+.VisitasOrden-visitas .VisitasOrden-separator {
   height: 77px;
   left: 85px;
   background-color: #d9d9d9;
@@ -241,7 +241,7 @@
   width: 1px;
 }
 
-.visitas .separator-card {
+.VisitasOrden-visitas .VisitasOrden-separator-card {
   height: 56px;
   left: 219px;
   background-color: #d9d9d9;
@@ -251,7 +251,7 @@
   width: 1px;
 }
 
-.visitas .estado {
+.VisitasOrden-visitas .VisitasOrden-estado {
   height: 50px;
   left: 16px;
   position: absolute;
@@ -259,7 +259,7 @@
   width: 53px;
 }
 
-.visitas .estado-pendiente {
+.VisitasOrden-visitas .VisitasOrden-estado-pendiente {
     height: 50px;
     left: 16px;
     position: absolute;
@@ -269,7 +269,7 @@
 
   }
 
-  .visitas .estado-cerrado {
+  .VisitasOrden-visitas .VisitasOrden-estado-cerrado {
     height: 50px;
     left: 16px;
     position: absolute;
@@ -279,7 +279,7 @@
 
   }
 
-  .visitas .estado-abierto {
+  .VisitasOrden-visitas .VisitasOrden-estado-abierto {
     height: 50px;
     left: 16px;
     position: absolute;
@@ -288,7 +288,7 @@
     color: #08da08;
   }
 
-  .visitas .estado-rechazado {
+  .VisitasOrden-visitas .VisitasOrden-estado-rechazado {
     height: 50px;
     left: 16px;
     position: absolute;
@@ -298,7 +298,7 @@
   }
 
 
-.visitas .inicio-icon {
+.VisitasOrden-visitas .VisitasOrden-inicio-icon {
   height: 18px;
   left: 92px;
   color: #00ddfa;
@@ -307,7 +307,7 @@
   width: 19px;
 }
 
-.visitas .inicio-date {
+.VisitasOrden-visitas .VisitasOrden-inicio-date {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -321,7 +321,7 @@
   width: 102px;
 }
 
-.visitas .tecnico-icon {
+.VisitasOrden-visitas .VisitasOrden-tecnico-icon {
   height: 18px;
   left: 92px;
   color: #00ddfa;
@@ -330,7 +330,7 @@
   width: 19px;
 }
 
-.visitas .tecnico-name {
+.VisitasOrden-visitas .VisitasOrden-tecnico-name {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -344,7 +344,7 @@
   width: 103px;
 }
 
-.visitas .created-icon {
+.VisitasOrden-visitas .VisitasOrden-created-icon {
   height: 18px;
   left: 230px;
   color: #00ddfa;
@@ -353,7 +353,7 @@
   width: 18px;
 }
 
-.visitas .created-icon-add {
+.VisitasOrden-visitas .VisitasOrden-created-icon-add {
   height: 13px;
   left: 233px;
   color: #00ddfa;
@@ -362,7 +362,7 @@
   width: 13px;
 }
 
-.visitas .created-date {
+.VisitasOrden-visitas .VisitasOrden-created-date {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -376,7 +376,7 @@
   width: 102px;
 }
 
-.visitas .user-icon {
+.VisitasOrden-visitas .VisitasOrden-user-icon {
   height: 18px;
   color: #00ddfa;
   left: 230px;
@@ -385,7 +385,7 @@
   width: 19px;
 }
 
-.visitas .user-creator {
+.VisitasOrden-visitas .VisitasOrden-user-creator {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -397,4 +397,15 @@
   position: absolute;
   top: 64px;
   width: 101px;
+}
+
+.VisitasOrden-visitas .VisitasOrden-addVisita-button{
+
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 900px;
+  top: 36px;
+  cursor: pointer;
+  color: #00ddfa;
 }

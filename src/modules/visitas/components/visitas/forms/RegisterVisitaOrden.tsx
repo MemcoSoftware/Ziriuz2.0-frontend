@@ -1,8 +1,9 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
 import { createVisita } from '../../../services/visitasService';
 import './styles/RegisterVisitaOrden.css'
+import { searchUsersByKeyword } from '../../../../users/services/usersService';
 const RegisterVisitaOrden: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [visitaData, setVisitaData] = useState({
@@ -23,6 +24,10 @@ const RegisterVisitaOrden: React.FC = () => {
     setVisitaData({ ...visitaData, [name]: value });
   };
 
+  const [keyword, setKeyword] = useState(''); // Estado para almacenar la palabra clave de búsqueda
+  const [searchResults, setSearchResults] = useState<any[]>([]); // Estado para almacenar los resultados de búsqueda
+
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
@@ -31,13 +36,36 @@ const RegisterVisitaOrden: React.FC = () => {
       // Puedes redirigir o mostrar un mensaje de éxito aquí
       console.log('Visita registrada exitosamente');
       window.alert('Visita registrada exitosamente');
-      navigate('/visitas');
+      // navigate('/visitas');
     } catch (error) {
       // Maneja errores, muestra mensajes de error, etc.
       console.error('Error al registrar la visita:', error);
     }
   };
 
+
+  useEffect(() => {
+    // Función para realizar la búsqueda de usuarios cuando la palabra clave cambia
+    const fetchUsers = async () => {
+      try {
+        const token = loggedIn;
+        const results = await searchUsersByKeyword(token, keyword);
+        setSearchResults(results);
+      } catch (error) {
+        console.error('Error al buscar usuarios:', error);
+      }
+    };
+
+    // Realizar la búsqueda solo si la palabra clave no está vacía
+    if (keyword.trim() !== '') {
+      fetchUsers();
+    } else {
+      // Si la palabra clave está vacía, limpiar los resultados de búsqueda
+      setSearchResults([]);
+    }
+  }, [keyword, loggedIn]);
+
+  
   return (
     <div className='RegisterVisita-div'>
       <h2>REGISTRAR NUEVA VISITA</h2>
@@ -52,38 +80,45 @@ const RegisterVisitaOrden: React.FC = () => {
                   </div>
                 </header>
                 <div className="overlap">
-                  {/* <div className="user-div">
-                    <div className="rectangle" />
+
+                  <div className="user-div">
+                    <p className="text-wrapper">1.  Seleccione la persona encargada de ejecutar la visita:</p>
+                    <input className="rectangle"
+                    type="text"
+                    name="id_responsable"
+                    value={visitaData.id_responsable}
+                    onChange={handleChange}
+                    />
                     <div className="users-listed">
                       <div className="user-pick" />
-                      <img className="img" alt="User selected" src="user-selected.svg" />
+                      <div className="img"/>
                     </div>
-                    <p className="text-wrapper">Seleccione la persona encargada de ejecutar la visita:</p>
                   </div>
+
                   <div className="protocolos-div">
-                    <p className="text-wrapper">Seleccione las actividades a programar:</p>
+                    <p className="text-wrapper">2.  Seleccione las actividades a programar:</p>
                     <div className="rectangle" />
                     <div className="protocolos-listed">
                       <div className="protocolos-pick" />
-                      <img className="img" alt="Protocolos seleted" src="protocolos-seleted.svg" />
+                      <div className="img"/>
                     </div>
                   </div>
-                  <img className="separator" alt="Separator" src="separator.svg" />
+                  <div className="separator"/>
                   <div className="fecha-div">
-                    <div className="text-wrapper-2">Seleccione fecha de inicio:</div>
+                    <div className="text-wrapper-2">3.  Seleccione fecha de inicio:</div>
                     <div className="div-2" />
                   </div>
                   <div className="insede-div">
-                    <div className="text-wrapper-2">Ejecutar en sede:</div>
+                    <div className="text-wrapper-2">4. Ejecutar en sede:</div>
                     <img className="sede-input" alt="Sede input" src="sede-input.png" />
                   </div>
                   <div className="time-div">
-                    <div className="text-wrapper-2">Duración estimada (minutos):</div>
+                    <div className="text-wrapper-2">5.  Duración estimada (minutos):</div>
                     <div className="div-2" />
-                  </div> */}
+                  </div>
 
 
-                    <label>
+                    {/* <label>
                               Estado de la Visita:
                               <input
                                 type="text"
@@ -156,16 +191,11 @@ const RegisterVisitaOrden: React.FC = () => {
                               />
                             </label>
                             <button type="submit">REGISTRAR</button>
-                            <button type="button" onClick={() => navigate('/visitas')}>CANCELAR</button>
-
-
-                  
+                            <button type="button">CANCELAR</button>
+ */}
                 </div>
               </div>
             </div>
-
-
-     
       </form>
     </div>
   );

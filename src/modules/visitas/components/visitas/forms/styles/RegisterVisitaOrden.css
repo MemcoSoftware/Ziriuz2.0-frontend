@@ -2,13 +2,15 @@
 
 .visita-nueva {
   background-color: transparent;
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row; */
   justify-content: center;
   position: relative;
-  left: 200px;
+  left: 430px;
+  margin: 0;
+  padding: 0;
   top: 105px;
-  width:100%;
+  width:563px;
 }
 
 .visita-nueva .div {
@@ -78,6 +80,7 @@
   background-color: #ffffff;
   border-radius: 10px;
   height: 30px;
+  border-style: none;
   left: 0;
   position: absolute;
   top: 35px;
@@ -105,7 +108,9 @@
 .visita-nueva .img {
   height: 22px;
   left: 0;
+  background-color: #7C7C7C;
   position: absolute;
+  border-radius: 10px;
   top: 0;
   width: 234px;
 }
@@ -153,6 +158,7 @@
 .visita-nueva .separator {
   height: 339px;
   left: 280px;
+  background-color: #ffffff;
   object-fit: cover;
   position: absolute;
   top: 14px;

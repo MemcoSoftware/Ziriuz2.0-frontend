@@ -2,8 +2,10 @@ import React, { useState, FormEvent, useEffect } from 'react';
 import { useSessionStorage } from '../../../hooks/useSessionStorage';
 import { useNavigate } from 'react-router-dom';
 import { createVisita } from '../../../services/visitasService';
-import './styles/RegisterVisitaOrden.css'
+import './styles/RegisterVisitaOrden.css';
 import { searchUsersByKeyword } from '../../../../users/services/usersService';
+import CancelIcon from '@mui/icons-material/Cancel';
+
 const RegisterVisitaOrden: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [visitaData, setVisitaData] = useState({
@@ -17,15 +19,28 @@ const RegisterVisitaOrden: React.FC = () => {
     duracion: '',
     fecha_creacion: '',
   });
+  const [keyword, setKeyword] = useState('');
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [selectedUser, setSelectedUser] = useState<any>(null);
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setVisitaData({ ...visitaData, [name]: value });
+    setKeyword(value); // Actualizamos la palabra clave de búsqueda con el valor del input
   };
 
-  const [keyword, setKeyword] = useState(''); // Estado para almacenar la palabra clave de búsqueda
-  const [searchResults, setSearchResults] = useState<any[]>([]); // Estado para almacenar los resultados de búsqueda
+  const handleUserClick = (user: any) => {
+    setSelectedUser(user);
+    setVisitaData({ ...visitaData, id_responsable: user._id });
+    setKeyword(''); // Limpiamos la palabra clave después de seleccionar un usuario
+    setSearchResults([]); // Limpiamos los resultados de búsqueda después de seleccionar un usuario
+  };
+ 
+  const handleCancelUser = () => {
+    setSelectedUser(null); // Limpiamos el usuario seleccionado al hacer clic en el icono de cancelación
+    setVisitaData({ ...visitaData, id_responsable: '' }); // Limpiamos el id_responsable en visitaData
+  };
 
 
   const handleSubmit = async (e: FormEvent) => {
@@ -33,19 +48,14 @@ const RegisterVisitaOrden: React.FC = () => {
     try {
       const token = loggedIn;
       await createVisita(token, visitaData);
-      // Puedes redirigir o mostrar un mensaje de éxito aquí
       console.log('Visita registrada exitosamente');
       window.alert('Visita registrada exitosamente');
-      // navigate('/visitas');
     } catch (error) {
-      // Maneja errores, muestra mensajes de error, etc.
       console.error('Error al registrar la visita:', error);
     }
   };
 
-
   useEffect(() => {
-    // Función para realizar la búsqueda de usuarios cuando la palabra clave cambia
     const fetchUsers = async () => {
       try {
         const token = loggedIn;
@@ -56,16 +66,14 @@ const RegisterVisitaOrden: React.FC = () => {
       }
     };
 
-    // Realizar la búsqueda solo si la palabra clave no está vacía
     if (keyword.trim() !== '') {
       fetchUsers();
     } else {
-      // Si la palabra clave está vacía, limpiar los resultados de búsqueda
       setSearchResults([]);
     }
   }, [keyword, loggedIn]);
 
-  
+
   return (
     <div className='RegisterVisita-div'>
       <h2>REGISTRAR NUEVA VISITA</h2>
@@ -81,19 +89,32 @@ const RegisterVisitaOrden: React.FC = () => {
                 </header>
                 <div className="overlap">
 
-                  <div className="user-div">
-                    <p className="text-wrapper">1.  Seleccione la persona encargada de ejecutar la visita:</p>
-                    <input className="rectangle"
+                <div className="user-div">
+                  <p className="text-wrapper">1. Seleccione la persona encargada de ejecutar la visita:</p>
+                  <input
+                    className="rectangle"
                     type="text"
                     name="id_responsable"
-                    value={visitaData.id_responsable}
+                    value={selectedUser ? selectedUser._id : visitaData.id_responsable}
                     onChange={handleChange}
-                    />
-                    <div className="users-listed">
-                      <div className="user-pick" />
-                      <div className="img"/>
+                    placeholder="Buscar..."
+                  />
+                  {selectedUser && (
+                    <div className="user-pick">
+                      {selectedUser.username}
+                      <CancelIcon className='user-selected-cancel' onClick={handleCancelUser}/>
                     </div>
-                  </div>
+                  )}
+                  {searchResults.length > 0 && (
+                    <ul className='users-ul'>
+                      {searchResults.map((user) => (
+                        <li className="users-listed" key={user._id} onClick={() => handleUserClick(user)}>
+                          {user.username}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
 
                   <div className="protocolos-div">
                     <p className="text-wrapper">2.  Seleccione las actividades a programar:</p>

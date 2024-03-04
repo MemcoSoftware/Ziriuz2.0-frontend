@@ -80,6 +80,7 @@
   background-color: #ffffff;
   border-radius: 10px;
   height: 30px;
+  text-align: center;
   border-style: none;
   left: 0;
   position: absolute;
@@ -88,22 +89,63 @@
 }
 
 .visita-nueva .users-listed {
-  height: 54px;
+  height: 22px;
+  background-color: #53789587;
+  left: 0;
+  border-radius: 10px;
+  margin-bottom: 2px;
+  list-style: none;
+  position: relative;
+  top: 10px;
+  width: 234px;
+}
+
+.visita-nueva .user-pick {
+  background-color: #7C7C7C;
+  border-radius: 10px;
+  height: 22px;
   left: 0;
   position: absolute;
   top: 72px;
   width: 234px;
 }
 
-.visita-nueva .user-pick {
-  background-color: #53789587;
-  border-radius: 10px;
-  height: 22px;
-  left: 0;
+.visita-nueva .user-selected-cancel {
   position: absolute;
-  top: 32px;
-  width: 234px;
+  height: 17px;
+  width: 17px;
+  top: 2px;
+  cursor: pointer;
+  color: #da2808;
+  left: 210px;
 }
+.visita-nueva .users-ul {
+  position: absolute;
+  overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura máxima */
+  top: 63px;
+  height: 100px;
+  width: 250px;
+}
+/* Estiliza la barra de desplazamiento en su totalidad */
+.visita-nueva .users-ul::-webkit-scrollbar {
+  width: 10px; /* Ajusta el ancho de la barra de desplazamiento */
+}
+
+/* Estiliza el rastro de la barra de desplazamiento (la parte que "contiene" el pulgar) */
+.visita-nueva .users-ul::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Ajusta el color de fondo según prefieras */
+}
+
+/* Estiliza el pulgar de la barra de desplazamiento (la parte que se mueve) */
+.visita-nueva .users-ul::-webkit-scrollbar-thumb {
+  background: #888; /* Ajusta el color del pulgar de la barra de desplazamiento */
+}
+
+/* Estiliza el pulgar de la barra de desplazamiento al pasar el cursor */
+.visita-nueva .users-ul::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Ajusta el color del pulgar cuando se hace hover */
+}
+
 
 .visita-nueva .img {
   height: 22px;
@@ -125,7 +167,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  top: 5px;
   width: 258px;
 }
 

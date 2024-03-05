@@ -5,8 +5,9 @@ import { createVisita } from '../../../services/visitasService';
 import './styles/RegisterVisitaOrden.css';
 import { searchUsersByKeyword } from '../../../../users/services/usersService';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { getAllProtocolos } from '../../../services/protocolosService';
 
-const RegisterVisitaOrden: React.FC = () => {
+const RegisterVisitaOrden: React.FC<{ onCancel: () => void }> = ({ onCancel }) => {
   const loggedIn = useSessionStorage('sessionJWTToken');
   const [visitaData, setVisitaData] = useState({
     id_visita_estado: '',
@@ -19,15 +20,25 @@ const RegisterVisitaOrden: React.FC = () => {
     duracion: '',
     fecha_creacion: '',
   });
+
+  // USER STATES
   const [keyword, setKeyword] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [selectedUser, setSelectedUser] = useState<any>(null);
+
+  // PROTOCOLOS STATES
+  const [protocolos, setProtocolos] = useState<any[]>([]);
+  const [selectedProtocolos, setSelectedProtocolos] = useState<string[]>([]);
+  const [duracion, setDuracion] = useState('');
+
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setVisitaData({ ...visitaData, [name]: value });
-    setKeyword(value); // Actualizamos la palabra clave de búsqueda con el valor del input
+    if (name === 'id_responsable') {
+      setKeyword(value); // Actualizamos la palabra clave de búsqueda solo para el campo de búsqueda de usuarios
+    }
+    setVisitaData({ ...visitaData, [name]: value }); // Actualizamos el estado visitaData para otros campos
   };
 
   const handleUserClick = (user: any) => {
@@ -36,12 +47,28 @@ const RegisterVisitaOrden: React.FC = () => {
     setKeyword(''); // Limpiamos la palabra clave después de seleccionar un usuario
     setSearchResults([]); // Limpiamos los resultados de búsqueda después de seleccionar un usuario
   };
- 
+
   const handleCancelUser = () => {
-    setSelectedUser(null); // Limpiamos el usuario seleccionado al hacer clic en el icono de cancelación
-    setVisitaData({ ...visitaData, id_responsable: '' }); // Limpiamos el id_responsable en visitaData
+    setSelectedUser(null);
+    setVisitaData({ ...visitaData, id_responsable: '' });
   };
 
+  const handleProtocoloChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedProtocoloId = e.target.value;
+    setSelectedProtocolos([...selectedProtocolos, selectedProtocoloId]);
+    setVisitaData({ ...visitaData, ids_protocolos: [...selectedProtocolos, selectedProtocoloId] });
+  };
+
+  const removeProtocolo = (id: string) => {
+    const updatedProtocolos = selectedProtocolos.filter((protocoloId) => protocoloId !== id);
+    setSelectedProtocolos(updatedProtocolos);
+    setVisitaData({ ...visitaData, ids_protocolos: updatedProtocolos });
+  };
+
+  const handleChangeDuracion = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setDuracion(value);
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -54,7 +81,9 @@ const RegisterVisitaOrden: React.FC = () => {
       console.error('Error al registrar la visita:', error);
     }
   };
-
+  const handleCancel = () => {
+    onCancel(); // Llama a la función de control pasada desde VisitasOrden.tsx
+  };
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -73,150 +102,123 @@ const RegisterVisitaOrden: React.FC = () => {
     }
   }, [keyword, loggedIn]);
 
+  useEffect(() => {
+    const fetchProtocolos = async () => {
+      try {
+        const token = loggedIn;
+        const protocolosData = await getAllProtocolos(token);
+        setProtocolos(protocolosData);
+      } catch (error) {
+        console.error('Error al obtener los protocolos:', error);
+      }
+    };
+
+    fetchProtocolos();
+  }, [loggedIn]);
 
   return (
     <div className='RegisterVisita-div'>
       <h2>REGISTRAR NUEVA VISITA</h2>
       <form onSubmit={handleSubmit}>
-
-
         <div className="visita-nueva">
-              <div className="div">
-                <header className="header">
-                  <div className="overlap-group">
-                    <div className="register-title">REGISTRAR NUEVA VISITA</div>
+          <div className="div">
+            <header className="header">
+              <div className="overlap-group">
+                <div className="register-title">REGISTRAR NUEVA VISITA</div>
+              </div>
+            </header>
+            <div className="overlap">
+              <div className="user-div">
+                <p className="text-wrapper">1. Seleccione la persona encargada de ejecutar la visita:</p>
+                <input
+                  className="rectangle"
+                  type="text"
+                  name="id_responsable"
+                  value={selectedUser ? selectedUser._id : visitaData.id_responsable}
+                  onChange={handleChange}
+                  placeholder="Buscar..."
+                />
+                {selectedUser && (
+                  <div className="user-pick">
+                    {selectedUser.username}
+                    <CancelIcon className='user-selected-cancel' onClick={handleCancelUser}/>
                   </div>
-                </header>
-                <div className="overlap">
-
-                <div className="user-div">
-                  <p className="text-wrapper">1. Seleccione la persona encargada de ejecutar la visita:</p>
+                )}
+                {searchResults.length > 0 && (
+                  <ul className='users-ul'>
+                    {searchResults.map((user) => (
+                      <li className="users-listed" key={user._id} onClick={() => handleUserClick(user)}>
+                        {user.username}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div className="protocolos-div">
+                <p className="text-wrapper">2. Seleccione las actividades a programar:</p>
+                <select
+                  className="rectangle"
+                  name="ids_protocolos"
+                  onChange={handleProtocoloChange}
+                >
+                  <option value="" disabled selected>Seleccionar</option>
+                  {protocolos.map((protocolo) => (
+                    <option key={protocolo._id} value={protocolo._id}>
+                      {protocolo.title}
+                    </option>
+                  ))}
+                </select>
+                <ul className="protocolos-listed">
+                  {selectedProtocolos.map((protocoloId) => (
+                    <li key={protocoloId} className="img">
+                      {protocolos.find((protocolo) => protocolo._id === protocoloId).title}
+                      <CancelIcon className="protocolo-selected-cancel" onClick={() => removeProtocolo(protocoloId)}/>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="separator"/>
+              <div className="fecha-div">
+                <div className="text-wrapper-2">3. Seleccione fecha de inicio:</div>
+                <input
+                  className="div-2"
+                  type="datetime-local"
+                  name="fecha_inicio"
+                  value={visitaData.fecha_inicio}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="insede-div">
+                <div className="text-wrapper-2">4. Ejecutar en sede:</div>
+                <label className="switch">
                   <input
-                    className="rectangle"
-                    type="text"
-                    name="id_responsable"
-                    value={selectedUser ? selectedUser._id : visitaData.id_responsable}
-                    onChange={handleChange}
-                    placeholder="Buscar..."
+                    type="checkbox"
+                    name="ejecutar_sede"
+                    className='ejecutar-sede-input'
+                    checked={visitaData.ejecutar_sede}
+                    onChange={(e) => setVisitaData({ ...visitaData, ejecutar_sede: e.target.checked })}
                   />
-                  {selectedUser && (
-                    <div className="user-pick">
-                      {selectedUser.username}
-                      <CancelIcon className='user-selected-cancel' onClick={handleCancelUser}/>
-                    </div>
-                  )}
-                  {searchResults.length > 0 && (
-                    <ul className='users-ul'>
-                      {searchResults.map((user) => (
-                        <li className="users-listed" key={user._id} onClick={() => handleUserClick(user)}>
-                          {user.username}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                  <div className="protocolos-div">
-                    <p className="text-wrapper">2.  Seleccione las actividades a programar:</p>
-                    <div className="rectangle" />
-                    <div className="protocolos-listed">
-                      <div className="protocolos-pick" />
-                      <div className="img"/>
-                    </div>
-                  </div>
-                  <div className="separator"/>
-                  <div className="fecha-div">
-                    <div className="text-wrapper-2">3.  Seleccione fecha de inicio:</div>
-                    <div className="div-2" />
-                  </div>
-                  <div className="insede-div">
-                    <div className="text-wrapper-2">4. Ejecutar en sede:</div>
-                    <img className="sede-input" alt="Sede input" src="sede-input.png" />
-                  </div>
-                  <div className="time-div">
-                    <div className="text-wrapper-2">5.  Duración estimada (minutos):</div>
-                    <div className="div-2" />
-                  </div>
-
-
-                    {/* <label>
-                              Estado de la Visita:
-                              <input
-                                type="text"
-                                name="id_visita_estado"
-                                value={visitaData.id_visita_estado}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              Responsable:
-                              <input
-                                type="text"
-                                name="id_responsable"
-                                value={visitaData.id_responsable}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              Creador:
-                              <input
-                                type="text"
-                                name="id_creador"
-                                value={visitaData.id_creador}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              IDs de Protocolos:
-                              <input
-                                type="text"
-                                name="ids_protocolos"
-                                value={visitaData.ids_protocolos.join(',')}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              ID de la Orden:
-                              <input
-                                type="text"
-                                name="id_orden"
-                                value={visitaData.id_orden}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              Fecha de Inicio:
-                              <input
-                                type="date"
-                                name="fecha_inicio"
-                                value={visitaData.fecha_inicio}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              Duración:
-                              <input
-                                type="text"
-                                name="duracion"
-                                value={visitaData.duracion}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <label>
-                              Fecha de Creación:
-                              <input
-                                type="date"
-                                name="fecha_creacion"
-                                value={visitaData.fecha_creacion}
-                                onChange={handleChange}
-                              />
-                            </label>
-                            <button type="submit">REGISTRAR</button>
-                            <button type="button">CANCELAR</button>
- */}
-                </div>
+                  <span className="slider round"></span>
+                </label>
+              </div>
+              <div className="time-div">
+                <div className="text-wrapper-2">5. Duración estimada (minutos):</div>
+                <input
+                  className="div-2"
+                  type="text"
+                  name="duracion"
+                  value={visitaData.duracion}
+                  onChange={handleChange}
+                />
               </div>
             </div>
+          </div>
+          {/* ESPACIO PARA BOTONES DE CREAR Y CANCELAR */}
+          <div className="button-container">
+            <button type="submit" className="btn-register">Registrar</button>
+            <button type="button" className="btn-cancel" onClick={handleCancel}>Cancelar</button>
+          </div>
+        </div>
       </form>
     </div>
   );

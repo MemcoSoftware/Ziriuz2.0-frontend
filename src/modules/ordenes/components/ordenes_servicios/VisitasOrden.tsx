@@ -54,6 +54,11 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
   const handleAddVisitaClick = () => {
     setShowRegisterVisita(true); // Mostrar el formulario al hacer clic en el ícono de añadir visita
   };
+
+  const handleCancel = () => {
+    setShowRegisterVisita(false);
+  };
+  
   return (
     <div>
       <div className="VisitasOrden-visitas">
@@ -106,7 +111,7 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
          <AddCircleIcon className='VisitasOrden-addVisita-button' onClick={handleAddVisitaClick}/>
 
           )}
-          {showRegisterVisita && <RegisterVisitaOrden />}
+          {showRegisterVisita && <RegisterVisitaOrden onCancel={handleCancel} />}
         </div>
       </div>
 

@@ -194,6 +194,7 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                     value={solicitudData.id_servicio}
                     onChange={handleServicioChange}
                     >
+                      <option value="" disabled selected>Seleccionar</option>
                       {serviciosTipos.map((servicio) => (
                       <option key={servicio._id} value={servicio._id}>
                         {servicio.servicio}

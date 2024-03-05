@@ -151,10 +151,21 @@
   height: 22px;
   left: 0;
   background-color: #7C7C7C;
-  position: absolute;
+  position: relative;
   border-radius: 10px;
   top: 0;
+  margin-bottom: 2px;
   width: 234px;
+}
+
+.visita-nueva .protocolo-selected-cancel {
+  position: absolute;
+  height: 17px;
+  width: 17px;
+  top: 2px;
+  cursor: pointer;
+  color: #da2808;
+  left: 210px;
 }
 
 .visita-nueva .text-wrapper {
@@ -180,12 +191,34 @@
 }
 
 .visita-nueva .protocolos-listed {
-  height: 51px;
+  height: 82px;
   left: 0;
   position: absolute;
   top: 72px;
-  width: 234px;
+  width: 247px;
+  overflow-y: auto; 
 }
+/* Estiliza la barra de desplazamiento en su totalidad */
+.visita-nueva .protocolos-listed::-webkit-scrollbar {
+  width: 10px; /* Ajusta el ancho de la barra de desplazamiento */
+}
+
+/* Estiliza el rastro de la barra de desplazamiento */
+.visita-nueva .protocolos-listed::-webkit-scrollbar-track {
+  background: #f1f1f1; /* El color de fondo del rastro */
+}
+
+/* Estiliza el pulgar de la barra de desplazamiento */
+.visita-nueva .protocolos-listed::-webkit-scrollbar-thumb {
+  background: #888; /* El color de fondo del pulgar */
+}
+
+/* Estiliza el pulgar de la barra de desplazamiento al pasar el cursor */
+.visita-nueva .protocolos-listed::-webkit-scrollbar-thumb:hover {
+  background: #555; /* El color de fondo del pulgar al hacer hover */
+}
+
+
 
 .visita-nueva .protocolos-pick {
   background-color: #53789587;
@@ -234,6 +267,7 @@
   border-radius: 10px;
   height: 30px;
   left: 0;
+  border-style: none;
   position: absolute;
   top: 31px;
   width: 234px;
@@ -261,4 +295,94 @@
   position: absolute;
   top: 199px;
   width: 260px;
+}
+
+.visita-nueva .btn-register {
+  background-color: #00ddfa;
+  border-radius: 10px;
+  height: 35px;
+  left: 420px;
+  cursor: pointer;
+  border-style: none;
+  position: absolute;
+  top: 360px;
+  width: 85px;
+}
+
+.visita-nueva .btn-cancel {
+  background-color: #7C7C7C;
+  border-radius: 10px;
+  height: 35px;
+  left: 320px;
+  cursor: pointer;
+  border-style: none;
+  position: absolute;
+  top: 360px;
+  width: 85px;
+}
+
+
+/* CSS */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  left: 80px;
+  top: 30px;
+}
+
+.switch .ejecutar-sede-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #7C7C7C;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.ejecutar-sede-input:checked + .slider {
+  background-color: #00ddfa;
+}
+
+.ejecutar-sede-input:focus + .slider {
+  box-shadow: 0 0 1px #00ddfa;
+}
+
+.ejecutar-sede-input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

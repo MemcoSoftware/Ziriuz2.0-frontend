@@ -12,7 +12,8 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
   const loggedIn = useSessionStorage('sessionJWTToken');
   const userId = useSessionStorage('userId');
   const estadoPendienteId = "65c5609fcb319b5fbc4220d1"; // Asegúrate de que este ID es correcto y existe en tu base de datos
-
+  const now = new Date();
+  const fechaCreacion = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
   useEffect(() => {
     setVisitaData(prevData => ({ ...prevData, id_orden: idOrden, id_creador: userId, id_visita_estado: estadoPendienteId }));
   }, [idOrden, userId, estadoPendienteId]);
@@ -26,7 +27,7 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
     fecha_inicio: '',
     ejecutar_sede: false,
     duracion: '',
-    fecha_creacion: '',
+    fecha_creacion: fechaCreacion,
   });
 
   // USER STATES

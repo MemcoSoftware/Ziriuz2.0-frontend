@@ -6,15 +6,23 @@ import './styles/RegisterVisitaOrden.css';
 import { searchUsersByKeyword } from '../../../../users/services/usersService';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { getAllProtocolos } from '../../../services/protocolosService';
+import { getOrdenById, updateOrden } from '../../../../ordenes/services/ordenesService';
 
-const RegisterVisitaOrden: React.FC<{ onCancel: () => void }> = ({ onCancel }) => {
+const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> = ({ onCancel, idOrden }) => {
   const loggedIn = useSessionStorage('sessionJWTToken');
+  const userId = useSessionStorage('userId');
+  const estadoPendienteId = "65c5609fcb319b5fbc4220d1"; // Asegúrate de que este ID es correcto y existe en tu base de datos
+
+  useEffect(() => {
+    setVisitaData(prevData => ({ ...prevData, id_orden: idOrden, id_creador: userId, id_visita_estado: estadoPendienteId }));
+  }, [idOrden, userId, estadoPendienteId]);
+
   const [visitaData, setVisitaData] = useState({
-    id_visita_estado: '',
+    id_visita_estado: estadoPendienteId,
     id_responsable: '',
-    id_creador: '',
+    id_creador: userId,
     ids_protocolos: [] as string[],
-    id_orden: '',
+    id_orden: idOrden,
     fecha_inicio: '',
     ejecutar_sede: false,
     duracion: '',
@@ -30,6 +38,12 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void }> = ({ onCancel }) =
   const [protocolos, setProtocolos] = useState<any[]>([]);
   const [selectedProtocolos, setSelectedProtocolos] = useState<string[]>([]);
   const [duracion, setDuracion] = useState('');
+
+
+  const [loading, setLoading] = useState(false);
+  const [visitaRegistrada, setVisitaRegistrada] = useState(false);
+
+  const [visitaId, setVisitaId] = useState('');
 
   const navigate = useNavigate();
 
@@ -72,15 +86,47 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void }> = ({ onCancel }) =
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
     try {
       const token = loggedIn;
-      await createVisita(token, visitaData);
+    
+      // 2. Crea la nueva visita
+      const nuevaVisita = await createVisita(token, visitaData);
       console.log('Visita registrada exitosamente');
-      window.alert('Visita registrada exitosamente');
+      console.log(nuevaVisita);
+    
+      // Almacena el ID de la visita
+      if (nuevaVisita && nuevaVisita.visitaId) {
+        setVisitaId(nuevaVisita.visitaId);
+    
+        // 1. Obtén los OIDs de visita existentes en la orden
+        const ordenActual = await getOrdenById(token, idOrden);
+        const oidsVisitasExistentes = ordenActual.ids_visitas.map((visita: any) => visita._id);
+        console.log(idOrden);
+        console.log(oidsVisitasExistentes);
+    
+        // 3. Actualiza la orden con el nuevo OID de visita
+        const nuevaOrdenData = {
+          ids_visitas: [...oidsVisitasExistentes, nuevaVisita.visitaId] // Utiliza el nuevo ID de visita
+        };
+        await updateOrden(token, idOrden, nuevaOrdenData);
+        console.log(idOrden);
+        console.log("Orden actualizada");
+        window.alert(`Visita creada exitosamente bajo orden ID: ${idOrden}`);
+        window.location.reload();
+        
+      } else {
+        console.error('Error al obtener el ID de la nueva visita.');
+        window.alert('Error al obtener el ID de la nueva visita.');
+      }
+    
     } catch (error) {
-      console.error('Error al registrar la visita:', error);
+      console.error('Error al registrar la visita o actualizar la orden:', error);
+      window.alert('Error al registrar la visita o actualizar la orden');
     }
   };
+  
+
   const handleCancel = () => {
     onCancel(); // Llama a la función de control pasada desde VisitasOrden.tsx
   };

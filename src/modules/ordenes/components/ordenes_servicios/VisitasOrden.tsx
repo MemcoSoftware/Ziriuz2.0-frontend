@@ -18,9 +18,10 @@ import RegisterVisitaOrden from '../../../visitas/components/visitas/forms/Regis
 
 interface VisitasOrdenProps {
   visitas: any[];
+  idOrden: string; // Añadir esta línea
 }
 
-const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
+const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas, idOrden }) => {
 
   const [selectedVisitaId, setSelectedVisitaId] = useState<string | null>(null);
   const [showRegisterVisita, setShowRegisterVisita] = useState(false);
@@ -29,7 +30,11 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
   const handleVisitaClick = (id: string) => {
     setSelectedVisitaId(id);
   };
-
+  
+  const handleVisitaCreated = async () => {
+    // Aquí, podrías volver a buscar los detalles de la orden para obtener la lista actualizada de visitas
+    // O cualquier otra lógica que necesites ejecutar después de que una visita se haya creado y añadido a la orden
+  };
 
   // Function to filter visitas by estado
   const [filtro, setFiltro] = useState<string | null>(null);
@@ -92,14 +97,14 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
                         {EstadoIcono(visita.id_visita_estado.estado)}
 
                         <CalendarMonthOutlinedIcon className="VisitasOrden-inicio-icon"/>
-                        <div className="VisitasOrden-inicio-date">{visita.fecha_inicio}</div>
+                        <div className="VisitasOrden-inicio-date">{visita && visita.fecha_inicio || 'N/A'}</div>
                         <EngineeringIcon className="VisitasOrden-tecnico-icon"/>
-                        <div className="VisitasOrden-tecnico-name">{visita.id_responsable.username}</div>
+                        <div className="VisitasOrden-tecnico-name">{visita && visita.id_responsable.username || 'N/A'}</div>
                         <CalendarTodayOutlinedIcon className="VisitasOrden-created-icon"/>
                         <AddOutlinedIcon className="VisitasOrden-created-icon-add"/>
-                        <div className="VisitasOrden-created-date">{visita.fecha_creacion}</div>
+                        <div className="VisitasOrden-created-date">{visita && visita.fecha_creacion || 'N/A'}</div>
                         <PersonIcon className="VisitasOrden-user-icon"/>
-                        <div className="VisitasOrden-user-creator">{visita.id_cerrador.username}</div>
+                        <div className="VisitasOrden-user-creator">{visita && visita.id_creador.username || 'N/A'}</div>
                       </div>
                     </li>
                   ))}
@@ -111,7 +116,7 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas }) => {
          <AddCircleIcon className='VisitasOrden-addVisita-button' onClick={handleAddVisitaClick}/>
 
           )}
-          {showRegisterVisita && <RegisterVisitaOrden onCancel={handleCancel} />}
+           {showRegisterVisita && <RegisterVisitaOrden onCancel={handleCancel} idOrden={idOrden} />} 
         </div>
       </div>
 

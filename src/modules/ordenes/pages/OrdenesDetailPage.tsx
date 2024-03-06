@@ -88,8 +88,9 @@ const OrdenDetailPage: React.FC = () => {
                   )}
 
                   {currentView === 'visitasOrden' && orden && orden.ids_visitas && (
-                    <VisitasOrden visitas={orden.ids_visitas} />
+                    <VisitasOrden visitas={orden.ids_visitas} idOrden={orden._id} /> // Añade el prop idOrden aquí
                   )}
+
                 </div>
               </div>
             </div>

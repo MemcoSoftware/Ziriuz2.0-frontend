@@ -1,6 +1,6 @@
 
 
-.visita-nueva {
+.RegisterVisitaOrden-visita-nueva {
   background-color: transparent;
   /* display: flex; */
   /* flex-direction: row; */
@@ -13,7 +13,7 @@
   width:563px;
 }
 
-.visita-nueva .div {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-div {
   /* background-image: url(./container.svg); */
   background-size: 100% 100%;
   height: 412px;
@@ -25,7 +25,7 @@
   width: 563px;
 }
 
-.visita-nueva .header {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-header {
   background-color: transparent;
   height: 34px;
   left: 16px;
@@ -34,7 +34,7 @@
   width: 500px;
 }
 
-.visita-nueva .overlap-group {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-overlap-group {
   background-color: #ffffff;
   border-radius: 10px;
   height: 34px;
@@ -42,7 +42,7 @@
   width: 498px;
 }
 
-.visita-nueva .register-title {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-register-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -58,7 +58,7 @@
   width: 498px;
 }
 
-.visita-nueva .overlap {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-overlap {
   background-color: #d9d9d9;
   height: 353px;
   left: 0;
@@ -68,7 +68,7 @@
   width: 563px;
 }
 
-.visita-nueva .user-div {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-user-div {
   height: 126px;
   left: 16px;
   position: absolute;
@@ -76,7 +76,7 @@
   width: 260px;
 }
 
-.visita-nueva .rectangle {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-rectangle {
   background-color: #ffffff;
   border-radius: 10px;
   height: 30px;
@@ -88,7 +88,7 @@
   width: 234px;
 }
 
-.visita-nueva .users-listed {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-users-listed {
   height: 22px;
   background-color: #53789587;
   left: 0;
@@ -100,7 +100,7 @@
   width: 234px;
 }
 
-.visita-nueva .user-pick {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-user-pick {
   background-color: #7C7C7C;
   border-radius: 10px;
   height: 22px;
@@ -110,7 +110,7 @@
   width: 234px;
 }
 
-.visita-nueva .user-selected-cancel {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-user-selected-cancel {
   position: absolute;
   height: 17px;
   width: 17px;
@@ -119,7 +119,7 @@
   color: #da2808;
   left: 210px;
 }
-.visita-nueva .users-ul {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-users-ul {
   position: absolute;
   overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura máxima */
   top: 63px;
@@ -127,27 +127,27 @@
   width: 250px;
 }
 /* Estiliza la barra de desplazamiento en su totalidad */
-.visita-nueva .users-ul::-webkit-scrollbar {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-users-ul::-webkit-scrollbar {
   width: 10px; /* Ajusta el ancho de la barra de desplazamiento */
 }
 
 /* Estiliza el rastro de la barra de desplazamiento (la parte que "contiene" el pulgar) */
-.visita-nueva .users-ul::-webkit-scrollbar-track {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-users-ul::-webkit-scrollbar-track {
   background: #f1f1f1; /* Ajusta el color de fondo según prefieras */
 }
 
 /* Estiliza el pulgar de la barra de desplazamiento (la parte que se mueve) */
-.visita-nueva .users-ul::-webkit-scrollbar-thumb {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-users-ul::-webkit-scrollbar-thumb {
   background: #888; /* Ajusta el color del pulgar de la barra de desplazamiento */
 }
 
 /* Estiliza el pulgar de la barra de desplazamiento al pasar el cursor */
-.visita-nueva .users-ul::-webkit-scrollbar-thumb:hover {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-users-ul::-webkit-scrollbar-thumb:hover {
   background: #555; /* Ajusta el color del pulgar cuando se hace hover */
 }
 
 
-.visita-nueva .img {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-img {
   height: 22px;
   left: 0;
   background-color: #7C7C7C;
@@ -158,7 +158,7 @@
   width: 234px;
 }
 
-.visita-nueva .protocolo-selected-cancel {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolo-selected-cancel {
   position: absolute;
   height: 17px;
   width: 17px;
@@ -168,7 +168,7 @@
   left: 210px;
 }
 
-.visita-nueva .text-wrapper {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-text-wrapper {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -182,7 +182,7 @@
   width: 258px;
 }
 
-.visita-nueva .protocolos-div {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-div {
   height: 123px;
   left: 16px;
   position: absolute;
@@ -190,7 +190,7 @@
   width: 260px;
 }
 
-.visita-nueva .protocolos-listed {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-listed {
   height: 82px;
   left: 0;
   position: absolute;
@@ -199,28 +199,28 @@
   overflow-y: auto; 
 }
 /* Estiliza la barra de desplazamiento en su totalidad */
-.visita-nueva .protocolos-listed::-webkit-scrollbar {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-listed::-webkit-scrollbar {
   width: 10px; /* Ajusta el ancho de la barra de desplazamiento */
 }
 
 /* Estiliza el rastro de la barra de desplazamiento */
-.visita-nueva .protocolos-listed::-webkit-scrollbar-track {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-listed::-webkit-scrollbar-track {
   background: #f1f1f1; /* El color de fondo del rastro */
 }
 
 /* Estiliza el pulgar de la barra de desplazamiento */
-.visita-nueva .protocolos-listed::-webkit-scrollbar-thumb {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-listed::-webkit-scrollbar-thumb {
   background: #888; /* El color de fondo del pulgar */
 }
 
 /* Estiliza el pulgar de la barra de desplazamiento al pasar el cursor */
-.visita-nueva .protocolos-listed::-webkit-scrollbar-thumb:hover {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-listed::-webkit-scrollbar-thumb:hover {
   background: #555; /* El color de fondo del pulgar al hacer hover */
 }
 
 
 
-.visita-nueva .protocolos-pick {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-protocolos-pick {
   background-color: #53789587;
   border-radius: 10px;
   height: 22px;
@@ -230,7 +230,7 @@
   width: 234px;
 }
 
-.visita-nueva .separator {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-separator {
   height: 339px;
   left: 280px;
   background-color: #ffffff;
@@ -240,7 +240,7 @@
   width: 3px;
 }
 
-.visita-nueva .fecha-div {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-fecha-div {
   height: 61px;
   left: 299px;
   position: absolute;
@@ -248,7 +248,7 @@
   width: 260px;
 }
 
-.visita-nueva .text-wrapper-2 {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-text-wrapper-2 {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -262,7 +262,7 @@
   width: 258px;
 }
 
-.visita-nueva .div-2 {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-div-2 {
   background-color: #ffffff;
   border-radius: 10px;
   height: 30px;
@@ -273,7 +273,7 @@
   width: 234px;
 }
 
-.visita-nueva .insede-div {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-insede-div {
   height: 74px;
   left: 299px;
   position: absolute;
@@ -281,7 +281,7 @@
   width: 260px;
 }
 
-.visita-nueva .sede-input {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-sede-input {
   height: 50px;
   left: 104px;
   position: absolute;
@@ -289,7 +289,7 @@
   width: 50px;
 }
 
-.visita-nueva .time-div {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-time-div {
   height: 61px;
   left: 299px;
   position: absolute;
@@ -297,7 +297,7 @@
   width: 260px;
 }
 
-.visita-nueva .btn-register {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-btn-register {
   background-color: #00ddfa;
   border-radius: 10px;
   height: 35px;
@@ -309,7 +309,7 @@
   width: 85px;
 }
 
-.visita-nueva .btn-cancel {
+.RegisterVisitaOrden-visita-nueva .RegisterVisitaOrden-btn-cancel {
   background-color: #7C7C7C;
   border-radius: 10px;
   height: 35px;
@@ -323,7 +323,7 @@
 
 
 /* CSS */
-.switch {
+.RegisterVisitaOrden-switch {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -332,13 +332,13 @@
   top: 30px;
 }
 
-.switch .ejecutar-sede-input {
+.RegisterVisitaOrden-switch .RegisterVisitaOrden-ejecutar-sede-input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.slider {
+.RegisterVisitaOrden-slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -351,7 +351,7 @@
   border-radius: 34px;
 }
 
-.slider:before {
+.RegisterVisitaOrden-slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -364,25 +364,25 @@
   border-radius: 50%;
 }
 
-.ejecutar-sede-input:checked + .slider {
+.RegisterVisitaOrden-ejecutar-sede-input:checked + .RegisterVisitaOrden-slider {
   background-color: #00ddfa;
 }
 
-.ejecutar-sede-input:focus + .slider {
+.RegisterVisitaOrden-ejecutar-sede-input:focus + .RegisterVisitaOrden-slider {
   box-shadow: 0 0 1px #00ddfa;
 }
 
-.ejecutar-sede-input:checked + .slider:before {
+.RegisterVisitaOrden-ejecutar-sede-input:checked + .RegisterVisitaOrden-slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
 /* Rounded sliders */
-.slider.round {
+.RegisterVisitaOrden-slider.RegisterVisitaOrden-round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.RegisterVisitaOrden-slider.RegisterVisitaOrden-round:before {
   border-radius: 50%;
 }

@@ -167,18 +167,18 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
     <div className='RegisterVisita-div'>
       <h2>REGISTRAR NUEVA VISITA</h2>
       <form onSubmit={handleSubmit}>
-        <div className="visita-nueva">
-          <div className="div">
-            <header className="header">
-              <div className="overlap-group">
-                <div className="register-title">REGISTRAR NUEVA VISITA</div>
+        <div className="RegisterVisitaOrden-visita-nueva">
+          <div className="RegisterVisitaOrden-div">
+            <header className="RegisterVisitaOrden-header">
+              <div className="RegisterVisitaOrden-overlap-group">
+                <div className="RegisterVisitaOrden-register-title">REGISTRAR NUEVA VISITA</div>
               </div>
             </header>
-            <div className="overlap">
-              <div className="user-div">
-                <p className="text-wrapper">1. Seleccione la persona encargada de ejecutar la visita:</p>
+            <div className="RegisterVisitaOrden-overlap">
+              <div className="RegisterVisitaOrden-user-div">
+                <p className="RegisterVisitaOrden-text-wrapper">1. Seleccione la persona encargada de ejecutar la visita:</p>
                 <input
-                  className="rectangle"
+                  className="RegisterVisitaOrden-rectangle"
                   type="text"
                   name="id_responsable"
                   value={selectedUser ? selectedUser._id : visitaData.id_responsable}
@@ -186,25 +186,25 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
                   placeholder="Buscar..."
                 />
                 {selectedUser && (
-                  <div className="user-pick">
+                  <div className="RegisterVisitaOrden-user-pick">
                     {selectedUser.username}
-                    <CancelIcon className='user-selected-cancel' onClick={handleCancelUser}/>
+                    <CancelIcon className='RegisterVisitaOrden-user-selected-cancel' onClick={handleCancelUser}/>
                   </div>
                 )}
                 {searchResults.length > 0 && (
-                  <ul className='users-ul'>
+                  <ul className='RegisterVisitaOrden-users-ul'>
                     {searchResults.map((user) => (
-                      <li className="users-listed" key={user._id} onClick={() => handleUserClick(user)}>
+                      <li className="RegisterVisitaOrden-users-listed" key={user._id} onClick={() => handleUserClick(user)}>
                         {user.username}
                       </li>
                     ))}
                   </ul>
                 )}
               </div>
-              <div className="protocolos-div">
-                <p className="text-wrapper">2. Seleccione las actividades a programar:</p>
+              <div className="RegisterVisitaOrden-protocolos-div">
+                <p className="RegisterVisitaOrden-text-wrapper">2. Seleccione las actividades a programar:</p>
                 <select
-                  className="rectangle"
+                  className="RegisterVisitaOrden-rectangle"
                   name="ids_protocolos"
                   onChange={handleProtocoloChange}
                 >
@@ -215,43 +215,43 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
                     </option>
                   ))}
                 </select>
-                <ul className="protocolos-listed">
+                <ul className="RegisterVisitaOrden-protocolos-listed">
                   {selectedProtocolos.map((protocoloId) => (
-                    <li key={protocoloId} className="img">
+                    <li key={protocoloId} className="RegisterVisitaOrden-img">
                       {protocolos.find((protocolo) => protocolo._id === protocoloId).title}
-                      <CancelIcon className="protocolo-selected-cancel" onClick={() => removeProtocolo(protocoloId)}/>
+                      <CancelIcon className="RegisterVisitaOrden-protocolo-selected-cancel" onClick={() => removeProtocolo(protocoloId)}/>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="separator"/>
-              <div className="fecha-div">
-                <div className="text-wrapper-2">3. Seleccione fecha de inicio:</div>
+              <div className="RegisterVisitaOrden-separator"/>
+              <div className="RegisterVisitaOrden-fecha-div">
+                <div className="RegisterVisitaOrden-text-wrapper-2">3. Seleccione fecha de inicio:</div>
                 <input
-                  className="div-2"
+                  className="RegisterVisitaOrden-div-2"
                   type="datetime-local"
                   name="fecha_inicio"
                   value={visitaData.fecha_inicio}
                   onChange={handleChange}
                 />
               </div>
-              <div className="insede-div">
-                <div className="text-wrapper-2">4. Ejecutar en sede:</div>
-                <label className="switch">
+              <div className="RegisterVisitaOrden-insede-div">
+                <div className="RegisterVisitaOrden-text-wrapper-2">4. Ejecutar en sede:</div>
+                <label className="RegisterVisitaOrden-switch">
                   <input
+                    className='RegisterVisitaOrden-ejecutar-sede-input'
                     type="checkbox"
                     name="ejecutar_sede"
-                    className='ejecutar-sede-input'
                     checked={visitaData.ejecutar_sede}
                     onChange={(e) => setVisitaData({ ...visitaData, ejecutar_sede: e.target.checked })}
                   />
-                  <span className="slider round"></span>
+                  <span className="RegisterVisitaOrden-slider round"></span>
                 </label>
               </div>
-              <div className="time-div">
-                <div className="text-wrapper-2">5. Duración estimada (minutos):</div>
+              <div className="RegisterVisitaOrden-time-div">
+                <div className="RegisterVisitaOrden-text-wrapper-2">5. Duración estimada (minutos):</div>
                 <input
-                  className="div-2"
+                  className="RegisterVisitaOrden-div-2"
                   type="text"
                   name="duracion"
                   value={visitaData.duracion}
@@ -261,9 +261,9 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
             </div>
           </div>
           {/* ESPACIO PARA BOTONES DE CREAR Y CANCELAR */}
-          <div className="button-container">
-            <button type="submit" className="btn-register">Registrar</button>
-            <button type="button" className="btn-cancel" onClick={handleCancel}>Cancelar</button>
+          <div className="RegisterVisitaOrden-button-container">
+            <button type="submit" className="RegisterVisitaOrden-btn-register">Registrar</button>
+            <button type="button" className="RegisterVisitaOrden-btn-cancel" onClick={handleCancel}>Cancelar</button>
           </div>
         </div>
       </form>

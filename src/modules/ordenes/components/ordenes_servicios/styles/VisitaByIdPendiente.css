@@ -1,0 +1,757 @@
+.visita-pendiente {
+  background-color: transparent;
+  /* display: flex; */
+  /* flex-direction: row; */
+  justify-content: center;
+  left: 535px;
+  top: 345px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.visita-pendiente .div {
+  /* background-image: url(./container.svg); */
+  background-size: 100% 100%;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 412px;
+  position: relative;
+  width: 563px;
+}
+
+.visita-pendiente .header {
+  background-color: transparent;
+  height: 34px;
+  left: 16px;
+  position: absolute;
+  top: 17px;
+  width: 500px;
+}
+
+.visita-pendiente .overlap-group {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 34px;
+  position: relative;
+  width: 498px;
+}
+
+.visita-pendiente .text-wrapper {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 18px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  white-space: nowrap;
+  width: 498px;
+}
+
+.visita-pendiente .ejecutar-icon {
+  height: 30px;
+  left: 524px;
+  position: absolute;
+  top: 19px;
+  width: 30px;
+}
+
+.visita-pendiente .overlap {
+  background-color: #d9d9d9;
+  height: 353px;
+  left: 0;
+  border-radius: 10px;
+  position: absolute;
+  top: 59px;
+  width: 563px;
+}
+
+.visita-pendiente .ejecucion-div {
+  height: 316px;
+  left: 14px;
+  position: absolute;
+  top: 24px;
+  width: 311px;
+}
+
+.visita-pendiente .overlap-2 {
+  height: 316px;
+  position: relative;
+  width: 291px;
+}
+
+.visita-pendiente .rectangle {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 316px;
+  left: 2px;
+  position: absolute;
+  top: 0;
+  width: 288px;
+}
+
+.visita-pendiente .text-wrapper-2 {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 271px;
+}
+
+.visita-pendiente .ejecucion-icon {
+  height: 20px;
+  left: 11px;
+  position: absolute;
+  top: 25px;
+  width: 20px;
+}
+
+.visita-pendiente .ejecucion-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 28px;
+  width: 108px;
+}
+
+.visita-pendiente .time-icon {
+  height: 20px;
+  left: 156px;
+  position: absolute;
+  top: 25px;
+  width: 20px;
+}
+
+.visita-pendiente .time-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 101px;
+}
+
+.visita-pendiente .separator {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 53px;
+  width: 290px;
+}
+
+.visita-pendiente .overlap-group-2 {
+  height: 12px;
+  left: 137px;
+  position: absolute;
+  top: 0;
+  width: 153px;
+}
+
+.visita-pendiente .ellipse {
+  border: 1px solid;
+  border-color: #d9d9d9;
+  border-radius: 8.25px/5.83px;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+.visita-pendiente .line {
+  height: 2px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  top: 4px;
+  width: 137px;
+}
+
+.visita-pendiente .overlap-3 {
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  width: 137px;
+}
+
+.visita-pendiente .img {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 135px;
+}
+
+.visita-pendiente .line-2 {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 137px;
+}
+
+.visita-pendiente .tecnico-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 272px;
+}
+
+.visita-pendiente .tecnico-oid {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 2px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 89px;
+  width: 288px;
+}
+
+.visita-pendiente .tecnico-icon {
+  height: 20px;
+  left: 11px;
+  position: absolute;
+  top: 105px;
+  width: 20px;
+}
+
+.visita-pendiente .tecnico-name {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 109px;
+  width: 89px;
+}
+
+.visita-pendiente .cedula-icon {
+  height: 20px;
+  left: 156px;
+  position: absolute;
+  top: 105px;
+  width: 20px;
+}
+
+.visita-pendiente .cedula-name {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 109px;
+  width: 92px;
+}
+
+.visita-pendiente .email-icon {
+  height: 20px;
+  left: 11px;
+  position: absolute;
+  top: 145px;
+  width: 20px;
+}
+
+.visita-pendiente .email-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 88px;
+}
+
+.visita-pendiente .telephone-icon {
+  height: 20px;
+  left: 156px;
+  position: absolute;
+  top: 145px;
+  width: 20px;
+}
+
+.visita-pendiente .telephone-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 92px;
+}
+
+.visita-pendiente .separator-2 {
+  height: 12px;
+  left: 1px;
+  position: absolute;
+  top: 172px;
+  width: 290px;
+}
+
+.visita-pendiente .protocolos-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 194px;
+  width: 272px;
+}
+
+.visita-pendiente .actividades-list {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 100px;
+  left: 2px;
+  position: absolute;
+  top: 216px;
+  width: 288px;
+}
+
+.visita-pendiente .rectangle-2 {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 21px;
+  left: 20px;
+  position: relative;
+  top: 11px;
+  width: 251px;
+}
+
+.visita-pendiente .change-estado {
+  height: 115px;
+  left: 323px;
+  position: absolute;
+  top: 34px;
+  width: 197px;
+}
+
+.visita-pendiente .overlap-4 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 115px;
+  position: relative;
+  width: 191px;
+}
+
+.visita-pendiente .text-wrapper-3 {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 3px;
+  width: 136px;
+}
+
+.visita-pendiente .img-2 {
+  height: 30px;
+  left: 79px;
+  position: absolute;
+  top: 20px;
+  width: 30px;
+}
+
+.visita-pendiente .separator-estado {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 52px;
+  width: 191px;
+}
+
+.visita-pendiente .decline-icon {
+  height: 30px;
+  left: 46px;
+  position: absolute;
+  top: 65px;
+  width: 30px;
+}
+
+.visita-pendiente .decline-t {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 9px;
+  left: 32px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 99px;
+  white-space: nowrap;
+  width: 63px;
+}
+
+.visita-pendiente .aprove-icon {
+  height: 30px;
+  left: 114px;
+  position: absolute;
+  top: 64px;
+  width: 30px;
+}
+
+.visita-pendiente .aprove-t {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 9px;
+  left: 101px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 98px;
+  white-space: nowrap;
+  width: 63px;
+}
+
+.visita-pendiente .creation-div {
+  height: 181px;
+  left: 323px;
+  position: absolute;
+  top: 155px;
+  width: 207px;
+}
+
+.visita-pendiente .overlap-5 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 181px;
+  position: relative;
+  width: 191px;
+}
+
+.visita-pendiente .creation-t {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 136px;
+}
+
+.visita-pendiente .created-icon {
+  height: 19px;
+  left: 32px;
+  position: absolute;
+  top: 31px;
+  width: 18px;
+}
+
+.visita-pendiente .created-date {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 18px;
+  left: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 32px;
+  width: 102px;
+}
+
+.visita-pendiente .sede-ejecutar {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 63px;
+  width: 87px;
+}
+
+.visita-pendiente .ejecutar-input {
+  height: 32px;
+  left: 124px;
+  position: absolute;
+  top: 53px;
+  width: 30px;
+}
+
+.visita-pendiente .separator-3 {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 88px;
+  width: 191px;
+}
+
+.visita-pendiente .overlap-group-3 {
+  height: 12px;
+  left: 90px;
+  position: absolute;
+  top: 0;
+  width: 101px;
+}
+
+.visita-pendiente .elipse {
+  border: 1px solid;
+  border-color: #d9d9d9;
+  border-radius: 5.43px/6.17px;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 11px;
+}
+
+.visita-pendiente .line-3 {
+  height: 1px;
+  left: 11px;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 90px;
+}
+
+.visita-pendiente .line-4 {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 89px;
+}
+
+.visita-pendiente .creator-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 104px;
+  width: 136px;
+}
+
+.visita-pendiente .tecnico-i {
+  height: 16px;
+  left: 11px;
+  position: absolute;
+  top: 123px;
+  width: 12px;
+}
+
+.visita-pendiente .tecnico-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 126px;
+  width: 64px;
+}
+
+.visita-pendiente .cedula-i {
+  height: 16px;
+  left: 103px;
+  position: absolute;
+  top: 123px;
+  width: 12px;
+}
+
+.visita-pendiente .cedula-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 123px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 126px;
+  width: 63px;
+}
+
+.visita-pendiente .email-i {
+  height: 15px;
+  left: 11px;
+  position: absolute;
+  top: 154px;
+  width: 12px;
+}
+
+.visita-pendiente .email-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 158px;
+  width: 64px;
+}
+
+.visita-pendiente .telephone-i {
+  height: 15px;
+  left: 103px;
+  position: absolute;
+  top: 154px;
+  width: 12px;
+}
+
+.visita-pendiente .telephone-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 123px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 158px;
+  width: 63px;
+}
+
+.visita-pendiente .estado-section {
+  height: 115px;
+  left: 322px;
+  position: absolute;
+  top: 34px;
+  width: 199px;
+}
+
+.visita-pendiente .estado-text {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 9px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 53px;
+  white-space: nowrap;
+  width: 191px;
+}
+
+.visita-pendiente .separator-4 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 64px;
+  width: 191px;
+}
+
+.visita-pendiente .observacion-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 65px;
+  width: 136px;
+}
+
+.visita-pendiente .observacion-text {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 3px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 86px;
+  width: 184px;
+}
+
+.visita-pendiente .back-icon {
+  height: 20px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 20px;
+}

@@ -57,6 +57,7 @@
 .visita-pendiente .ejecutar-icon {
   height: 30px;
   left: 524px;
+  color: #00ddfa;
   position: absolute;
   top: 19px;
   width: 30px;
@@ -114,6 +115,7 @@
 .visita-pendiente .ejecucion-icon {
   height: 20px;
   left: 11px;
+  color: #00ddfa;
   position: absolute;
   top: 25px;
   width: 20px;
@@ -135,6 +137,7 @@
 .visita-pendiente .time-icon {
   height: 20px;
   left: 156px;
+  color: #00ddfa;
   position: absolute;
   top: 25px;
   width: 20px;
@@ -164,6 +167,7 @@
 .visita-pendiente .overlap-group-2 {
   height: 12px;
   left: 137px;
+  /* background-color: #d9d9d9; */
   position: absolute;
   top: 0;
   width: 153px;
@@ -183,11 +187,22 @@
 .visita-pendiente .line {
   height: 2px;
   left: 16px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 137px;
+}
+
+/* .visita-pendiente .line2 {
+  height: 2px;
+  background-color: #d9d9d9;
+  right: 170px;
   object-fit: cover;
   position: absolute;
   top: 4px;
   width: 137px;
-}
+} */
 
 .visita-pendiente .overlap-3 {
   height: 2px;
@@ -200,16 +215,18 @@
 .visita-pendiente .img {
   height: 2px;
   left: 0;
+  background-color: #d9d9d9;
   object-fit: cover;
   position: absolute;
   top: 0;
-  width: 135px;
+  width: 137px;
 }
 
 .visita-pendiente .line-2 {
   height: 2px;
   left: 0;
   object-fit: cover;
+  background-color: #d9d9d9;
   position: absolute;
   top: 0;
   width: 137px;
@@ -247,6 +264,7 @@
 .visita-pendiente .tecnico-icon {
   height: 20px;
   left: 11px;
+  color: #00ddfa;
   position: absolute;
   top: 105px;
   width: 20px;
@@ -268,6 +286,7 @@
 .visita-pendiente .cedula-icon {
   height: 20px;
   left: 156px;
+  color: #00ddfa;
   position: absolute;
   top: 105px;
   width: 20px;
@@ -289,6 +308,7 @@
 .visita-pendiente .email-icon {
   height: 20px;
   left: 11px;
+  color: #00ddfa;
   position: absolute;
   top: 145px;
   width: 20px;
@@ -310,6 +330,7 @@
 .visita-pendiente .telephone-icon {
   height: 20px;
   left: 156px;
+  color: #00ddfa;
   position: absolute;
   top: 145px;
   width: 20px;
@@ -357,16 +378,46 @@
   height: 100px;
   left: 2px;
   position: absolute;
-  top: 216px;
+  top: 213px;
   width: 288px;
+  overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es demasiado alto */
 }
+
+/* Estilos de barra de desplazamiento para navegadores WebKit como Chrome y Safari */
+.visita-pendiente .actividades-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.visita-pendiente .actividades-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.visita-pendiente .actividades-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px; /* Puedes redondear los bordes del pulgar para que coincida con el contenedor */
+}
+
+.visita-pendiente .actividades-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Estilos de barra de desplazamiento para Firefox */
+.visita-pendiente .actividades-list {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
 
 .visita-pendiente .rectangle-2 {
   background-color: #d9d9d9;
   border-radius: 10px;
   height: 21px;
+  font-size: 12px;
   left: 20px;
+  text-align: center;
   position: relative;
+  margin-bottom: 4px;
+  list-style: none;
   top: 11px;
   width: 251px;
 }
@@ -405,6 +456,7 @@
 .visita-pendiente .img-2 {
   height: 30px;
   left: 79px;
+  color: #dac508;
   position: absolute;
   top: 20px;
   width: 30px;
@@ -413,6 +465,7 @@
 .visita-pendiente .separator-estado {
   height: 1px;
   left: 0;
+  background-color: #d9d9d9;
   object-fit: cover;
   position: absolute;
   top: 52px;
@@ -424,6 +477,7 @@
   left: 46px;
   position: absolute;
   top: 65px;
+  color: #da2808;
   width: 30px;
 }
 
@@ -447,6 +501,7 @@
   height: 30px;
   left: 114px;
   position: absolute;
+  color: #08da08;
   top: 64px;
   width: 30px;
 }
@@ -500,9 +555,10 @@
 
 .visita-pendiente .created-icon {
   height: 19px;
-  left: 32px;
+  left: 35px;
+  color: #00ddfa  ;
   position: absolute;
-  top: 31px;
+  top: 29px;
   width: 18px;
 }
 
@@ -534,13 +590,75 @@
   width: 87px;
 }
 
-.visita-pendiente .ejecutar-input {
+/* .visita-pendiente .ejecutar-input {
   height: 32px;
   left: 124px;
   position: absolute;
   top: 53px;
   width: 30px;
+} */
+
+/* CSS */
+.ejecutar-switch {
+  position: relative;
+  display: inline-block;
+  top: 50px;
+  left: 115px;
+  width: 60px;
+  height: 34px;
 }
+
+.ejecutar-switch .ejecutar-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #7C7C7C;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.ejecutar-switch.on .slider {
+  background-color: #00ddfa;
+}
+
+.ejecutar-switch.off .slider {
+  background-color: #7C7C7C;
+}
+
+.ejecutar-input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 
 .visita-pendiente .separator-3 {
   height: 12px;
@@ -572,6 +690,7 @@
 .visita-pendiente .line-3 {
   height: 1px;
   left: 11px;
+  background-color: #d9d9d9;
   object-fit: cover;
   position: absolute;
   top: 5px;
@@ -579,12 +698,13 @@
 }
 
 .visita-pendiente .line-4 {
-  height: 2px;
+  height: 1px;
   left: 0;
+  background-color: #d9d9d9;
   object-fit: cover;
   position: absolute;
   top: 5px;
-  width: 89px;
+  width: 90px;
 }
 
 .visita-pendiente .creator-title {
@@ -605,6 +725,7 @@
 .visita-pendiente .tecnico-i {
   height: 16px;
   left: 11px;
+  color: #00ddfa;
   position: absolute;
   top: 123px;
   width: 12px;
@@ -626,6 +747,7 @@
 .visita-pendiente .cedula-i {
   height: 16px;
   left: 103px;
+  color: #00ddfa;
   position: absolute;
   top: 123px;
   width: 12px;
@@ -647,6 +769,7 @@
 .visita-pendiente .email-i {
   height: 15px;
   left: 11px;
+  color: #00ddfa;
   position: absolute;
   top: 154px;
   width: 12px;
@@ -659,16 +782,22 @@
   font-weight: 400;
   left: 30px;
   letter-spacing: 0;
+  /* justify-content: left; */
   line-height: normal;
   position: absolute;
+  word-break: break-all; /* Permite que la palabra se rompa y continúe en la siguiente línea */
+  overflow-wrap: break-word; /* Alternativa a word-wrap para navegadores modernos */
+  white-space: normal; /* Asegura que el espacio en blanco se maneje normalmente */
   top: 158px;
-  width: 64px;
+  height: 22px;
+  width: 67px;
 }
 
 .visita-pendiente .telephone-i {
   height: 15px;
   left: 103px;
   position: absolute;
+  color: #00ddfa;
   top: 154px;
   width: 12px;
 }

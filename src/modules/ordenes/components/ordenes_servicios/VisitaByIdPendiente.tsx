@@ -1,7 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { getVisitaById } from '../../../visitas/services/visitasService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+
+// STYLES
 import './styles/VisitaByIdPendiente.css';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import HelpIcon from '@mui/icons-material/Help';
+import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import PersonIcon from '@mui/icons-material/Person';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 interface VisitaByIdPendienteProps {
   idVisita: string;
 }
@@ -34,85 +49,103 @@ const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita }) =
                       <div className="text-wrapper">VISITA SELECCIONADA - {visita && visita._id || 'N/A'}</div>
                     </div>
                   </header>
-                  <img className="ejecutar-icon" alt="Ejecutar icon" src="ejecutar-icon.png" />
+                  <ArrowBackIcon className="ejecutar-icon"/>
                   <div className="overlap">
                     <div className="ejecucion-div">
                       <div className="overlap-2">
                         <div className="rectangle" />
                         <div className="text-wrapper-2">INFO EJECUCIÓN</div>
-                        <img className="ejecucion-icon" alt="Ejecucion icon" src="ejecucion-icon.png" />
+                        <CalendarMonthIcon className="ejecucion-icon"/>
                         <div className="ejecucion-data">{visita && visita.fecha_inicio || 'N/A'}</div>
-                        <img className="time-icon" alt="Time icon" src="time-icon.png" />
+                        <AccessTimeFilledIcon className="time-icon"/>
                         <div className="time-data">{visita && visita.duracion || 'N/A'}</div>
                         <div className="separator">
                           <div className="overlap-group-2">
                             <div className="ellipse" />
-                            <img className="line" alt="Line" src="line-8.svg" />
+                            <div className="line"/>
+                            <div className="line2"/>
                           </div>
                           <div className="overlap-3">
-                            <img className="img" alt="Line" src="line-6.svg" />
-                            <img className="line-2" alt="Line" src="line-7.svg" />
+                            <div className="img"/>
+                            <div className="line-2"/>
                           </div>
                         </div>
                         <div className="tecnico-title">TÉCNICO ENCARGADO</div>
                         <div className="tecnico-oid">ID: {visita && visita.id_responsable._id || 'N/A'}</div>
-                        <img className="tecnico-icon" alt="Tecnico icon" src="tecnico-icon.png" />
+                        <EngineeringIcon className="tecnico-icon"/>
                         <div className="tecnico-name">{visita && visita.id_responsable.username || 'N/A'}</div>
-                        <img className="cedula-icon" alt="Cedula icon" src="cedula-icon.png" />
+                        <ContactEmergencyIcon className="cedula-icon"/>
                         <div className="cedula-name">{visita && visita.id_responsable.cedula || 'N/A'}</div>
-                        <img className="email-icon" alt="Email icon" src="email-icon.png" />
+                        <EmailIcon className="email-icon"/>
                         <div className="email-data">{visita && visita.id_responsable.email || 'N/A'}</div>
-                        <img className="telephone-icon" alt="Telephone icon" src="telephone-icon.png" />
+                        <LocalPhoneIcon className="telephone-icon"/>
                         <div className="telephone-data">{visita && visita.id_responsable.telefono || 'N/A'}</div>
                         <div className="separator-2">
                           <div className="overlap-group-2">
                             <div className="ellipse" />
-                            <img className="line" alt="Line" src="line-8-2.svg" />
+                            <div className="line"/>
                           </div>
                           <div className="overlap-3">
-                            <img className="img" alt="Line" src="image.svg" />
-                            <img className="line-2" alt="Line" src="line-7-2.svg" />
+                            <div className="img"/>
+                            {/* <div className="line-2" /> */}
                           </div>
                         </div>
                         <div className="protocolos-title">ACTIVIDADES PROGRAMADAS</div>
                         <div className="actividades-list">
-                          <div className="rectangle-2" />
+                          <ul>
+                            {visita && visita.ids_protocolos && visita.ids_protocolos.map((protocolo: any) => (
+                              <li key={protocolo._id} className="rectangle-2">
+                                {protocolo.title}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>
                     <div className="change-estado">
                       <div className="overlap-4">
                         <div className="text-wrapper-3">ESTADO</div>
-                        <img className="img-2" alt="Pending icon" src="pending-icon.png" />
-                        <img className="separator-estado" alt="Separator estado" src="separator-estado.svg" />
-                        <img className="decline-icon" alt="Decline icon" src="decline-icon.png" />
+                        <HelpIcon className="img-2"/>
+                        <div className="separator-estado"/>
+                        <DoNotDisturbAltIcon className="decline-icon"/>
                         <div className="decline-t">Rechazar</div>
-                        <img className="aprove-icon" alt="Aprove icon" src="aprove-icon.png" />
+                        <LockOpenIcon className="aprove-icon"/>
                         <div className="aprove-t">Aprobar</div>
                       </div>
                     </div>
                     <div className="creation-div">
                       <div className="overlap-5">
                         <div className="creation-t">INFO CREACIÓN</div>
-                        <img className="created-icon" alt="Created icon" src="created-icon.png" />
+                        <CalendarTodayIcon className="created-icon"/>
                         <div className="created-date">{visita && visita.fecha_creacion || 'N/A'}</div>
                         <div className="sede-ejecutar">EJECUTAR EN SEDE:</div>
-                        <img className="ejecutar-input" alt="Ejecutar input" src="ejecutar-input.png" />
+
+                        <div className={`ejecutar-switch ${visita.ejecutar_sede ? 'on' : 'off'}`}>
+                          <input
+                            className='ejecutar-input'
+                            type="checkbox"
+                            checked={visita.ejecutar_sede}
+                            readOnly
+                          />
+                          <span className="slider round"></span>
+                        </div>
+
+
                         <div className="separator-3">
                           <div className="overlap-group-3">
                             <div className="elipse" />
-                            <img className="line-3" alt="Line" src="line-11.svg" />
+                            <div className="line-3"/>
                           </div>
-                          <img className="line-4" alt="Line" src="line-10.svg" />
+                          <img className="line-4" />
                         </div>
                         <div className="creator-title">CREADOR</div>
-                        <img className="tecnico-i" alt="Tecnico i" src="tecnico-i.png" />
+                        <PersonIcon className="tecnico-i"/>
                         <div className="tecnico-n">{visita && visita.id_creador.username || 'N/A'}</div>
-                        <img className="cedula-i" alt="Cedula i" src="cedula-i.png" />
+                        <ContactEmergencyIcon className="cedula-i"/>
                         <div className="cedula-n">{visita && visita.id_creador.cedula || 'N/A'}</div>
-                        <img className="email-i" alt="Email i" src="email-i.png" />
+                        <EmailIcon className="email-i"/>
                         <div className="email-n">{visita && visita.id_creador.email || 'N/A'}</div>
-                        <img className="telephone-i" alt="Telephone i" src="telephone-i.png" />
+                        <LocalPhoneIcon className="telephone-i"/>
                         <div className="telephone-n">{visita && visita.id_creador.telefono || 'N/A'}</div>
                       </div>
                     </div>

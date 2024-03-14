@@ -16,6 +16,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PersonIcon from '@mui/icons-material/Person';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface VisitaByIdPendienteProps {
   idVisita: string;
@@ -23,6 +24,8 @@ interface VisitaByIdPendienteProps {
 
 const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita }) => {
   const [visita, setVisita] = useState<any>(null);
+  const [approvalStatus, setApprovalStatus] = useState<boolean | null>(null);
+  const [showEstadoSection, setShowEstadoSection] = useState<boolean>(true); // Control de visibilidad de la sección de estado
   const token = useSessionStorage('sessionJWTToken');
 
   useEffect(() => {
@@ -34,6 +37,21 @@ const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita }) =
         .catch(error => console.error('Error al obtener la visita por ID:', error));
     }
   }, [token, idVisita]);
+
+// Función para manejar la aprobación de la visita
+const handleApproval = (isApproved: boolean) => {
+  // Actualizar el estado de aprobación
+  setApprovalStatus(isApproved);
+  // Volver a mostrar la sección de estado
+  setShowEstadoSection(true);
+  // Aquí puedes agregar lógica adicional para enviar el estado de aprobación al backend si es necesario
+};
+
+const handleBackIconClickEstado = () => {
+  // Ocultar la sección de estado
+  setShowEstadoSection(false);
+};
+
 
   return (
     <div>
@@ -105,11 +123,11 @@ const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita }) =
                     <div className="change-estado">
                       <div className="overlap-4">
                         <div className="text-wrapper-3">ESTADO</div>
-                        <HelpIcon className="img-2"/>
+                        <HelpIcon className="img-2-pending"/>
                         <div className="separator-estado"/>
-                        <DoNotDisturbAltIcon className="decline-icon"/>
+                        <DoNotDisturbAltIcon className="decline-icon" onClick={() => handleApproval(false)}/>
                         <div className="decline-t">Rechazar</div>
-                        <LockOpenIcon className="aprove-icon"/>
+                        <LockOpenIcon className="aprove-icon" onClick={() => handleApproval(true)}/>
                         <div className="aprove-t">Aprobar</div>
                       </div>
                     </div>
@@ -149,17 +167,20 @@ const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita }) =
                         <div className="telephone-n">{visita && visita.id_creador.telefono || 'N/A'}</div>
                       </div>
                     </div>
-                    {/* <div className="estado-section">
-                      <div className="overlap-4">
-                        <div className="text-wrapper-3">ESTADO</div>
-                        <img className="img-2" alt="Estado ic" src="estado-ic.png" />
-                        <div className="estado-text">Aprobando visita</div>
-                        <img className="separator-4" alt="Separator" src="separator-20.svg" />
-                        <div className="observacion-title">OBSERVACIÓN ESTADO</div>
-                        <div className="observacion-text">aprobada</div>
-                        <img className="back-icon" alt="Back icon" src="back-icon.png" />
+                     {/* Renderizado condicional del estado */}
+                    {showEstadoSection && approvalStatus !== null && (
+                      <div className="estado-section">
+                        <div className="overlap-4">
+                          <div className="text-wrapper-3">ESTADO</div>
+                          {approvalStatus ? <CheckCircleIcon className="img-2-aprooved" /> : <DoNotDisturbAltIcon className="img-2-rejected" />}
+                          <div className="estado-text">{approvalStatus ? 'Aprobando visita' : 'Rechazando visita'}</div>
+                          <div className="separator-4"/>
+                          <div className="observacion-title">OBSERVACIÓN ESTADO</div>
+                          <div className="observacion-text">{approvalStatus ? 'aprobada' : 'rechazada'}</div>
+                          <ArrowBackIcon className="back-icon" onClick={handleBackIconClickEstado}/>
+                        </div>
                       </div>
-                    </div> */}
+                     )}
                   </div>
                 </div>
               </div>

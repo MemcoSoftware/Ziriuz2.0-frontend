@@ -49,5 +49,17 @@
     border-radius: 25px;
  }
 
+ .SolicitudesServiciosPages-Container-Card-Results{
+  width: 100%;
+  height: 100%;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr); /* Hace que haya 3 tarjetas por fila */
+  gap: 0.5%; /* Espaciado entre las tarjetas */
+  row-gap: 5%;
+  margin: 3rem 2vw;
+  position: relative;
+  top: 40px; 
+  left: -180px;
+}
 
  

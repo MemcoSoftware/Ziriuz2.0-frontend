@@ -68,7 +68,16 @@
   width: 897px;
 }
 
-.OrdenDetailPage-box .OrdenDetailPage-check-icon {
+/* .OrdenDetailPage-box .OrdenDetailPage-check-icon {
+  height: 80px;
+  left: 40px;
+  color: #08da08;
+  position: absolute;
+  top: 46px;
+  width: 80px;
+} */
+
+.OrdenDetailPage-box .OrdenDetailPage-check-icon-estado-abierta {
   height: 80px;
   left: 40px;
   color: #08da08;
@@ -77,6 +86,26 @@
   width: 80px;
 }
 
+.OrdenDetailPage-box .OrdenDetailPage-check-icon-estado-cerrada {
+  height: 80px;
+  left: 40px;
+  color: #636b6f;
+  position: absolute;
+  top: 46px;
+  width: 80px;
+}
+
+.OrdenDetailPage-box .OrdenDetailPage-check-icon-estado-anulada {
+  height: 80px;
+  left: 40px;
+  color: #da2808;
+  position: absolute;
+  top: 46px;
+  width: 80px;
+}
+
+
+
 .OrdenDetailPage-box .OrdenDetailPage-date-icon {
   height: 30px;
   color: #636b6f;
@@ -84,6 +113,16 @@
   position: absolute;
   top: 132px;
   width: 30px;
+}
+
+
+.OrdenDetailPage-box .OrdenDetailPage-add-date-icon {
+  height: 27px;
+  color: #636b6f;
+  left: 964px;
+  position: absolute;
+  top: 137px;
+  width: 27px;
 }
 
 .OrdenDetailPage-box .OrdenDetailPage-date-created {

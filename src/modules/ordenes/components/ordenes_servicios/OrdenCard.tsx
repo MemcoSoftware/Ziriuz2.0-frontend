@@ -1,5 +1,10 @@
 import React from 'react';
 import { Orden } from '../../utils/types/Orden.type'; // Asegúrate de ajustar la ruta correcta
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 interface OrdenCardProps {
   orden: Orden;
@@ -8,6 +13,20 @@ interface OrdenCardProps {
 }
 
 const OrdenCard: React.FC<OrdenCardProps> = ({ orden, onClick }) => {
+
+  const renderEstadoIcon = (estado: string) => {
+    switch (estado) {
+      case 'Abierta':
+        return <LockOpenOutlinedIcon className="OrdenCard-estado-abierta" />;
+      case 'Cerrada':
+        return <LockOutlinedIcon className="OrdenCard-estado-cerrada" />;
+      case 'Anulada':
+        return <BlockOutlinedIcon className="OrdenCard-estado-anulada" />;
+      default:
+        return null; // o puedes poner un icono por defecto
+    }
+  };
+
   return (
     <div key={orden._id} className='OrdenCard-box'>
       <ul className='OrdenesPages-cards-list' onClick={onClick}>
@@ -22,13 +41,17 @@ const OrdenCard: React.FC<OrdenCardProps> = ({ orden, onClick }) => {
                   <div className="OrdenCard-servicio-title">{orden ? orden.id_solicitud_servicio.id_servicio.servicio : 'N/A'}</div>
                   <div className="OrdenCard-creation-date">{orden ? orden.creacion : 'N/A'}</div>
                   <div className="OrdenCard-oid-orden">ID: {orden ? orden._id : 'N/A'}</div>
-                  <img className="OrdenCard-estado" alt="Estado" src="estado.png" />
+
+                  {renderEstadoIcon(orden.id_orden_estado.estado)}
+                  {/* <img className="OrdenCard-estado" alt="Estado" src="estado.png" /> */}
                   <div className="OrdenCard-username">{orden ? orden.id_cerrador.username : 'N/A'}</div>
-                  <img className="OrdenCard-update-icon" alt="Update icon" src="update-icon.png" />
+                  <CalendarTodayOutlinedIcon className="OrdenCard-update-icon"/>
+                  <AddOutlinedIcon className="OrdenCard-add-icon"/>
+                  
                 </div>
               </div>
               <div className="OrdenCard-overlap-group">
-                <img className="OrdenCard-separator" alt="Separator" src="separator.svg" />
+                <div className="OrdenCard-separator"/>
                 <div className="OrdenCard-equipo-info">
                   <div className="OrdenCard-info-title">EQUIPO INFO</div>
                   <div className="OrdenCard-text-wrapper">{orden ? orden.id_solicitud_servicio.id_equipo.modelo_equipos.id_clase.clase : 'N/A'}</div>

@@ -11,6 +11,12 @@ import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutl
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SolicitudServicioComponent from '../components/ordenes_servicios/SolicitudServicioComponent';
 import VisitasOrden from '../components/ordenes_servicios/VisitasOrden';
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import BlockOutlinedIcon from '@mui/icons-material/BlockOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+
 
 const OrdenDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -62,6 +68,19 @@ const OrdenDetailPage: React.FC = () => {
     }
   };
 
+  const renderEstadoIcon = (estado: string) => {
+    switch (estado) {
+      case 'Abierta':
+        return <LockOpenOutlinedIcon className="OrdenDetailPage-check-icon-estado-abierta" />;
+      case 'Cerrada':
+        return <LockOutlinedIcon className="OrdenDetailPage-check-icon-estado-cerrada" />;
+      case 'Anulada':
+        return <BlockOutlinedIcon className="OrdenDetailPage-check-icon-estado-anulada" />;
+      default:
+        return null; // o puedes poner un icono por defecto
+    }
+  };
+
   return (
     <div>
       <DashboardMenuLateral />
@@ -75,8 +94,10 @@ const OrdenDetailPage: React.FC = () => {
                   <header className="OrdenDetailPage-header">
                     <div className="OrdenDetailPage-overlap-group">
                       <p className="OrdenDetailPage-orden-id">ORDEN DE SERVICIO - {orden ? orden._id : 'N/A'}</p>
-                      <CheckCircleIcon className="OrdenDetailPage-check-icon"/>
-                      <CalendarMonthIcon className="OrdenDetailPage-date-icon"/>
+                      {renderEstadoIcon(orden ? orden.id_orden_estado.estado : 'N/A')}
+                      <CalendarTodayOutlinedIcon className="OrdenDetailPage-date-icon"/>
+                      <AddOutlinedIcon className="OrdenDetailPage-add-date-icon"/>
+                      
                       <div className="OrdenDetailPage-date-created">{orden ? orden.creacion : 'N/A'}</div>
                     </div>
                   </header>

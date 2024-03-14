@@ -57,7 +57,7 @@ const SearchSolicitudesServicios: React.FC<SearchSolicitudesServiciosProps> = ({
       </div>
       <div>
         {showSearchResults ? (
-          <div className='SolicitudesServiciosPages-Container-Card'>
+          <div className='SolicitudesServiciosPages-Container-Card-Results'>
             {searchResults.map((solicitud) => (
               <SolicitudServicioCard key={solicitud._id} solicitud={solicitud} onClick={() => navigateToSolicitudDetail(solicitud._id)} />
             ))}

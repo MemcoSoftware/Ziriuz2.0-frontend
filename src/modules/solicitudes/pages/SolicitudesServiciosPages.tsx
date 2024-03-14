@@ -16,7 +16,7 @@ const SolicitudesServiciosPages: React.FC = () => {
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0); 
-  const limitPerPage = 6; // Este es un valor fijo
+  const limitPerPage = 12; // Este es un valor fijo
 
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();

@@ -8,10 +8,12 @@ import VisitaByIdRechazada from './VisitaByIdRechazada';
 
 interface VisitaByIdOrdenProps {
   idVisita: string;
+  onVisitaSelect: (id: string | null) => void; // Añade esta línea
 }
 
-const VisitaByIdOrden: React.FC<VisitaByIdOrdenProps> = ({ idVisita }) => {
+const VisitaByIdOrden: React.FC<VisitaByIdOrdenProps> = ({ idVisita, onVisitaSelect  }) => {
   const [visita, setVisita] = useState<any>(null);
+  const [showVisitaByIdPendiente, setShowVisitaByIdPendiente] = useState(true);
   const token = useSessionStorage('sessionJWTToken');
 
   useEffect(() => {
@@ -24,12 +26,17 @@ const VisitaByIdOrden: React.FC<VisitaByIdOrdenProps> = ({ idVisita }) => {
     }
   }, [token, idVisita]);
 
+  const handleCloseVisitaByIdPendiente = () => {
+    onVisitaSelect(null); // Llama a onVisitaSelect cuando se cierre VisitaByIdPendiente
+  };
+
+
   return (
     <div>
 
       {/* Renderiza VisitaByIdPendiente solo si el estado de la visita es Pendiente */}
       {visita && visita.id_visita_estado.estado === 'Pendiente' && (
-        <VisitaByIdPendiente idVisita={visita._id} />
+        <VisitaByIdPendiente idVisita={visita._id} onClose={() => onVisitaSelect(null)}/>
       )}
 
       {/* Renderiza VisitaByIdAbierta solo si el estado de la visita es Abierta */}

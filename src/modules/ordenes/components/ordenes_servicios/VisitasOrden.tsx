@@ -27,7 +27,7 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas, idOrden }) => {
   const [showRegisterVisita, setShowRegisterVisita] = useState(false);
   const isAdmin = useUserRoleVerifier(['administrador']);
 
-  const handleVisitaClick = (id: string) => {
+  const handleVisitaClick = (id: string | null) => {
     setSelectedVisitaId(id);
   };
   
@@ -121,7 +121,7 @@ const VisitasOrden: React.FC<VisitasOrdenProps> = ({ visitas, idOrden }) => {
       </div>
 
       {/* ESPACIO DE RENDERIZADO DE VisitaByIdOrden.tsx  */}
-      {selectedVisitaId && <VisitaByIdOrden idVisita={selectedVisitaId} />}
+      {selectedVisitaId && <VisitaByIdOrden idVisita={selectedVisitaId} onVisitaSelect={handleVisitaClick}/>}
 
     </div>
   );

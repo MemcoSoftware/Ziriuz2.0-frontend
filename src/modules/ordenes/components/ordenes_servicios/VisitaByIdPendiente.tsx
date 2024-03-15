@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getVisitaById } from '../../../visitas/services/visitasService';
+import { getVisitaById, updateVisita } from '../../../visitas/services/visitasService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 
 // STYLES
@@ -20,12 +20,14 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface VisitaByIdPendienteProps {
   idVisita: string;
+  onClose: () => void;
 }
 
-const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita }) => {
+const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita, onClose  }) => {
   const [visita, setVisita] = useState<any>(null);
   const [approvalStatus, setApprovalStatus] = useState<boolean | null>(null);
-  const [showEstadoSection, setShowEstadoSection] = useState<boolean>(true); // Control de visibilidad de la sección de estado
+  const [showEstadoSection, setShowEstadoSection] = useState<boolean>(true); 
+  const [observacionAprobacion, setObservacionAprobacion] = useState<string>('');
   const token = useSessionStorage('sessionJWTToken');
 
   useEffect(() => {
@@ -47,9 +49,31 @@ const handleApproval = (isApproved: boolean) => {
   // Aquí puedes agregar lógica adicional para enviar el estado de aprobación al backend si es necesario
 };
 
+const handleUpdateEstado = () => {
+  if (token && idVisita && approvalStatus !== null) {
+    const estadoId = approvalStatus ? '65c560b5cb319b5fbc4220d3' : '65c560c8cb319b5fbc4220d9';
+    const dataToUpdate = {
+      id_visita_estado: estadoId,
+      observacion_aprobacion: observacionAprobacion // Agregamos la observación de aprobación
+    };
+    updateVisita(token, idVisita, dataToUpdate)
+      .then(() => {
+        const message = approvalStatus ? 'Visita APROBADA exitosamente' : 'Visita RECHAZADA exitosamente';
+        window.alert(message);
+        window.location.reload();
+      })
+      .catch(error => console.error('Error al actualizar la visita:', error));
+  }
+};
 const handleBackIconClickEstado = () => {
   // Ocultar la sección de estado
   setShowEstadoSection(false);
+};
+
+const handleBackIconCloseComponent = () => {
+  // Ocultar la sección de estado
+  setShowEstadoSection(false);
+  onClose();
 };
 
 
@@ -67,7 +91,7 @@ const handleBackIconClickEstado = () => {
                       <div className="text-wrapper">VISITA SELECCIONADA - {visita && visita._id || 'N/A'}</div>
                     </div>
                   </header>
-                  <ArrowBackIcon className="ejecutar-icon"/>
+                  <ArrowBackIcon className="ejecutar-icon" onClick={handleBackIconCloseComponent}/>
                   <div className="overlap">
                     <div className="ejecucion-div">
                       <div className="overlap-2">
@@ -176,7 +200,14 @@ const handleBackIconClickEstado = () => {
                           <div className="estado-text">{approvalStatus ? 'Aprobando visita' : 'Rechazando visita'}</div>
                           <div className="separator-4"/>
                           <div className="observacion-title">OBSERVACIÓN ESTADO</div>
-                          <div className="observacion-text">{approvalStatus ? 'aprobada' : 'rechazada'}</div>
+                          <input
+                            type="text"
+                            value={observacionAprobacion}
+                            onChange={(e) => setObservacionAprobacion(e.target.value)}
+                            placeholder="Ingrese observación"
+                            className="observacion-text"
+                          />
+                          <button className='update-estado-button' onClick={handleUpdateEstado}>Actualizar</button>
                           <ArrowBackIcon className="back-icon" onClick={handleBackIconClickEstado}/>
                         </div>
                       </div>

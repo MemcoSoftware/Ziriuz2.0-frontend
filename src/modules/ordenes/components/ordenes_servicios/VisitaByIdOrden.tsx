@@ -51,7 +51,7 @@ const VisitaByIdOrden: React.FC<VisitaByIdOrdenProps> = ({ idVisita, onVisitaSel
 
       {/* Renderiza VisitaByIdRechazada solo si el estado de la visita es Rechazada */}
       {visita && visita.id_visita_estado.estado === 'Rechazada' && (
-        <VisitaByIdRechazada idVisita={visita._id} />
+        <VisitaByIdRechazada idVisita={visita._id}  onClose={() => onVisitaSelect(null)} />
       )}
     </div>
   );

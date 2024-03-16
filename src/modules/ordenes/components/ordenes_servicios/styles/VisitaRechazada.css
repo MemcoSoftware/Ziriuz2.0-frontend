@@ -1,0 +1,802 @@
+.visita-rechazada {
+    background-color: transparent;
+    /* display: flex; */
+    /* flex-direction: row; */
+    justify-content: center;
+    left: 535px;
+    top: 345px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 563px;
+}
+
+.visita-rechazada .div {
+  /* background-image: url(./container.svg); */
+  background-size: 100% 100%;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 412px;
+  position: relative;
+  width: 563px;
+}
+
+.visita-rechazada .header {
+  background-color: transparent;
+  height: 34px;
+  left: 16px;
+  position: absolute;
+  top: 17px;
+  width: 500px;
+}
+
+.visita-rechazada .overlap-group {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 34px;
+  position: relative;
+  width: 498px;
+}
+
+.visita-rechazada .text-wrapper {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 18px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  white-space: nowrap;
+  width: 498px;
+}
+
+.visita-rechazada .ejecutar-icon {
+  height: 30px;
+  left: 524px;
+  color: #00ddfa;
+  cursor: pointer;
+  position: absolute;
+  top: 19px;
+  width: 30px;
+}
+
+.visita-rechazada .overlap {
+  background-color: #d9d9d9;
+  height: 353px;
+  left: 0;
+  border-radius: 10px;
+  position: absolute;
+  top: 59px;
+  width: 563px;
+}
+
+.visita-rechazada .ejecucion-div {
+  height: 316px;
+  left: 14px;
+  position: absolute;
+  top: 24px;
+  width: 311px;
+}
+
+.visita-rechazada .overlap-2 {
+  height: 316px;
+  position: relative;
+  width: 291px;
+}
+
+.visita-rechazada .rectangle {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 316px;
+  left: 2px;
+  position: absolute;
+  top: 0;
+  width: 288px;
+}
+
+.visita-rechazada .text-wrapper-2 {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 5px;
+  width: 271px;
+}
+
+.visita-rechazada .ejecucion-icon {
+  height: 20px;
+  left: 11px;
+  color: #00ddfa;
+  position: absolute;
+  top: 25px;
+  width: 20px;
+}
+
+.visita-rechazada .ejecucion-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 28px;
+  width: 108px;
+}
+
+.visita-rechazada .time-icon {
+  height: 20px;
+  left: 156px;
+  color: #00ddfa;
+  position: absolute;
+  top: 25px;
+  width: 20px;
+}
+
+.visita-rechazada .time-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 101px;
+}
+
+.visita-rechazada .separator {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 53px;
+  width: 290px;
+}
+
+.visita-rechazada .overlap-group-2 {
+  height: 12px;
+  left: 137px;
+  position: absolute;
+  top: 0;
+  width: 153px;
+}
+
+.visita-rechazada .ellipse {
+  border: 1px solid;
+  border-color: #d9d9d9;
+  border-radius: 8.25px/5.83px;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+.visita-rechazada .line {
+  height: 2px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  background-color: #d9d9d9;
+  top: 5px;
+  width: 137px;
+}
+
+.visita-rechazada .overlap-3 {
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  width: 137px;
+}
+
+.visita-rechazada .img {
+  height: 2px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 135px;
+}
+
+.visita-rechazada .line-2 {
+  height: 2px;
+  background-color: #d9d9d9;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 137px;
+}
+
+.visita-rechazada .tecnico-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 272px;
+}
+
+.visita-rechazada .tecnico-oid {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 2px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 89px;
+  width: 288px;
+}
+
+.visita-rechazada .tecnico-icon {
+  height: 20px;
+  left: 11px;
+  position: absolute;
+  color: #00ddfa;
+  top: 105px;
+  width: 20px;
+}
+
+.visita-rechazada .tecnico-name {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 109px;
+  width: 89px;
+}
+
+.visita-rechazada .cedula-icon {
+  height: 20px;
+  left: 156px;
+  position: absolute;
+  color: #00ddfa;
+  top: 105px;
+  width: 20px;
+}
+
+.visita-rechazada .cedula-name {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 109px;
+  width: 92px;
+}
+
+.visita-rechazada .email-icon {
+  height: 20px;
+  left: 11px;
+  position: absolute;
+  color: #00ddfa;
+  top: 145px;
+  width: 20px;
+}
+
+.visita-rechazada .email-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 88px;
+}
+
+.visita-rechazada .telephone-icon {
+  height: 20px;
+  left: 156px;
+  color: #00ddfa;
+  position: absolute;
+  top: 145px;
+  width: 20px;
+}
+
+.visita-rechazada .telephone-data {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 187px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 150px;
+  width: 92px;
+}
+
+.visita-rechazada .separator-2 {
+  height: 12px;
+  left: 1px;
+  position: absolute;
+  top: 172px;
+  width: 290px;
+}
+
+.visita-rechazada .protocolos-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 10px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 194px;
+  width: 272px;
+}
+
+.visita-rechazada .actividades-list {
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 100px;
+    left: 2px;
+    position: absolute;
+    top: 213px;
+    width: 288px;
+    overflow-y: auto; 
+}
+
+/* Estilos de barra de desplazamiento para navegadores WebKit como Chrome y Safari */
+.visita-rechazada .actividades-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .visita-rechazada .actividades-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .visita-rechazada .actividades-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px; /* Puedes redondear los bordes del pulgar para que coincida con el contenedor */
+  }
+  
+  .visita-rechazada .actividades-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Estilos de barra de desplazamiento para Firefox */
+  .visita-rechazada .actividades-list {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+
+.visita-rechazada .rectangle-2 {
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    height: 21px;
+    font-size: 12px;
+    left: 20px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 4px;
+    list-style: none;
+    top: 11px;
+    width: 251px;
+}
+
+.visita-rechazada .change-estado {
+  height: 115px;
+  left: 323px;
+  position: absolute;
+  top: 34px;
+  width: 199px;
+}
+
+.visita-rechazada .overlap-4 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 115px;
+  position: relative;
+  width: 191px;
+}
+
+.visita-rechazada .estado-t {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 3px;
+  width: 136px;
+}
+
+.visita-rechazada .decline-icon {
+  height: 28px;
+  left: 81px;
+  color: #da2808;
+  position: absolute;
+  top: 20px;
+  width: 28px;
+}
+
+.visita-rechazada .rechazada-t {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  height: 5px;
+  left: 71px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.visita-rechazada .separator-estado {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 57px;
+  width: 191px;
+}
+
+.visita-rechazada .observacion-t {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 58px;
+  width: 191px;
+}
+
+.visita-rechazada .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 77px;
+  width: 191px;
+}
+
+.visita-rechazada .creation-div {
+  height: 181px;
+  left: 323px;
+  position: absolute;
+  top: 155px;
+  width: 207px;
+}
+
+.visita-rechazada .overlap-5 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 181px;
+  position: relative;
+  width: 191px;
+}
+
+.visita-rechazada .creation-t {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 136px;
+}
+
+.visita-rechazada .created-icon {
+  height: 19px;
+  left: 32px;
+  position: absolute;
+  color: #00ddfa;
+  top: 31px;
+  width: 18px;
+}
+
+.visita-rechazada .created-date {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 18px;
+  left: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 32px;
+  width: 102px;
+}
+
+.visita-rechazada .sede-ejecutar {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 63px;
+  width: 87px;
+}
+
+/* .visita-rechazada .ejecutar-input {
+  height: 32px;
+  left: 124px;
+  position: absolute;
+  top: 53px;
+  width: 30px;
+} */
+
+.visita-rechazada .separator-3 {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 88px;
+  width: 191px;
+}
+
+.visita-rechazada .overlap-group-3 {
+  height: 12px;
+  left: 90px;
+  position: absolute;
+  top: 0;
+  width: 101px;
+}
+
+.visita-rechazada .elipse {
+  border: 1px solid;
+  border-color: #d9d9d9;
+  border-radius: 5.43px/6.17px;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 11px;
+}
+
+.visita-rechazada .line-3 {
+  height: 1px;
+  left: 11px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 90px;
+}
+
+.visita-rechazada .line-4 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  background-color: #d9d9d9;
+  top: 5px;
+  width: 90px;
+}
+
+.visita-rechazada .creator-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 104px;
+  width: 136px;
+}
+
+.visita-rechazada .tecnico-i {
+  height: 16px;
+  left: 11px;
+  color: #00ddfa;
+  position: absolute;
+  top: 123px;
+  width: 12px;
+}
+
+.visita-rechazada .tecnico-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 126px;
+  width: 64px;
+}
+
+.visita-rechazada .cedula-i {
+  height: 16px;
+  left: 103px;
+  color: #00ddfa;
+  position: absolute;
+  top: 123px;
+  width: 12px;
+}
+
+.visita-rechazada .cedula-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 123px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 126px;
+  width: 63px;
+}
+
+.visita-rechazada .email-i {
+  height: 15px;
+  left: 11px;
+  color: #00ddfa;
+  position: absolute;
+  top: 154px;
+  width: 12px;
+}
+
+.visita-rechazada .email-n {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 8px;
+    font-weight: 400;
+    left: 30px;
+    letter-spacing: 0;
+    /* justify-content: left; */
+    line-height: normal;
+    position: absolute;
+    word-break: break-all; /* Permite que la palabra se rompa y continúe en la siguiente línea */
+    overflow-wrap: break-word; /* Alternativa a word-wrap para navegadores modernos */
+    white-space: normal; /* Asegura que el espacio en blanco se maneje normalmente */
+    top: 158px;
+    height: 22px;
+    width: 67px;
+}
+
+.visita-rechazada .telephone-i {
+  height: 15px;
+  left: 103px;
+  color: #00ddfa;
+  position: absolute;
+  top: 154px;
+  width: 12px;
+}
+
+.visita-rechazada .telephone-n {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 123px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 158px;
+  width: 63px;
+}
+
+
+
+/* EJECUTAR SEDE */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    top: 50px;
+    left: 115px;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch .ejecutar-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #7C7C7C;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  .switch.on .slider {
+    background-color: #00ddfa;
+  }
+  
+  .switch.off .slider {
+    background-color: #7C7C7C;
+  }
+  
+  .ejecutar-input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  

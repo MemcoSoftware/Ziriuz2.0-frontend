@@ -84,59 +84,59 @@ const handleBackIconCloseComponent = () => {
         <div>
           {/* <p>ID Visita: {visita._id}</p>
           <p>Estado: {visita.id_visita_estado.estado}</p> */}
-           <div className="visita-pendiente">
-                <div className="div">
-                  <header className="header">
-                    <div className="overlap-group">
-                      <div className="text-wrapper">VISITA SELECCIONADA - {visita && visita._id || 'N/A'}</div>
+           <div className="VisitaByIdPendiente-visita-pendiente">
+                <div className="VisitaByIdPendiente-div">
+                  <header className="VisitaByIdPendiente-header">
+                    <div className="VisitaByIdPendiente-overlap-group">
+                      <div className="VisitaByIdPendiente-text-wrapper">VISITA SELECCIONADA - {visita && visita._id || 'N/A'}</div>
                     </div>
                   </header>
-                  <ArrowBackIcon className="ejecutar-icon" onClick={handleBackIconCloseComponent}/>
-                  <div className="overlap">
-                    <div className="ejecucion-div">
-                      <div className="overlap-2">
-                        <div className="rectangle" />
-                        <div className="text-wrapper-2">INFO EJECUCIÓN</div>
-                        <CalendarMonthIcon className="ejecucion-icon"/>
-                        <div className="ejecucion-data">{visita && visita.fecha_inicio || 'N/A'}</div>
-                        <AccessTimeFilledIcon className="time-icon"/>
-                        <div className="time-data">{visita && visita.duracion || 'N/A'}</div>
-                        <div className="separator">
-                          <div className="overlap-group-2">
-                            <div className="ellipse" />
-                            <div className="line"/>
-                            <div className="line2"/>
+                  <ArrowBackIcon className="VisitaByIdPendiente-ejecutar-icon" onClick={handleBackIconCloseComponent}/>
+                  <div className="VisitaByIdPendiente-overlap">
+                    <div className="VisitaByIdPendiente-ejecucion-div">
+                      <div className="VisitaByIdPendiente-overlap-2">
+                        <div className="VisitaByIdPendiente-rectangle" />
+                        <div className="VisitaByIdPendiente-text-wrapper-2">INFO EJECUCIÓN</div>
+                        <CalendarMonthIcon className="VisitaByIdPendiente-ejecucion-icon"/>
+                        <div className="VisitaByIdPendiente-ejecucion-data">{visita && visita.fecha_inicio || 'N/A'}</div>
+                        <AccessTimeFilledIcon className="VisitaByIdPendiente-time-icon"/>
+                        <div className="VisitaByIdPendiente-time-data">{visita && visita.duracion || 'N/A'}</div>
+                        <div className="VisitaByIdPendiente-separator">
+                          <div className="VisitaByIdPendiente-overlap-group-2">
+                            <div className="VisitaByIdPendiente-ellipse" />
+                            <div className="VisitaByIdPendiente-line"/>
+                            <div className="VisitaByIdPendiente-line2"/>
                           </div>
-                          <div className="overlap-3">
-                            <div className="img"/>
-                            <div className="line-2"/>
+                          <div className="VisitaByIdPendiente-overlap-3">
+                            <div className="VisitaByIdPendiente-img"/>
+                            <div className="VisitaByIdPendiente-line-2"/>
                           </div>
                         </div>
-                        <div className="tecnico-title">TÉCNICO ENCARGADO</div>
-                        <div className="tecnico-oid">ID: {visita && visita.id_responsable._id || 'N/A'}</div>
-                        <EngineeringIcon className="tecnico-icon"/>
-                        <div className="tecnico-name">{visita && visita.id_responsable.username || 'N/A'}</div>
-                        <ContactEmergencyIcon className="cedula-icon"/>
-                        <div className="cedula-name">{visita && visita.id_responsable.cedula || 'N/A'}</div>
-                        <EmailIcon className="email-icon"/>
-                        <div className="email-data">{visita && visita.id_responsable.email || 'N/A'}</div>
-                        <LocalPhoneIcon className="telephone-icon"/>
-                        <div className="telephone-data">{visita && visita.id_responsable.telefono || 'N/A'}</div>
-                        <div className="separator-2">
-                          <div className="overlap-group-2">
-                            <div className="ellipse" />
-                            <div className="line"/>
+                        <div className="VisitaByIdPendiente-tecnico-title">TÉCNICO ENCARGADO</div>
+                        <div className="VisitaByIdPendiente-tecnico-oid">ID: {visita && visita.id_responsable._id || 'N/A'}</div>
+                        <EngineeringIcon className="VisitaByIdPendiente-tecnico-icon"/>
+                        <div className="VisitaByIdPendiente-tecnico-name">{visita && visita.id_responsable.username || 'N/A'}</div>
+                        <ContactEmergencyIcon className="VisitaByIdPendiente-cedula-icon"/>
+                        <div className="VisitaByIdPendiente-cedula-name">{visita && visita.id_responsable.cedula || 'N/A'}</div>
+                        <EmailIcon className="VisitaByIdPendiente-email-icon"/>
+                        <div className="VisitaByIdPendiente-email-data">{visita && visita.id_responsable.email || 'N/A'}</div>
+                        <LocalPhoneIcon className="VisitaByIdPendiente-telephone-icon"/>
+                        <div className="VisitaByIdPendiente-telephone-data">{visita && visita.id_responsable.telefono || 'N/A'}</div>
+                        <div className="VisitaByIdPendiente-separator-2">
+                          <div className="VisitaByIdPendiente-overlap-group-2">
+                            <div className="VisitaByIdPendiente-ellipse" />
+                            <div className="VisitaByIdPendiente-line"/>
                           </div>
-                          <div className="overlap-3">
-                            <div className="img"/>
+                          <div className="VisitaByIdPendiente-overlap-3">
+                            <div className="VisitaByIdPendiente-img"/>
                             {/* <div className="line-2" /> */}
                           </div>
                         </div>
-                        <div className="protocolos-title">ACTIVIDADES PROGRAMADAS</div>
-                        <div className="actividades-list">
+                        <div className="VisitaByIdPendiente-protocolos-title">ACTIVIDADES PROGRAMADAS</div>
+                        <div className="VisitaByIdPendiente-actividades-list">
                           <ul>
                             {visita && visita.ids_protocolos && visita.ids_protocolos.map((protocolo: any) => (
-                              <li key={protocolo._id} className="rectangle-2">
+                              <li key={protocolo._id} className="VisitaByIdPendiente-rectangle-2">
                                 {protocolo.title}
                               </li>
                             ))}
@@ -144,71 +144,71 @@ const handleBackIconCloseComponent = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="change-estado">
-                      <div className="overlap-4">
-                        <div className="text-wrapper-3">ESTADO</div>
-                        <HelpIcon className="img-2-pending"/>
-                        <div className="separator-estado"/>
-                        <DoNotDisturbAltIcon className="decline-icon" onClick={() => handleApproval(false)}/>
-                        <div className="decline-t">Rechazar</div>
-                        <LockOpenIcon className="aprove-icon" onClick={() => handleApproval(true)}/>
-                        <div className="aprove-t">Aprobar</div>
+                    <div className="VisitaByIdPendiente-change-estado">
+                      <div className="VisitaByIdPendiente-overlap-4">
+                        <div className="VisitaByIdPendiente-text-wrapper-3">ESTADO</div>
+                        <HelpIcon className="VisitaByIdPendiente-img-2-pending"/>
+                        <div className="VisitaByIdPendiente-separator-estado"/>
+                        <DoNotDisturbAltIcon className="VisitaByIdPendiente-decline-icon" onClick={() => handleApproval(false)}/>
+                        <div className="VisitaByIdPendiente-decline-t">Rechazar</div>
+                        <LockOpenIcon className="VisitaByIdPendiente-aprove-icon" onClick={() => handleApproval(true)}/>
+                        <div className="VisitaByIdPendiente-aprove-t">Aprobar</div>
                       </div>
                     </div>
-                    <div className="creation-div">
-                      <div className="overlap-5">
-                        <div className="creation-t">INFO CREACIÓN</div>
-                        <CalendarTodayIcon className="created-icon"/>
-                        <div className="created-date">{visita && visita.fecha_creacion || 'N/A'}</div>
-                        <div className="sede-ejecutar">EJECUTAR EN SEDE:</div>
+                    <div className="VisitaByIdPendiente-creation-div">
+                      <div className="VisitaByIdPendiente-overlap-5">
+                        <div className="VisitaByIdPendiente-creation-t">INFO CREACIÓN</div>
+                        <CalendarTodayIcon className="VisitaByIdPendiente-created-icon"/>
+                        <div className="VisitaByIdPendiente-created-date">{visita && visita.fecha_creacion || 'N/A'}</div>
+                        <div className="VisitaByIdPendiente-sede-ejecutar">EJECUTAR EN SEDE:</div>
 
-                        <div className={`ejecutar-switch ${visita.ejecutar_sede ? 'on' : 'off'}`}>
+                        <div className={`VisitaByIdPendiente-ejecutar-switch ${visita.ejecutar_sede ? 'on' : 'off'}`}>
                           <input
-                            className='ejecutar-input'
+                            className='VisitaByIdPendiente-ejecutar-input'
                             type="checkbox"
                             checked={visita.ejecutar_sede}
                             readOnly
                           />
-                          <span className="slider round"></span>
+                          <span className="VisitaByIdPendiente-slider round"></span>
                         </div>
 
 
-                        <div className="separator-3">
-                          <div className="overlap-group-3">
-                            <div className="elipse" />
-                            <div className="line-3"/>
+                        <div className="VisitaByIdPendiente-separator-3">
+                          <div className="VisitaByIdPendiente-overlap-group-3">
+                            <div className="VisitaByIdPendiente-elipse" />
+                            <div className="VisitaByIdPendiente-line-3"/>
                           </div>
-                          <img className="line-4" />
+                          <img className="VisitaByIdPendiente-line-4" />
                         </div>
-                        <div className="creator-title">CREADOR</div>
-                        <PersonIcon className="tecnico-i"/>
-                        <div className="tecnico-n">{visita && visita.id_creador.username || 'N/A'}</div>
-                        <ContactEmergencyIcon className="cedula-i"/>
-                        <div className="cedula-n">{visita && visita.id_creador.cedula || 'N/A'}</div>
-                        <EmailIcon className="email-i"/>
-                        <div className="email-n">{visita && visita.id_creador.email || 'N/A'}</div>
-                        <LocalPhoneIcon className="telephone-i"/>
-                        <div className="telephone-n">{visita && visita.id_creador.telefono || 'N/A'}</div>
+                        <div className="VisitaByIdPendiente-creator-title">CREADOR</div>
+                        <PersonIcon className="VisitaByIdPendiente-tecnico-i"/>
+                        <div className="VisitaByIdPendiente-tecnico-n">{visita && visita.id_creador.username || 'N/A'}</div>
+                        <ContactEmergencyIcon className="VisitaByIdPendiente-cedula-i"/>
+                        <div className="VisitaByIdPendiente-cedula-n">{visita && visita.id_creador.cedula || 'N/A'}</div>
+                        <EmailIcon className="VisitaByIdPendiente-email-i"/>
+                        <div className="VisitaByIdPendiente-email-n">{visita && visita.id_creador.email || 'N/A'}</div>
+                        <LocalPhoneIcon className="VisitaByIdPendiente-telephone-i"/>
+                        <div className="VisitaByIdPendiente-telephone-n">{visita && visita.id_creador.telefono || 'N/A'}</div>
                       </div>
                     </div>
                      {/* Renderizado condicional del estado */}
                     {showEstadoSection && approvalStatus !== null && (
-                      <div className="estado-section">
-                        <div className="overlap-4">
-                          <div className="text-wrapper-3">ESTADO</div>
-                          {approvalStatus ? <CheckCircleIcon className="img-2-aprooved" /> : <DoNotDisturbAltIcon className="img-2-rejected" />}
-                          <div className="estado-text">{approvalStatus ? 'Aprobando visita' : 'Rechazando visita'}</div>
-                          <div className="separator-4"/>
-                          <div className="observacion-title">OBSERVACIÓN ESTADO</div>
+                      <div className="VisitaByIdPendiente-estado-section">
+                        <div className="VisitaByIdPendiente-overlap-4">
+                          <div className="VisitaByIdPendiente-text-wrapper-3">ESTADO</div>
+                          {approvalStatus ? <CheckCircleIcon className="VisitaByIdPendiente-img-2-aprooved" /> : <DoNotDisturbAltIcon className="VisitaByIdPendiente-img-2-rejected" />}
+                          <div className="VisitaByIdPendiente-estado-text">{approvalStatus ? 'Aprobando visita' : 'Rechazando visita'}</div>
+                          <div className="VisitaByIdPendiente-separator-4"/>
+                          <div className="VisitaByIdPendiente-observacion-title">OBSERVACIÓN ESTADO</div>
                           <input
                             type="text"
                             value={observacionAprobacion}
                             onChange={(e) => setObservacionAprobacion(e.target.value)}
                             placeholder="Ingrese observación"
-                            className="observacion-text"
+                            className="VisitaByIdPendiente-observacion-text"
                           />
-                          <button className='update-estado-button' onClick={handleUpdateEstado}>Actualizar</button>
-                          <ArrowBackIcon className="back-icon" onClick={handleBackIconClickEstado}/>
+                          <button className='VisitaByIdPendiente-update-estado-button' onClick={handleUpdateEstado}>Actualizar</button>
+                          <ArrowBackIcon className="VisitaByIdPendiente-back-icon" onClick={handleBackIconClickEstado}/>
                         </div>
                       </div>
                      )}

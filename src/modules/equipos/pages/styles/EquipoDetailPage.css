@@ -77,12 +77,12 @@
     font-family: "Inter-Regular", Helvetica;
     font-size: 18px;
     font-weight: 400;
-    left: 488px;
+    left: 450px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
     top: 118px;
-    width: 150px;
+    width: 230px;
   }
   
   .EquipoDetailPage-box .EquipoDetailPage-equipo-id-header {
@@ -148,7 +148,7 @@
     position: absolute;
     text-align: center;
     top: 10px;
-    width: 518px;
+    width: 500px;
   }
   
   .EquipoDetailPage-box .EquipoDetailPage-sede-id {
@@ -568,7 +568,7 @@
   }
   
   .EquipoDetailPage-box .EquipoDetailPage-overlap-7 {
-    background-color: #7afaadd3;
+    background-color: #ffffffd9;
     background-size: 100% 100%;
     height: 93px;
     left: 599px;
@@ -598,11 +598,12 @@
   
   .EquipoDetailPage-box .EquipoDetailPage-text-wrapper-2 {
     -webkit-text-stroke: 1px #636b6f1a;
-    color: #636b6f;
+    color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 13px;
+    text-align: center;
     font-weight: 400;
-    left: 0;
+    left: -10px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -613,15 +614,17 @@
   .EquipoDetailPage-box .EquipoDetailPage-notas-icon {
     height: 47px;
     left: 1px;
-    color: #00c0fa;
+    color: #636b6f;
+    font-size: 12px;
+    text-align: center;
     position: absolute;
-    top: 21px;
-    width: 39px;
+    top: 30px;
+    width: 200px;
   }
   
   .EquipoDetailPage-box .EquipoDetailPage-notas-title {
     -webkit-text-stroke: 1px #636b6f1a;
-    color: #636b6f;
+    color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
     font-size: 13px;
     font-weight: 400;
@@ -640,6 +643,7 @@
     font-size: 12px;
     font-weight: 400;
     left: 273px;
+    height: 40px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -689,4 +693,35 @@
     top: 46px;
     width: 96px;
   }
+
+  .EquipoDetailPage-box .EquipoDetailPage-see-sede {
+    color: #636b6f;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    left: 520px;
+  }
+  
+  .EquipoDetailPage-box .EquipoDetailPage-see-client {
+    color: #636b6f;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    left: 440px;
+  }
+
+  .EquipoDetailPage-box .EquipoDetailPage-see-modelo {
+    color: #636b6f;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: -3px;
+    cursor: pointer;
+    left: 195px;
+  }
+  
   

@@ -24,6 +24,8 @@ import QrCodeOutlinedIcon from '@mui/icons-material/QrCodeOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import AlarmOnOutlinedIcon from '@mui/icons-material/AlarmOnOutlined';
 import DeviceThermostatOutlinedIcon from '@mui/icons-material/DeviceThermostatOutlined';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+
 
 const EquipoDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -74,6 +76,22 @@ const EquipoDetailPage: React.FC = () => {
     setIsEditing(false);
   };
 
+  const handleRedirectToSedeDetail = () => {
+    navigate(`/sedes/${equipo && equipo.id_sede ? equipo.id_sede._id : ''}`);
+  };
+
+  const handleRedirectToClientDetail = () => {
+    navigate(`/clientes/${client ? client._id: ''}`);
+  };
+
+  const handleRedirectToModelDetail = () => {
+    navigate(`/equipos/modelo/${equipo ? equipo.modelo_equipos._id : 'N/A'}`);
+  };
+
+  const handleRedirectToMarcaDetail = () => {
+    navigate(`/equipos/marcas/${equipo ? equipo.modelo_equipos.id_marca._id : 'N/A'}`);
+  };
+
   return (
     <div>
       <DashboardMenuLateral />
@@ -90,17 +108,18 @@ const EquipoDetailPage: React.FC = () => {
         <div className="EquipoDetailPage-complete-details">
           <div className="EquipoDetailPage-overlap-group">
             <div className="EquipoDetailPage-overlap">
-              <div className="EquipoDetailPage-modelo-name">{equipo && equipo.modelo_equipos ? equipo.modelo_equipos.modelo : ''}</div>
+              <div className="EquipoDetailPage-modelo-name">{equipo && equipo.modelo_equipos ? equipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
               <CheckOutlinedIcon className="EquipoDetailPage-check-funcionamiento"  />
               <FaxOutlinedIcon className="EquipoDetailPage-machine-icon" />
-              <div className="EquipoDetailPage-serie-header">SN: {equipo ? equipo.serie : ''}</div>
-              <div className="EquipoDetailPage-price-header">$: {equipo && equipo.modelo_equipos ? equipo.modelo_equipos.precio : ''}</div>
+              <div className="EquipoDetailPage-serie-header">SN: {equipo ? equipo.serie : 'N/A'}</div>
+              <div className="EquipoDetailPage-price-header">$ SIN IVA: {equipo && equipo.modelo_equipos ? equipo.modelo_equipos.precio : ''}</div>
               <div className="EquipoDetailPage-equipo-id-header">ID: {equipo ? equipo._id: ''}</div>
               <EditOutlinedIcon onClick={() => setIsEditing(true)} className="EquipoDetailPage-edit-icon-header"  />
               <DeleteEquipoButton equipoId={id || ''} serie={equipo ? equipo.serie : ''} />
   
             </div>
             <div className="EquipoDetailPage-div">
+              <RemoveRedEyeIcon className='EquipoDetailPage-see-sede' onClick={handleRedirectToSedeDetail}/>
               <div className="EquipoDetailPage-sede-separator" />
               <div className="EquipoDetailPage-sede-name">{equipo && equipo.id_sede ? equipo.id_sede.sede_nombre : ''}</div>
               <div className="EquipoDetailPage-sede-id">ID: {equipo && equipo.id_sede ? equipo.id_sede._id : ''}</div>
@@ -127,6 +146,7 @@ const EquipoDetailPage: React.FC = () => {
               <div className="EquipoDetailPage-serie-number">{equipo ? equipo.serie : ''}</div>
             </div>
             <div className="EquipoDetailPage-overlap-4">
+            <RemoveRedEyeIcon className='EquipoDetailPage-see-client' onClick={handleRedirectToClientDetail}/>
               <div className="EquipoDetailPage-client-separator" />
               <div className="EquipoDetailPage-client-name">{client ? client.client_name : ''}</div>
               <div className="EquipoDetailPage-client-id">ID: {client ? client._id: ''}</div>
@@ -148,11 +168,15 @@ const EquipoDetailPage: React.FC = () => {
             <div className="EquipoDetailPage-overlap-7">
               <div className="EquipoDetailPage-overlap-8">
                 <div className="EquipoDetailPage-funcionamiento" />
-                <div className="EquipoDetailPage-text-wrapper-2">EQUIPO EN FUNCIONAMIENTO</div>
-                <AlarmOnOutlinedIcon className="EquipoDetailPage-notas-icon" />
+                <div className="EquipoDetailPage-text-wrapper-2">MODELO</div>
+                {/* <AlarmOnOutlinedIcon className="EquipoDetailPage-notas-icon" /> */}
+                <RemoveRedEyeIcon className='EquipoDetailPage-see-modelo' onClick={handleRedirectToModelDetail}/>
+
+                <p className="EquipoDetailPage-notas-icon">{equipo ? equipo.modelo_equipos.modelo : 'N/A'}</p>
               </div>
-              <div className="EquipoDetailPage-notas-title">NOTAS</div>
-              <p className="EquipoDetailPage-notas-p">El equipo se encuentra en perfecto funcionamiento</p>
+              <div className="EquipoDetailPage-notas-title">MARCA</div>
+              <RemoveRedEyeIcon className='EquipoDetailPage-see-client' onClick={handleRedirectToMarcaDetail}/>
+              <p className="EquipoDetailPage-notas-p">{equipo ? equipo.modelo_equipos.id_marca.marca : 'N/A'}</p>
             </div>
             <div className="EquipoDetailPage-overlap-9">
               <div className="EquipoDetailPage-overlap-10">

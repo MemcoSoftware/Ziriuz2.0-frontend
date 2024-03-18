@@ -15,11 +15,12 @@ const EquipoCard: React.FC<EquipoCardProps> = ({ equipo, onClick }) => {
                 <div className="EquipoCard-equipospages-card" >
                   <div className="EquipoCard-overlap-group" onClick={onClick}>
                     <FaxOutlinedIcon className="EquipoCard-div" />
+                    <p className='EquipoCard-oid'>ID: {equipo ? equipo._id : 'N/A'}</p>
                     <div className="EquipoCard-text-wrapper">{equipo.modelo_equipos ? equipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
                     <div className="EquipoCard-equipospages-card-x">Client: </div>
-                    <div className="EquipoCard-equipospages-card-2">{equipo.id_sede ? equipo.id_sede.id_client.client_name : 'N/A'}</div>
+                    <div className="EquipoCard-equipospages-card-2">{equipo.id_sede.id_client ? equipo.id_sede.id_client.client_name : 'N/A'}</div>
                     <div className="EquipoCard-overlap-2">
-                      <div className="EquipoCard-equipospages-card-3">Location:</div>
+                      <div className="EquipoCard-equipospages-card-3">Sede:</div>
                       <div className="EquipoCard-equipospages-card-4">{equipo.id_sede ? equipo.id_sede.sede_nombre : 'Sede no especificada'}</div>
                     </div>
                     <div className="EquipoCard-overlap-3">

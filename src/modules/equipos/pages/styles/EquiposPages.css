@@ -43,18 +43,33 @@
     width: 145px;
   }
   
-  .EquipoCard-box .EquipoCard-text-wrapper {
-    -webkit-text-stroke: 1px #00000033;
-    color: #000000;
+  .EquipoCard-box .EquipoCard-oid {
+    color: #636b6f;
     font-family: "Poppins-Regular", Helvetica;
-    font-size: 19px;
+    font-size: 8px;
     font-weight: 400;
     left: 185px;
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 12px;
-    width: 197px;
+    top: 4px;
+    height: 10px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .EquipoCard-box .EquipoCard-text-wrapper {
+    color: #00ddfa;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 17px;
+    font-weight: 400;
+    left: 185px;
+    letter-spacing: 0.02px;
+    line-height: normal;
+    position: absolute;
+    top: 16px;
+    height: 35px;
+    width: 300px;
   }
   
   .EquipoCard-box .EquipoCard-equipospages-card-2 {
@@ -66,7 +81,7 @@
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 43px;
+    top: 53px;
     white-space: nowrap;
     height: 33px;
     width: 280px;
@@ -92,9 +107,9 @@
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 0;
+    top: 10px;
     white-space: nowrap;
-    width: 70px;
+    width: 45px;
   }
   
 
@@ -107,9 +122,9 @@
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 43px;
+    top: 53px;
     white-space: nowrap;
-    width: 85px;
+    width: 45px;
   }
 
 
@@ -118,11 +133,11 @@
     font-family: "Poppins-Regular", Helvetica;
     font-size: 16px;
     font-weight: 400;
-    left: 79px;
+    left: 53px;
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 1px;
+    top: 10px;
     height: 35px;
     width: 250px;
     word-break: break-all; /* Permite que la palabra se rompa y continúe en la siguiente línea */
@@ -147,7 +162,7 @@
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 0;
+    top: 7px;
     width: 20px;
   }
   
@@ -160,7 +175,7 @@
     letter-spacing: 0.02px;
     line-height: normal;
     position: absolute;
-    top: 0;
+    top: 7px;
     height: 30px;
     width: 285px;
     word-break: break-all; /* Permite que la palabra se rompa y continúe en la siguiente línea */

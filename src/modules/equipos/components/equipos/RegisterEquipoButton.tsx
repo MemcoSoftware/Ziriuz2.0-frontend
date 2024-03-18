@@ -4,7 +4,7 @@ import { useSessionStorage } from '../../hooks/useSessionStorage';
 import useUserRoleVerifier from '../../hooks/useUserRoleVerifier';
 import './styles/RegisterEquipoButton.css';
 import FaxOutlinedIcon from '@mui/icons-material/FaxOutlined';
-
+import AddIcon from '@mui/icons-material/Add';
 
 const RegisterEquipoButton: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -26,6 +26,7 @@ const RegisterEquipoButton: React.FC = () => {
         >
           <FaxOutlinedIcon /> 
         </button>
+          <AddIcon className='RegisterEquipo-button-redirect-add' onClick={handleRedirect}/>
       </div>
     );
   } else {

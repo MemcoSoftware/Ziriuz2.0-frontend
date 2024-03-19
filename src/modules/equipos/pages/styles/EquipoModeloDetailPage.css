@@ -110,6 +110,7 @@
   left: 667px;
   color: #636b6f;
   position: absolute;
+  cursor: pointer;
   top: 14px;
   width: 30px;
 }
@@ -119,6 +120,7 @@
   left: 667px;
   color: #636b6f;
   position: absolute;
+  cursor: pointer;
   top: 60px;
   width: 30px;
 }

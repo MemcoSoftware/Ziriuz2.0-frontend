@@ -112,6 +112,7 @@ const EquipoDetailPage: React.FC = () => {
               <CheckOutlinedIcon className="EquipoDetailPage-check-funcionamiento"  />
               <FaxOutlinedIcon className="EquipoDetailPage-machine-icon" />
               <div className="EquipoDetailPage-serie-header">SN: {equipo ? equipo.serie : 'N/A'}</div>
+              <div className="EquipoDetailPage-mtto">MTTO: {equipo ? equipo.mtto : 'N/A'}</div>
               <div className="EquipoDetailPage-price-header">$ SIN IVA: {equipo && equipo.modelo_equipos ? equipo.modelo_equipos.precio : ''}</div>
               <div className="EquipoDetailPage-equipo-id-header">ID: {equipo ? equipo._id: ''}</div>
               <EditOutlinedIcon onClick={() => setIsEditing(true)} className="EquipoDetailPage-edit-icon-header"  />

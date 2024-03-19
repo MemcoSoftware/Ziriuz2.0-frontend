@@ -10,12 +10,10 @@ interface EquipoModeloCardProps {
 
 const EquipoModeloCard: React.FC<EquipoModeloCardProps> = ({ modeloEquipo, onViewDetails }) => {
   return (
-    <div key={modeloEquipo._id} className='EquiposPages-container-card'>
        <div key={modeloEquipo._id} className='EquipoModeloCard-box'>
           <ul className='EquipoModeloPage-cards-list'>
             <li>
-              <div className="EquipoModeloCard-equipospages" onClick={onViewDetails}>
-                  <div className="EquipoModeloCard-overlap">
+                  <div className="EquipoModeloCard-overlap" onClick={onViewDetails}>
                     <div className="EquipoModeloCard-equipospages-card">
                       <div className="EquipoModeloCard-overlap-group">
                         <DevicesOtherOutlinedIcon className="EquipoModeloCard-div" />
@@ -34,14 +32,10 @@ const EquipoModeloCard: React.FC<EquipoModeloCardProps> = ({ modeloEquipo, onVie
                     </div>
                     <div className="EquipoModeloCard-equipospages-2" />
                   </div>
-                </div>
             </li>
           </ul>
         
       </div>
-
-
-    </div>
   );
 };
 

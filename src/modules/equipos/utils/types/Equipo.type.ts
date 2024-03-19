@@ -7,5 +7,7 @@ export type Equipo = {
     serie: string;
     ubicacion: string;
     frecuencia: number;
+    activo_fijo: string;
+    mtto: string;
   };
   

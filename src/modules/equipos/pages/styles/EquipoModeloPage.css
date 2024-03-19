@@ -1,6 +1,9 @@
     .EquipoModeloCard-box {
-        height: 169px;
-        width: 551px;
+      height: 150px;
+      left: 4px;
+      position: relative;
+      top: 9px;
+      width: 536px;
     }
   
   .EquipoModeloCard-box .EquipoModeloCard-equipospages {
@@ -20,11 +23,12 @@
     left: 4px;
     position: absolute;
     top: 9px;
-    width: 546px;
+    width: 536px;
   }
   
   .EquipoModeloCard-box .EquipoModeloCard-overlap-group {
     background-color: #ffffff;
+    border-radius: 10px;
     height: 150px;
     position: relative;
     width: 534px;
@@ -157,12 +161,10 @@
   
 
   .EquipoModeloPage-cards-list{
-	display:grid;
-	grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-	gap:2rem;
-	margin:4rem 5vw;
-	padding:0;
-	list-style: none;
+    list-style: none;
+    height: 0;
+    width: 0;
+    position: relative;
 	
   }
 

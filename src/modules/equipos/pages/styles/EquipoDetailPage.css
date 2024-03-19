@@ -71,6 +71,19 @@
     top: 118px;
     width: 150px;
   }
+
+  .EquipoDetailPage-box .EquipoDetailPage-mtto {
+    color: #636b6f;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 268px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 118px;
+    width: 162px;
+  }
   
   .EquipoDetailPage-box .EquipoDetailPage-price-header {
     color: #636b6f;
@@ -102,6 +115,7 @@
     height: 44px;
     left: 892px;
     color: #00ddfa;
+    cursor: pointer;
     position: absolute;
     top: 21px;
     width: 45px;
@@ -111,6 +125,7 @@
     height: 44px;
     left: 975px;
     color: #00ddfa;
+    cursor: pointer;
     position: absolute;
     top: 21px;
     width: 45px;

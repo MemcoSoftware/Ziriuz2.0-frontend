@@ -377,23 +377,31 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                           readOnly
                           />
                         </div>
-                        <CheckCircleIcon className="EditSolicitudServiciosButton-aprobar-icon" 
-                        onClick={() => handleEstadoChange(estadoAprobadoId)} />
-                        <div className="EditSolicitudServiciosButton-aprobar-text">Aprobar</div>
-                        <CancelIcon className="EditSolicitudServiciosButton-rechazar-icon"
-                        onClick={() => handleEstadoChange(estadoRechazadoId)}
-                        />
-                        <div className="EditSolicitudServiciosButton-rechazar-text">Rechazar</div>
-                        <div className="EditSolicitudServiciosButton-overlap-6">
-                          <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Observación Estado:</div>
-                          <textarea className="EditSolicitudServiciosButton-div-2"
-                          name="observacion_estado"
-                          value={solicitudData.observacion_estado}
-                          onChange={handleChange}
+                        {solicitudData.id_solicitud_estado.estado === 'Pendiente' && (
+                            <>
+                            
+                          <CheckCircleIcon className="EditSolicitudServiciosButton-aprobar-icon" 
+                          onClick={() => handleEstadoChange(estadoAprobadoId)} />
+                          <div className="EditSolicitudServiciosButton-aprobar-text">Aprobar</div>
+                          <CancelIcon className="EditSolicitudServiciosButton-rechazar-icon"
+                          onClick={() => handleEstadoChange(estadoRechazadoId)}
                           />
-                        </div>
+                          <div className="EditSolicitudServiciosButton-rechazar-text">Rechazar</div>
+
+                          {solicitudData.id_solicitud_estado.estado === 'Aprobada' || solicitudData.id_solicitud_estado.estado === 'Rechazada' ? (
+                              <div className="EditSolicitudServiciosButton-overlap-6">
+                                <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Observación Estado:</div>
+                                <textarea className="EditSolicitudServiciosButton-div-2"
+                                name="observacion_estado"
+                                value={solicitudData.observacion_estado}
+                                onChange={handleChange}
+                                />
+                              </div>
+                           ) : null}
+                            </>
+                        )}
                       </div>
-)}
+                    )}
                     <button 
                     className="EditSolicitudServiciosButton-cancelar-button"
                     type="button"

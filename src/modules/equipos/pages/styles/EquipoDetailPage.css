@@ -68,7 +68,7 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 118px;
+    top: 100px;
     width: 150px;
   }
 
@@ -81,10 +81,37 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 118px;
-    width: 162px;
+    top: 155px;
+    width: 175px;
   }
   
+  .EquipoDetailPage-box .EquipoDetailPage-activo-fijo {
+    color: #636b6f;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 450px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 155px;
+    width: 250px;
+  }
+
+  .EquipoDetailPage-box .EquipoDetailPage-sap-id {
+    color: #636b6f;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 740px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 155px;
+    width: 340px;
+  }
+  
+
   .EquipoDetailPage-box .EquipoDetailPage-price-header {
     color: #636b6f;
     font-family: "Inter-Regular", Helvetica;
@@ -94,7 +121,7 @@
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 118px;
+    top: 100px;
     width: 230px;
   }
   
@@ -103,12 +130,12 @@
     font-family: "Inter-Regular", Helvetica;
     font-size: 18px;
     font-weight: 400;
-    left: 707px;
+    left: 740px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 118px;
-    width: 370px;
+    top: 100px;
+    width: 340px;
   }
   
   .EquipoDetailPage-box .EquipoDetailPage-edit-icon-header {

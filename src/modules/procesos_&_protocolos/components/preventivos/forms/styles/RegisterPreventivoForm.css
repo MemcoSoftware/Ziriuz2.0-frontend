@@ -14,6 +14,7 @@
     background-color: #ffffff;
     background-size: 100% 100%;
     height: 857px;
+    border-radius: 10px;
     position: relative;
     width: 1138px;
   }
@@ -22,6 +23,7 @@
     background-color: #d9d9d9;
     background-size: 100% 100%;
     height: 184px;
+    border-radius: 10px;
     left: 0;
     position: absolute;
     top: 0;
@@ -32,14 +34,14 @@
     -webkit-text-stroke: 1px #00ddfa33;
     color: #00ddfa;
     font-family: "Inter-Regular", Helvetica;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 400;
     left: 13px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
     text-align: center;
-    top: 53px;
+    top: 70px;
     width: 1107px;
   }
   
@@ -262,6 +264,7 @@
     height: 20px;
     left: 474px;
     position: relative;
+    cursor: pointer;
     top: -23px;
     color: #00ddfa;
     width: 21px;
@@ -288,6 +291,7 @@
     background-color: #5378957e;
     border-radius: 5px;
     position: relative;
+    cursor: pointer;
     top: 30px;
     margin-bottom: 16px;
     width: 505px;
@@ -381,6 +385,7 @@
     left: 474px;
     position: relative;
     top: -23px;
+    cursor: pointer;
     color: #00ddfa;
     width: 21px;
   }
@@ -406,6 +411,7 @@
     background-color: #5378957e;
     border-radius: 5px;
     position: relative;
+    cursor: pointer;
     top: 30px;
     margin-bottom: 16px;
     width: 505px;
@@ -519,6 +525,7 @@
   .RegisterPreventivoForm-box-1 .RegisterPreventivoForm-x-2 {
     height: 20px;
     left: 465px;
+    cursor: pointer;
     position: absolute;
     color: #00ddfa;
     top: 33px;
@@ -588,6 +595,7 @@
     position: relative;
     top: -23px;
     color: #00ddfa;
+    cursor: pointer;
     width: 21px;
   }
   
@@ -596,6 +604,7 @@
     left: 0;
     background-color: #d9d9d9;
     text-align: center;
+    cursor: pointer;
     border-radius: 5px;
     box-shadow: none;
     outline: none;
@@ -612,6 +621,7 @@
     background-color: #5378957e;
     border-radius: 5px;
     position: relative;
+    cursor: pointer;
     top: 30px;
     margin-bottom: 16px;
     width: 505px;
@@ -705,6 +715,7 @@
     border-radius: 5px;
     position: relative;
     top: 50px;
+    cursor: pointer;
     margin-bottom: 16px;
     width: 505px;
   }
@@ -717,6 +728,7 @@
     outline: none;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
     background-color: #d9d9d9;
     position: absolute;
     top: 769px;
@@ -730,6 +742,7 @@
     box-shadow: none;
     outline: none;
     border-radius: 5px;
+    cursor: pointer;
     border: none;
     background-color: #00ddfa;
     position: absolute;

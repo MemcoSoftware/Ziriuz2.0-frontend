@@ -106,6 +106,8 @@ const RegisterPreventivoForm: React.FC = () => {
     const updatedCualitativo = [...preventivoData.cualitativo, { title }];
     setPreventivoData({ ...preventivoData, cualitativo: updatedCualitativo });
     setSelectedCualitativo(null);
+    setCualitativoResults([]);
+
   };
 
   const handleRemoveCualitativo = (index: number) => {
@@ -149,6 +151,8 @@ const RegisterPreventivoForm: React.FC = () => {
     const updatedMantenimiento = [...preventivoData.mantenimiento, { title }];
     setPreventivoData({ ...preventivoData, mantenimiento: updatedMantenimiento });
     setSelectedMantenimiento(null);
+    setMantenimientoResults([]);
+
   };
   
   const handleRemoveMantenimiento = (index: number) => {
@@ -206,6 +210,8 @@ const RegisterPreventivoForm: React.FC = () => {
       ];
       setPreventivoData({ ...preventivoData, cuantitativo: updatedCuantitativos });
       setSelectedCuantitativo(null);
+      setCuantitativoResults([]);
+
     }
   };
   
@@ -247,6 +253,7 @@ const RegisterPreventivoForm: React.FC = () => {
     const updatedOtros = [...preventivoData.otros, { _id: '', id_tipo: '', title }];
     setPreventivoData({ ...preventivoData, otros: updatedOtros });
     setSelectedOtros(null);
+    setOtrosResults([]);
   };
 
   const handleRemoveOtros = (index: number) => {
@@ -263,7 +270,7 @@ return (
   <div className="RegisterPreventivoForm-edit-preventivo">
     <div className="RegisterPreventivoForm-overlap">
       <div className="RegisterPreventivoForm-overlap-group">
-        <p className="RegisterPreventivoForm-preventivo-title">REGISTRAR NUEVO PREVENTIVO - {preventivoData.title}</p>
+        <p className="RegisterPreventivoForm-preventivo-title">REGISTRAR NUEVO PREVENTIVO</p>
         <div className="RegisterPreventivoForm-preventivo-id"></div>
       </div>
       <p className="RegisterPreventivoForm-title-p">1.  Ingrese el titulo del nuevo Preventivo:</p>

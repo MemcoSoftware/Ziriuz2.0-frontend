@@ -237,6 +237,31 @@
   width: 128px;
 }
 
+
+.SolicitudesServicioDetailPage-solicitudes .SolicitudesServicioDetailPage-estado-cambio-date {
+  color: #636b6f;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 114px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 54px;
+  width: 99px;
+}
+
+.SolicitudesServicioDetailPage-solicitudes .SolicitudesServicioDetailPage-cambio-date-icon {
+  color: #636b6f;
+  left: 94px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 51px;
+  width: 17px;
+  height: 17px;
+}
+
 .SolicitudesServicioDetailPage-solicitudes .SolicitudesServicioDetailPage-estado-separator {
   height: 41px;
   left: 210px;

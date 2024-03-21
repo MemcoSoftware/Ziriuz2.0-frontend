@@ -32,6 +32,8 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import DeleteSolicitudServicioButton from '../components/solicitudes_servicios/DeleteSolicitudServicioButton';
+import UpdateIcon from '@mui/icons-material/Update';
+
 
 const SolicitudesServicioDetailPage: React.FC = () => {
   const loggedIn = useSessionStorage('sessionJWTToken');
@@ -159,6 +161,8 @@ const SolicitudesServicioDetailPage: React.FC = () => {
                       <div className="SolicitudesServicioDetailPage-overlap-2">
                       {renderEstadoIcon(solicitud.id_solicitud_estado.estado)}
                         <div className="SolicitudesServicioDetailPage-estado-value">{solicitud.id_solicitud_estado ? solicitud.id_solicitud_estado.estado : 'N/A'}</div>
+                        <div className="SolicitudesServicioDetailPage-estado-cambio-date">{solicitud.cambio_estado}</div>
+                        <UpdateIcon className="SolicitudesServicioDetailPage-cambio-date-icon" />
                         <div className="SolicitudesServicioDetailPage-estado-separator" />
                         <div className="SolicitudesServicioDetailPage-text-wrapper">{solicitud.observacion_estado}</div>
                       </div>

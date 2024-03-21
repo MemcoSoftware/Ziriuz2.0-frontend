@@ -696,6 +696,15 @@
   width: 417px;
 }
 
+.EditSolicitudServiciosButton-form .EditSolicitudServiciosButton-prefijoObservacion {
+ height: 10px;
+ position: absolute;
+ top: 16px;
+ left: 2px;
+ font-size: 10px;
+}
+
+
 .EditSolicitudServiciosButton-form .EditSolicitudServiciosButton-overlap-3 {
   height: 72px;
   left: 0;

@@ -49,6 +49,8 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
   const estadoAprobadoId = "65aff1402643ef00d73c7545";
   const estadoRechazadoId = "65aff1442643ef00d73c7547";
   const [estadoAccion, setEstadoAccion] = useState('');
+  const [mostrarObservacionEstado, setMostrarObservacionEstado] = useState(solicitudData.id_solicitud_estado.estado === 'Pendiente');
+  const [notasAdicionales, setNotasAdicionales] = useState('');
 
   // Estado para realizar un seguimiento del valor anterior de id_solicitud_estado
   const [prevSolicitudEstado, setPrevSolicitudEstado] = useState(initialData.id_solicitud_estado);
@@ -86,18 +88,23 @@ const EditSolicitudServiciosButton: React.FC<EditSolicitudServiciosButtonProps> 
   
 const handleEstadoChange = (nuevoEstadoId: string) => {
   const esAprobado = nuevoEstadoId === estadoAprobadoId;
+  const accion = esAprobado ? "Aprobando" : "Rechazando";
+  const prefijoObservacion = `${accion} estado por usuario con id - ${userId} y notas: `;
 
-  // Verificar si id_solicitud_estado ha cambiado antes de actualizar cambio_estado
   if (solicitudData.id_solicitud_estado !== nuevoEstadoId) {
     setSolicitudData((prevData: typeof initialData) => ({
       ...prevData,
       id_solicitud_estado: nuevoEstadoId,
       id_cambiador: userId,
-      cambio_estado: formatDateTimeLocal(), // Usar la nueva función para establecer la fecha y hora locales
+      cambio_estado: formatDateTimeLocal(),
+      observacion_estado: prefijoObservacion,
     }));
+    // No resetear notasAdicionales aquí, porque queremos conservarlas hasta el envío
     setEstadoAccion(esAprobado ? "Aprobando Solicitud de Servicio" : "Rechazando Solicitud de Servicio");
   }
 };
+
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     // Confirma que la selección del equipo sea válida y no `null` o `undefined`
@@ -107,6 +114,8 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
     }
 
       const currentDateTime = formatDateTimeLocal();
+      // Concatena el prefijo (observacion_estado en solicitudData) con las notas adicionales
+      const observacionEstadoFinal = `${solicitudData.observacion_estado} ${notasAdicionales}`.trim();
 
       const mappedData = {
         id_creador: solicitudData.id_creador,
@@ -118,7 +127,7 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
         aviso: solicitudData.aviso,
         cambio_estado: currentDateTime, // Agrega la fecha y hora actuales aquí
         observacion: solicitudData.observacion,
-        observacion_estado: solicitudData.observacion_estado
+        observacion_estado: observacionEstadoFinal
       };
         
 
@@ -379,27 +388,31 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                         </div>
                         {solicitudData.id_solicitud_estado.estado === 'Pendiente' && (
                             <>
-                            
-                          <CheckCircleIcon className="EditSolicitudServiciosButton-aprobar-icon" 
-                          onClick={() => handleEstadoChange(estadoAprobadoId)} />
-                          <div className="EditSolicitudServiciosButton-aprobar-text">Aprobar</div>
-                          <CancelIcon className="EditSolicitudServiciosButton-rechazar-icon"
-                          onClick={() => handleEstadoChange(estadoRechazadoId)}
-                          />
-                          <div className="EditSolicitudServiciosButton-rechazar-text">Rechazar</div>
-
-                          {solicitudData.id_solicitud_estado.estado === 'Aprobada' || solicitudData.id_solicitud_estado.estado === 'Rechazada' ? (
-                              <div className="EditSolicitudServiciosButton-overlap-6">
-                                <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Observación Estado:</div>
-                                <textarea className="EditSolicitudServiciosButton-div-2"
-                                name="observacion_estado"
-                                value={solicitudData.observacion_estado}
-                                onChange={handleChange}
-                                />
-                              </div>
-                           ) : null}
+                              <CheckCircleIcon className="EditSolicitudServiciosButton-aprobar-icon" 
+                              onClick={() => handleEstadoChange(estadoAprobadoId)} />
+                              <div className="EditSolicitudServiciosButton-aprobar-text">Aprobar</div>
+                              <CancelIcon className="EditSolicitudServiciosButton-rechazar-icon"
+                              onClick={() => handleEstadoChange(estadoRechazadoId)}
+                              />
+                              <div className="EditSolicitudServiciosButton-rechazar-text">Rechazar</div>
                             </>
-                        )}
+                          )}
+
+                          {mostrarObservacionEstado && (
+                            <div className="EditSolicitudServiciosButton-overlap-6">
+                              <div className="EditSolicitudServiciosButton-text-wrapper-2">5- Observación Estado:</div>
+                              <div className="EditSolicitudServiciosButton-prefijoObservacion">
+                                {solicitudData.observacion_estado}
+                              </div>
+                              <textarea
+                                className="EditSolicitudServiciosButton-div-2"
+                                name="notasAdicionales"
+                                value={notasAdicionales}
+                                onChange={(e) => setNotasAdicionales(e.target.value)}
+                                placeholder="Añade tus notas aquí..."
+                              />
+                            </div>
+                          )}
                       </div>
                     )}
                     <button 

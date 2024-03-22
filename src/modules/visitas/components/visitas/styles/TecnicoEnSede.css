@@ -63,6 +63,14 @@
     top: 372px;
     left: 3px;
   }
+
+  .TecnicoEnSede-box .TecnicoEnSede-tecnico-en-sede-view-2{
+    height: 237px;
+    position: absolute;
+    width: 444px;
+    top: 5px;
+    left: 3px;
+  }
   
   .TecnicoEnSede-box .TecnicoEnSede-en-sede-group {
     height: 390px;
@@ -72,6 +80,17 @@
     width: 447px;
     background-color: #ffffff;
     border-radius: 10px;
+  }
+
+  .TecnicoEnSede-box .TecnicoEnSede-en-sede-view {
+    height: 316px;
+    left: -5px;
+    position: absolute;
+    top: -1px;
+    width: 447px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    /* margin-bottom: 20%; */
   }
   
   .TecnicoEnSede-box .TecnicoEnSede-overlap-group-2 {
@@ -98,6 +117,22 @@
     top: 5px;
     width: 272px;
   }
+
+  .TecnicoEnSede-box .TecnicoEnSede-tecsede-title-2 {
+    color: #00ddfa;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    height: 15px;
+    left: 86px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    width: 272px;
+  }
+  
   
   .TecnicoEnSede-box .TecnicoEnSede-observacion-t {
     color: #000000;
@@ -148,6 +183,42 @@
     border-style: none;
     width: 165px;
     cursor: pointer;
+  }
+
+  .TecnicoEnSede-box .TecnicoEnSede-date-icon {
+    color: #00ddfa;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 356px;
+  }
+
+  .TecnicoEnSede-box .TecnicoEnSede-date-value {
+    color: #7C7C7C;
+    height: 31px;
+    width: 61px;
+    font-size: 10px;
+    position: relative;
+    top: 3px;
+    left: 377px;
+    text-align: center;
+  }
+
+  .TecnicoEnSede-box .TecnicoEnSede-img-value {
+    width: 160px;
+    height: 160px;
+    top: 138px;
+    left: 140px;
+    position: absolute;
+  }
+
+  .TecnicoEnSede-box .TecnicoEnSede-div-separator {
+    width: 444px;
+    height: 1px;
+    top: 323px;
+    left: -2px;
+    position: absolute;
+    background-color: transparent;
   }
 
   .TecnicoEnSede-box .TecnicoEnSede-loading-icon {

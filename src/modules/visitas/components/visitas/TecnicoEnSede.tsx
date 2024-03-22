@@ -5,6 +5,8 @@ import { useSessionStorage } from '../../hooks/useSessionStorage';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import './styles/TecnicoEnSede.css'
 import { CircularProgress } from '@mui/material';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+
 
 const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
   const token = useSessionStorage('sessionJWTToken');
@@ -88,11 +90,15 @@ const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
     console.log("idImage:", idImage);
     setIsLoading(true);
 
+    // Obtener la fecha y hora actual en el formato deseado
+     const formattedDateCreated = new Date().toISOString().replace('T', ' ').slice(0, 19);
+
     const nuevaActividad = {
       actividades: [{
         id_protocolo: idProtocolo,
         id_image: idImage,
-        observacion: observacion
+        observacion: observacion,
+        date_created: formattedDateCreated,
       }]
     };
 
@@ -133,13 +139,17 @@ const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
     if (visita && visita.actividades && visita.actividades.length > 0) {
       const actividad = visita.actividades[0];
       return (
-        <div className="actividad-detalle">
-          <h3>Detalle de la Actividad</h3>
-          <p>Protocolo: {actividad.id_protocolo.title || ''}</p>
-          <p>Observación: {actividad.observacion || ''}</p>
-          <p>Fecha Creada: {actividad.date_created || ''}</p>
-          {actividad.id_image && <img src={actividad.id_image} alt="Imagen de la actividad" />}
+      <div className="TecnicoEnSede-en-sede-view">
+        <div className="TecnicoEnSede-tecnico-en-sede-view-2">
+          <div className="TecnicoEnSede-tecsede-title-2">{actividad.id_protocolo.title || ''}</div>
+          <div className="TecnicoEnSede-observacion-t">Observación: </div>
+          <div className="TecnicoEnSede-observacion-text">{actividad.observacion || ''}</div>
+          <DateRangeIcon className='TecnicoEnSede-date-icon'/>
+          <p className='TecnicoEnSede-date-value'>{actividad.date_created || 'N/A'}</p>
+          {actividad.id_image && <img className='TecnicoEnSede-img-value' src={actividad.id_image} alt="Imagen de la actividad" />}
+          <div className='TecnicoEnSede-div-separator'/>
         </div>
+      </div>
       );
     } else {
       // De lo contrario, mostrar el formulario para crear una nueva actividad
@@ -173,7 +183,7 @@ const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
                 <div className="TecnicoEnSede-overlap-group2">
                   <div className="TecnicoEnSede-tecsede-title">TÉCNICO EN SEDE</div>
                 </div>
-                <label htmlFor="observacion" className="TecnicoEnSede-observacion-t">Observación *</label>
+                <label htmlFor="observacion" className="TecnicoEnSede-observacion-t">Observación: *</label>
                   <textarea
                       id="observacion"
                       className="TecnicoEnSede-observacion-text"

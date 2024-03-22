@@ -15,6 +15,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import CallIcon from '@mui/icons-material/Call';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { createOrden } from '../../../ordenes/services/ordenesService';
 
 type EditSolicitudServiciosButtonProps = {
   solicitudId: string;
@@ -105,42 +106,52 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
 };
 
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    // Confirma que la selección del equipo sea válida y no `null` o `undefined`
-    if (!confirmedSelection || !selectedEquipo) {
-      alert('Debes confirmar la selección del equipo antes de enviar el formulario.');
-      return;
-    }
+const handleSubmit = async (event: React.FormEvent) => {
+  event.preventDefault();
+  if (!confirmedSelection || !selectedEquipo) {
+    alert('Debes confirmar la selección del equipo antes de enviar el formulario.');
+    return;
+  }
 
-      const currentDateTime = formatDateTimeLocal();
-      // Concatena el prefijo (observacion_estado en solicitudData) con las notas adicionales
-      const observacionEstadoFinal = `${solicitudData.observacion_estado} ${notasAdicionales}`.trim();
+  const currentDateTime = formatDateTimeLocal();
+  const observacionEstadoFinal = `${solicitudData.observacion_estado} ${notasAdicionales}`.trim();
 
-      const mappedData = {
-        id_creador: solicitudData.id_creador,
-        id_cambiador: userId, // Este debe ser el _id del usuario que hace el cambio
-        id_servicio: solicitudData.id_servicio,
-        id_solicitud_estado: solicitudData.id_solicitud_estado,
-        id_equipo: selectedEquipo._id, // Este debe ser el _id del equipo seleccionado
-        creacion: solicitudData.creacion,
-        aviso: solicitudData.aviso,
-        cambio_estado: currentDateTime, // Agrega la fecha y hora actuales aquí
-        observacion: solicitudData.observacion,
-        observacion_estado: observacionEstadoFinal
-      };
-        
-
-    try {
-      const response = await updateSolicitudServicio(token, solicitudId, mappedData);
-      console.log(response); // Asegúrate de que la respuesta sea la esperada
-      onEditSuccess();
-      alert('Solicitud actualizada con éxito');
-      window.location.reload();
-    } catch (error) {
-      console.error('Error al actualizar la solicitud:', error);
-    }
+  const mappedData = {
+    id_creador: solicitudData.id_creador,
+    id_cambiador: userId,
+    id_servicio: solicitudData.id_servicio,
+    id_solicitud_estado: solicitudData.id_solicitud_estado,
+    id_equipo: selectedEquipo._id,
+    creacion: solicitudData.creacion,
+    aviso: solicitudData.aviso,
+    cambio_estado: currentDateTime,
+    observacion: solicitudData.observacion,
+    observacion_estado: observacionEstadoFinal,
   };
+
+  try {
+    await updateSolicitudServicio(token, solicitudId, mappedData);
+    // Condición para crear una orden si el estado de la solicitud es "Aprobada"
+    if (solicitudData.id_solicitud_estado === estadoAprobadoId) {
+      const ordenData = {
+        id_solicitud_servicio: solicitudData._id,
+        id_orden_estado: "65c5961766a5a36f3df90637",
+        id_creador: userId,
+        creacion: currentDateTime,
+      };
+      await createOrden(token, ordenData);
+      alert('Solicitud actualizada con éxito. Se creó una nueva orden.');
+    } else {
+      alert('Solicitud actualizada con éxito.');
+    }
+    onEditSuccess();
+    window.location.reload();
+  } catch (error) {
+    console.error('Error al actualizar la solicitud:', error);
+  }
+};
+
+
 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -163,7 +174,7 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
         setSearchError(null);
       } else {
         setSearchError('No se encontraron equipos.');
-        setIsSearchActive(false); // Asegúrate de restablecer si no se encuentran equipos
+        setEquiposEncontrados([]);
       }
     } catch (error) {
       console.error('Error al buscar equipos:', error);
@@ -245,21 +256,21 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                             <li key={equipo._id} className='EditSolicitudServiciosButton-equipo-card-list'>
                               <div className="EditSolicitudServiciosButton-equipo-card">
                                 <div className="EditSolicitudServiciosButton-overlap-group-2">
-                                  <div className="EditSolicitudServiciosButton-equipo-classname-p">{equipo.modelo_equipos.id_clase.clase}</div>
-                                  <div className="EditSolicitudServiciosButton-equipo-oid">ID: {equipo._id}</div>
-                                  <div className="EditSolicitudServiciosButton-serial-p">SN: {equipo.serie}</div>
+                                  <div className="EditSolicitudServiciosButton-equipo-classname-p">{equipo.modelo_equipos.id_clase ? equipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
+                                  <div className="EditSolicitudServiciosButton-equipo-oid">ID: {equipo ? equipo._id : 'N/A'}</div>
+                                  <div className="EditSolicitudServiciosButton-serial-p">SN: {equipo ? equipo.serie : 'N/A'}</div>
                                   <LocationOnIcon className="EditSolicitudServiciosButton-location-icon" />
-                                  <div className="EditSolicitudServiciosButton-location-text">{equipo.ubicacion}</div>
+                                  <div className="EditSolicitudServiciosButton-location-text">{equipo ? equipo.ubicacion : 'N/A'}</div>
                                   <ManageHistoryIcon className="EditSolicitudServiciosButton-frequency-icon" />
-                                  <div className="EditSolicitudServiciosButton-frequency-value">{equipo.frecuencia}</div>
-                                  <div className="EditSolicitudServiciosButton-sede-name">{equipo.id_sede.sede_nombre}</div>
-                                  <div className="EditSolicitudServiciosButton-sede-oid">ID: {equipo.id_sede._id}</div>
+                                  <div className="EditSolicitudServiciosButton-frequency-value">{equipo ? equipo.frecuencia : 'N/A'}</div>
+                                  <div className="EditSolicitudServiciosButton-sede-name">{equipo.id_sede ? equipo.id_sede.sede_nombre : 'N/A'}</div>
+                                  <div className="EditSolicitudServiciosButton-sede-oid">ID: { equipo.id_sede ? equipo.id_sede._id : 'N/A'}</div>
                                   <AccountBalanceIcon className="EditSolicitudServiciosButton-client-icon"/>
-                                  <div className="EditSolicitudServiciosButton-client-name">{equipo.id_sede.id_client.client_name}</div>
+                                  <div className="EditSolicitudServiciosButton-client-name">{equipo.id_sede.id_client ? equipo.id_sede.id_client.client_name : 'N/A'}</div>
                                   <LocationOnIcon className="EditSolicitudServiciosButton-icon"/>
-                                  <div className="EditSolicitudServiciosButton-sede-address">{equipo.id_sede.sede_address}</div>
+                                  <div className="EditSolicitudServiciosButton-sede-address">{equipo.id_sede ? equipo.id_sede.sede_address : 'N/A'}</div>
                                   <CallIcon className="EditSolicitudServiciosButton-sede-telephone-icon"/>
-                                  <div className="EditSolicitudServiciosButton-sede-telephone-value">{equipo.id_sede.sede_telefono}</div>
+                                  <div className="EditSolicitudServiciosButton-sede-telephone-value">{equipo.id_sede ? equipo.id_sede.sede_telefono : 'N/A'}</div>
                                   <button 
                                   className="EditSolicitudServiciosButton-seleccionar-button"
                                   type="button"
@@ -285,21 +296,21 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                   <div className={`EditSolicitudServiciosButton-equipo-selected ${isSearchActive ? "search-active" : ""}`}>
                       <div className="EditSolicitudServiciosButton-overlap-group-wrapper">
                         <div className="EditSolicitudServiciosButton-overlap-group-3">
-                          <div className="EditSolicitudServiciosButton-equipo">{selectedEquipo.modelo_equipos.id_clase.clase}</div>
-                          <div className="EditSolicitudServiciosButton-equipo-2">ID: {selectedEquipo._id}</div>
-                          <div className="EditSolicitudServiciosButton-serial">SN: {selectedEquipo.serie}</div>
+                          <div className="EditSolicitudServiciosButton-equipo">{selectedEquipo.modelo_equipos.id_clase ? selectedEquipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
+                          <div className="EditSolicitudServiciosButton-equipo-2">ID: {selectedEquipo ? selectedEquipo._id : 'N/A'}</div>
+                          <div className="EditSolicitudServiciosButton-serial">SN: {selectedEquipo ? selectedEquipo.serie : 'N/A'}</div>
                           <LocationOnIcon className="EditSolicitudServiciosButton-location"/>
-                          <div className="EditSolicitudServiciosButton-location-value">{selectedEquipo.ubicacion}</div>
+                          <div className="EditSolicitudServiciosButton-location-value">{selectedEquipo ? selectedEquipo.ubicacion : 'N/A'}</div>
                           <ManageHistoryIcon className="EditSolicitudServiciosButton-frecuency" />
-                          <div className="EditSolicitudServiciosButton-frecuency-value">{selectedEquipo.frecuencia}</div>
-                          <div className="EditSolicitudServiciosButton-sede-name-title">{selectedEquipo.id_sede.sede_nombre}</div>
-                          <div className="EditSolicitudServiciosButton-sede">ID: {selectedEquipo.id_sede._id}</div>
+                          <div className="EditSolicitudServiciosButton-frecuency-value">{selectedEquipo ? selectedEquipo.frecuencia : 'N/A'}</div>
+                          <div className="EditSolicitudServiciosButton-sede-name-title">{selectedEquipo.id_sede ? selectedEquipo.id_sede.sede_nombre : 'N/A'}</div>
+                          <div className="EditSolicitudServiciosButton-sede">ID: {selectedEquipo.id_sede ? selectedEquipo.id_sede._id : 'N/A'}</div>
                           <AccountBalanceIcon className="EditSolicitudServiciosButton-client"/>
-                          <div className="EditSolicitudServiciosButton-client-2">{selectedEquipo.id_sede.id_client.client_name}</div>
+                          <div className="EditSolicitudServiciosButton-client-2">{selectedEquipo.id_sede.id_client ? selectedEquipo.id_sede.id_client.client_name : 'N/A'}</div>
                           <LocationOnIcon className="EditSolicitudServiciosButton-img"/>
-                          <div className="EditSolicitudServiciosButton-sede-2">{selectedEquipo.id_sede.sede_address}</div>
+                          <div className="EditSolicitudServiciosButton-sede-2">{selectedEquipo.id_sede ? selectedEquipo.id_sede.sede_address : 'N/A'}</div>
                           <CallIcon className="EditSolicitudServiciosButton-sede-telephone" />
-                          <div className="EditSolicitudServiciosButton-sede-telephone-2">{selectedEquipo.id_sede.sede_telefono}</div>
+                          <div className="EditSolicitudServiciosButton-sede-telephone-2">{selectedEquipo.id_sede ? selectedEquipo.id_sede.sede_telefono : 'N/A'}</div>
                           <RemoveRedEyeIcon 
                           className="EditSolicitudServiciosButton-eye"
                           onClick={handleEquipoSelectedRedirect}
@@ -312,8 +323,9 @@ const handleEstadoChange = (nuevoEstadoId: string) => {
                       <div className="EditSolicitudServiciosButton-equipo-selected-2">Información del Equipo Seleccionado</div>
                     </div>
                   )}
-                  
-                  {searchError && <p>{searchError}</p>}
+                  {searchError && (
+                        <div className="EditSolicitudServiciosButton-search-error-message">{searchError}</div>
+                      )}
 
                   {selectedEquipo && !confirmedSelection && (
                     <div className='EditSolicitudServiciosButton-confirmation-div'>

@@ -1,40 +1,42 @@
 .AreasEquiposCard-box {
-    height: 184px;
-    width: 565px;
+    height: 96px;
+    width: 510px;
   }
-  
   .AreasEquiposCard-box .AreasEquiposCard-overlap-group-wrapper {
-    height: 184px;
+  
+    height: 96px;
+    width: 510px;
     left: 0;
     top: 0;
-    width: 569px;
   }
-  
   .AreasEquiposCard-box .AreasEquiposCard-overlap-group {
-    background-size: 100% 100%;
-    height: 184px;
-    background-color: #ffffffd9;
-    position: relative;
-    width: 565px;
-  }
   
+    background-size: 100% 100%;
+    height: 96px;
+    width: 510px;
+    background-color: #ffffffd9;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+  }
   .AreasEquiposCard-box .AreasEquiposCard-overlap {
+  
     background-color: #ffffffd9;
     border-radius: 5px;
-    height: 184px;
+    height: 96px;
     left: 0;
     position: absolute;
     top: 0;
-    width: 197px;
+    width: 135px;
   }
   
   .AreasEquiposCard-box .AreasEquiposCard-marcaequipo-icon {
-    height: 161px;
+    height: 96px;
     left: 14px;
     color: #00ddfa;
     position: absolute;
-    top: 13px;
-    width: 169px;
+    top: 0;
+    width: 96px;
   }
   
   .AreasEquiposCard-box .AreasEquiposCard-marcaequipo-title {
@@ -42,13 +44,14 @@
     font-family: "Inter-Regular", Helvetica;
     font-size: 20px;
     font-weight: 400;
-    left: 241px;
+    left: 149px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
     text-align: center;
-    top: 54px;
-    width: 307px;
+    top: 9px;
+    width: 329px;
+    height: 48px;
   }
   
   .AreasEquiposCard-box .AreasEquiposCard-marcaequipo-id {
@@ -56,20 +59,20 @@
     font-family: "Inter-Regular", Helvetica;
     font-size: 14px;
     font-weight: 400;
-    left: 241px;
+    left: 149px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
     text-align: center;
-    top: 101px;
-    width: 302px;
+    top: 57px;
+    width: 329px;
   }
   
     .AreasEquiposCard-cards-list{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
       gap:2rem;
-      margin:4rem 5vw;
+      margin:2rem 2vw;
       padding:0;
       list-style: none;
       
@@ -79,12 +82,15 @@
       width: 900px;
       height: 100%;
       display:grid;
-      grid-template-columns: repeat(2, 1fr); /* Hace que haya 3 tarjetas por fila */
+      grid-template-columns: repeat(3, 3fr); /* Hace que haya 3 tarjetas por fila */
       gap: 10rem; /* Espaciado entre las tarjetas */
       row-gap: 5%;
-      margin:2rem 2vw;
+      /* margin:2rem 2vw; */
+      margin: 0;
       padding:0;
-      list-style: none
+      list-style: none;
+      position: relative;
+      left: -20%;
     }
   
   

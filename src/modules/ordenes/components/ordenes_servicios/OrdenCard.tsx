@@ -44,7 +44,7 @@ const OrdenCard: React.FC<OrdenCardProps> = ({ orden, onClick }) => {
 
                   {renderEstadoIcon(orden.id_orden_estado.estado)}
                   {/* <img className="OrdenCard-estado" alt="Estado" src="estado.png" /> */}
-                  <div className="OrdenCard-username">{orden ? orden.id_cerrador.username : 'N/A'}</div>
+                  <div className="OrdenCard-username">{ orden.id_creador ? orden.id_creador.username : 'N/A'}</div>
                   <CalendarTodayOutlinedIcon className="OrdenCard-update-icon"/>
                   <AddOutlinedIcon className="OrdenCard-add-icon"/>
                   
@@ -54,16 +54,16 @@ const OrdenCard: React.FC<OrdenCardProps> = ({ orden, onClick }) => {
                 <div className="OrdenCard-separator"/>
                 <div className="OrdenCard-equipo-info">
                   <div className="OrdenCard-info-title">EQUIPO INFO</div>
-                  <div className="OrdenCard-text-wrapper">{orden ? orden.id_solicitud_servicio.id_equipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
+                  <div className="OrdenCard-text-wrapper">{ orden.id_solicitud_servicio ? orden.id_solicitud_servicio.id_equipo.modelo_equipos.id_clase.clase : 'N/A' }</div>
                   <div className="OrdenCard-oid-equipo">SERIE</div>
-                  <div className="OrdenCard-serialnumber">SN: {orden ? orden.id_solicitud_servicio.id_equipo.serie : 'N/A'}</div>
+                  <div className="OrdenCard-serialnumber">SN: { orden.id_solicitud_servicio ? orden.id_solicitud_servicio.id_equipo.serie : 'N/A'}</div>
                 </div>
               </div>
               <div className="OrdenCard-sede-info">
                 <div className="OrdenCard-info-sede-title">SEDE INFO</div>
-                <div className="OrdenCard-text-wrapper">{orden ? orden.id_solicitud_servicio.id_equipo.id_sede.sede_nombre : 'N/A'}</div>
+                <div className="OrdenCard-text-wrapper">{orden.id_solicitud_servicio ? orden.id_solicitud_servicio.id_equipo.id_sede.sede_nombre : 'N/A'}</div>
                 <div className="OrdenCard-oid-sede">CLIENTE INFO</div>
-                <p className="OrdenCard-cliente-name">{orden ? orden.id_solicitud_servicio.id_equipo.id_sede.id_client.client_name : 'N/A'}</p>
+                <p className="OrdenCard-cliente-name">{orden.id_solicitud_servicio ? orden.id_solicitud_servicio.id_equipo.id_sede.id_client.client_name : 'N/A'}</p>
               </div>
             </div>
           </div>

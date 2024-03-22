@@ -93,6 +93,8 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
         setSearchError(null);
       } else {
         setSearchError('No se encontraron equipos.');
+        setEquiposEncontrados([]);
+
       }
     } catch (error) {
       console.error('Error al buscar equipos:', error);
@@ -228,21 +230,21 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                             <li key={equipo._id} className='RegisterSolicitudServicioForm-equipo-card-list'>
                               <div className="RegisterSolicitudServicioForm-equipo-card">
                                 <div className="RegisterSolicitudServicioForm-overlap-group-2">
-                                  <div className="RegisterSolicitudServicioForm-equipo-classname-p">{equipo.modelo_equipos.id_clase.clase}</div>
-                                  <div className="RegisterSolicitudServicioForm-equipo-oid">ID: {equipo._id}</div>
-                                  <div className="RegisterSolicitudServicioForm-serial-p">SN: {equipo.serie}</div>
+                                  <div className="RegisterSolicitudServicioForm-equipo-classname-p">{equipo.modelo_equipos.id_clase ? equipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
+                                  <div className="RegisterSolicitudServicioForm-equipo-oid">ID: {equipo ? equipo._id : 'N/A'}</div>
+                                  <div className="RegisterSolicitudServicioForm-serial-p">SN: {equipo ? equipo.serie : 'N/A'}</div>
                                   <LocationOnIcon className="RegisterSolicitudServicioForm-location-icon" />
-                                  <div className="RegisterSolicitudServicioForm-location-text">{equipo.ubicacion}</div>
+                                  <div className="RegisterSolicitudServicioForm-location-text">{equipo ? equipo.ubicacion : 'N/A'}</div>
                                   <ManageHistoryIcon className="RegisterSolicitudServicioForm-frequency-icon" />
-                                  <div className="RegisterSolicitudServicioForm-frequency-value">{equipo.frecuencia}</div>
-                                  <div className="RegisterSolicitudServicioForm-sede-name">{equipo.id_sede.sede_nombre}</div>
-                                  <div className="RegisterSolicitudServicioForm-sede-oid">ID: {equipo.id_sede._id}</div>
+                                  <div className="RegisterSolicitudServicioForm-frequency-value">{equipo ? equipo.frecuencia : 'N/A'}</div>
+                                  <div className="RegisterSolicitudServicioForm-sede-name">{equipo.id_sede ? equipo.id_sede.sede_nombre : 'N/A'}</div>
+                                  <div className="RegisterSolicitudServicioForm-sede-oid">ID: { equipo.id_sede ? equipo.id_sede._id : 'N/A'}</div>
                                   <AccountBalanceIcon className="RegisterSolicitudServicioForm-client-icon"/>
-                                  <div className="RegisterSolicitudServicioForm-client-name">{equipo.id_sede.id_client.client_name}</div>
+                                  <div className="RegisterSolicitudServicioForm-client-name">{equipo.id_sede.id_client ? equipo.id_sede.id_client.client_name : 'N/A'}</div>
                                   <LocationOnIcon className="RegisterSolicitudServicioForm-icon"/>
-                                  <div className="RegisterSolicitudServicioForm-sede-address">{equipo.id_sede.sede_address}</div>
+                                  <div className="RegisterSolicitudServicioForm-sede-address">{equipo.id_sede ? equipo.id_sede.sede_address : 'N/A'}</div>
                                   <CallIcon className="RegisterSolicitudServicioForm-sede-telephone-icon"/>
-                                  <div className="RegisterSolicitudServicioForm-sede-telephone-value">{equipo.id_sede.sede_telefono}</div>
+                                  <div className="RegisterSolicitudServicioForm-sede-telephone-value">{equipo.id_sede ? equipo.id_sede.sede_telefono : 'N/A'}</div>
                                   <button 
                                   className="RegisterSolicitudServicioForm-seleccionar-button"
                                   type="button"
@@ -262,32 +264,35 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                           <div className="RegisterSolicitudServicioForm-text-wrapper">Equipos encontrados</div>
                         </div>
                       )}
+                      {searchError && (
+                        <div className="RegisterSolicitudServicioForm-search-error-message">{searchError}</div>
+                      )}
 
 
                   {selectedEquipo && confirmedSelection && (
                   <div className={`RegisterSolicitudServicioForm-equipo-selected ${isSearchActive ? "RegisterSolicitudServicioForm-search-active" : ""}`}>
                       <div className="RegisterSolicitudServicioForm-overlap-group-wrapper">
                         <div className="RegisterSolicitudServicioForm-overlap-group-3">
-                          <div className="RegisterSolicitudServicioForm-equipo">{selectedEquipo.modelo_equipos.id_clase.clase}</div>
-                          <div className="RegisterSolicitudServicioForm-equipo-2">ID: {selectedEquipo._id}</div>
-                          <div className="RegisterSolicitudServicioForm-serial">SN: {selectedEquipo.serie}</div>
+                          <div className="RegisterSolicitudServicioForm-equipo">{selectedEquipo.modelo_equipos.id_clase ? selectedEquipo.modelo_equipos.id_clase.clase : 'N/A'}</div>
+                          <div className="RegisterSolicitudServicioForm-equipo-2">ID: {selectedEquipo ? selectedEquipo._id : 'N/A'}</div>
+                          <div className="RegisterSolicitudServicioForm-serial">SN: {selectedEquipo ? selectedEquipo.serie : 'N/A'}</div>
                           <LocationOnIcon className="RegisterSolicitudServicioForm-location"/>
-                          <div className="RegisterSolicitudServicioForm-location-value">{selectedEquipo.ubicacion}</div>
+                          <div className="RegisterSolicitudServicioForm-location-value">{selectedEquipo ? selectedEquipo.ubicacion : 'N/A'}</div>
                           <ManageHistoryIcon className="RegisterSolicitudServicioForm-frecuency" />
-                          <div className="RegisterSolicitudServicioForm-frecuency-value">{selectedEquipo.frecuencia}</div>
-                          <div className="RegisterSolicitudServicioForm-sede-name-title">{selectedEquipo.id_sede.sede_nombre}</div>
-                          <div className="RegisterSolicitudServicioForm-sede">ID: {selectedEquipo.id_sede._id}</div>
+                          <div className="RegisterSolicitudServicioForm-frecuency-value">{selectedEquipo ? selectedEquipo.frecuencia : 'N/A'}</div>
+                          <div className="RegisterSolicitudServicioForm-sede-name-title">{selectedEquipo.id_sede ? selectedEquipo.id_sede.sede_nombre : 'N/A'}</div>
+                          <div className="RegisterSolicitudServicioForm-sede">ID: {selectedEquipo.id_sede ? selectedEquipo.id_sede._id : 'N/A'}</div>
                           <AccountBalanceIcon className="RegisterSolicitudServicioForm-client"/>
-                          <div className="RegisterSolicitudServicioForm-client-2">{selectedEquipo.id_sede.id_client.client_name}</div>
+                          <div className="RegisterSolicitudServicioForm-client-2">{selectedEquipo.id_sede.id_client ? selectedEquipo.id_sede.id_client.client_name : 'N/A'}</div>
                           <LocationOnIcon className="RegisterSolicitudServicioForm-img"/>
-                          <div className="RegisterSolicitudServicioForm-sede-2">{selectedEquipo.id_sede.sede_address}</div>
+                          <div className="RegisterSolicitudServicioForm-sede-2">{selectedEquipo.id_sede ? selectedEquipo.id_sede.sede_address : 'N/A'}</div>
                           <CallIcon className="RegisterSolicitudServicioForm-sede-telephone" />
-                          <div className="RegisterSolicitudServicioForm-sede-telephone-2">{selectedEquipo.id_sede.sede_telefono}</div>
+                          <div className="RegisterSolicitudServicioForm-sede-telephone-2">{selectedEquipo.id_sede ? selectedEquipo.id_sede.sede_telefono : 'N/A'}</div>
                           <RemoveRedEyeIcon 
                           className="RegisterSolicitudServicioForm-eye"
                           onClick={handleEquipoSelectedRedirect}
                           />
-                          <button className="RegisterSolicitudServicioForm-confirmed-selection" onClick={() => setConfirmedSelection(false)}>
+                          <button className="RegisterSolicitudServicioForm-confirmed-selection" onClick={() => { setSearchError(null); setConfirmedSelection(false) } }>
                             Confirmar Selección
                           </button>
                         </div>
@@ -296,7 +301,6 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                     </div>
                   )}
                   
-                  {searchError && <p>{searchError}</p>}
 
                   {selectedEquipo && !confirmedSelection && (
                     <div className='RegisterSolicitudServicioForm-confirmation-div'>
@@ -307,6 +311,7 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                         onClick={() => {
                           setConfirmedSelection(true);
                           setUseSelectedEquipo(true);
+                          setSearchError(null);
                         }}
                       >
                         Sí
@@ -317,6 +322,8 @@ const RegisterSolicitudServicioForm: React.FC<RegisterSolicitudServicioFormProps
                         onClick={() => {
                           setSelectedEquipo(null);
                           setUseSelectedEquipo(false);
+                          setSearchError(null);
+
                         }}
                       >
                         No

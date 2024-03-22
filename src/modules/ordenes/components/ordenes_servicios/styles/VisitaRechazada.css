@@ -1,4 +1,4 @@
-.visita-rechazada {
+.VisitaByIdRechazada-visita-rechazada {
     background-color: transparent;
     /* display: flex; */
     /* flex-direction: row; */
@@ -11,7 +11,7 @@
     width: 563px;
 }
 
-.visita-rechazada .div {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-div {
   /* background-image: url(./container.svg); */
   background-size: 100% 100%;
   background-color: #d9d9d9;
@@ -21,7 +21,7 @@
   width: 563px;
 }
 
-.visita-rechazada .header {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-header {
   background-color: transparent;
   height: 34px;
   left: 16px;
@@ -30,7 +30,7 @@
   width: 500px;
 }
 
-.visita-rechazada .overlap-group {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-group {
   background-color: #ffffff;
   border-radius: 10px;
   height: 34px;
@@ -38,7 +38,7 @@
   width: 498px;
 }
 
-.visita-rechazada .text-wrapper {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-text-wrapper {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 18px;
@@ -54,7 +54,7 @@
   width: 498px;
 }
 
-.visita-rechazada .ejecutar-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-ejecutar-icon {
   height: 30px;
   left: 524px;
   color: #00ddfa;
@@ -64,7 +64,7 @@
   width: 30px;
 }
 
-.visita-rechazada .overlap {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap {
   background-color: #d9d9d9;
   height: 353px;
   left: 0;
@@ -74,7 +74,7 @@
   width: 563px;
 }
 
-.visita-rechazada .ejecucion-div {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-ejecucion-div {
   height: 316px;
   left: 14px;
   position: absolute;
@@ -82,13 +82,13 @@
   width: 311px;
 }
 
-.visita-rechazada .overlap-2 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-2 {
   height: 316px;
   position: relative;
   width: 291px;
 }
 
-.visita-rechazada .rectangle {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-rectangle {
   background-color: #ffffff;
   border-radius: 10px;
   height: 316px;
@@ -98,7 +98,7 @@
   width: 288px;
 }
 
-.visita-rechazada .text-wrapper-2 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-text-wrapper-2 {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -113,7 +113,7 @@
   width: 271px;
 }
 
-.visita-rechazada .ejecucion-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-ejecucion-icon {
   height: 20px;
   left: 11px;
   color: #00ddfa;
@@ -122,7 +122,7 @@
   width: 20px;
 }
 
-.visita-rechazada .ejecucion-data {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-ejecucion-data {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -135,7 +135,7 @@
   width: 108px;
 }
 
-.visita-rechazada .time-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-time-icon {
   height: 20px;
   left: 156px;
   color: #00ddfa;
@@ -144,7 +144,7 @@
   width: 20px;
 }
 
-.visita-rechazada .time-data {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-time-data {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -157,7 +157,7 @@
   width: 101px;
 }
 
-.visita-rechazada .separator {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-separator {
   height: 12px;
   left: 0;
   position: absolute;
@@ -165,7 +165,7 @@
   width: 290px;
 }
 
-.visita-rechazada .overlap-group-2 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-group-2 {
   height: 12px;
   left: 137px;
   position: absolute;
@@ -173,7 +173,7 @@
   width: 153px;
 }
 
-.visita-rechazada .ellipse {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-ellipse {
   border: 1px solid;
   border-color: #d9d9d9;
   border-radius: 8.25px/5.83px;
@@ -184,7 +184,7 @@
   width: 16px;
 }
 
-.visita-rechazada .line {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-line {
   height: 2px;
   left: 16px;
   object-fit: cover;
@@ -194,7 +194,7 @@
   width: 137px;
 }
 
-.visita-rechazada .overlap-3 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-3 {
   height: 2px;
   left: 0;
   position: absolute;
@@ -202,7 +202,7 @@
   width: 137px;
 }
 
-.visita-rechazada .img {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-img {
   height: 2px;
   left: 0;
   object-fit: cover;
@@ -211,7 +211,7 @@
   width: 135px;
 }
 
-.visita-rechazada .line-2 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-line-2 {
   height: 2px;
   background-color: #d9d9d9;
   left: 0;
@@ -221,7 +221,7 @@
   width: 137px;
 }
 
-.visita-rechazada .tecnico-title {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-tecnico-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -236,7 +236,7 @@
   width: 272px;
 }
 
-.visita-rechazada .tecnico-oid {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-tecnico-oid {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -250,7 +250,7 @@
   width: 288px;
 }
 
-.visita-rechazada .tecnico-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-tecnico-icon {
   height: 20px;
   left: 11px;
   position: absolute;
@@ -259,7 +259,7 @@
   width: 20px;
 }
 
-.visita-rechazada .tecnico-name {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-tecnico-name {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -272,7 +272,7 @@
   width: 89px;
 }
 
-.visita-rechazada .cedula-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-cedula-icon {
   height: 20px;
   left: 156px;
   position: absolute;
@@ -281,7 +281,7 @@
   width: 20px;
 }
 
-.visita-rechazada .cedula-name {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-cedula-name {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -294,7 +294,7 @@
   width: 92px;
 }
 
-.visita-rechazada .email-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-email-icon {
   height: 20px;
   left: 11px;
   position: absolute;
@@ -303,7 +303,7 @@
   width: 20px;
 }
 
-.visita-rechazada .email-data {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-email-data {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -316,7 +316,7 @@
   width: 88px;
 }
 
-.visita-rechazada .telephone-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-telephone-icon {
   height: 20px;
   left: 156px;
   color: #00ddfa;
@@ -325,7 +325,7 @@
   width: 20px;
 }
 
-.visita-rechazada .telephone-data {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-telephone-data {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -338,7 +338,7 @@
   width: 92px;
 }
 
-.visita-rechazada .separator-2 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-separator-2 {
   height: 12px;
   left: 1px;
   position: absolute;
@@ -346,7 +346,7 @@
   width: 290px;
 }
 
-.visita-rechazada .protocolos-title {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-protocolos-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -361,7 +361,7 @@
   width: 272px;
 }
 
-.visita-rechazada .actividades-list {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-actividades-list {
     background-color: #ffffff;
     border-radius: 10px;
     height: 100px;
@@ -373,31 +373,31 @@
 }
 
 /* Estilos de barra de desplazamiento para navegadores WebKit como Chrome y Safari */
-.visita-rechazada .actividades-list::-webkit-scrollbar {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-actividades-list::-webkit-scrollbar {
     width: 10px;
   }
   
-  .visita-rechazada .actividades-list::-webkit-scrollbar-track {
+  .VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-actividades-list::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
   
-  .visita-rechazada .actividades-list::-webkit-scrollbar-thumb {
+  .VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-actividades-list::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 5px; /* Puedes redondear los bordes del pulgar para que coincida con el contenedor */
   }
   
-  .visita-rechazada .actividades-list::-webkit-scrollbar-thumb:hover {
+  .VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-actividades-list::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
   
   /* Estilos de barra de desplazamiento para Firefox */
-  .visita-rechazada .actividades-list {
+  .VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-actividades-list {
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
   }
   
 
-.visita-rechazada .rectangle-2 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-rectangle-2 {
     background-color: #d9d9d9;
     border-radius: 10px;
     height: 21px;
@@ -411,7 +411,7 @@
     width: 251px;
 }
 
-.visita-rechazada .change-estado {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-change-estado {
   height: 115px;
   left: 323px;
   position: absolute;
@@ -419,7 +419,7 @@
   width: 199px;
 }
 
-.visita-rechazada .overlap-4 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-4 {
   background-color: #ffffff;
   border-radius: 10px;
   height: 115px;
@@ -427,7 +427,7 @@
   width: 191px;
 }
 
-.visita-rechazada .estado-t {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-estado-t {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -442,7 +442,7 @@
   width: 136px;
 }
 
-.visita-rechazada .decline-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-decline-icon {
   height: 28px;
   left: 81px;
   color: #da2808;
@@ -451,7 +451,7 @@
   width: 28px;
 }
 
-.visita-rechazada .rechazada-t {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-rechazada-t {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -467,7 +467,7 @@
   width: 50px;
 }
 
-.visita-rechazada .separator-estado {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-separator-estado {
   height: 1px;
   left: 0;
   object-fit: cover;
@@ -476,7 +476,7 @@
   width: 191px;
 }
 
-.visita-rechazada .observacion-t {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-observacion-t {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -491,7 +491,7 @@
   width: 191px;
 }
 
-.visita-rechazada .text-wrapper-3 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-text-wrapper-3 {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -505,7 +505,7 @@
   width: 191px;
 }
 
-.visita-rechazada .creation-div {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-creation-div {
   height: 181px;
   left: 323px;
   position: absolute;
@@ -513,7 +513,7 @@
   width: 207px;
 }
 
-.visita-rechazada .overlap-5 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-5 {
   background-color: #ffffff;
   border-radius: 10px;
   height: 181px;
@@ -521,7 +521,7 @@
   width: 191px;
 }
 
-.visita-rechazada .creation-t {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-creation-t {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -536,7 +536,7 @@
   width: 136px;
 }
 
-.visita-rechazada .created-icon {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-created-icon {
   height: 19px;
   left: 32px;
   position: absolute;
@@ -545,7 +545,7 @@
   width: 18px;
 }
 
-.visita-rechazada .created-date {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-created-date {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 10px;
@@ -559,7 +559,7 @@
   width: 102px;
 }
 
-.visita-rechazada .sede-ejecutar {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-sede-ejecutar {
   color: #d9d9d9;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -581,7 +581,7 @@
   width: 30px;
 } */
 
-.visita-rechazada .separator-3 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-separator-3 {
   height: 12px;
   left: 0;
   position: absolute;
@@ -589,7 +589,7 @@
   width: 191px;
 }
 
-.visita-rechazada .overlap-group-3 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-overlap-group-3 {
   height: 12px;
   left: 90px;
   position: absolute;
@@ -597,7 +597,7 @@
   width: 101px;
 }
 
-.visita-rechazada .elipse {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-elipse {
   border: 1px solid;
   border-color: #d9d9d9;
   border-radius: 5.43px/6.17px;
@@ -608,7 +608,7 @@
   width: 11px;
 }
 
-.visita-rechazada .line-3 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-line-3 {
   height: 1px;
   left: 11px;
   background-color: #d9d9d9;
@@ -618,7 +618,7 @@
   width: 90px;
 }
 
-.visita-rechazada .line-4 {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-line-4 {
   height: 1px;
   left: 0;
   object-fit: cover;
@@ -628,7 +628,7 @@
   width: 90px;
 }
 
-.visita-rechazada .creator-title {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-creator-title {
   color: #00ddfa;
   font-family: "Inter-Regular", Helvetica;
   font-size: 12px;
@@ -643,7 +643,7 @@
   width: 136px;
 }
 
-.visita-rechazada .tecnico-i {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-tecnico-i {
   height: 16px;
   left: 11px;
   color: #00ddfa;
@@ -652,7 +652,7 @@
   width: 12px;
 }
 
-.visita-rechazada .tecnico-n {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-tecnico-n {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -665,7 +665,7 @@
   width: 64px;
 }
 
-.visita-rechazada .cedula-i {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-cedula-i {
   height: 16px;
   left: 103px;
   color: #00ddfa;
@@ -674,7 +674,7 @@
   width: 12px;
 }
 
-.visita-rechazada .cedula-n {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-cedula-n {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -687,7 +687,7 @@
   width: 63px;
 }
 
-.visita-rechazada .email-i {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-email-i {
   height: 15px;
   left: 11px;
   color: #00ddfa;
@@ -696,7 +696,7 @@
   width: 12px;
 }
 
-.visita-rechazada .email-n {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-email-n {
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-size: 8px;
@@ -714,7 +714,7 @@
     width: 67px;
 }
 
-.visita-rechazada .telephone-i {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-telephone-i {
   height: 15px;
   left: 103px;
   color: #00ddfa;
@@ -723,7 +723,7 @@
   width: 12px;
 }
 
-.visita-rechazada .telephone-n {
+.VisitaByIdRechazada-visita-rechazada .VisitaByIdRechazada-telephone-n {
   color: #000000;
   font-family: "Inter-Regular", Helvetica;
   font-size: 8px;
@@ -740,7 +740,7 @@
 
 /* EJECUTAR SEDE */
 
-.switch {
+.VisitaByIdRechazada-switch {
     position: relative;
     display: inline-block;
     top: 50px;
@@ -749,13 +749,13 @@
     height: 34px;
   }
   
-  .switch .ejecutar-input {
+  .VisitaByIdRechazada-switch .VisitaByIdRechazada-ejecutar-input {
     opacity: 0;
     width: 0;
     height: 0;
   }
   
-  .slider {
+  .VisitaByIdRechazada-slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -767,7 +767,7 @@
     border-radius: 34px;
   }
   
-  .slider:before {
+  .VisitaByIdRechazada-slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -779,24 +779,24 @@
     border-radius: 50%;
   }
   
-  .switch.on .slider {
+  .VisitaByIdRechazada-switch.VisitaByIdRechazada-on .VisitaByIdRechazada-slider {
     background-color: #00ddfa;
   }
   
-  .switch.off .slider {
+  .VisitaByIdRechazada-switch.VisitaByIdRechazada-off .VisitaByIdRechazada-slider {
     background-color: #7C7C7C;
   }
   
-  .ejecutar-input:checked + .slider:before {
+  .ejecutar-input:checked + .VisitaByIdRechazada-slider:before {
     transform: translateX(26px);
   }
   
   /* Rounded sliders */
-  .slider.round {
+  .VisitaByIdRechazada-slider.VisitaByIdRechazada-round {
     border-radius: 34px;
   }
   
-  .slider.round:before {
+  .VisitaByIdRechazada-slider.VisitaByIdRechazada-round:before {
     border-radius: 50%;
   }
   

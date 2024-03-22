@@ -87,6 +87,29 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    // Inicializamos un array para acumular los mensajes de error
+    let errores: string[] = [];
+
+    // Realizamos las validaciones y acumulamos los mensajes de error
+    if (!selectedUser) {
+      errores.push('Seleccione la persona encargada de ejecutar la visita.');
+    }
+    if (selectedProtocolos.length === 0) {
+      errores.push('Seleccione al menos un protocolo.');
+    }
+    if (!visitaData.fecha_inicio) {
+      errores.push('Seleccione la fecha de inicio.');
+    }
+    if (!visitaData.duracion) {
+      errores.push('Ingrese la duración estimada de la visita.');
+    }
+
+    // Verificamos si hay errores
+    if (errores.length > 0) {
+      // Mostramos todos los errores en un solo window.alert
+      window.alert(errores.join('\n'));
+      return;
+    }
     
     try {
       const token = loggedIn;
@@ -176,7 +199,7 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
             </header>
             <div className="RegisterVisitaOrden-overlap">
               <div className="RegisterVisitaOrden-user-div">
-                <p className="RegisterVisitaOrden-text-wrapper">1. Seleccione la persona encargada de ejecutar la visita:</p>
+                <p className="RegisterVisitaOrden-text-wrapper">1. Seleccione la persona encargada de ejecutar la visita: *</p>
                 <input
                   className="RegisterVisitaOrden-rectangle"
                   type="text"
@@ -202,7 +225,7 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
                 )}
               </div>
               <div className="RegisterVisitaOrden-protocolos-div">
-                <p className="RegisterVisitaOrden-text-wrapper">2. Seleccione las actividades a programar:</p>
+                <p className="RegisterVisitaOrden-text-wrapper">2. Seleccione las actividades a programar: *</p>
                 <select
                   className="RegisterVisitaOrden-rectangle"
                   name="ids_protocolos"
@@ -226,7 +249,7 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
               </div>
               <div className="RegisterVisitaOrden-separator"/>
               <div className="RegisterVisitaOrden-fecha-div">
-                <div className="RegisterVisitaOrden-text-wrapper-2">3. Seleccione fecha de inicio:</div>
+                <div className="RegisterVisitaOrden-text-wrapper-2">3. Seleccione fecha de inicio: *</div>
                 <input
                   className="RegisterVisitaOrden-div-2"
                   type="datetime-local"
@@ -236,7 +259,7 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
                 />
               </div>
               <div className="RegisterVisitaOrden-insede-div">
-                <div className="RegisterVisitaOrden-text-wrapper-2">4. Ejecutar en sede:</div>
+                <div className="RegisterVisitaOrden-text-wrapper-2">4. Ejecutar en sede: *</div>
                 <label className="RegisterVisitaOrden-switch">
                   <input
                     className='RegisterVisitaOrden-ejecutar-sede-input'
@@ -249,7 +272,7 @@ const RegisterVisitaOrden: React.FC<{ onCancel: () => void, idOrden: string }> =
                 </label>
               </div>
               <div className="RegisterVisitaOrden-time-div">
-                <div className="RegisterVisitaOrden-text-wrapper-2">5. Duración estimada (minutos):</div>
+                <div className="RegisterVisitaOrden-text-wrapper-2">5. Duración estimada (minutos): *</div>
                 <input
                   className="RegisterVisitaOrden-div-2"
                   type="text"

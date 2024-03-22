@@ -1,0 +1,901 @@
+.visita-abierta {
+    background-color: transparent;
+    /* display: flex; */
+    /* flex-direction: row; */
+    justify-content: center;
+    left: 535px;
+    top: 345px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 563px;
+}
+
+.visita-abierta .div {
+  /* background-image: url(./container.svg); */
+  background-size: 100% 100%;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 412px;
+  position: relative;
+  width: 563px;
+}
+
+.visita-abierta .header {
+  background-color: transparent;
+  height: 34px;
+  left: 16px;
+  position: absolute;
+  top: 17px;
+  width: 500px;
+}
+
+.visita-abierta .overlap-group {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 34px;
+  position: relative;
+  width: 498px;
+}
+
+.visita-abierta .visita-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 18px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  white-space: nowrap;
+  width: 498px;
+}
+
+.visita-abierta .execute-icon {
+  height: 30px;
+  color: #00ddfa;
+  left: 524px;
+  cursor: pointer;
+  position: absolute;
+  top: 19px;
+  width: 30px;
+}
+
+.visita-abierta .overlap {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 353px;
+  left: 0;
+  position: absolute;
+  top: 59px;
+  width: 563px;
+  overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido es demasiado alto */
+}
+
+/* Estilos de barra de desplazamiento para navegadores WebKit como Chrome y Safari */
+.visita-abierta .overlap::-webkit-scrollbar {
+  width: 10px;
+}
+
+.visita-abierta .overlap::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.visita-abierta .overlap::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px; /* Puedes redondear los bordes del pulgar para que coincida con el contenedor */
+}
+
+.visita-abierta .overlap::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Estilos de barra de desplazamiento para Firefox */
+.visita-abierta .overlap {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+
+.visita-abierta .ejecucion-div {
+  height: 290px;
+  left: 14px;
+  position: absolute;
+  top: 10px;
+  width: 291px;
+}
+
+.visita-abierta .overlap-2 {
+  height: 290px;
+  position: relative;
+  width: 302px;
+}
+
+.visita-abierta .container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 290px;
+  left: 2px;
+  position: absolute;
+  top: 0;
+  width: 288px;
+}
+
+.visita-abierta .info-execution {
+  height: 40px;
+  left: 11px;
+  position: absolute;
+  top: 5px;
+  width: 283px;
+}
+
+.visita-abierta .info-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 1px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 271px;
+}
+
+.visita-abierta .date-icon {
+  height: 20px;
+  color: #00ddfa;
+  left: 0;
+  position: absolute;
+  top: 20px;
+  width: 20px;
+}
+
+.visita-abierta .date-t {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 23px;
+  width: 108px;
+}
+
+.visita-abierta .time-icon {
+  height: 20px;
+  color: #00ddfa;
+  left: 145px;
+  position: absolute;
+  top: 20px;
+  width: 20px;
+}
+
+.visita-abierta .time-title {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 176px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 25px;
+  width: 101px;
+}
+
+.visita-abierta .separator {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 53px;
+  width: 290px;
+}
+
+.visita-abierta .overlap-3 {
+  height: 12px;
+  left: 137px;
+  position: absolute;
+  top: 0;
+  width: 153px;
+}
+
+.visita-abierta .ellipse {
+  border: 1px solid;
+  border-color: #d9d9d9;
+  border-radius: 8.25px/5.83px;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+.visita-abierta .line {
+  height: 1px;
+  left: 16px;
+  object-fit: cover;
+  background-color: #d9d9d9;
+  position: absolute;
+  top: 5px;
+  width: 137px;
+}
+
+.visita-abierta .overlap-group-2 {
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  width: 137px;
+}
+
+.visita-abierta .img {
+  height: 2px;
+  left: 0;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 135px;
+}
+
+.visita-abierta .line-2 {
+  height: 1px;
+  left: 0;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 137px;
+}
+
+.visita-abierta .tecnico-section {
+  height: 99px;
+  left: 2px;
+  position: absolute;
+  top: 73px;
+  width: 300px;
+}
+
+.visita-abierta .tecnico-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 9px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 272px;
+}
+
+.visita-abierta .tecnico-oid {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 16px;
+  width: 288px;
+}
+
+.visita-abierta .tecnico-icon {
+  height: 20px;
+  left: 9px;
+  color: #00ddfa;
+  position: absolute;
+  top: 32px;
+  width: 20px;
+}
+
+.visita-abierta .tecnico-name {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 38px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 36px;
+  width: 89px;
+}
+
+.visita-abierta .id-icon {
+  height: 20px;
+  left: 154px;
+  color: #00ddfa;
+  position: absolute;
+  top: 32px;
+  width: 20px;
+}
+
+.visita-abierta .cedula-value {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 185px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 36px;
+  width: 92px;
+}
+
+.visita-abierta .email-icon {
+  height: 20px;
+  left: 9px;
+  color: #00ddfa;
+  position: absolute;
+  top: 72px;
+  width: 20px;
+}
+
+.visita-abierta .email-value {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 38px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 77px;
+  width: 88px;
+}
+
+.visita-abierta .telephone-icon {
+  height: 20px;
+  left: 154px;
+  color: #00ddfa;
+  position: absolute;
+  top: 72px;
+  width: 20px;
+}
+
+.visita-abierta .telephone-value {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  left: 185px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 77px;
+  width: 92px;
+}
+
+.visita-abierta .separator-2 {
+  height: 12px;
+  left: 1px;
+  position: absolute;
+  top: 172px;
+  width: 290px;
+}
+
+.visita-abierta .line-3 {
+  height: 1px;
+  left: 0;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 137px;
+}
+
+.visita-abierta .actividades-list {
+    border-radius: 10px;
+    height: 72px;
+    left: 2px;
+    position: absolute;
+    top: 212px;
+    width: 288px;
+    overflow-y: auto; 
+}
+
+.visita-abierta .actividades-ul {
+    height: 0;
+    width: 0;
+}
+
+/* Estilos de barra de desplazamiento para navegadores WebKit como Chrome y Safari */
+.visita-abierta .actividades-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .visita-abierta .actividades-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .visita-abierta .actividades-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px; /* Puedes redondear los bordes del pulgar para que coincida con el contenedor */
+  }
+  
+  .visita-abierta .actividades-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Estilos de barra de desplazamiento para Firefox */
+  .visita-abierta .actividades-list {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+
+.visita-abierta .rectangle-wrapper {
+  background-color: #ffffff;
+  height: 65px;
+  left: 0;
+  position: absolute;
+  top: 22px;
+  width: 288px;
+}
+
+.visita-abierta .rectangle {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 21px;
+  font-size: 12px;
+  left: 20px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 4px;
+  list-style: none;
+  top: 11px;
+  width: 251px;
+}
+
+.visita-abierta .protocolos-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 8px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 195px;
+  width: 272px;
+}
+
+.visita-abierta .estado-div {
+  height: 75px;
+  left: 323px;
+  position: absolute;
+  top: 19px;
+  width: 201px;
+}
+
+.visita-abierta .overlap-4 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 87px;
+  position: relative;
+  width: 191px;
+}
+
+.visita-abierta .overlap-5 {
+  height: 65px;
+  left: 28px;
+  position: absolute;
+  top: 3px;
+  width: 158px;
+}
+
+.visita-abierta .overlap-group-3 {
+  height: 48px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 136px;
+}
+
+.visita-abierta .estado-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 15px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 136px;
+}
+
+.visita-abierta .estado-icon {
+  height: 35px;
+  left: 5px;
+  color: #08da08;
+  position: absolute;
+  top: 13px;
+  width: 35px;
+}
+
+.visita-abierta .line-4 {
+  height: 62px;
+  left: 68px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 17px;
+  width: 1px;
+}
+
+.visita-abierta .observacion-t {
+  color: #7C7C7C;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 6px;
+  font-weight: 400;
+  left: 73px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 20px;
+  white-space: nowrap;
+  width: 85px;
+}
+
+.visita-abierta .observacion-value {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 73px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 31px;
+  width: 85px;
+  height: 50px;
+}
+
+.visita-abierta .aproved-t {
+  color: #7C7C7C;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 55px;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.visita-abierta .aprobador-value {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 7px;
+  font-weight: 400;
+  left: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 67px;
+  white-space: nowrap;
+  width: 83px;
+}
+
+.visita-abierta .creation-div {
+  height: 181px;
+  left: 323px;
+  position: absolute;
+  top: 114px;
+  width: 207px;
+}
+
+.visita-abierta .overlap-6 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 181px;
+  position: relative;
+  width: 191px;
+}
+
+.visita-abierta .creation-info {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 136px;
+}
+
+.visita-abierta .created-icon {
+  height: 19px;
+  left: 32px;
+  color: #00ddfa;
+  position: absolute;
+  top: 31px;
+  width: 18px;
+}
+
+.visita-abierta .created-date {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 18px;
+  left: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 32px;
+  width: 102px;
+}
+
+.visita-abierta .insede-t {
+  color: #d9d9d9;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 63px;
+  width: 87px;
+}
+
+.visita-abierta .insede-check {
+  height: 32px;
+  left: 124px;
+  position: absolute;
+  top: 53px;
+  width: 30px;
+}
+
+/* EJECUTAR SEDE */
+
+.VisitaByIdAbierta-switch {
+    position: relative;
+    display: inline-block;
+    top: 50px;
+    left: 115px;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .VisitaByIdAbierta-switch .VisitaByIdAbierta-ejecutar-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .VisitaByIdAbierta-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #7C7C7C;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .VisitaByIdAbierta-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  .VisitaByIdAbierta-switch.VisitaByIdAbierta-on .VisitaByIdAbierta-slider {
+    background-color: #00ddfa;
+  }
+  
+  .VisitaByIdAbierta-switch.VisitaByIdRechazada-off .VisitaByIdAbierta-slider {
+    background-color: #7C7C7C;
+  }
+  
+  .ejecutar-input:checked + .VisitaByIdAbierta-slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .VisitaByIdAbierta-slider.VisitaByIdRechazada-round {
+    border-radius: 34px;
+  }
+  
+  .VisitaByIdAbierta-slider.VisitaByIdRechazada-round:before {
+    border-radius: 50%;
+  }
+
+  /* ----- */
+
+
+.visita-abierta .separator-3 {
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 88px;
+  width: 191px;
+}
+
+.visita-abierta .overlap-group-4 {
+  height: 12px;
+  left: 90px;
+  position: absolute;
+  top: 0;
+  width: 101px;
+}
+
+.visita-abierta .ellipse-2 {
+  border: 1px solid;
+  border-color: #d9d9d9;
+  border-radius: 5.43px/6.17px;
+  height: 12px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 11px;
+}
+
+.visita-abierta .line-5 {
+  height: 1px;
+  left: 11px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 90px;
+}
+
+.visita-abierta .line-6 {
+  height: 1px;
+  left: -90px;
+  background-color: #d9d9d9;
+  object-fit: cover;
+  position: absolute;
+  top: 5px;
+  width: 90px;
+}
+
+.visita-abierta .creator-title {
+  color: #00ddfa;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  height: 16px;
+  left: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 104px;
+  width: 136px;
+}
+
+.visita-abierta .user-i {
+  height: 16px;
+  left: 11px;
+  color: #00ddfa;
+  position: absolute;
+  top: 123px;
+  width: 12px;
+}
+
+.visita-abierta .user-t {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 126px;
+  width: 64px;
+}
+
+.visita-abierta .id-i {
+  height: 16px;
+  left: 103px;
+  color: #00ddfa;
+  position: absolute;
+  top: 123px;
+  width: 12px;
+}
+
+.visita-abierta .text-wrapper {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 123px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 126px;
+  width: 63px;
+}
+
+.visita-abierta .email {
+  height: 15px;
+  left: 11px;
+  color: #00ddfa;
+  position: absolute;
+  top: 154px;
+  width: 12px;
+}
+
+.visita-abierta .email-t {
+  background: transparent;
+  border: none;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  word-break: break-all; /* Permite que la palabra se rompa y continúe en la siguiente línea */
+  overflow-wrap: break-word; /* Alternativa a word-wrap para navegadores modernos */
+  white-space: normal; /* Asegura que el espacio en blanco se maneje normalmente */
+  padding: 0;
+  position: absolute;
+  top: 158px;
+  width: 64px;
+}
+
+.visita-abierta .telephone-i {
+  height: 15px;
+  left: 103px;
+  color: #00ddfa;
+  position: absolute;
+  top: 154px;
+  width: 12px;
+}
+
+.visita-abierta .telephone-t {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 8px;
+  font-weight: 400;
+  left: 123px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 158px;
+  width: 63px;
+}

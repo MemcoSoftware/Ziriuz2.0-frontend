@@ -29,6 +29,7 @@ const VisitaByIdPendiente: React.FC<VisitaByIdPendienteProps> = ({ idVisita, onC
   const [showEstadoSection, setShowEstadoSection] = useState<boolean>(true); 
   const [observacionAprobacion, setObservacionAprobacion] = useState<string>('');
   const token = useSessionStorage('sessionJWTToken');
+  const userId = useSessionStorage('userId');
 
   useEffect(() => {
     if (token && idVisita) {
@@ -54,7 +55,8 @@ const handleUpdateEstado = () => {
     const estadoId = approvalStatus ? '65c560b5cb319b5fbc4220d3' : '65c560c8cb319b5fbc4220d9';
     const dataToUpdate = {
       id_visita_estado: estadoId,
-      observacion_aprobacion: observacionAprobacion // Agregamos la observación de aprobación
+      observacion_aprobacion: observacionAprobacion,
+      id_aprobador: userId
     };
     updateVisita(token, idVisita, dataToUpdate)
       .then(() => {

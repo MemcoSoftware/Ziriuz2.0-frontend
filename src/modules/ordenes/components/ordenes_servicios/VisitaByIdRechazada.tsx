@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getVisitaById } from '../../../visitas/services/visitasService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import EngineeringIcon from '@mui/icons-material/Engineering';
@@ -41,66 +42,61 @@ const VisitaByIdRechazada: React.FC<VisitaByIdRechazadaProps> = ({ idVisita, onC
   
   return (
     <div>
-      {/* Renderiza los detalles de la visita aquí */}
       {visita && (
         <div>
-          {/* Ejemplo: Muestra el ID y el estado de la visita */}
-          {/* <p>ID Visita: {visita._id}</p>
-          <p>Estado: {visita.id_visita_estado.estado}</p> */}
-
-           <div className="visita-rechazada">
-                <div className="div">
-                  <header className="header">
-                    <div className="overlap-group">
-                      <div className="text-wrapper">VISITA SELECCIONADA - {visita && visita._id || 'N/A'}</div>
+           <div className="VisitaByIdRechazada-visita-rechazada">
+                <div className="VisitaByIdRechazada-div">
+                  <header className="VisitaByIdRechazada-header">
+                    <div className="VisitaByIdRechazada-overlap-group">
+                      <div className="VisitaByIdRechazada-text-wrapper">VISITA SELECCIONADA - {visita && visita._id || 'N/A'}</div>
                     </div>
                   </header>
-                  <ArrowBackIcon className="ejecutar-icon" onClick={handleBackIconCloseComponent}/>
-                  <div className="overlap">
-                    <div className="ejecucion-div">
-                      <div className="overlap-2">
-                        <div className="rectangle" />
-                        <div className="text-wrapper-2">INFO EJECUCIÓN</div>
-                        <CalendarMonthIcon className="ejecucion-icon"/>
-                        <div className="ejecucion-data">{visita && visita.fecha_inicio || 'N/A'}</div>
-                        <AccessTimeFilledIcon className="time-icon"/>
-                        <div className="time-data">{visita && visita.duracion || 'N/A'}</div>
-                        <div className="separator">
-                          <div className="overlap-group-2">
-                            <div className="ellipse" />
-                            <div className="line"/>
+                  <ArrowBackIcon className="VisitaByIdRechazada-ejecutar-icon" onClick={handleBackIconCloseComponent}/>
+                  <div className="VisitaByIdRechazada-overlap">
+                    <div className="VisitaByIdRechazada-ejecucion-div">
+                      <div className="VisitaByIdRechazada-overlap-2">
+                        <div className="VisitaByIdRechazada-rectangle" />
+                        <div className="VisitaByIdRechazada-text-wrapper-2">INFO EJECUCIÓN</div>
+                        <CalendarMonthIcon className="VisitaByIdRechazada-ejecucion-icon"/>
+                        <div className="VisitaByIdRechazada-ejecucion-data">{visita && visita.fecha_inicio || 'N/A'}</div>
+                        <AccessTimeFilledIcon className="VisitaByIdRechazada-time-icon"/>
+                        <div className="VisitaByIdRechazada-time-data">{visita && visita.duracion || 'N/A'}</div>
+                        <div className="VisitaByIdRechazada-separator">
+                          <div className="VisitaByIdRechazada-overlap-group-2">
+                            <div className="VisitaByIdRechazada-ellipse" />
+                            <div className="VisitaByIdRechazada-line"/>
                           </div>
-                          <div className="overlap-3">
-                            <div className="img"/>
-                            <div className="line-2" />
-                          </div>
-                        </div>
-                        <div className="tecnico-title">TÉCNICO ENCARGADO</div>
-                        <div className="tecnico-oid">ID: {visita && visita.id_responsable._id || 'N/A'}</div>
-                        <EngineeringIcon className="tecnico-icon"/>
-                        <div className="tecnico-name">{visita && visita.id_responsable.username || 'N/A'}</div>
-                        <ContactEmergencyIcon className="cedula-icon"/>
-                        <div className="cedula-name">{visita && visita.id_responsable.cedula || 'N/A'}</div>
-                        <EmailIcon className="email-icon"/>
-                        <div className="email-data">{visita && visita.id_responsable.email || 'N/A'}</div>
-                        <LocalPhoneIcon className="telephone-icon"/>
-                        <div className="telephone-data">{visita && visita.id_responsable.telefono || 'N/A'}</div>
-                        <div className="separator-2">
-                          <div className="overlap-group-2">
-                            <div className="ellipse" />
-                            <div className="line"/>
-                          </div>
-                          <div className="overlap-3">
-                            <div className="img"/>
-                            <div className="line-2"/>
+                          <div className="VisitaByIdRechazada-overlap-3">
+                            <div className="VisitaByIdRechazada-img"/>
+                            <div className="VisitaByIdRechazada-line-2" />
                           </div>
                         </div>
-                        <div className="protocolos-title">ACTIVIDADES PROGRAMADAS</div>
+                        <div className="VisitaByIdRechazada-tecnico-title">TÉCNICO ENCARGADO</div>
+                        <div className="VisitaByIdRechazada-tecnico-oid">ID: {visita && visita.id_responsable._id || 'N/A'}</div>
+                        <EngineeringIcon className="VisitaByIdRechazada-tecnico-icon"/>
+                        <div className="VisitaByIdRechazada-tecnico-name">{visita && visita.id_responsable.username || 'N/A'}</div>
+                        <ContactEmergencyIcon className="VisitaByIdRechazada-cedula-icon"/>
+                        <div className="VisitaByIdRechazada-cedula-name">{visita && visita.id_responsable.cedula || 'N/A'}</div>
+                        <EmailIcon className="VisitaByIdRechazada-email-icon"/>
+                        <div className="VisitaByIdRechazada-email-data">{visita && visita.id_responsable.email || 'N/A'}</div>
+                        <LocalPhoneIcon className="VisitaByIdRechazada-telephone-icon"/>
+                        <div className="VisitaByIdRechazada-telephone-data">{visita && visita.id_responsable.telefono || 'N/A'}</div>
+                        <div className="VisitaByIdRechazada-separator-2">
+                          <div className="VisitaByIdRechazada-overlap-group-2">
+                            <div className="VisitaByIdRechazada-ellipse" />
+                            <div className="VisitaByIdRechazada-line"/>
+                          </div>
+                          <div className="VisitaByIdRechazada-overlap-3">
+                            <div className="VisitaByIdRechazada-img"/>
+                            <div className="VisitaByIdRechazada-line-2"/>
+                          </div>
+                        </div>
+                        <div className="VisitaByIdRechazada-protocolos-title">ACTIVIDADES PROGRAMADAS</div>
 
-                        <div className="actividades-list">
+                        <div className="VisitaByIdRechazada-actividades-list">
                           <ul>
                         {visita && visita.ids_protocolos && visita.ids_protocolos.map((protocolo: any) => (
-                            <li className="rectangle-2" key={protocolo._id}>
+                            <li className="VisitaByIdRechazada-rectangle-2" key={protocolo._id}>
                               {protocolo.title}
                             </li>
                             ))}
@@ -109,50 +105,50 @@ const VisitaByIdRechazada: React.FC<VisitaByIdRechazadaProps> = ({ idVisita, onC
 
                       </div>
                     </div>
-                    <div className="change-estado">
-                      <div className="overlap-4">
-                        <div className="estado-t">ESTADO</div>
-                        <DoNotDisturbAltIcon className="decline-icon"/>
-                        <div className="rechazada-t">Rechazada</div>
-                        <div className="separator-estado"/>
-                        <div className="observacion-t">OBSERVACION RECHAZO</div>
-                        <div className="text-wrapper-3">{visita && visita.observacion_aprobacion || 'N/A'}</div>
+                    <div className="VisitaByIdRechazada-change-estado">
+                      <div className="VisitaByIdRechazada-overlap-4">
+                        <div className="VisitaByIdRechazada-estado-t">ESTADO</div>
+                        <DoNotDisturbAltIcon className="VisitaByIdRechazada-decline-icon"/>
+                        <div className="VisitaByIdRechazada-rechazada-t">Rechazada</div>
+                        <div className="VisitaByIdRechazada-separator-estado"/>
+                        <div className="VisitaByIdRechazada-observacion-t">OBSERVACION RECHAZO</div>
+                        <div className="VisitaByIdRechazada-text-wrapper-3">{visita && visita.observacion_aprobacion || 'N/A'}</div>
                       </div>
                     </div>
-                    <div className="creation-div">
-                      <div className="overlap-5">
-                        <div className="creation-t">INFO CREACIÓN</div>
-                        <CalendarTodayIcon className="created-icon"/>
-                        <div className="created-date">{visita && visita.fecha_creacion || 'N/A'}</div>
+                    <div className="VisitaByIdRechazada-creation-div">
+                      <div className="VisitaByIdRechazada-overlap-5">
+                        <div className="VisitaByIdRechazada-creation-t">INFO CREACIÓN</div>
+                        <CalendarTodayIcon className="VisitaByIdRechazada-created-icon"/>
+                        <div className="VisitaByIdRechazada-created-date">{visita && visita.fecha_creacion || 'N/A'}</div>
 
-                        <div className="sede-ejecutar">EJECUTAR EN SEDE:</div>
-                        <div className={`switch ${visita.ejecutar_sede ? 'on' : 'off'}`}>
+                        <div className="VisitaByIdRechazada-sede-ejecutar">EJECUTAR EN SEDE:</div>
+                        <div className={`VisitaByIdRechazada-switch ${visita.ejecutar_sede ? 'VisitaByIdRechazada-on' : 'VisitaByIdRechazada-off'}`}>
                           <input
-                          className="ejecutar-input"
+                          className="VisitaByIdRechazada-ejecutar-input"
                           type="checkbox"
                           checked={visita.ejecutar_sede}
                           readOnly
                           />
-                          <span className='slider round'></span>
+                          <span className='VisitaByIdRechazada-slider VisitaByIdRechazada-round'></span>
                         </div>
 
 
-                        <div className="separator-3">
-                          <div className="overlap-group-3">
-                            <div className="elipse" />
-                            <div className="line-3"/>
+                        <div className="VisitaByIdRechazada-separator-3">
+                          <div className="VisitaByIdRechazada-overlap-group-3">
+                            <div className="VisitaByIdRechazada-elipse" />
+                            <div className="VisitaByIdRechazada-line-3"/>
                           </div>
-                          <div className="line-4"/>
+                          <div className="VisitaByIdRechazada-line-4"/>
                         </div>
-                        <div className="creator-title">CREADOR</div>
-                        <PersonIcon className="tecnico-i"/>
-                        <div className="tecnico-n">{visita && visita.id_creador.username || 'N/A'}</div>
-                        <ContactEmergencyIcon className="cedula-i"/>
-                        <div className="cedula-n">{visita && visita.id_creador.cedula || 'N/A'}</div>
-                        <EmailIcon className="email-i"/>
-                        <div className="email-n">{visita && visita.id_creador.email || 'N/A'}</div>
-                        <LocalPhoneIcon className="telephone-i"/>
-                        <div className="telephone-n">{visita && visita.id_creador.telefono || 'N/A'}</div>
+                        <div className="VisitaByIdRechazada-creator-title">CREADOR</div>
+                        <PersonIcon className="VisitaByIdRechazada-tecnico-i"/>
+                        <div className="VisitaByIdRechazada-tecnico-n">{visita && visita.id_creador.username || 'N/A'}</div>
+                        <ContactEmergencyIcon className="VisitaByIdRechazada-cedula-i"/>
+                        <div className="VisitaByIdRechazada-cedula-n">{visita && visita.id_creador.cedula || 'N/A'}</div>
+                        <EmailIcon className="VisitaByIdRechazada-email-i"/>
+                        <div className="VisitaByIdRechazada-email-n">{visita && visita.id_creador.email || 'N/A'}</div>
+                        <LocalPhoneIcon className="VisitaByIdRechazada-telephone-i"/>
+                        <div className="VisitaByIdRechazada-telephone-n">{visita && visita.id_creador.telefono || 'N/A'}</div>
                       </div>
                     </div>
                   </div>

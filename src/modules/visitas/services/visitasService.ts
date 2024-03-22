@@ -87,3 +87,19 @@ const handleError = (error: any) => {
   }
   throw error;
 };
+
+export const getPresignedUrl = (token: string, fileName: string) => {
+  const options: AxiosRequestConfig = {
+    headers: {
+      'x-access-token': token,
+    },
+    params: {
+      fileName,
+    },
+  };
+
+  return axios
+    .get('/visitas/generate-presigned-url', options)
+    .then((response) => response.data)
+    .catch(handleError);
+};

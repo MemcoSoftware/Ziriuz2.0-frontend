@@ -29,6 +29,28 @@ const VisitaByIdAbierta: React.FC<VisitaByIdAbiertaProps> = ({ idVisita }) => {
   // TECNICO EN SEDE STATES
   const [mostrarTecnicoEnSede, setMostrarTecnicoEnSede] = useState(false);
 
+  const [nuevaActividad, setNuevaActividad] = useState<any>(null);
+
+    const agregarNuevaActividad = (actividad: any) => {
+        setNuevaActividad(actividad);
+        // Aquí podrías actualizar la visita con la nueva actividad o lo que necesites hacer.
+    };
+
+  useEffect(() => {
+    if (token && idVisita) {
+      getVisitaById(token, idVisita)
+        .then(data => {
+          setVisita(data);
+          setMostrarTecnicoEnSede(false); // Restablecer el estado cuando cambia idVisita
+        })
+        .catch(error => console.error('Error al obtener la visita por ID:', error));
+    }
+  }, [token, idVisita]); // Dependencia añadida para detectar cambios en idVisita
+
+  const handlePlayClick = () => {
+    setMostrarTecnicoEnSede(true);
+  };
+
   useEffect(() => {
     if (token && idVisita) {
       getVisitaById(token, idVisita)
@@ -38,10 +60,6 @@ const VisitaByIdAbierta: React.FC<VisitaByIdAbiertaProps> = ({ idVisita }) => {
         .catch(error => console.error('Error al obtener la visita por ID:', error));
     }
   }, [token, idVisita]);
-
-  const handlePlayClick = () => {
-    setMostrarTecnicoEnSede(true);
-  };
 
   return (
     <div>
@@ -161,7 +179,7 @@ const VisitaByIdAbierta: React.FC<VisitaByIdAbiertaProps> = ({ idVisita }) => {
                       </div>
                     </div>
 
-                    {/* ESPACIO PARA RENDERIZAR TECNICO EN SEDE COMPONENT */}
+                    {/* ESPACIO PARA RENDERIZAR COMPONENTES DE ACTIVIDADES */}
                     {mostrarTecnicoEnSede && <TecnicoEnSede idVisita={idVisita} />}
 
                   </div>

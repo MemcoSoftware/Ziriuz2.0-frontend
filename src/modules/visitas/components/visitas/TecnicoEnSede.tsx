@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { updateVisita } from '../../../visitas/services/visitasService'; 
+import React, { useEffect, useState } from 'react';
+import { getPresignedUrl, getVisitaById, updateVisita } from '../../../visitas/services/visitasService'; 
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
@@ -15,17 +15,61 @@ const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
   const [dateCreated, setDateCreated] = useState('');
   const [observacion, setObservacion] = useState('');
   const [isLoading, setIsLoading] = useState(false); // Estado para manejar la carga
+  
+
+  // TECNICO EN SEDE STATES
+  const [mostrarTecnicoEnSede, setMostrarTecnicoEnSede] = useState(false);
+  const [visita, setVisita] = useState<any>(null);
+
 
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [isImageUploaded, setIsImageUploaded] = useState(false);
 
-  const handleCapture = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files ? event.target.files[0] : null;
-        if (file) {
-            const imageUrl = URL.createObjectURL(file);
-            setCapturedImage(imageUrl);
-            // Aquí puedes manejar la subida de la imagen o lo que necesites hacer con ella
+  const handleCapture = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ? event.target.files[0] : null;
+    if (file && token) {
+        const imageUrl = URL.createObjectURL(file);
+        setCapturedImage(imageUrl);
+
+        try {
+            setIsLoading(true);
+            const response = await getPresignedUrl(token, file.name);
+            const presignedUrl = response.presignedUrl;
+
+            await fetch(presignedUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'image/jpg', // Ajusta según el tipo de archivo
+                },
+                body: file,
+            });
+
+            const uploadedImageUrl = presignedUrl.split('?')[0];
+            setIdImage(uploadedImageUrl); // Esta es la línea crucial
+            setIsImageUploaded(true);
+            setIsLoading(false);
+        } catch (error) {
+            console.error('Error al subir la imagen:', error);
+            setIsLoading(false);
         }
-    };
+    }
+};
+
+  
+  const validateForm = () => {
+    const missingFields = [];
+    if (!idProtocolo) missingFields.push("Actividad");
+    if (!observacion) missingFields.push("Observación");
+    // Cambia esta validación a idImage ya que esa será la URL final de la imagen en S3
+    if (!idImage) missingFields.push("Imagen Capturada");
+  
+    if (missingFields.length > 0) {
+      alert(`Por favor, complete los siguientes campos: ${missingFields.join(", ")}`);
+      return false;
+    }
+    return true;
+  };
+  
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setIdProtocolo(e.target.value);
@@ -40,105 +84,140 @@ const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validateForm()) return;
+    console.log("idImage:", idImage);
+    setIsLoading(true);
 
     const nuevaActividad = {
       actividades: [{
         id_protocolo: idProtocolo,
-        ids_campos_preventivo: [{
-          id_campo: idCampo,
-          resultado: resultado
-        }],
         id_image: idImage,
-        date_created: dateCreated,
         observacion: observacion
       }]
     };
 
     try {
-      if (token) {
-        const response = await updateVisita(token, idVisita, nuevaActividad);
-        console.log('Actividad agregada a la visita:', response);
-        // Resetear formulario o redireccionar según sea necesario
+      if (token && idVisita) {
+        await updateVisita(token, idVisita, nuevaActividad);
+        alert('Actividad agregada a la visita con éxito.');
+        setIsLoading(false);
       } else {
-        console.error('No se encontró token de sesión');
+        alert('No se encontró token de sesión.');
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Error al actualizar la visita:', error);
+      alert('Error al actualizar la visita.');
+      setIsLoading(false);
     }
   };
 
-  return (
-    <form className="TecnicoEnSede-box" onSubmit={handleSubmit}>
-      {/* <h2>Agregar Nueva Actividad a Visita</h2>
-      <input type="text" value={idProtocolo} onChange={(e) => setIdProtocolo(e.target.value)} placeholder="ID Protocolo" required />
-      <input type="text" value={idCampo} onChange={(e) => setIdCampo(e.target.value)} placeholder="ID Campo Preventivo" required />
-      <input type="text" value={resultado} onChange={(e) => setResultado(e.target.value)} placeholder="Resultado" required />
-      <input type="text" value={idImage} onChange={(e) => setIdImage(e.target.value)} placeholder="ID Imagen" required />
-      <input type="date" value={dateCreated} onChange={(e) => setDateCreated(e.target.value)} placeholder="Fecha Creación" required />
-      <textarea value={observacion} onChange={(e) => setObservacion(e.target.value)} placeholder="Observación" required />
-      <button type="submit">Agregar Actividad</button> */}
-      <div className="TecnicoEnSede-visita-actividad">
-        <div className="TecnicoEnSede-actividad-group">
-              <div className="TecnicoEnSede-overlap-group">
-                <div className="TecnicoEnSede-actividad-title">ACTIVIDAD A EJECUTAR</div>
-                <select
-                    className="TecnicoEnSede-actividad-select"
-                    value={idProtocolo}
-                    onChange={handleSelectChange}
-                >
-                    <option value="" disabled selected>Seleccione una actividad</option>
-                    <option value="65a93dd789a02ef211e75ecd">Técnico en sede</option>
-                    {/* Añade más opciones según sea necesario */}
-                </select>
-              </div>
-        </div>
-      </div>
 
-        {isLoading ? (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
-          <CircularProgress className='TecnicoEnSede-loading-icon'/> {/* Indicador de carga */}
-        </div>
-      ) : (
-        idProtocolo === '65a93dd789a02ef211e75ecd' && (
-            <div className="TecnicoEnSede-tecnico-en-sede">
-            <div className="TecnicoEnSede-en-sede-group">
-              <div className="TecnicoEnSede-overlap-group2">
-                <div className="TecnicoEnSede-tecsede-title">TÉCNICO EN SEDE</div>
-              </div>
-              <label htmlFor="observacion" className="TecnicoEnSede-observacion-t">Observación</label>
-                <textarea
-                    id="observacion"
-                    className="TecnicoEnSede-observacion-text"
-                    value={observacion}
-                    onChange={(e) => setObservacion(e.target.value)}
-                    placeholder="Escribe tu observación aquí..."
-                />
-              {/* Botón para activar la captura de la imagen */}
-              <label htmlFor="capture" className="TecnicoEnSede-image-input-label">
-                        <AddAPhotoIcon className="TecnicoEnSede-image-input" />
-                    </label>
-                    {/* Input para capturar la imagen */}
-                    <input
-                        id="capture"
-                        type="file"
-                        accept="image/*"
-                        capture="environment" // Usa 'environment' para preferir la cámara trasera
-                        onChange={handleCapture}
-                        style={{ display: 'none' }} // Oculta el input real
-                    />
-                    {/* Muestra la imagen capturada */}
-                    {capturedImage && 
-                                        
-                    <img src={capturedImage} alt="Captura" style={{ width: '100px', height: '100px', top: '227px', left: '174px' , position: 'absolute' }} />}
+  useEffect(() => {
+    if (token && idVisita) {
+      setIsLoading(true);
+      getVisitaById(token, idVisita)
+        .then(data => {
+          setVisita(data);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.error('Error al obtener la visita por ID:', error);
+          setIsLoading(false);
+        });
+    }
+  }, [token, idVisita]);
 
-              <div className="TecnicoEnSede-crear-actividad" />
-            </div>
+  const renderActividadOFormulario = () => {
+    // Si ya hay una actividad en la posición 0, mostrar detalles de la actividad
+    if (visita && visita.actividades && visita.actividades.length > 0) {
+      const actividad = visita.actividades[0];
+      return (
+        <div className="actividad-detalle">
+          <h3>Detalle de la Actividad</h3>
+          <p>Protocolo: {actividad.id_protocolo.title || ''}</p>
+          <p>Observación: {actividad.observacion || ''}</p>
+          <p>Fecha Creada: {actividad.date_created || ''}</p>
+          {actividad.id_image && <img src={actividad.id_image} alt="Imagen de la actividad" />}
+        </div>
+      );
+    } else {
+      // De lo contrario, mostrar el formulario para crear una nueva actividad
+      return (
+        <form  onSubmit={handleSubmit}>
+        <div className="TecnicoEnSede-visita-actividad">
+          <div className="TecnicoEnSede-actividad-group">
+                <div className="TecnicoEnSede-overlap-group">
+                  <div className="TecnicoEnSede-actividad-title">ACTIVIDAD A EJECUTAR</div>
+                  <select
+                      className="TecnicoEnSede-actividad-select"
+                      value={idProtocolo}
+                      onChange={handleSelectChange}
+                  >
+                      <option value="" disabled selected>Seleccione una actividad</option>
+                      <option value="65a93dd789a02ef211e75ecd">Técnico en sede</option>
+                      {/* Añade más opciones según sea necesario */}
+                  </select>
+                </div>
           </div>
-        )
-      )}
+        </div>
+  
+          {isLoading ? (
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+            <CircularProgress className='TecnicoEnSede-loading-icon'/> {/* Indicador de carga */}
+          </div>
+        ) : (
+          idProtocolo === '65a93dd789a02ef211e75ecd' && (
+              <div className="TecnicoEnSede-tecnico-en-sede">
+              <div className="TecnicoEnSede-en-sede-group">
+                <div className="TecnicoEnSede-overlap-group2">
+                  <div className="TecnicoEnSede-tecsede-title">TÉCNICO EN SEDE</div>
+                </div>
+                <label htmlFor="observacion" className="TecnicoEnSede-observacion-t">Observación *</label>
+                  <textarea
+                      id="observacion"
+                      className="TecnicoEnSede-observacion-text"
+                      value={observacion}
+                      onChange={(e) => setObservacion(e.target.value)}
+                      placeholder="Escribe tu observación aquí..."
+                  />
+                {/* Botón para activar la captura de la imagen */}
+                <label htmlFor="capture" className="TecnicoEnSede-image-input-label">
+                          <AddAPhotoIcon className="TecnicoEnSede-image-input" />
+                      </label>
+                      {/* Input para capturar la imagen */}
+                      <input
+                          id="capture"
+                          type="file"
+                          accept="image/*"
+                          capture="environment" // Usa 'environment' para preferir la cámara trasera
+                          onChange={handleCapture}
+                          style={{ display: 'none' }} // Oculta el input real
+                      />
+                      {/* Muestra la imagen capturada */}
+                      {capturedImage && 
+                                          
+                      <img src={capturedImage} alt="Captura" style={{ width: '100px', height: '100px', top: '227px', left: '174px' , position: 'absolute' }} />}
+  
+                <button type='submit' className="TecnicoEnSede-crear-actividad">CREAR ACTIVIDAD</button>
+              </div>
+            </div>
+          )
+        )}
+  
+  
+      </form>
+      );
+    }
+  };
+  
+  return (
 
-
-    </form>
+  <div className="TecnicoEnSede-box">
+    {/* Renderizar Actividad o Formulario basado en la existencia de la actividad */ }
+    
+    {renderActividadOFormulario()}
+  </div>
   );
 };
 

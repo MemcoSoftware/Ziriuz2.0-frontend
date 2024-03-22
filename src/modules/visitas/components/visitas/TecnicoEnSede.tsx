@@ -127,7 +127,9 @@ const TecnicoEnSede: React.FC<{ idVisita: string }> = ({ idVisita }) => {
                         style={{ display: 'none' }} // Oculta el input real
                     />
                     {/* Muestra la imagen capturada */}
-                    {capturedImage && <img src={capturedImage} alt="Captura" style={{ width: '100px', height: '100px' }} />}
+                    {capturedImage && 
+                                        
+                    <img src={capturedImage} alt="Captura" style={{ width: '100px', height: '100px', top: '227px', left: '174px' , position: 'absolute' }} />}
 
               <div className="TecnicoEnSede-crear-actividad" />
             </div>

@@ -65,7 +65,7 @@
   }
   
   .TecnicoEnSede-box .TecnicoEnSede-en-sede-group {
-    height: 275px;
+    height: 390px;
     left: -5px;
     position: absolute;
     top: -297px;
@@ -132,6 +132,7 @@
     position: absolute;
     top: 150px;
     width: 60px;
+    cursor: pointer;
     color: #d9d9d9;
   }
   
@@ -139,10 +140,11 @@
     background-color: #00ddfa;
     border-radius: 10px;
     height: 33px;
-    left: 137px;
+    left: 141px;
     position: absolute;
-    top: 235px;
+    top: 340px;
     width: 165px;
+    cursor: pointer;
   }
 
   .TecnicoEnSede-box .TecnicoEnSede-loading-icon {

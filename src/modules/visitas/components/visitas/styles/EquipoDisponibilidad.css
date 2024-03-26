@@ -1,0 +1,68 @@
+.EquipoDisponibilidad-visita-actividad {
+    height: 52px;
+    left: 45px;
+    position: relative;
+    top: 410px;
+    width: 445px;
+  }
+
+.EquipoDisponibilidad-visita-actividad .EquipoDisponibilidad-actividad-group {
+    height: 52px;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 445px;
+  }
+  
+  .EquipoDisponibilidad-visita-actividad .EquipoDisponibilidad-overlap-group {
+      background-color: #ffffff;
+      border-radius: 10px;
+      height: 57px;
+      left: 0;
+      position: relative;
+      top: 0;
+      width: 443px;
+  }
+  
+  .EquipoDisponibilidad-visita-actividad .EquipoDisponibilidad-actividad-title {
+    color: #00ddfa;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    height: 13px;
+    left: 82px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 4px;
+    white-space: nowrap;
+    width: 272px;
+  }
+  
+  .EquipoDisponibilidad-visita-actividad .EquipoDisponibilidad-actividad-select {
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    border: none;
+    font-size: 12px;
+    height: 23px;
+    left: 93px;
+    position: absolute;
+    top: 24px;
+    width: 270px;
+  }
+
+  .EquipoDisponibilidad-visita-actividad .EquipoDisponibilidad-loading-icon {
+    height: 30px;
+    width: 30px;
+    color: #00ddfa;
+  }
+
+  .EquipoDisponibilidad-visita-actividad .EquipoDisponibilidad-separator {
+    height: 1px;
+    width: 30px;
+    background-color: transparent;
+    position: relative;
+    top: 17px;
+    left: 198px;
+  }

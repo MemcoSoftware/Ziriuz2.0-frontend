@@ -2,9 +2,9 @@
 
 .TecnicoEnSede-box {
     height: 237px;
-    position: absolute;
+    position: relative;
     width: 444px;
-    top: 315px;
+    top: 320px;
     left: 47px;
 }
 

@@ -1,0 +1,23 @@
+.ActividadesVisitas-set-loading{
+    position: relative;
+    top: 310px;
+    left: 150px;
+    width: 300px;
+    font-size: 16px;
+    color: #00ddfa;
+
+}
+
+.ActividadesVisitas-title{
+    position: relative;
+    top: 310px;
+    left: 123px;
+    height: 25px;
+    width: 300px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    color: #00ddfa;
+    background-color: #ffffff;
+
+}

@@ -18,6 +18,8 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import './styles/VisitaByIdAbierta.css'
 import TecnicoEnSede from '../../../visitas/components/visitas/TecnicoEnSede';
+import ActividadesVisitas from './ActividadesVisitas';
+import ActividadesEjecutar from '../../../visitas/components/visitas/ActividadesEjecutar';
 interface VisitaByIdAbiertaProps {
   idVisita: string;
 }
@@ -31,6 +33,9 @@ const VisitaByIdAbierta: React.FC<VisitaByIdAbiertaProps> = ({ idVisita }) => {
 
   const [nuevaActividad, setNuevaActividad] = useState<any>(null);
 
+  const [mostrarActividadesEjecutar, setMostrarActividadesEjecutar] = useState(false);
+
+  
     const agregarNuevaActividad = (actividad: any) => {
         setNuevaActividad(actividad);
         // Aquí podrías actualizar la visita con la nueva actividad o lo que necesites hacer.
@@ -41,14 +46,14 @@ const VisitaByIdAbierta: React.FC<VisitaByIdAbiertaProps> = ({ idVisita }) => {
       getVisitaById(token, idVisita)
         .then(data => {
           setVisita(data);
-          setMostrarTecnicoEnSede(false); // Restablecer el estado cuando cambia idVisita
+          setMostrarActividadesEjecutar(false);
         })
         .catch(error => console.error('Error al obtener la visita por ID:', error));
     }
   }, [token, idVisita]); // Dependencia añadida para detectar cambios en idVisita
 
   const handlePlayClick = () => {
-    setMostrarTecnicoEnSede(true);
+    setMostrarActividadesEjecutar(true);
   };
 
   useEffect(() => {
@@ -179,9 +184,15 @@ const VisitaByIdAbierta: React.FC<VisitaByIdAbiertaProps> = ({ idVisita }) => {
                       </div>
                     </div>
 
-                    {/* ESPACIO PARA RENDERIZAR COMPONENTES DE ACTIVIDADES */}
-                    {mostrarTecnicoEnSede && <TecnicoEnSede idVisita={idVisita} />}
+                    {/* RENDERIZADO ACTIVIDADES EJECUTADAS EN VISITA ABIERTA */}
+                    {visita.actividades && visita.actividades.length > 0 && !mostrarActividadesEjecutar && (
+                      <ActividadesVisitas idVisita={idVisita} />
+                    )}
 
+                    {/* RENDERIZADO ACTIVIDADES A EJECUTAR */}
+                    {mostrarActividadesEjecutar && (
+                      <ActividadesEjecutar idVisita={idVisita} />
+                    )}
                   </div>
                 </div>
               </div>

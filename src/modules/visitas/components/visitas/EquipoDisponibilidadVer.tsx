@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getVisitaById } from '../../../visitas/services/visitasService';
-import { useSessionStorage } from '../../hooks/useSessionStorage';
+import { getVisitaById } from '../../../visitas/services/visitasService'; 
+import { useSessionStorage } from '../../hooks/useSessionStorage'; 
 import './styles/TecnicoEnSede.css';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
-interface TecnicoEnSedeProps {
+interface EquipoDisponibilidadVerProps {
   idVisita: string;
 }
 
-const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
+const EquipoDisponibilidadVer: React.FC<EquipoDisponibilidadVerProps> = ({ idVisita }) => {
   const token = useSessionStorage('sessionJWTToken');
   const [visita, setVisita] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,10 +29,15 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
   }, [token, idVisita]);
 
   if (!visita || visita.actividades.length === 0) {
-    return <div></div>;
+    return <div>No se encontraron actividades para esta visita.</div>;
   }
 
-  const actividad = visita.actividades[0]; // Asumiendo que queremos mostrar la primera actividad
+  // Encuentra la actividad de "Equipo Disponible" si existe
+  const actividad = visita.actividades.find((act: any) => act.id_protocolo.title === "Equipo Disponible");
+
+  if (!actividad) {
+    return <div>No se encontró la actividad de "Equipo Disponible".</div>;
+  }
 
   return (
     <div className="TecnicoEnSede-box"> 
@@ -43,7 +48,6 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
           <div className="TecnicoEnSede-observacion-text">{actividad.observacion || 'N/A'}</div>
           <DateRangeIcon className='TecnicoEnSede-date-icon'/>
           <p className='TecnicoEnSede-date-value'>{actividad.date_created || 'N/A'}</p>
-          {actividad.id_image && <img className='TecnicoEnSede-img-value' src={actividad.id_image} alt="Imagen de la actividad" />}
         </div>
       </div>
       <div className='TecnicoEnSede-div-separator'></div>
@@ -51,4 +55,4 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
   );
 };
 
-export default TecnicoEnSede;
+export default EquipoDisponibilidadVer;

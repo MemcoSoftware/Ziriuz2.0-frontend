@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getVisitaById } from '../../../visitas/services/visitasService';
-import { useSessionStorage } from '../../hooks/useSessionStorage';
-import './styles/TecnicoEnSede.css';
+import { getVisitaById } from '../../../visitas/services/visitasService'; 
+import { useSessionStorage } from '../../hooks/useSessionStorage'; 
+import './styles/TecnicoEnSede.css'; // Asegúrate de que el estilo sea apropiado para este componente
 import DateRangeIcon from '@mui/icons-material/DateRange';
 
-interface TecnicoEnSedeProps {
+interface EquipoDisponibilidadEsperaVerProps {
   idVisita: string;
 }
 
-const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
+const EquipoDisponibilidadEsperaVer: React.FC<EquipoDisponibilidadEsperaVerProps> = ({ idVisita }) => {
   const token = useSessionStorage('sessionJWTToken');
   const [visita, setVisita] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,10 +29,15 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
   }, [token, idVisita]);
 
   if (!visita || visita.actividades.length === 0) {
-    return <div></div>;
+    return <div>No se encontraron actividades para esta visita.</div>;
   }
 
-  const actividad = visita.actividades[0]; // Asumiendo que queremos mostrar la primera actividad
+  // Buscar la actividad de "En espera de disponibilidad" si existe
+  const actividad = visita.actividades.find((act: any) => act.id_protocolo.title === "En espera de disponibilidad");
+
+  if (!actividad) {
+    return <div>No se encontró la actividad de "En espera de disponibilidad".</div>;
+  }
 
   return (
     <div className="TecnicoEnSede-box"> 
@@ -43,7 +48,6 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
           <div className="TecnicoEnSede-observacion-text">{actividad.observacion || 'N/A'}</div>
           <DateRangeIcon className='TecnicoEnSede-date-icon'/>
           <p className='TecnicoEnSede-date-value'>{actividad.date_created || 'N/A'}</p>
-          {actividad.id_image && <img className='TecnicoEnSede-img-value' src={actividad.id_image} alt="Imagen de la actividad" />}
         </div>
       </div>
       <div className='TecnicoEnSede-div-separator'></div>
@@ -51,4 +55,4 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
   );
 };
 
-export default TecnicoEnSede;
+export default EquipoDisponibilidadEsperaVer;

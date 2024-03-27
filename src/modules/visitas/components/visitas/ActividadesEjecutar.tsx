@@ -49,7 +49,9 @@ const ActividadesEjecutar: React.FC<ActividadesEjecutarProps> = ({ idVisita }) =
   return (
     <div>
       <div className='ActividadesEjecutar-title'>EJECUTANDO VISITA</div>
-      {renderActividad()}
+      <div className='ActividadesEjecutar-container'>
+        {renderActividad()}
+      </div>
     </div>
   );
 };

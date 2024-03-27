@@ -3,6 +3,8 @@ import { getVisitaById } from '../../../visitas/services/visitasService';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import TecnicoEnSede from '../../../visitas/components/visitas/TecnicoEnSede';
 import './styles/ActividadesVisitas.css'
+import EquipoDisponibilidadVer from '../../../visitas/components/visitas/EquipoDisponibilidadVer';
+import EquipoDisponibilidadEsperaVer from '../../../visitas/components/visitas/EquipoDisponibilidadEsperaVer';
 
 interface ActividadesVisitasProps {
   idVisita: string;
@@ -37,11 +39,18 @@ const ActividadesVisitas: React.FC<ActividadesVisitasProps> = ({ idVisita }) => 
 
   // Verificamos si la actividad en la posición 0 es "Técnico en sede"
   const esTecnicoEnSede = visita.actividades[0].id_protocolo.title === "Técnico en sede";
+  const equipoDisponibleVer = visita.actividades.find((act: any) => act.id_protocolo.title === "Equipo disponible");
+  const equipoEseperaDisponibleVer = visita.actividades.find((act: any) => act.id_protocolo.title === "En espera de disponibilidad");
 
   return (
     <div>
       <div className='ActividadesVisitas-title'>ACTIVIDADES</div>
-      {esTecnicoEnSede && <TecnicoEnSede idVisita={idVisita} />}
+      <div className="ActividadesVisitas-container">
+        {esTecnicoEnSede && <TecnicoEnSede idVisita={idVisita} />}
+        {equipoDisponibleVer && <EquipoDisponibilidadVer idVisita={idVisita} />}
+        {equipoEseperaDisponibleVer && <EquipoDisponibilidadEsperaVer idVisita={idVisita} />}
+      </div>
+
       {/* Aquí puedes renderizar más componentes de actividades según sea necesario */}
     </div>
   );

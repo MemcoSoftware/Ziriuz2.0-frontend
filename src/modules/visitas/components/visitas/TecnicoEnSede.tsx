@@ -46,7 +46,6 @@ const TecnicoEnSede: React.FC<TecnicoEnSedeProps> = ({ idVisita }) => {
           {actividad.id_image && <img className='TecnicoEnSede-img-value' src={actividad.id_image} alt="Imagen de la actividad" />}
         </div>
       </div>
-      <div className='TecnicoEnSede-div-separator'></div>
     </div>
   );
 };

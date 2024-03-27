@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { updateVisita } from '../../services/visitasService'; // Asegúrate de que la ruta sea correcta
+import { getVisitaById, updateVisita } from '../../services/visitasService'; // Asegúrate de que la ruta sea correcta
 import { CircularProgress } from '@mui/material';
 import { useSessionStorage } from '../../hooks/useSessionStorage'; // Asegúrate de que la ruta sea correcta
 
@@ -20,17 +20,27 @@ const EquipoDisponibleEsperaRegistrar: React.FC<EquipoDisponibleEsperaRegistrarP
     }
 
     const formattedDateCreated = new Date().toISOString().replace('T', ' ').slice(0, 19);
-    const nuevaActividad = {
-      actividades: [{
+    const visitaActual = await getVisitaById(token, idVisita);
+
+    // Añade la nueva actividad al array existente de actividades
+    const actividadesActualizadas = [
+      ...visitaActual.actividades,
+      {
         id_protocolo: '65a93dec89a02ef211e75ed1', // ID fijo para "En espera de disponibilidad"
         observacion: observacion,
         date_created: formattedDateCreated,
-      }]
+      }
+    ];
+
+    // Prepara el objeto para actualizar la visita
+    const datosActualizados = {
+      ...visitaActual,
+      actividades: actividadesActualizadas
     };
 
     try {
       if (token && idVisita) {
-        await updateVisita(token, idVisita, nuevaActividad);
+        await updateVisita(token, idVisita, datosActualizados);
         alert('Actividad "En espera de disponibilidad" agregada a la visita con éxito.');
       } else {
         alert('No se encontró token de sesión.');

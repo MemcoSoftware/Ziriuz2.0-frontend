@@ -1,11 +1,9 @@
 /* ACTIVIDAD STYLES */
 
 .TecnicoEnSede-box {
-    height: 237px;
-    position: relative;
+    height: 316px;
     width: 444px;
-    top: 320px;
-    left: 47px;
+    margin: 10px;
 }
 
 .TecnicoEnSede-box .TecnicoEnSede-actividad-group {
@@ -61,15 +59,15 @@
     position: absolute;
     width: 444px;
     top: 372px;
-    left: 3px;
+    left: 0;
   }
 
   .TecnicoEnSede-box .TecnicoEnSede-tecnico-en-sede-view-2{
-    height: 237px;
+    height: 316px;
     position: absolute;
-    width: 444px;
+    width: 447px;
     top: 5px;
-    left: 3px;
+    left: 0;
   }
   
   .TecnicoEnSede-box .TecnicoEnSede-en-sede-group {
@@ -85,12 +83,11 @@
   .TecnicoEnSede-box .TecnicoEnSede-en-sede-view {
     height: 316px;
     left: -5px;
-    position: absolute;
-    top: -1px;
+    position: relative;
+    top: 0;
     width: 447px;
     background-color: #ffffff;
     border-radius: 10px;
-    /* margin-bottom: 20%; */
   }
   
   .TecnicoEnSede-box .TecnicoEnSede-overlap-group-2 {
